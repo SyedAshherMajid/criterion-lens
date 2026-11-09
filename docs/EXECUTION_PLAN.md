@@ -17,7 +17,7 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 | 2–3 | **push `train`**: 1.5B on GPU0 ∥ 0.5B on GPU1 | Phase 6–8 code with tiny-model tests |
 | 3–6 | train → **push `eval_val`** | Phase 5 metrics + pipeline; base-0.5B val smoke eval on the GTX 1060; Phase 7 attention tests + local bench |
 | 6–9 | **push `bench`** (KV, speculative, attention on T4) | push adapters/merged models to HF; Phase 10 app |
-| 9–12 | (idle / P1 `sweep`) | app finished; deploy the Space; Phase 9.3 figures |
+| 9–12 | (idle / P1 `sweep`) | app finished; official deployment is local; Phase 9.3 figures |
 | 12–13 | **freeze → push `eval_test_final` (once)** | error-analysis tooling |
 | 13–19 | — | Phase 9.2 error analysis; Phase 11 report (local MiKTeX) |
 | 19–22 | — | Phase 12 video **[YOU]**, README, submission |
@@ -102,8 +102,8 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 - [x] **10.4 [COPILOT]** `app/` Gradio Blocks with the 5 tabs from PLAN §10.1, the validation/error handling from §10.2, a disclaimer banner on top of every tab, and `app/examples/` with 3 **synthetic** patient notes + criteria written for the demo (not dataset test patients). `python -m app` starts it.
 - [x] **10.5 [COPILOT]** `tests/test_app_smoke.py`: import the app, run the screening function with the tiny model on an example, assert the report exports; and invalid inputs return friendly errors.
 - [x] **10.6 [COPILOT]** `space/` deployment files + `scripts/deploy_space.py` (uses `huggingface_hub.HfApi().upload_folder` to `Ashher123/criterion-lens` Space, SDK gradio, hardware cpu-basic).
-- [ ] **10.7 [YOU]** Run locally (`.venv\Scripts\python.exe -m app`, which uses the GTX 1060 for the 0.5B model and the CPU for 1.5B), screen 2 examples, export reports, try invalid inputs. Then deploy the Space: `.venv\Scripts\python.exe scripts\deploy_space.py`, which uploads `space/` to huggingface.co/spaces/Ashher123/criterion-lens using the `.env` token. HF builds it and gives a public URL in ~5 min. Check it from an incognito browser. Take screenshots (each tab, results, report, error message) → `report/figures/screens/`.
-**Accept:** the Space URL works with no code execution; the exported report contains provenance + disclaimer.
+- [ ] **10.7 [YOU]** Run locally with `run_app.bat` (or `.venv\Scripts\python.exe -m app`), screen an unseen synthetic case, export reports, try invalid inputs, and capture screenshots (each tab, results, report, error message) → `report/figures/screens/`. Optional: use `run_app.bat --share` if the evaluator needs temporary remote access. The Hugging Face Space is not required by the assignment and must not be retried while `cpu-basic` requires PRO.
+**Accept:** the documented local app opens in a browser and passes screening/export/error-handling checks; the exported report contains provenance + disclaimer.
 
 ## Phase 11 — IEEE report (P0) — see `docs/REPORT_OUTLINE.md`
 - [ ] **11.1 [COPILOT]** `report/main.tex` using `\documentclass[conference]{IEEEtran}`, the sections in `sections/`, `references.bib` from `docs/LITERATURE.md` (verified entries only), and figures/tables from Phase 9.3. Every figure/table is `\ref`'d **and interpreted** in the text. Architecture diagrams in TikZ or a PNG drawn with draw.io (system pipeline, fine-tuning I/O, KV cache flow, tiled attention, speculative loop).
@@ -112,9 +112,9 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 
 ## Phase 12 — Video, README, submission (P0)
 - [ ] **12.1 [YOU]** Record a 5–7 min demo following `docs/REPORT_OUTLINE.md` → "Demo video script" (OBS or Xbox Game Bar `Win+Alt+R`). Upload unlisted to YouTube or Google Drive (link visible to anyone with the link).
-- [ ] **12.2 [COPILOT]** Final README: badges/links (Space, video, weights, paper PDF), headline results table (generated), quick start (Space / local / reproduce training), the exact reproduction commands per phase, the hardware used, the split manifest link, the benchmark log links, limitations, disclaimer, AI-use note, citation.
+- [ ] **12.2 [COPILOT]** Final README: badges/links (local app startup, optional Space if available, video, weights, paper PDF), headline results table (generated), quick start (local / reproduce training), exact reproduction commands per phase, hardware used, split manifest link, benchmark log links, limitations, disclaimer, AI-use note, citation.
 - [ ] **12.3 [YOU]** Make the GitHub repo **public** (`gh repo edit --visibility public --accept-visibility-change-consequences`); open it logged out to check. Check that the HF model repos and Space are public.
-- [ ] **12.4 [YOU]** Submit on Google Classroom: report PDF, GitHub URL, Space URL, weights links, video link, the split manifest (attach the JSON too), benchmark logs (link to `results/bench/`).
+- [ ] **12.4 [YOU]** Submit on Google Classroom: report PDF, GitHub URL, local-app startup instructions (no Space URL is required), weights links, video link, the split manifest (attach the JSON too), benchmark logs (link to `results/bench/`).
 
 ## Defense preparation (H3) — [YOU], 1 h before the demo
 Be ready to: explain the split code line by line; explain why the prompt masks loss; derive KV bytes/token for Qwen2.5-1.5B; explain why the decode step needs `position_ids=cur_len`; derive the online-softmax rescale `α = exp(m_old − m_new)`; walk through one speculative iteration with a rejection; change `k` or the block size live; run the app on an unseen note; change the aggregation rule live (it is in one function: `inference/aggregate.py`). Practise running `pytest -q` and `python scripts/bench_attention.py --device cpu --quick` live.
@@ -124,4 +124,4 @@ Be ready to: explain the split code line by line; explain why the prompt masks l
 - [ ] `pytest -q` is green (fast tests) on a clean clone.
 - [ ] No test-set use before `v1.0-frozen` (see `TEST_ACCESS_LOG.md`).
 - [ ] All numbers in the README/report come from `results/` files.
-- [ ] Space, weights, video and repo are all publicly accessible.
+- [ ] Local app startup is documented; optional Space, if later deployed, and weights/video/repo are publicly accessible.

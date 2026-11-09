@@ -24,7 +24,7 @@ Fill the **Evidence** column with real paths/URLs as work completes. A row is do
 | F1 Draft/target design | 5 | compatible tokenizer pair; memory + generation settings justified | `tests/test_tokenizers_compatible.py`, report §Speculative (memory arithmetic, k choice) | ☐ |
 | F2 Working algorithm | 5 | drafting, verify, accepted prefix, rejection correction, cache sync | `decoding/speculative.py` + `tests/test_speculative.py` | ☐ |
 | F3 Correctness & efficiency | 5 | token equality; acceptance; latency; throughput; speedup/slowdown | `results/bench/speculative.csv`, acceptance-vs-k and speedup figures | ☐ |
-| G1 Independent app | 5 | no IDE/notebook; documented startup; model loading; validation; errors | HF Space URL, `python -m app`, README startup section, screenshots of error handling | ☐ |
+| G1 Independent app | 5 | no IDE/notebook; documented startup; model loading; validation; errors | Assignment-permitted locally hosted Gradio app; `run_app.bat`, `python -m app`, README startup/troubleshooting, screenshots of error handling. HF Space is optional and blocked by HF's 2026 PRO requirement. | ☐ |
 | G2 Screening workflow | 5 | unseen note + criteria; each decision, evidence, missing info, overall outcome | Screen tab; video segment | ☐ |
 | G3 Inference visibility | 5 | live inference modes + comparison (not static charts) | Inference Lab + Attention Lab tabs (live runs) | ☐ |
 | G4 Usability & export | 5 | readable UI; downloadable report with provenance; recovery from invalid input | HTML/JSON/MD export; invalid-input demo in video | ☐ |

@@ -1,0 +1,522 @@
+[{"stream_name":"stderr","time":6.927523652,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.92756242,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":7.893294741,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.893318775,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.893329176,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.893344355,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.513614032,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.513641923,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.513646796,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.513650636,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.436937349,"data":"{'devices': ['Tesla T4', 'Tesla T4'], 'torch': '2.11.0+cu130', 'architectures': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']}\n"}
+,{"stream_name":"stdout","time":25.054491776,"data":"Found code dataset at: /kaggle/input/datasets/syedashhermajid/criterion-lens-code\n"}
+,{"stream_name":"stderr","time":78.74853834,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":78.748573994,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":78.748578501,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748581748,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748585524,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748604771,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748610881,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748616011,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.7486217,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.748626486,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952212032,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":78.952253723,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":78.952259591,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952263292,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952266888,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952270501,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952273997,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952277595,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952281282,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952284727,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952288427,"data":"\n"}
+,{"stream_name":"stderr","time":78.952291755,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":78.952295527,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":78.952299183,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952302863,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952306462,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952310114,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952313694,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952317375,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952322408,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":78.952326057,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":83.549041852,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":83.574101093,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":83.751693612,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":83.751731776,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":83.956691964,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":84.013752494,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":84.013773863,"data":"Code directory: /kaggle/working/code; output directory: /kaggle/working/out\n"}
+,{"stream_name":"stderr","time":110.597778923,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.597810391,"data":"I0000 00:00:1794263306.727050     121 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":110.597816439,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.598089604,"data":"I0000 00:00:1794263306.727071     119 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":110.800036301,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.800063845,"data":"I0000 00:00:1794263306.727050     121 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":110.800069612,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.800074757,"data":"I0000 00:00:1794263306.727071     119 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":110.800079695,"data":"\n"}
+,{"stream_name":"stderr","time":110.800083936,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.80008843,"data":"I0000 00:00:1794263306.727050     121 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":110.800093533,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":110.800099561,"data":"I0000 00:00:1794263306.727071     119 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":114.90182346899999,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":114.902275357,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":115.104892257,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":115.104912012,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":115.104917154,"data":"\n"}
+,{"stream_name":"stderr","time":115.104921524,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":115.104928835,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":140.197812359,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10962.32 examples/s]\n"}
+,{"stream_name":"stderr","time":140.228308181,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.255014629,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.276431553,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.291883625,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":140.296170731,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.307966946,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10962.32 examples/s]\n"}
+,{"stream_name":"stderr","time":140.307989689,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.307996305,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.308001038,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.308006131,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":140.308010687,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.308014988,"data":"\n"}
+,{"stream_name":"stderr","time":140.308018728,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10962.32 examples/s]\n"}
+,{"stream_name":"stderr","time":140.308023589,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.308027865,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.308032769,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":140.308041535,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":140.308044546,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":140.319323188,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":140.523079519,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":140.523115037,"data":"\n"}
+,{"stream_name":"stderr","time":140.523120015,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":258.56958463,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_0p5b\n"}
+,{"stream_name":"stderr","time":258.774487783,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_0p5b\n"}
+,{"stream_name":"stderr","time":258.774514036,"data":"\n"}
+,{"stream_name":"stderr","time":258.77451892,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_0p5b\n"}
+,{"stream_name":"stderr","time":513.038826703,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_1p5b\n"}
+,{"stream_name":"stderr","time":513.243463943,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_1p5b\n"}
+,{"stream_name":"stderr","time":513.243489455,"data":"\n"}
+,{"stream_name":"stderr","time":513.243500554,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_base_1p5b\n"}
+,{"stream_name":"stdout","time":515.485057096,"data":"Completed validation evaluation: base_1p5b\n"}
+,{"stream_name":"stdout","time":515.485092958,"data":"Completed validation evaluation: base_0p5b\n"}
+,{"stream_name":"stderr","time":523.338910142,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.338938404,"data":"I0000 00:00:1794263719.468246     259 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":523.365632514,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.365656936,"data":"I0000 00:00:1794263719.495005     258 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":523.541791481,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.541815055,"data":"I0000 00:00:1794263719.468246     259 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":523.54182103,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.541862739,"data":"I0000 00:00:1794263719.495005     258 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":523.541869321,"data":"\n"}
+,{"stream_name":"stderr","time":523.541874179,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.54187915,"data":"I0000 00:00:1794263719.468246     259 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":523.541883965,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":523.541888456,"data":"I0000 00:00:1794263719.495005     258 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":525.253350776,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.256066043,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.455458587,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.455501781,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.455508188,"data":"\n"}
+,{"stream_name":"stderr","time":525.455512941,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.455517599,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":531.719484779,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":531.73820486,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":531.762889567,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":531.922227163,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":531.922266036,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":531.922269595,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":531.922272385,"data":"\n"}
+,{"stream_name":"stderr","time":531.922274746,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":531.922277107,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":531.92227956,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":534.633543257,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":534.649694371,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":534.676468003,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":534.836600712,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":534.836695107,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":534.836706502,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":534.836711878,"data":"\n"}
+,{"stream_name":"stderr","time":534.836716687,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":534.836721329,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":534.836726377,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":730.922353633,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_0p5b\n"}
+,{"stream_name":"stderr","time":731.128006313,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_0p5b\n"}
+,{"stream_name":"stderr","time":731.128036526,"data":"\n"}
+,{"stream_name":"stderr","time":731.128041741,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_0p5b\n"}
+,{"stream_name":"stderr","time":901.666510827,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_1p5b\n"}
+,{"stream_name":"stderr","time":901.871644085,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_1p5b\n"}
+,{"stream_name":"stderr","time":901.871694229,"data":"\n"}
+,{"stream_name":"stderr","time":901.871700501,"data":"INFO Wrote 206 val predictions to /kaggle/working/code/results/eval/val_ft_1p5b\n"}
+,{"stream_name":"stdout","time":903.835294825,"data":"Completed validation evaluation: ft_1p5b\n"}
+,{"stream_name":"stdout","time":903.835328038,"data":"Completed validation evaluation: ft_0p5b\n"}
+,{"stream_name":"stderr","time":904.4218772,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":904.550775487,"data":"INFO NumExpr defaulting to 4 threads.\n"}
+,{"stream_name":"stderr","time":904.624121474,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":904.624148389,"data":"INFO NumExpr defaulting to 4 threads.\n"}
+,{"stream_name":"stderr","time":904.624153179,"data":"\n"}
+,{"stream_name":"stderr","time":904.624156406,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":904.624159873,"data":"INFO NumExpr defaulting to 4 threads.\n"}
+,{"stream_name":"stderr","time":904.98398214,"data":"INFO TensorFlow version 2.21.0 available.\n"}
+,{"stream_name":"stderr","time":904.985155618,"data":"INFO JAX version 0.11.1 available.\n"}
+,{"stream_name":"stderr","time":905.186150273,"data":"INFO TensorFlow version 2.21.0 available.\n"}
+,{"stream_name":"stderr","time":905.186176206,"data":"INFO JAX version 0.11.1 available.\n"}
+,{"stream_name":"stderr","time":905.186180803,"data":"\n"}
+,{"stream_name":"stderr","time":905.186184033,"data":"INFO TensorFlow version 2.21.0 available.\n"}
+,{"stream_name":"stderr","time":905.186187423,"data":"INFO JAX version 0.11.1 available.\n"}
+,{"stream_name":"stderr","time":906.405954458,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":906.420518987,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":906.608513515,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":906.608542842,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":906.60854782,"data":"\n"}
+,{"stream_name":"stderr","time":906.608551953,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":906.608556089,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":912.807657389,"data":"INFO Audited 1014 annotations and 53 patients at revision 1cfcafde94a1560a33b4addc1638664fe28fc059\n"}
+,{"stream_name":"stderr","time":912.80768733,"data":"INFO Label/type inconsistencies=0; out-of-range evidence IDs=0; note parse failures=0\n"}
+,{"stream_name":"stderr","time":912.807691529,"data":"INFO Wrote audit JSON to results/data_audit.json and figures to results/figures\n"}
+,{"stream_name":"stderr","time":913.010055774,"data":"INFO Audited 1014 annotations and 53 patients at revision 1cfcafde94a1560a33b4addc1638664fe28fc059\n"}
+,{"stream_name":"stderr","time":913.010086789,"data":"INFO Label/type inconsistencies=0; out-of-range evidence IDs=0; note parse failures=0\n"}
+,{"stream_name":"stderr","time":913.010090913,"data":"INFO Wrote audit JSON to results/data_audit.json and figures to results/figures\n"}
+,{"stream_name":"stderr","time":913.010112601,"data":"\n"}
+,{"stream_name":"stderr","time":913.010115989,"data":"INFO Audited 1014 annotations and 53 patients at revision 1cfcafde94a1560a33b4addc1638664fe28fc059\n"}
+,{"stream_name":"stderr","time":913.010119708,"data":"INFO Label/type inconsistencies=0; out-of-range evidence IDs=0; note parse failures=0\n"}
+,{"stream_name":"stderr","time":913.010122979,"data":"INFO Wrote audit JSON to results/data_audit.json and figures to results/figures\n"}
+,{"stream_name":"stderr","time":921.626754998,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":921.626798612,"data":"I0000 00:00:1794264117.755909     384 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":921.829116213,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":921.829146913,"data":"I0000 00:00:1794264117.755909     384 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":921.829153147,"data":"\n"}
+,{"stream_name":"stderr","time":921.829161383,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":921.829164138,"data":"I0000 00:00:1794264117.755909     384 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":922.78818086,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.788475401,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 403, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.788487771,"data":"    response.raise_for_status()\n"}
+,{"stream_name":"stderr","time":922.788491708,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":922.788495855,"data":"  File \"/usr/local/lib/python3.13/dist-packages/requests/models.py\", line 1167, in raise_for_status\n"}
+,{"stream_name":"stderr","time":922.788500233,"data":"    raise HTTPError(http_error_msg, response=self)\n"}
+,{"stream_name":"stderr","time":922.788504483,"data":"requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json\n"}
+,{"stream_name":"stderr","time":922.788588052,"data":"\n"}
+,{"stream_name":"stderr","time":922.788594796,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.788598926,"data":"\n"}
+,{"stream_name":"stderr","time":922.788602205,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.790121932,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 479, in cached_files\n"}
+,{"stream_name":"stderr","time":922.790142137,"data":"    hf_hub_download(\n"}
+,{"stream_name":"stderr","time":922.790147003,"data":"    ~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.79015038,"data":"        path_or_repo_id,\n"}
+,{"stream_name":"stderr","time":922.790153743,"data":"        ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.790156844,"data":"    ...\u003c10 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.790160725,"data":"        local_files_only=local_files_only,\n"}
+,{"stream_name":"stderr","time":922.790164022,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.790167484,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.790170592,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.790182748,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.790186516,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.79018984,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1014, in hf_hub_download\n"}
+,{"stream_name":"stderr","time":922.790194079,"data":"    return _hf_hub_download_to_cache_dir(\n"}
+,{"stream_name":"stderr","time":922.790197622,"data":"        # Destination\n"}
+,{"stream_name":"stderr","time":922.790200909,"data":"    ...\u003c14 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.790204137,"data":"        force_download=force_download,\n"}
+,{"stream_name":"stderr","time":922.79020749,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.790210767,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1121, in _hf_hub_download_to_cache_dir\n"}
+,{"stream_name":"stderr","time":922.790214356,"data":"    _raise_on_head_call_error(head_call_error, force_download, local_files_only)\n"}
+,{"stream_name":"stderr","time":922.790217882,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.790221334,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1662, in _raise_on_head_call_error\n"}
+,{"stream_name":"stderr","time":922.790224768,"data":"    raise head_call_error\n"}
+,{"stream_name":"stderr","time":922.790228136,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1550, in _get_metadata_or_catch_error\n"}
+,{"stream_name":"stderr","time":922.790231878,"data":"    metadata = get_hf_file_metadata(\n"}
+,{"stream_name":"stderr","time":922.790235265,"data":"        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint\n"}
+,{"stream_name":"stderr","time":922.790239048,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.790242348,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.79024622,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.790249701,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1467, in get_hf_file_metadata\n"}
+,{"stream_name":"stderr","time":922.790253596,"data":"    r = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.790256881,"data":"        method=\"HEAD\",\n"}
+,{"stream_name":"stderr","time":922.790260443,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.790263819,"data":"        timeout=timeout,\n"}
+,{"stream_name":"stderr","time":922.790267198,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.79027035,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 283, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.790274175,"data":"    response = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.79027756,"data":"        method=method,\n"}
+,{"stream_name":"stderr","time":922.790280903,"data":"    ...\u003c2 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.790284244,"data":"        **params,\n"}
+,{"stream_name":"stderr","time":922.790287652,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.790291925,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 307, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.790295995,"data":"    hf_raise_for_status(response)\n"}
+,{"stream_name":"stderr","time":922.790304464,"data":"    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.790308006,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 453, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.79031182,"data":"    raise _format(RepositoryNotFoundError, message, response) from e\n"}
+,{"stream_name":"stderr","time":922.790315542,"data":"huggingface_hub.errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-6af24c36-0ff31bc06f5597ff798b386a;ffb75c53-abf7-4ac2-8911-8ec17ffed454)\n"}
+,{"stream_name":"stderr","time":922.790319347,"data":"\n"}
+,{"stream_name":"stderr","time":922.790322733,"data":"Repository Not Found for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json.\n"}
+,{"stream_name":"stderr","time":922.790326448,"data":"Please make sure you specified the correct `repo_id` and `repo_type`.\n"}
+,{"stream_name":"stderr","time":922.790330184,"data":"If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication\n"}
+,{"stream_name":"stderr","time":922.790334193,"data":"Invalid username or password.\n"}
+,{"stream_name":"stderr","time":922.790916747,"data":"\n"}
+,{"stream_name":"stderr","time":922.790930639,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.790934522,"data":"\n"}
+,{"stream_name":"stderr","time":922.790937822,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.791213448,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 356, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":922.791222113,"data":"    raise SystemExit(main())\n"}
+,{"stream_name":"stderr","time":922.791226135,"data":"                     ~~~~^^\n"}
+,{"stream_name":"stderr","time":922.791229417,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 319, in main\n"}
+,{"stream_name":"stderr","time":922.791232911,"data":"    model, model_id = _load_model(\n"}
+,{"stream_name":"stderr","time":922.79123617,"data":"                      ~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.791239535,"data":"        spec,\n"}
+,{"stream_name":"stderr","time":922.791242662,"data":"        ^^^^^\n"}
+,{"stream_name":"stderr","time":922.791245861,"data":"        dtype=DTYPES[dtype_name],\n"}
+,{"stream_name":"stderr","time":922.791249088,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.791252244,"data":"        device=device,\n"}
+,{"stream_name":"stderr","time":922.791255443,"data":"        ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.791258719,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.791261787,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.791265518,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 239, in _load_model\n"}
+,{"stream_name":"stderr","time":922.791269802,"data":"    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype)\n"}
+,{"stream_name":"stderr","time":922.791274077,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/auto/auto_factory.py\", line 508, in from_pretrained\n"}
+,{"stream_name":"stderr","time":922.791278318,"data":"    resolved_config_file = cached_file(\n"}
+,{"stream_name":"stderr","time":922.791284567,"data":"        pretrained_model_name_or_path,\n"}
+,{"stream_name":"stderr","time":922.791287872,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.791291247,"data":"        **hub_kwargs,\n"}
+,{"stream_name":"stderr","time":922.79130232,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.791305698,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 322, in cached_file\n"}
+,{"stream_name":"stderr","time":922.791309608,"data":"    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)\n"}
+,{"stream_name":"stderr","time":922.791313087,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 511, in cached_files\n"}
+,{"stream_name":"stderr","time":922.79131671,"data":"    raise OSError(\n"}
+,{"stream_name":"stderr","time":922.791320054,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.791323426,"data":"    ) from e\n"}
+,{"stream_name":"stderr","time":922.791326712,"data":"OSError: Ashher123/criterion-lens-qwen2.5-1.5b-merged is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\n"}
+,{"stream_name":"stderr","time":922.79133045,"data":"If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=\u003cyour_token\u003e`\n"}
+,{"stream_name":"stderr","time":922.99093434,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.990978623,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 403, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.990984459,"data":"    response.raise_for_status()\n"}
+,{"stream_name":"stderr","time":922.990988509,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":922.990991868,"data":"  File \"/usr/local/lib/python3.13/dist-packages/requests/models.py\", line 1167, in raise_for_status\n"}
+,{"stream_name":"stderr","time":922.990995635,"data":"    raise HTTPError(http_error_msg, response=self)\n"}
+,{"stream_name":"stderr","time":922.990999153,"data":"requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json\n"}
+,{"stream_name":"stderr","time":922.991003033,"data":"\n"}
+,{"stream_name":"stderr","time":922.991006156,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.991009872,"data":"\n"}
+,{"stream_name":"stderr","time":922.991013106,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.991016426,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 479, in cached_files\n"}
+,{"stream_name":"stderr","time":922.991020434,"data":"    hf_hub_download(\n"}
+,{"stream_name":"stderr","time":922.991023661,"data":"    ~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.991026838,"data":"        path_or_repo_id,\n"}
+,{"stream_name":"stderr","time":922.991032306,"data":"        ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991035646,"data":"    ...\u003c10 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991039403,"data":"        local_files_only=local_files_only,\n"}
+,{"stream_name":"stderr","time":922.991043638,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991046902,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991051537,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.99105913,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.991062237,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.991075318,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1014, in hf_hub_download\n"}
+,{"stream_name":"stderr","time":922.991078035,"data":"    return _hf_hub_download_to_cache_dir(\n"}
+,{"stream_name":"stderr","time":922.99108026,"data":"        # Destination\n"}
+,{"stream_name":"stderr","time":922.991082575,"data":"    ...\u003c14 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991084909,"data":"        force_download=force_download,\n"}
+,{"stream_name":"stderr","time":922.991087146,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991089341,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1121, in _hf_hub_download_to_cache_dir\n"}
+,{"stream_name":"stderr","time":922.991091784,"data":"    _raise_on_head_call_error(head_call_error, force_download, local_files_only)\n"}
+,{"stream_name":"stderr","time":922.99109424,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991096622,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1662, in _raise_on_head_call_error\n"}
+,{"stream_name":"stderr","time":922.99109971,"data":"    raise head_call_error\n"}
+,{"stream_name":"stderr","time":922.99110192,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1550, in _get_metadata_or_catch_error\n"}
+,{"stream_name":"stderr","time":922.991104378,"data":"    metadata = get_hf_file_metadata(\n"}
+,{"stream_name":"stderr","time":922.991106694,"data":"        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint\n"}
+,{"stream_name":"stderr","time":922.991109118,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991112826,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.991115408,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.991117575,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1467, in get_hf_file_metadata\n"}
+,{"stream_name":"stderr","time":922.991120019,"data":"    r = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.991122262,"data":"        method=\"HEAD\",\n"}
+,{"stream_name":"stderr","time":922.991124588,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991126801,"data":"        timeout=timeout,\n"}
+,{"stream_name":"stderr","time":922.991128974,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991131085,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 283, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.991133491,"data":"    response = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.9911357,"data":"        method=method,\n"}
+,{"stream_name":"stderr","time":922.99113786,"data":"    ...\u003c2 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991140058,"data":"        **params,\n"}
+,{"stream_name":"stderr","time":922.991142216,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991144352,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 307, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.991146726,"data":"    hf_raise_for_status(response)\n"}
+,{"stream_name":"stderr","time":922.991148926,"data":"    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991151131,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 453, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.991155923,"data":"    raise _format(RepositoryNotFoundError, message, response) from e\n"}
+,{"stream_name":"stderr","time":922.991158381,"data":"huggingface_hub.errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-6af24c36-0ff31bc06f5597ff798b386a;ffb75c53-abf7-4ac2-8911-8ec17ffed454)\n"}
+,{"stream_name":"stderr","time":922.991160828,"data":"\n"}
+,{"stream_name":"stderr","time":922.991162933,"data":"Repository Not Found for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json.\n"}
+,{"stream_name":"stderr","time":922.991165262,"data":"Please make sure you specified the correct `repo_id` and `repo_type`.\n"}
+,{"stream_name":"stderr","time":922.991167552,"data":"If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication\n"}
+,{"stream_name":"stderr","time":922.991169991,"data":"Invalid username or password.\n"}
+,{"stream_name":"stderr","time":922.991172301,"data":"\n"}
+,{"stream_name":"stderr","time":922.991174531,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.991176874,"data":"\n"}
+,{"stream_name":"stderr","time":922.991178963,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.991181246,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 356, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":922.991183722,"data":"    raise SystemExit(main())\n"}
+,{"stream_name":"stderr","time":922.991185915,"data":"                     ~~~~^^\n"}
+,{"stream_name":"stderr","time":922.991188115,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 319, in main\n"}
+,{"stream_name":"stderr","time":922.991190911,"data":"    model, model_id = _load_model(\n"}
+,{"stream_name":"stderr","time":922.991193186,"data":"                      ~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.99119538,"data":"        spec,\n"}
+,{"stream_name":"stderr","time":922.991197565,"data":"        ^^^^^\n"}
+,{"stream_name":"stderr","time":922.99119968,"data":"        dtype=DTYPES[dtype_name],\n"}
+,{"stream_name":"stderr","time":922.991201871,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991204067,"data":"        device=device,\n"}
+,{"stream_name":"stderr","time":922.991206258,"data":"        ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.99120842,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991210551,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.99121297,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 239, in _load_model\n"}
+,{"stream_name":"stderr","time":922.991215352,"data":"    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype)\n"}
+,{"stream_name":"stderr","time":922.991217638,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/auto/auto_factory.py\", line 508, in from_pretrained\n"}
+,{"stream_name":"stderr","time":922.991220023,"data":"    resolved_config_file = cached_file(\n"}
+,{"stream_name":"stderr","time":922.991222255,"data":"        pretrained_model_name_or_path,\n"}
+,{"stream_name":"stderr","time":922.991224468,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991226711,"data":"        **hub_kwargs,\n"}
+,{"stream_name":"stderr","time":922.991228917,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991231061,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 322, in cached_file\n"}
+,{"stream_name":"stderr","time":922.991239408,"data":"    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)\n"}
+,{"stream_name":"stderr","time":922.991241917,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 511, in cached_files\n"}
+,{"stream_name":"stderr","time":922.991244248,"data":"    raise OSError(\n"}
+,{"stream_name":"stderr","time":922.991246413,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991248607,"data":"    ) from e\n"}
+,{"stream_name":"stderr","time":922.99125082,"data":"OSError: Ashher123/criterion-lens-qwen2.5-1.5b-merged is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\n"}
+,{"stream_name":"stderr","time":922.991253265,"data":"If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=\u003cyour_token\u003e`\n"}
+,{"stream_name":"stderr","time":922.991255845,"data":"\n"}
+,{"stream_name":"stderr","time":922.991257963,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.99126017,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 403, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.99126256,"data":"    response.raise_for_status()\n"}
+,{"stream_name":"stderr","time":922.991264789,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":922.991266983,"data":"  File \"/usr/local/lib/python3.13/dist-packages/requests/models.py\", line 1167, in raise_for_status\n"}
+,{"stream_name":"stderr","time":922.991269367,"data":"    raise HTTPError(http_error_msg, response=self)\n"}
+,{"stream_name":"stderr","time":922.991271622,"data":"requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json\n"}
+,{"stream_name":"stderr","time":922.991274023,"data":"\n"}
+,{"stream_name":"stderr","time":922.991276118,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.99127835,"data":"\n"}
+,{"stream_name":"stderr","time":922.991280454,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.991282646,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 479, in cached_files\n"}
+,{"stream_name":"stderr","time":922.991284987,"data":"    hf_hub_download(\n"}
+,{"stream_name":"stderr","time":922.991287159,"data":"    ~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.991289444,"data":"        path_or_repo_id,\n"}
+,{"stream_name":"stderr","time":922.991292562,"data":"        ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991294824,"data":"    ...\u003c10 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991297096,"data":"        local_files_only=local_files_only,\n"}
+,{"stream_name":"stderr","time":922.99129932,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991301546,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991303763,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.991306445,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.991308829,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.991311018,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1014, in hf_hub_download\n"}
+,{"stream_name":"stderr","time":922.991313424,"data":"    return _hf_hub_download_to_cache_dir(\n"}
+,{"stream_name":"stderr","time":922.9913176,"data":"        # Destination\n"}
+,{"stream_name":"stderr","time":922.99131998,"data":"    ...\u003c14 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991322217,"data":"        force_download=force_download,\n"}
+,{"stream_name":"stderr","time":922.991324431,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.99132664,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1121, in _hf_hub_download_to_cache_dir\n"}
+,{"stream_name":"stderr","time":922.991329029,"data":"    _raise_on_head_call_error(head_call_error, force_download, local_files_only)\n"}
+,{"stream_name":"stderr","time":922.991331316,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.99133358,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1662, in _raise_on_head_call_error\n"}
+,{"stream_name":"stderr","time":922.991335949,"data":"    raise head_call_error\n"}
+,{"stream_name":"stderr","time":922.991338121,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1550, in _get_metadata_or_catch_error\n"}
+,{"stream_name":"stderr","time":922.991340494,"data":"    metadata = get_hf_file_metadata(\n"}
+,{"stream_name":"stderr","time":922.991342688,"data":"        url=url, proxies=proxies, timeout=etag_timeout, headers=headers, token=token, endpoint=endpoint\n"}
+,{"stream_name":"stderr","time":922.991345034,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991347141,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 114, in _inner_fn\n"}
+,{"stream_name":"stderr","time":922.991349496,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":922.99135166,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1467, in get_hf_file_metadata\n"}
+,{"stream_name":"stderr","time":922.991354045,"data":"    r = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.991356235,"data":"        method=\"HEAD\",\n"}
+,{"stream_name":"stderr","time":922.991364178,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991366524,"data":"        timeout=timeout,\n"}
+,{"stream_name":"stderr","time":922.991368725,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.99137085,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 283, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.991373228,"data":"    response = _request_wrapper(\n"}
+,{"stream_name":"stderr","time":922.991375426,"data":"        method=method,\n"}
+,{"stream_name":"stderr","time":922.991377592,"data":"    ...\u003c2 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991379801,"data":"        **params,\n"}
+,{"stream_name":"stderr","time":922.991381964,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991384185,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 307, in _request_wrapper\n"}
+,{"stream_name":"stderr","time":922.991386531,"data":"    hf_raise_for_status(response)\n"}
+,{"stream_name":"stderr","time":922.99138874,"data":"    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991390942,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 453, in hf_raise_for_status\n"}
+,{"stream_name":"stderr","time":922.991393315,"data":"    raise _format(RepositoryNotFoundError, message, response) from e\n"}
+,{"stream_name":"stderr","time":922.991398111,"data":"huggingface_hub.errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-6af24c36-0ff31bc06f5597ff798b386a;ffb75c53-abf7-4ac2-8911-8ec17ffed454)\n"}
+,{"stream_name":"stderr","time":922.991400755,"data":"\n"}
+,{"stream_name":"stderr","time":922.991402851,"data":"Repository Not Found for url: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged/resolve/main/config.json.\n"}
+,{"stream_name":"stderr","time":922.991405241,"data":"Please make sure you specified the correct `repo_id` and `repo_type`.\n"}
+,{"stream_name":"stderr","time":922.991407517,"data":"If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication\n"}
+,{"stream_name":"stderr","time":922.99140994,"data":"Invalid username or password.\n"}
+,{"stream_name":"stderr","time":922.991412152,"data":"\n"}
+,{"stream_name":"stderr","time":922.991414252,"data":"The above exception was the direct cause of the following exception:\n"}
+,{"stream_name":"stderr","time":922.991416516,"data":"\n"}
+,{"stream_name":"stderr","time":922.99141861,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":922.991420817,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 356, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":922.991423179,"data":"    raise SystemExit(main())\n"}
+,{"stream_name":"stderr","time":922.991425445,"data":"                     ~~~~^^\n"}
+,{"stream_name":"stderr","time":922.991427652,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 319, in main\n"}
+,{"stream_name":"stderr","time":922.991429969,"data":"    model, model_id = _load_model(\n"}
+,{"stream_name":"stderr","time":922.991432147,"data":"                      ~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":922.99143434,"data":"        spec,\n"}
+,{"stream_name":"stderr","time":922.991436509,"data":"        ^^^^^\n"}
+,{"stream_name":"stderr","time":922.991438664,"data":"        dtype=DTYPES[dtype_name],\n"}
+,{"stream_name":"stderr","time":922.991440924,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991443119,"data":"        device=device,\n"}
+,{"stream_name":"stderr","time":922.991445302,"data":"        ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":922.991447481,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991449687,"data":"    ^\n"}
+,{"stream_name":"stderr","time":922.991451805,"data":"  File \"/kaggle/working/code/scripts/bench_kv.py\", line 239, in _load_model\n"}
+,{"stream_name":"stderr","time":922.991454114,"data":"    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype)\n"}
+,{"stream_name":"stderr","time":922.991456399,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/auto/auto_factory.py\", line 508, in from_pretrained\n"}
+,{"stream_name":"stderr","time":922.991458846,"data":"    resolved_config_file = cached_file(\n"}
+,{"stream_name":"stderr","time":922.991461074,"data":"        pretrained_model_name_or_path,\n"}
+,{"stream_name":"stderr","time":922.991463282,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991465484,"data":"        **hub_kwargs,\n"}
+,{"stream_name":"stderr","time":922.991467743,"data":"    )\n"}
+,{"stream_name":"stderr","time":922.991469857,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 322, in cached_file\n"}
+,{"stream_name":"stderr","time":922.991472161,"data":"    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)\n"}
+,{"stream_name":"stderr","time":922.991476511,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/hub.py\", line 511, in cached_files\n"}
+,{"stream_name":"stderr","time":922.99147911,"data":"    raise OSError(\n"}
+,{"stream_name":"stderr","time":922.991481277,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":922.991483491,"data":"    ) from e\n"}
+,{"stream_name":"stderr","time":922.991485682,"data":"OSError: Ashher123/criterion-lens-qwen2.5-1.5b-merged is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\n"}
+,{"stream_name":"stderr","time":922.991488116,"data":"If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=\u003cyour_token\u003e`\n"}
+,{"stream_name":"stderr","time":925.196778705,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":925.197560722,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":925.197570962,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":925.197577753,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":925.197581753,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":925.197585639,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":925.19758958,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":925.197593803,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":925.197597945,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":925.197601584,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":925.1976054,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":925.197608875,"data":"Exception encountered at \"In [3]\":\n"}
+,{"stream_name":"stderr","time":925.197612212,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":925.197615662,"data":"CalledProcessError                        Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":925.197619014,"data":"/tmp/ipykernel_23/3354736627.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":925.197622565,"data":"     10 ])\n"}
+,{"stream_name":"stderr","time":925.197625827,"data":"     11 for command in benchmark_commands:\n"}
+,{"stream_name":"stderr","time":925.197629357,"data":"---\u003e 12     subprocess.run(command, cwd=CODE_DIR, env=os_env, check=True)\n"}
+,{"stream_name":"stderr","time":925.197636378,"data":"     13     print(f'Completed benchmark: {command[1:3]}')\n"}
+,{"stream_name":"stderr","time":925.19763892,"data":"     14 \n"}
+,{"stream_name":"stderr","time":925.19764109,"data":"\n"}
+,{"stream_name":"stderr","time":925.19764319,"data":"/usr/lib/python3.13/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)\n"}
+,{"stream_name":"stderr","time":925.197645538,"data":"    576         retcode = process.poll()\n"}
+,{"stream_name":"stderr","time":925.197655914,"data":"    577         if check and retcode:\n"}
+,{"stream_name":"stderr","time":925.19765845,"data":"--\u003e 578             raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":925.197660756,"data":"    579                                      output=stdout, stderr=stderr)\n"}
+,{"stream_name":"stderr","time":925.197663022,"data":"    580     return CompletedProcess(process.args, retcode, stdout, stderr)\n"}
+,{"stream_name":"stderr","time":925.197665324,"data":"\n"}
+,{"stream_name":"stderr","time":925.19766748,"data":"CalledProcessError: Command '['/usr/bin/python3', 'scripts/bench_kv.py', '--config', 'configs/bench.yaml', '--model', '1.5B', '--output-dir', '/kaggle/working/code/results/bench']' returned non-zero exit status 1.\n"}
+,{"stream_name":"stderr","time":925.197669981,"data":"\n"}
+,{"stream_name":"stderr","time":927.27212423,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":927.272148379,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":927.427242313,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":927.427268328,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":928.209014806,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":928.285031665,"data":"[NbConvertApp] Writing 24871 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":930.725365836,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":931.276203174,"data":"[NbConvertApp] Writing 313758 bytes to __results__.html\n"}
+]

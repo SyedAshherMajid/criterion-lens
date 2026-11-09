@@ -32,15 +32,15 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 ### D-007 Fallback = constrained label scoring
 - **Why:** it guarantees a valid label for every criterion (reliability, Task 2). The fallback rate is reported, so the fallback cannot hide model weakness.
 
-### D-008 Hardware: Kaggle T4 for training + headline benchmarks; local GTX 1060 for 0.5B/attention; CPU in the HF Space
+### D-008 Hardware: Kaggle T4 for training + headline benchmarks; local GTX 1060 for 0.5B/attention; CPU as an app fallback
 - **Why:** the local GTX 1060 3 GB works with the installed torch 2.6.0+cu124 (sm_61 verified), but it cannot hold 1.5B fp16 and has no fast fp16 tensor cores. Kaggle T4 = Turing, fp16 tensor cores, 16 GB. Prefer T4 over the Kaggle P100, because newer Kaggle torch builds may drop Pascal.
 - **Reuse:** the local env reuses the already-installed HF stack (`docs/LOCAL_ENVIRONMENT.md`). The requirements are pinned to those versions so Kaggle matches.
 
 ### D-009 Evidence metric conventions
 - Micro over all records; macro over records with non-empty gold; empty-gold records reported separately as abstention accuracy; a secondary "empty = perfect" macro is reported for transparency.
 
-### D-010 App: Gradio on a Hugging Face Space (CPU basic)
-- **Options:** Streamlit, FastAPI + React, Gradio. **Decision:** Gradio. It is the fastest to build, has native Space hosting, and its `gr.File` download and progress bars cover the required features.
+### D-010 App: Gradio, local-first
+- **Options:** Streamlit, FastAPI + React, Gradio. **Decision:** Gradio, hosted locally as the official deployment. Its `gr.File` download and progress bars cover the required features; Space hosting remains optional if PRO becomes available.
 
 ### D-011 Candidate inspection and inaccessible configs
 - **Context:** The model-spec run could not read the Llama 3.2 and Gemma 2 configs (`OSError`); the Qwen3-1.7B repo's safetensors metadata reports 2,031,739,904 parameters.
@@ -142,10 +142,17 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 
 ### D-025 Hugging Face Space requires an account upgrade
 - **Context:** The deploy script attempted to create `Ashher123/criterion-lens` as a Gradio Space on `cpu-basic`.
-- **Options:** Keep the planned CPU-basic Space, choose different hardware/hosting, or leave deployment ready until the account can create the requested Space.
-- **Decision:** Preserve the planned public CPU-basic deployment; do not silently change the target hardware or hosting service.
-- **Evidence:** Hugging Face returned HTTP 402 from `HfApi.create_repo` with the message that free `cpu-basic` Gradio Spaces require a PRO subscription; no Space repository was created and no files were uploaded.
-- **Consequences:** `space/` and `scripts/deploy_space.py` are prepared and tested, but deployment and live-space validation remain blocked until the account has the required subscription.
+- **Options:** Pay for PRO to create the planned Space, use a different host, or use the assignment-permitted locally hosted browser app.
+- **Decision:** Do not pay for or retry the Space deployment. Treat the local Gradio application as the official deployment; retain the Space files as a ready-to-deploy option if PRO becomes available.
+- **Evidence:** In 2026, Hugging Face returned HTTP 402 from `HfApi.create_repo`, stating free `cpu-basic` Gradio Spaces require a PRO subscription. No Space repository was created and no files were uploaded. The assignment explicitly accepts a browser-accessible locally hosted or deployed application.
+- **Consequences:** The app runs on the user's Windows machine at `http://127.0.0.1:7860`; `run_app.bat --share` can provide a temporary public link only when remote evaluator access is needed. G1 evidence is the local startup workflow, app, and screenshots; no live Space URL is claimed.
+
+### D-026 Local Gradio app is the official deployment
+- **Context:** The assignment permits a browser-accessible locally hosted app, while the free Hugging Face Space option is blocked by its 2026 PRO requirement.
+- **Options:** Make a paid Space, host elsewhere, or document and support the local Gradio app.
+- **Decision:** Make the local Gradio app the official deployment and add a one-command Windows launcher that opens the browser. Keep `space/` and `scripts/deploy_space.py` ready without retrying deployment.
+- **Evidence:** `run_app.bat` starts `.venv\Scripts\python.exe -m app`; the app opens at `http://127.0.0.1:7860`. The optional `--share` flag is for temporary remote access on defense day.
+- **Consequences:** README and handoff describe local startup, first-use model downloads, hardware behavior, troubleshooting, and the defense-day share option.
 
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

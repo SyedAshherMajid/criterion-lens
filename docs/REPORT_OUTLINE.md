@@ -13,7 +13,7 @@ Author: Syed Ashher Majid, FAST-NUCES Islamabad, i230007@isb.nu.edu.pk (confirm 
 | IV | Experimental Setup & Metrics | hardware/software versions; decoding settings; metric definitions incl. evidence empty-set conventions; timing methodology (warm-up, sync, repeats); test-seal protocol | Table V settings |
 | V | Results & Discussion | A. training curves; B. before/after (val+test); C. per-class + confusion, inclusion vs exclusion; D. evidence; E. error analysis (≥8 cases table); F. KV cache correctness + benchmark; G. attention accuracy + perf (why slower than fused); H. speculative (equality, acceptance vs k, speed-up/slowdown explained); I. app screenshots | Fig. 4 curves; Table VI main results w/ CI; Fig. 5 confusion matrices; Table VII per-class; Table VIII evidence; Table IX error cases; Fig. 6 KV latency/throughput/memory; Fig. 7 cache bytes; Table X attention errors; Fig. 8 attention time/mem; Fig. 9 acceptance & speed-up vs k; Fig. 10 app screenshots |
 | VI | Design decisions & failures | from DECISIONS.md: alternatives, rejected options, incidents (NaN, OOM, fp16 mismatches) | Table XI |
-| VII | Limitations | 53 patients / small test set (wide CIs); SIGIR notes are short synthetic-style cases; single annotator labels; small model; template explanations; CPU latency; not a clinical tool | — |
+| VII | Limitations | 53 patients / small test set (wide CIs); SIGIR notes are short synthetic-style cases; single annotator labels; small model; template explanations; CPU latency; the app is locally hosted (assignment-permitted), while a Hugging Face `cpu-basic` Space was not deployed because HF requires PRO in 2026; not a clinical tool | — |
 | VIII | Conclusion & future work | Qwen3, constrained decoding, larger drafts/EAGLE, Triton kernel | — |
 | — | References | verified BibTeX only | — |
 | App. A | AI-use statement | see C | — |
@@ -26,7 +26,7 @@ Writing rules: no screenshots of tables, since tables are LaTeX generated from t
 |---|---|
 | 0:00–0:30 | Title, problem, disclaimer, architecture figure |
 | 0:30–1:00 | Repo tour: split manifest, tests passing (`pytest -q`), results folder |
-| 1:00–3:00 | Space app → paste an **unseen** synthetic note → fetch criteria by NCT ID (or paste) → run → walk through 3 criteria (decisive with evidence highlight, NEI/missing info, N/A) → overall preliminary outcome and its rule → export the HTML report and open it (provenance) |
+| 1:00–3:00 | Locally hosted Gradio app → paste an **unseen** synthetic note → fetch criteria by NCT ID (or paste) → run → walk through 3 criteria (decisive with evidence highlight, NEI/missing info, N/A) → overall preliminary outcome and its rule → export the HTML report and open it (provenance) |
 | 3:00–3:30 | Invalid input: empty note, bad NCT ID, then recovery |
 | 3:30–4:45 | Inference Lab: no-cache vs KV-cache vs speculative (k=4) live, token equality ✓, acceptance, tokens/s; Attention Lab live run with error ≈ 1e-6 |
 | 4:45–5:45 | Key results: before/after table, confusion matrix, KV benchmark plot, speculative speed-up/slowdown explanation |

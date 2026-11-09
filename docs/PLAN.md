@@ -404,8 +404,8 @@ Because the output = target argmax at every position (accepted tokens equal targ
 Empty note; note too short (<1 sentence); note over token budget (warn + list unseen sentence IDs); no criteria parsed; >N criteria (cap, warn); invalid NCT ID format (`^NCT\d{8}$`); network failure / 404 from ClinicalTrials.gov; model load failure (clear message + fallback to smaller model); CUDA OOM → retry on CPU / smaller model; malformed model output (fallback scoring, flagged); non-UTF-8 upload. Use `gr.Warning`/`gr.Error`, never a stack trace. A "Try invalid input" demo button in the video.
 
 ### 10.3 Startup / deployment
-- Local: `python -m app` (or `run_app.bat` / `run_app.sh`) → `http://127.0.0.1:7860`. Weights auto-downloaded from HF Hub on first start (`scripts/download_weights.py`), cached in `models/`. Env vars: `CL_MODEL`, `CL_DEVICE`, `CL_DTYPE`.
-- Deployed: **Hugging Face Space** (Gradio SDK, free CPU basic): `space/` folder with `README.md` (Space YAML header), `app.py` shim, `requirements.txt`. The Space is the URL the grader uses. On CPU the default model is fine-tuned 1.5B in fp32 (or bf16 if supported); document latency (~seconds per criterion), offer the 0.5B for speed.
+- Official deployment: locally hosted Gradio app, allowed by the assignment. On Windows, `run_app.bat` launches `.venv\Scripts\python.exe -m app`, opens `http://127.0.0.1:7860`, and accepts optional `--share` for temporary remote access. Models download from HF Hub on first use and are cached by Hugging Face; document CPU/GPU behavior and troubleshooting.
+- Optional deployment: retain `space/` and `scripts/deploy_space.py` as ready to deploy if Hugging Face PRO is available. Do not retry deployment or block project completion on it: HF's 2026 requirement for free `cpu-basic` Gradio Spaces requires PRO. Do not claim a live Space.
 - Optional `Dockerfile`.
 
 ---
