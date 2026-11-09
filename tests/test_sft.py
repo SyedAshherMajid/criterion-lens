@@ -104,3 +104,20 @@ def test_draft_config_matches_target_training_recipe() -> None:
         "lora",
     ):
         assert draft[key] == target[key]
+
+
+def test_local_fallback_config_uses_the_gtx_1060_recipe() -> None:
+    project_root = Path(__file__).resolve().parents[1]
+    config = load_training_config(
+        project_root / "configs" / "train_qwen25_0p5b_local.yaml"
+    )
+
+    assert config["model_name_or_path"] == "Qwen/Qwen2.5-0.5B-Instruct"
+    assert config["torch_dtype"] == "float32"
+    assert not config["fp16"]
+    assert config["max_seq_len"] == 640
+    assert config["per_device_train_batch_size"] == 1
+    assert config["per_device_eval_batch_size"] == 1
+    assert config["gradient_accumulation_steps"] == 16
+    assert config["gradient_checkpointing"]
+    assert config["lora"]["r"] == 16

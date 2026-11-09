@@ -43,11 +43,11 @@ def test_training_kernel_metadata_uses_private_code_dataset_and_t4_gpu() -> None
         ).read_text(encoding="utf-8")
     )
 
-    assert metadata["id"] == "syedashher/criterion-lens-train"
+    assert metadata["id"] == "syedashhermajid/criterion-lens-train"
     assert metadata["is_private"]
     assert metadata["enable_gpu"]
     assert metadata["enable_internet"]
-    assert metadata["dataset_sources"] == ["syedashher/criterion-lens-code"]
+    assert metadata["dataset_sources"] == ["syedashhermajid/criterion-lens-code"]
     assert metadata["code_file"] == "01_kaggle_train.ipynb"
 
 
@@ -68,7 +68,7 @@ def test_kaggle_dataset_existence_checks_exact_owned_ref(monkeypatch) -> None:
         lambda *args, **kwargs: SimpleNamespace(
             stdout=json.dumps(
                 [
-                    {"ref": "syedashher/unrelated-dataset"},
+                    {"ref": "syedashhermajid/unrelated-dataset"},
                     {"ref": sync_code.DATASET_ID},
                 ]
             )

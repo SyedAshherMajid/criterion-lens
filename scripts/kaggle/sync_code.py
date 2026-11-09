@@ -15,7 +15,7 @@ else:
 
 LOGGER = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATASET_ID = "syedashher/criterion-lens-code"
+DATASET_ID = "syedashhermajid/criterion-lens-code"
 _DIRECTORIES = ("src", "scripts", "configs", "data/splits")
 _FILES = ("requirements.txt", "pyproject.toml", "README.md", "LICENSE")
 _IGNORE = shutil.ignore_patterns(
@@ -94,8 +94,9 @@ def _wait_until_ready(timeout_seconds: int) -> None:
 def sync_code(wait_seconds: int = 600) -> Path:
     """Stage an allowlisted snapshot, then create or version the private dataset."""
     build_dir = PROJECT_ROOT / "build"
-    destination = build_dir / "kaggle_code"
-    marker = build_dir / ".criterionlens-kaggle-stage"
+    owner = DATASET_ID.split("/", maxsplit=1)[0]
+    destination = build_dir / f"kaggle_code_{owner}"
+    marker = build_dir / f".criterionlens-kaggle-stage-{owner}"
     build_dir.mkdir(parents=True, exist_ok=True)
     if destination.exists():
         if not marker.is_file() or marker.read_text(encoding="utf-8") != DATASET_ID:

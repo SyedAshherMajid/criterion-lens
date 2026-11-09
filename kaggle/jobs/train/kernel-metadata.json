@@ -1,5 +1,5 @@
 {
-  "id": "syedashher/criterion-lens-train",
+  "id": "syedashhermajid/criterion-lens-train",
   "title": "criterion-lens-train",
   "code_file": "01_kaggle_train.ipynb",
   "language": "python",
@@ -8,7 +8,7 @@
   "enable_gpu": true,
   "enable_internet": true,
   "dataset_sources": [
-    "syedashher/criterion-lens-code"
+    "syedashhermajid/criterion-lens-code"
   ],
   "competition_sources": [],
   "kernel_sources": [],

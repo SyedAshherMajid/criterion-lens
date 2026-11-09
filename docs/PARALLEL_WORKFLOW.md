@@ -4,7 +4,7 @@ GPU work (training, 1.5B evaluation, headline benchmarks) runs on **Kaggle T4 GP
 
 ## Verified tooling (9 Nov 2026)
 - Kaggle CLI **2.2.5**, installed as an isolated uv tool (it needs Python ≥ 3.11, so it is not in `.venv`): `C:\Users\ASUS\.local\bin\kaggle.exe`.
-- Auth: `KAGGLE_API_TOKEN` (new `KGAT_` style) + `KAGGLE_USERNAME=syedashher` in `.env`. Verified with `kaggle kernels list --mine`.
+- Auth: `KAGGLE_API_TOKEN` (new `KGAT_` style) + `KAGGLE_USERNAME=syedashhermajid` in `.env`. `scripts/kaggle/kaggle_env.py` makes these two `.env` values authoritative over process environment values; verify with `kaggle kernels list --mine`.
 - The CLI reads the token from the **environment**. Load `.env` first. Helper (PowerShell):
   ```powershell
   Get-Content .env | Where-Object { $_ -match '^[A-Z_]+=' } | ForEach-Object { $k,$v = $_ -split '=',2; Set-Item "env:$k" $v }
@@ -14,18 +14,18 @@ GPU work (training, 1.5B evaluation, headline benchmarks) runs on **Kaggle T4 GP
 
 ## How a Kaggle job is run from the laptop
 1. **Ship code as a private Kaggle dataset** (the GitHub repo is private, so Kaggle cannot `git clone` it):
-   `scripts/kaggle/sync_code.py` copies `src/ scripts/ configs/ data/splits/ requirements.txt pyproject.toml` into `build/kaggle_code/`, writes `dataset-metadata.json` (`id: syedashher/criterion-lens-code`, private), then creates the dataset if it is not owned by the account or versions it otherwise. Wait until `kaggle datasets status syedashher/criterion-lens-code` reports ready.
+   `scripts/kaggle/sync_code.py` copies `src/ scripts/ configs/ data/splits/ requirements.txt pyproject.toml` into `build/kaggle_code_syedashhermajid/`, writes `dataset-metadata.json` (`id: syedashhermajid/criterion-lens-code`, private), then creates the dataset if it is not owned by the account or versions it otherwise. Wait until `kaggle datasets status syedashhermajid/criterion-lens-code` reports ready.
 2. **One folder per job** under `kaggle/jobs/<job>/`, containing `<job>.ipynb` (or `.py`) + `kernel-metadata.json`:
    ```json
-   {"id": "syedashher/criterion-lens-<job>", "title": "criterion-lens-<job>",
+   {"id": "syedashhermajid/criterion-lens-<job>", "title": "criterion-lens-<job>",
     "code_file": "<job>.ipynb", "language": "python", "kernel_type": "notebook",
     "is_private": true, "enable_gpu": true, "enable_internet": true,
-    "dataset_sources": ["syedashher/criterion-lens-code"],
+    "dataset_sources": ["syedashhermajid/criterion-lens-code"],
     "competition_sources": [], "kernel_sources": [], "model_sources": []}
    ```
    Check `kaggle kernels push --help` for an accelerator option. If one exists, request **T4 x2** (e.g. `NvidiaTeslaT4`). Every job's first cell prints `torch.cuda.get_device_name()`, the device count and `torch.cuda.get_arch_list()`, and **aborts** if the GPU is unsupported. If the CLI cannot select T4 and gives a P100 that fails, ask the student to open the kernel on kaggle.com once, set *Accelerator → GPU T4 x2*, and *Save & Run All*.
 3. The job's first cells: `pip install -q -r /kaggle/input/criterion-lens-code/requirements.txt` (never torch), `pip install -e . --no-deps` from a copy in `/kaggle/working/code`, then run the scripts. Write all outputs to `/kaggle/working/out/`.
-4. Launch: `kaggle kernels push -p kaggle/jobs/<job>`. Monitor: `kaggle kernels status syedashher/criterion-lens-<job>` (poll every 5–10 min, not more often). Collect: `kaggle kernels output syedashher/criterion-lens-<job> -p results/kaggle/<job>/`. Then copy the logs/metrics into `results/` and commit them. Adapters/weights go to `outputs/` (git-ignored).
+4. Launch: `kaggle kernels push -p kaggle/jobs/<job>`. Monitor: `kaggle kernels status syedashhermajid/criterion-lens-<job>` (poll every 5–10 min, not more often). Collect: `kaggle kernels output syedashhermajid/criterion-lens-<job> -p results/kaggle/<job>/`. Then copy the logs/metrics into `results/` and commit them. Adapters/weights go to `outputs/` (git-ignored).
 5. **Pushing weights to the HF Hub happens from the laptop**, using the `.env` `HF_TOKEN` (`scripts/push_to_hub.py`). The HF token therefore never has to be stored on Kaggle (no Kaggle Secrets needed). Kaggle only downloads public Qwen models and the public dataset, which needs no token.
 
 ## Using both T4s in one Kaggle session
@@ -57,9 +57,9 @@ Likewise, the eval/bench job runs the val evaluations on GPU 0 and the benchmark
 **Rule:** the laptop never runs the 1.5B in fp16 on the GPU (it does not fit). Running the 1.5B in CPU fp32 is acceptable for app demos only.
 
 ## Fallback if Kaggle stays QUEUED
-Kaggle GPU availability may be constrained. A prior status check against `syedashhermajid/criterion-lens-smoketest` was denied because the slug did not match the authenticated Kaggle owner; do not treat it as current queue evidence. Rules:
+Kaggle GPU availability may be constrained. Ignore the old `syedashhermajid/criterion-lens-smoketest` kernel; it is not evidence about the current train job. Rules:
 1. Never block on the queue. Keep doing laptop-lane work.
-2. If the `train` job is still QUEUED after **45 min**, start a **local fallback training of the 0.5B model on the GTX 1060** (fp32 base, LoRA r=16, grad-checkpointing, micro-batch 1, grad-accum 16, max_seq_len from the audit; `configs/train_qwen25_0p5b_local.yaml`). Expect ~1–2 h. Leave the Kaggle job queued, because it trains the 1.5B when a GPU frees up.
+2. If the `train` job reports a no-GPU `ERROR`, or remains QUEUED for **20 minutes**, immediately start a **local fallback training of the 0.5B model on the GTX 1060** (fp32 base, LoRA r=16, grad-checkpointing, micro-batch 1, grad-accum 16, max_seq_len from the audit; `configs/train_qwen25_0p5b_local.yaml`). Expect ~1–2 h. Leave a queued Kaggle job queued, because it trains the 1.5B when a GPU frees up.
 3. If the 1.5B has not trained by **6 h before the deadline**, make the fine-tuned **0.5B the headline model for Tasks 1–2** (still a full before/after comparison). No smaller same-tokenizer draft exists for a 0.5B target, so speculative decoding (Task 5) keeps **target = base Qwen2.5-1.5B-Instruct, draft = 0.5B**. That target needs no training and runs inference-only on CPU or on Kaggle once a GPU frees up. Record the change in DECISIONS.md and the report's Limitations section.
 4. The first output of every Kaggle job (`smoke_result.json` or the job's first log lines) confirms the GPU name. Check it once the smoke test leaves the queue.
 

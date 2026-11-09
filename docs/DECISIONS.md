@@ -78,11 +78,11 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Consequences:** Kaggle runs need no Hub secret. Model uploads still require a write-enabled laptop token, and outputs must be collected before publishing.
 
 ### D-016 Kaggle owner slug
-- **Context:** The configured account could list its own kernels, but status requests for `syedashhermajid/...` were denied. Its visible kernels are owned by `syedashher`, and its private dataset listing contained no CriterionLens dataset.
-- **Options:** Keep the planned owner slug and risk publishing to or querying the wrong account, or use the authenticated owner's verified slug.
-- **Decision:** Use `syedashher` for the private code dataset and training kernel; discover dataset existence from the account's own dataset list before creating or versioning it.
-- **Evidence:** `kaggle kernels list --mine` returned kernels owned by `syedashher`; `kaggle datasets list --mine --page-size 200 --format json` returned three datasets and no CriterionLens entry.
-- **Consequences:** The smoke-kernel status check against `syedashhermajid/criterion-lens-smoketest` is not valid evidence of a queued job or platform outage. Do not query or overwrite resources under that incorrect owner.
+- **Context:** The account appeared to be `syedashher` because a stale system-wide `KAGGLE_API_TOKEN` took precedence over the credentials in `.env`.
+- **Options:** Continue using the account authenticated by the inherited process token, or make the explicitly configured `.env` Kaggle credentials authoritative for Kaggle CLI calls.
+- **Decision:** Use `syedashhermajid`, as configured in `.env`; `scripts/kaggle/kaggle_env.py` overrides process environment values for `KAGGLE_API_TOKEN` and `KAGGLE_USERNAME` only.
+- **Evidence:** The earlier `syedashher` result came from a stale system-wide token, not `.env`. The switched account must be verified via `kaggle_env.py -- kernels list --mine` before syncing or launching.
+- **Consequences:** Use only `syedashhermajid/criterion-lens-code` and `syedashhermajid/criterion-lens-train` for this workflow. Ignore the old `syedashhermajid/criterion-lens-smoketest` kernel.
 
 ### D-017 Kaggle dataset metadata filename
 - **Context:** The installed Kaggle CLI help requested `datasets-metadata.json`, but the first dataset create rejected that filename and explicitly required `dataset-metadata.json`.
@@ -118,6 +118,13 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Decision:** Record unsupported backends as `UNAVAILABLE`; reserve `OOM` for memory failures and propagate other runtime errors.
 - **Evidence:** The quick run wrote 8 accuracy and 10 performance rows; Flash Attention returned `No available kernel`, while math and efficient paths completed. The temporary smoke outputs were removed.
 - **Consequences:** Backend availability is hardware-specific; the local GTX result is not a T4 performance result. Phase 7.3 remains unchecked until the full benchmark outputs are run and reviewed.
+
+### D-022 Kaggle credentials and training fallback
+- **Context:** A machine-level `KAGGLE_API_TOKEN` can silently select a different Kaggle account than the project `.env`; the previous 45-minute queued-only fallback also does not address immediate no-GPU errors under the current deadline.
+- **Options:** Trust inherited process credentials and wait for queued kernels, or prioritize `.env` Kaggle credentials and start laptop fallback on a no-GPU error or 20-minute queue.
+- **Decision:** Override process values from `.env` for `KAGGLE_API_TOKEN` and `KAGGLE_USERNAME` only. Launch training as `syedashhermajid/criterion-lens-train`; start local 0.5B training on GTX 1060 immediately on a no-GPU `ERROR` or after 20 minutes QUEUED.
+- **Evidence:** The Kaggle owner previously observed was authenticated by the stale system token, while the verified project account and existing private code dataset are `syedashhermajid`.
+- **Consequences:** Other environment variables retain their existing process-over-.env precedence. Never print or log the token; leave queued Kaggle training active while local fallback runs.
 
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

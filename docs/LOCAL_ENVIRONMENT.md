@@ -42,8 +42,8 @@ Audited on 9 Nov 2026 on the student's laptop (Windows 11, GTX 1060 3 GB). The g
 ## Other tools found
 | Tool | Path / status |
 |---|---|
-| Kaggle CLI 2.2.5 | `C:\Users\ASUS\.local\bin\kaggle.exe`: an isolated uv tool on Python 3.14 (it needs ≥ 3.11, so it is **not** in `.venv`). Auth from `.env` `KAGGLE_API_TOKEN` (verified, account `syedashher`). Usage: `docs/PARALLEL_WORKFLOW.md` |
-| Accounts | GitHub `SyedAshherMajid` · Hugging Face **`Ashher123`** (all HF repo ids use this) · Kaggle `syedashher` |
+| Kaggle CLI 2.2.5 | `C:\Users\ASUS\.local\bin\kaggle.exe`: an isolated uv tool on Python 3.14 (it needs ≥ 3.11, so it is **not** in `.venv`). Auth from `.env` `KAGGLE_API_TOKEN` (verified, account `syedashhermajid`). Usage: `docs/PARALLEL_WORKFLOW.md` |
+| Accounts | GitHub `SyedAshherMajid` · Hugging Face **`Ashher123`** (all HF repo ids use this) · Kaggle `syedashhermajid` |
 | uv | `C:\Users\ASUS\.local\bin\uv.exe` (global wheel cache `C:\Users\ASUS\AppData\Local\uv\cache`) |
 | git 2.51, gh 2.102 (logged in as SyedAshherMajid) | ready. **Fixed:** this repo's local git config uses `gh auth git-credential`, so plain `git push` works here (verified). |
 | **MiKTeX 25.12 (LaTeX)** | installed by Claude: `C:\Users\ASUS\AppData\Local\Programs\MiKTeX\miktex\bin\x64\` (`pdflatex`, `bibtex`). `IEEEtran.cls` present; on-the-fly package install is enabled. Test compile with IEEEtran + amsmath + algorithm + algpseudocode + tikz + booktabs + hyperref succeeded. **No Overleaf needed.** Open a new terminal so the PATH update applies. |

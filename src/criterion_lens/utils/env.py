@@ -3,17 +3,22 @@
 import logging
 import os
 import re
+from collections.abc import Collection
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 _ENV_KEY = re.compile(r"[A-Za-z_][A-Za-z0-9_]*\Z")
 
 
-def load_env(env_path: Path | None = None) -> int:
+def load_env(
+    env_path: Path | None = None,
+    *,
+    override_keys: Collection[str] = (),
+) -> int:
     """Load unset variables from the project .env file and return the number loaded.
 
     Existing process variables take precedence so deployment secrets cannot be
-    unintentionally replaced by a local file.
+    unintentionally replaced by a local file, except for explicitly selected keys.
     """
     if env_path is None:
         env_path = Path(__file__).resolve().parents[3] / ".env"
@@ -43,7 +48,7 @@ def load_env(env_path: Path | None = None) -> int:
                 raise ValueError(f"Unmatched quote in .env value at {env_path}:{line_number}")
             value = value[1:-1]
 
-        if key not in os.environ:
+        if key not in os.environ or key in override_keys:
             os.environ[key] = value
             loaded += 1
 

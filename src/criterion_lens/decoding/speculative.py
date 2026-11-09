@@ -118,6 +118,7 @@ def speculative_greedy(
     max_new: int,
     k: int,
     eos_id: int | None = None,
+    vocab_size: int | None = None,
 ) -> SpecResult:
     """Generate target-greedy tokens using k draft proposals per verify call.
 
@@ -167,7 +168,16 @@ def speculative_greedy(
         raise ValueError(
             f"input_ids are on {input_ids.device}, but models are on {target_device}"
         )
-    vocab_size = min(_vocab_size(target), _vocab_size(draft))
+    model_vocab_size = min(_vocab_size(target), _vocab_size(draft))
+    if vocab_size is None:
+        vocab_size = model_vocab_size
+    elif (
+        not isinstance(vocab_size, int)
+        or isinstance(vocab_size, bool)
+        or vocab_size < 2
+        or vocab_size > model_vocab_size
+    ):
+        raise ValueError("vocab_size must be between 2 and the shared model vocabulary size")
     if eos_id is not None and eos_id >= vocab_size:
         raise ValueError("eos_id must be smaller than the shared vocabulary size")
     if input_ids.min().item() < 0 or input_ids.max().item() >= vocab_size:

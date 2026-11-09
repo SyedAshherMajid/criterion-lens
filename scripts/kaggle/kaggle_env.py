@@ -27,7 +27,7 @@ def run_kaggle(
     cwd: Path | None = None,
 ) -> subprocess.CompletedProcess[str]:
     """Run one Kaggle CLI command using the local .env token in its environment."""
-    load_env()
+    load_env(override_keys={"KAGGLE_API_TOKEN", "KAGGLE_USERNAME"})
     missing = [
         key
         for key in ("KAGGLE_API_TOKEN", "KAGGLE_USERNAME")

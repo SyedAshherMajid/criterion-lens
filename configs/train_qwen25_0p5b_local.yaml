@@ -1,0 +1,36 @@
+run_name: qwen25_0p5b_local
+model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+tokenizer_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+split_manifest: data/splits/split_manifest.json
+output_root: outputs
+max_seq_len: 640
+torch_dtype: float32
+fp16: false
+num_train_epochs: 3
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+gradient_accumulation_steps: 16
+learning_rate: 0.0002
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+weight_decay: 0.0
+max_grad_norm: 1.0
+logging_steps: 5
+save_strategy: epoch
+eval_strategy: epoch
+gradient_checkpointing: true
+group_by_length: true
+seed: 42
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  bias: none

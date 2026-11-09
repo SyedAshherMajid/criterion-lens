@@ -18,6 +18,8 @@ models/
 outputs/
 build/kaggle_code/
 build/.criterionlens-kaggle-stage
+build/kaggle_code_syedashhermajid/
+build/.criterionlens-kaggle-stage-syedashhermajid
 *.safetensors
 *.bin
 *.pt
