@@ -13,3 +13,4 @@
 - 2026-11-09 22:49 +05:00 | 2.2 | Added numbered-note parsing with contiguous-ID validation and pysbd/free-text splitting; decimals, abbreviations, malformed numbering, and empty input covered; fast tests (12 passed) and Ruff passed | Phase 2.3
 - 2026-11-09 22:52 +05:00 | 2.3 | Implemented the fixed patient-level split and wrote JSON/CSV manifests at dataset revision `1cfcafde94a1560a33b4addc1638664fe28fc059`; counts are train 37/602, val 8/206, test 8/206; fast tests (12 passed) and Ruff passed | Phase 2.4
 - 2026-11-09 23:05 +05:00 | 3.1 | Implemented the prompt builder ahead of Phase 2.4 because its leakage test depends on it; inclusion/exclusion schemas and target JSON validated; fast tests (16 passed) and Ruff passed | Phase 2.4
+- 2026-11-09 23:12 +05:00 | 2.4 | Added deterministic split/disjointness/manifest tests and an end-to-end loader-to-prompt leakage test with a GPT-4 sentinel; fast tests (22 passed) and Ruff passed | Phase 2.5
