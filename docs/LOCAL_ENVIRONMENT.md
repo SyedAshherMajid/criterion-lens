@@ -43,7 +43,7 @@ Audited on 9 Nov 2026 on the student's laptop (Windows 11, GTX 1060 3 GB). The g
 | Tool | Path / status |
 |---|---|
 | uv | `C:\Users\ASUS\.local\bin\uv.exe` (global wheel cache `C:\Users\ASUS\AppData\Local\uv\cache`) |
-| git 2.51, gh 2.102 (logged in as SyedAshherMajid) | ready |
+| git 2.51, gh 2.102 (logged in as SyedAshherMajid) | ready. **Plain `git push` returns 403** (Windows credential manager holds a different credential). Push with `git -c credential.helper= -c "credential.helper=!gh auth git-credential" push`, or have the student run `gh auth setup-git` once to fix it permanently. |
 | **MiKTeX 25.12 (LaTeX)** | installed by Claude: `C:\Users\ASUS\AppData\Local\Programs\MiKTeX\miktex\bin\x64\` (`pdflatex`, `bibtex`). `IEEEtran.cls` present; on-the-fly package install is enabled. Test compile with IEEEtran + amsmath + algorithm + algpseudocode + tikz + booktabs + hyperref succeeded. **No Overleaf needed.** Open a new terminal so the PATH update applies. |
 | HF cache | `C:\Users\ASUS\.cache\huggingface\hub`, shared by all projects. Qwen2.5 models and the dataset are not cached yet: they download **once** and are reused afterwards. |
 | Other Python envs (not used) | `D:\Anaconda3` (3.13, no torch), `D:\i230007_GenAi_A1\.venv` (3.10, torch 2.7.1+cu118, no transformers), `D:\Youtube_videos_Generation\.venv-*` (old transformers 4.46), `D:\Assesment\.venv*` (torch only). The Nastp env was chosen because it alone has the whole HF fine-tuning stack. |
