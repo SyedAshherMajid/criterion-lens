@@ -112,5 +112,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** The tiny CPU CLI smoke produced one fp32 parity check with no mismatch; the project test suite (102 passed) and Ruff passed. No fine-tuned model artifacts exist.
 - **Consequences:** Phase 6.4 remains unchecked until the planned benchmark is run; no benchmark metrics are invented.
 
+### D-021 Record unavailable SDPA backends instead of treating them as failures
+- **Context:** A quick CUDA benchmark on the GTX 1060 reports Flash Attention as unavailable while math and efficient SDPA execute.
+- **Options:** Let an unsupported forced backend abort the entire benchmark, omit it without explanation, or preserve an `UNAVAILABLE` row with the backend error.
+- **Decision:** Record unsupported backends as `UNAVAILABLE`; reserve `OOM` for memory failures and propagate other runtime errors.
+- **Evidence:** The quick run wrote 8 accuracy and 10 performance rows; Flash Attention returned `No available kernel`, while math and efficient paths completed. The temporary smoke outputs were removed.
+- **Consequences:** Backend availability is hardware-specific; the local GTX result is not a T4 performance result. Phase 7.3 remains unchecked until the full benchmark outputs are run and reviewed.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

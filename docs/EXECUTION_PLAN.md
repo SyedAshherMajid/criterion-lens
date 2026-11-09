@@ -78,8 +78,8 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 **Accept:** tests pass on CPU; the bench script runs on CPU with the 0.5B model in < 5 min (small grid).
 
 ## Phase 7 — Tiled attention (P0) — PLAN §8
-- [ ] **7.1 [COPILOT]** `attention/reference.py::sdpa_reference` and `attention/tiled.py::tiled_attention` exactly as PLAN §8.1–8.2 (GQA, query offset, padding mask, fully-masked rows, fp32 accumulation, block sizes not dividing N). Docstrings derive the online-softmax rescaling.
-- [ ] **7.2 [COPILOT]** `tests/test_attention.py`: the grid from PLAN §8.3 vs an fp64 reference; also checks the tiled code never calls `scaled_dot_product_attention` (monkeypatch it to raise during the test).
+- [x] **7.1 [COPILOT]** `attention/reference.py::sdpa_reference` and `attention/tiled.py::tiled_attention` exactly as PLAN §8.1–8.2 (GQA, query offset, padding mask, fully-masked rows, fp32 accumulation, block sizes not dividing N). Docstrings derive the online-softmax rescaling.
+- [x] **7.2 [COPILOT]** `tests/test_attention.py`: the grid from PLAN §8.3 vs an fp64 reference; also checks the tiled code never calls `scaled_dot_product_attention` (monkeypatch it to raise during the test).
 - [ ] **7.3 [COPILOT]** `scripts/bench_attention.py` → `results/bench/attention_accuracy.csv`, `attention_perf.csv` (+ CPU mode). Catch OOM and record it as "OOM", never crash.
 - [ ] **7.4 [P1, COPILOT]** `attention/hf_integration.py`: register the tiled attention with transformers (`AttentionInterface`) or monkeypatch; `scripts/bench_attention.py --model-integration` checks the same greedy tokens as `eager` on 5 val prompts.
 **Accept:** all attention tests pass on CPU; the accuracy CSV has max/mean error per case.
