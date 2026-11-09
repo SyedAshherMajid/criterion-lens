@@ -72,3 +72,35 @@ def test_load_training_config_requires_a_mapping(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="YAML mapping"):
         load_training_config(config_file)
+
+
+def test_draft_config_matches_target_training_recipe() -> None:
+    project_root = Path(__file__).resolve().parents[1]
+    target = load_training_config(project_root / "configs" / "train_qwen25_1p5b.yaml")
+    draft = load_training_config(project_root / "configs" / "train_qwen25_0p5b.yaml")
+
+    assert draft["model_name_or_path"] == "Qwen/Qwen2.5-0.5B-Instruct"
+    for key in (
+        "tokenizer_name_or_path",
+        "split_manifest",
+        "max_seq_len",
+        "torch_dtype",
+        "fp16",
+        "num_train_epochs",
+        "per_device_train_batch_size",
+        "per_device_eval_batch_size",
+        "gradient_accumulation_steps",
+        "learning_rate",
+        "lr_scheduler_type",
+        "warmup_ratio",
+        "weight_decay",
+        "max_grad_norm",
+        "logging_steps",
+        "save_strategy",
+        "eval_strategy",
+        "gradient_checkpointing",
+        "group_by_length",
+        "seed",
+        "lora",
+    ):
+        assert draft[key] == target[key]
