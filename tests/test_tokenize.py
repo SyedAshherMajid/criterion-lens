@@ -109,3 +109,17 @@ def test_encode_example_rejects_missing_gold_evidence_ids() -> None:
 
     with pytest.raises(ValueError, match="references missing evidence sentence IDs"):
         encode_example(TokenizerStub(), example, max_len=1000)
+
+
+def test_encode_example_can_disable_truncation_for_validation_data() -> None:
+    tokenizer = TokenizerStub()
+    example = _example()
+    full_length = len(encode_example(tokenizer, example, max_len=1000)["input_ids"])
+
+    with pytest.raises(ValueError, match="truncation is disabled"):
+        encode_example(
+            tokenizer,
+            example,
+            max_len=full_length - 1,
+            allow_truncation=False,
+        )

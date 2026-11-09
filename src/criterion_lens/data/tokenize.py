@@ -29,6 +29,7 @@ def encode_example(
     example: Mapping[str, Any],
     max_len: int,
     truncation_log: list[dict[str, Any]] | None = None,
+    allow_truncation: bool = True,
 ) -> dict[str, list[int]]:
     """Encode one training example, masking the prompt and preserving target tokens.
 
@@ -74,6 +75,11 @@ def encode_example(
     prompt_ids, response_ids = encode_prompt(sentences)
     input_ids = [*prompt_ids, *response_ids]
     while len(input_ids) > max_len:
+        if not allow_truncation:
+            raise ValueError(
+                f"Annotation {example['annotation_id']} needs {len(input_ids)} tokens "
+                f"but max_len is {max_len} and truncation is disabled"
+            )
         if not sentences:
             raise ValueError(
                 f"Annotation {example['annotation_id']} needs {len(input_ids)} tokens "

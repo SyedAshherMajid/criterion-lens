@@ -63,5 +63,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `tests/test_parse.py` covers fenced JSON, malformed-JSON recovery, type-incompatible labels, malformed evidence, invalid IDs, and parser arguments.
 - **Consequences:** A recovered label/evidence pair can be used without hiding malformed output; failed validation remains explicit for the later fallback path.
 
+### D-014 Training smoke model and tokenizer
+- **Context:** The first CPU smoke attempt used a temporary tiny Qwen2 model without tokenizer files, so model override resolution also tried to load a tokenizer from that model directory and failed.
+- **Options:** Require every tiny test model to package the project's tokenizer, or keep the tokenizer ID explicit and independently configurable.
+- **Decision:** Pin `tokenizer_name_or_path` to Qwen2.5-1.5B-Instruct in the training config, independently of `--model`. The smoke model must retain compatible vocabulary and LoRA module names.
+- **Evidence:** The selected tokenizer's maximum token ID is 151,664, which fits the Qwen model's 151,936-entry embedding; the five-step CPU Trainer smoke run evaluated validation loss and saved an adapter.
+- **Consequences:** The smoke path tests the real dataset, prompt/tokenization path, Trainer, and LoRA save flow with a tiny compatible model; it does not represent a fine-tuned project model or reportable model metrics.
+
 ---
-<!-- Agent: append D-014+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
+<!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
