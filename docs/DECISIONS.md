@@ -70,5 +70,19 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** The selected tokenizer's maximum token ID is 151,664, which fits the Qwen model's 151,936-entry embedding; the five-step CPU Trainer smoke run evaluated validation loss and saved an adapter.
 - **Consequences:** The smoke path tests the real dataset, prompt/tokenization path, Trainer, and LoRA save flow with a tiny compatible model; it does not represent a fine-tuned project model or reportable model metrics.
 
+### D-015 Kaggle source sync and Hub credential boundary
+- **Context:** The Kaggle training lane needs the private repository source, while the initial Phase 3.6 checklist described cloning the repository and placing `HF_TOKEN` in Kaggle Secrets. `docs/PARALLEL_WORKFLOW.md` instead specifies a private allowlisted source dataset and laptop-only Hub uploads.
+- **Options:** Clone the private repository and expose the Hub token to Kaggle, or stage only required source/data files in the private Kaggle dataset and upload trained artifacts from the laptop.
+- **Decision:** Use the allowlisted private Kaggle code dataset; do not stage `.env` or send `HF_TOKEN` to Kaggle. Keep Hub publishing on the laptop after training outputs are downloaded.
+- **Evidence:** `scripts/kaggle/sync_code.py` stages only `src/`, `scripts/`, `configs/`, `data/splits/`, and required project files; notebook tests assert that `HF_TOKEN` and `kaggle_secrets` are absent.
+- **Consequences:** Kaggle runs need no Hub secret. Model uploads still require a write-enabled laptop token, and outputs must be collected before publishing.
+
+### D-016 Kaggle owner slug
+- **Context:** The configured account could list its own kernels, but status requests for `syedashhermajid/...` were denied. Its visible kernels are owned by `syedashher`, and its private dataset listing contained no CriterionLens dataset.
+- **Options:** Keep the planned owner slug and risk publishing to or querying the wrong account, or use the authenticated owner's verified slug.
+- **Decision:** Use `syedashher` for the private code dataset and training kernel; discover dataset existence from the account's own dataset list before creating or versioning it.
+- **Evidence:** `kaggle kernels list --mine` returned kernels owned by `syedashher`; `kaggle datasets list --mine --page-size 200 --format json` returned three datasets and no CriterionLens entry.
+- **Consequences:** The smoke-kernel status check against `syedashhermajid/criterion-lens-smoketest` is not valid evidence of a queued job or platform outage. Do not query or overwrite resources under that incorrect owner.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

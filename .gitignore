@@ -16,6 +16,8 @@ venv/
 data/raw/
 models/
 outputs/
+build/kaggle_code/
+build/.criterionlens-kaggle-stage
 *.safetensors
 *.bin
 *.pt
