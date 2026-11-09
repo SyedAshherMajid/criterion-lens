@@ -123,7 +123,7 @@ train_ids, val_ids, test_ids = ids[:37], ids[37:45], ids[45:53]
 - LoRA training (r=16, all linear layers, grad-checkpointing, seq ≤1,536, micro-batch 4): expected 7–10 GB on T4.
 
 ### 3.3 Compute resources (state in report)
-- **Local laptop:** NVIDIA GTX 1060 3 GB (Pascal, sm_61) — too small for 1.5B fp16, and recent PyTorch CUDA builds may not support Pascal. Use the laptop for **CPU** work: unit tests, the app, small attention benchmarks.
+- **Local laptop:** NVIDIA GTX 1060 3 GB (Pascal, sm_61). The existing torch 2.6.0+cu124 **does** support it (verified). It runs 0.5B fp16, attention benchmarks, tiny-model tests and app inference with the 0.5B model. The 1.5B fp16 (3.1 GB) does not fit, so it runs on CPU locally. This is a second hardware point for the benchmarks. Environment details: `docs/LOCAL_ENVIRONMENT.md`.
 - **Kaggle (free):** use **GPU T4 ×2** (Turing sm_75, 16 GB each, fp16, no bf16); ~30 GPU-h/week, 12 h per session. Do **not** use the P100 option (Pascal again). All training, evaluation and GPU benchmarks run here.
 - **Hugging Face Hub (free):** model/adapter hosting; **HF Space CPU-basic (free, 2 vCPU, 16 GB RAM)** for the deployed app.
 - No paid resources anywhere.

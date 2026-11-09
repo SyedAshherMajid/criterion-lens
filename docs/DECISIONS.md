@@ -32,8 +32,9 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 ### D-007 Fallback = constrained label scoring
 - **Why:** it guarantees a valid label for every criterion (reliability, Task 2). The fallback rate is reported, so the fallback cannot hide model weakness.
 
-### D-008 Hardware: Kaggle T4 (not P100), CPU locally and in the HF Space
-- **Why:** the local GTX 1060 3 GB (Pascal) cannot hold 1.5B fp16, and new PyTorch CUDA builds may drop Pascal. Kaggle P100 is also Pascal. T4 = Turing, fp16 tensor cores, 16 GB.
+### D-008 Hardware: Kaggle T4 for training + headline benchmarks; local GTX 1060 for 0.5B/attention; CPU in the HF Space
+- **Why:** the local GTX 1060 3 GB works with the installed torch 2.6.0+cu124 (sm_61 verified), but it cannot hold 1.5B fp16 and has no fast fp16 tensor cores. Kaggle T4 = Turing, fp16 tensor cores, 16 GB. Prefer T4 over the Kaggle P100, because newer Kaggle torch builds may drop Pascal.
+- **Reuse:** the local env reuses the already-installed HF stack (`docs/LOCAL_ENVIRONMENT.md`). The requirements are pinned to those versions so Kaggle matches.
 
 ### D-009 Evidence metric conventions
 - Micro over all records; macro over records with non-empty gold; empty-gold records reported separately as abstention accuracy; a secondary "empty = perfect" macro is reported for transparency.

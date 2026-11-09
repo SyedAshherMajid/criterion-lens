@@ -4,6 +4,7 @@ You are the **execution agent** for this repository. The design is already decid
 Your job is to implement it exactly, step by step, following `docs/EXECUTION_PLAN.md`.
 
 ## Read these first (in this order)
+0. `docs/LOCAL_ENVIRONMENT.md` — **the Python env is already built (`.venv`, reusing installed libraries). Do not reinstall torch/transformers/peft/datasets/accelerate/huggingface_hub. Always run Python as `.venv\Scripts\python.exe`.** LaTeX (MiKTeX) is installed locally. The HF token is in `.env` (never print, log or commit it).
 1. `docs/EXECUTION_PLAN.md` — the ordered task list. Work through it phase by phase. Tick boxes (`- [x]`) as you finish steps and commit.
 2. `docs/PLAN.md` — design, interfaces, prompt format, metrics definitions, algorithms. **This is the source of truth for every technical detail.**
 3. `docs/RUBRIC_CHECKLIST.md` — what the grader will look for. Every rubric row must end up with evidence.
@@ -22,7 +23,7 @@ Your job is to implement it exactly, step by step, following `docs/EXECUTION_PLA
 9. Keep the medical disclaimer everywhere the model output is shown: *"Educational research screening prototype — not a clinical enrollment decision."*
 
 ## Coding conventions
-- Python 3.11 (Kaggle and local). Package code lives in `src/criterion_lens/`; runnable entry points live in `scripts/`; the app lives in `app/`.
+- Python 3.10 locally (`.venv`), Kaggle's Python remotely. Code must run on both (no 3.11-only syntax). Package code lives in `src/criterion_lens/`; runnable entry points live in `scripts/`; the app lives in `app/`.
 - Every script takes `--config configs/<file>.yaml` and/or CLI flags, sets seeds, and writes outputs (JSON/CSV) under `results/`. Never print-only.
 - Type hints and docstrings on public functions. Docstrings explain *why*, since the student must defend the code.
 - Tests in `tests/` with `pytest`. Tests that need a GPU or a large download are marked `@pytest.mark.slow`. Fast tests use a **tiny randomly initialised Qwen2 model built from a config** (no download), see `tests/conftest.py` in PLAN §10.
@@ -31,4 +32,4 @@ Your job is to implement it exactly, step by step, following `docs/EXECUTION_PLA
 - Never commit: model weights, `data/raw/`, `.env`, HF tokens. Large files go to the Hugging Face Hub.
 
 ## Where you cannot act
-Some steps must be done by the human (marked **[YOU]** in the plan): running Kaggle GPU notebooks, creating the HF token, recording the video, compiling LaTeX on Overleaf. For those steps, prepare everything (notebook, commands, instructions) and stop with a clear message saying what the human needs to run and which files to bring back.
+Some steps must be done by the human (marked **[YOU]** in the plan): running Kaggle GPU notebooks, adding the HF token to Kaggle Secrets, recording the video. For those steps, prepare everything (notebook, commands, instructions) and stop with a clear message saying what the human needs to run and which files to bring back.
