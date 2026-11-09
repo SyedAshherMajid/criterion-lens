@@ -251,6 +251,7 @@ def predict_criterion(
         invalid_ids_dropped=parsed.invalid_ids_dropped,
         raw_output=parsed.raw_output,
         parse_ok=parsed.parse_ok,
+        invalid_label=parsed.invalid_label,
         fallback_used=fallback_used,
         decoding={
             "mode": decoding,

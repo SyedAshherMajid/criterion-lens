@@ -30,6 +30,7 @@ def _result(
         invalid_ids_dropped=[],
         raw_output="{}",
         parse_ok=True,
+        invalid_label=False,
         fallback_used=False,
         decoding={"mode": "no_cache", "max_new_tokens": 64},
     )

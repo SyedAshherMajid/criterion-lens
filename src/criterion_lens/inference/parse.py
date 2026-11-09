@@ -88,6 +88,10 @@ def parse_output(text: str, criterion_type: str, n_sentences: int) -> ParsedOutp
         if normalized_label in ALLOWED_LABELS[normalized_type]
         else None
     )
+    invalid_label = (
+        normalized_label is not None
+        and normalized_label not in ALLOWED_LABELS[normalized_type]
+    )
     in_range_ids = sorted({value for value in candidate_ids if 0 <= value < n_sentences})
     invalid_ids = sorted({value for value in candidate_ids if value < 0 or value >= n_sentences})
     return ParsedOutput(
@@ -96,4 +100,5 @@ def parse_output(text: str, criterion_type: str, n_sentences: int) -> ParsedOutp
         invalid_ids_dropped=invalid_ids,
         raw_output=text,
         parse_ok=fields_valid and label is not None and not invalid_ids,
+        invalid_label=invalid_label,
     )

@@ -4,8 +4,9 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
-import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from matplotlib.figure import Figure
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
@@ -293,7 +294,9 @@ def save_confusion_matrices(
             ("confusion_matrix_row_normalized", "normalized", ".2f"),
         ):
             matrix = np.asarray(summary[matrix_key])
-            figure, axis = plt.subplots(figsize=(8, 6))
+            figure = Figure(figsize=(8, 6))
+            FigureCanvasAgg(figure)
+            axis = figure.subplots()
             image = axis.imshow(matrix, cmap="Blues", vmin=0)
             figure.colorbar(image, ax=axis)
             axis.set(
@@ -305,7 +308,9 @@ def save_confusion_matrices(
                 ylabel="Gold label",
                 title=f"{view_name.title()} confusion matrix ({suffix})",
             )
-            plt.setp(axis.get_xticklabels(), rotation=35, ha="right")
+            for tick in axis.get_xticklabels():
+                tick.set_rotation(35)
+                tick.set_ha("right")
             for row in range(len(labels)):
                 for column in range(len(labels)):
                     axis.text(
@@ -318,6 +323,6 @@ def save_confusion_matrices(
             figure.tight_layout()
             path = output_dir / f"confusion_{view_name}_{suffix}.png"
             figure.savefig(path, dpi=160)
-            plt.close(figure)
+            figure.clear()
             paths.append(path)
     return paths

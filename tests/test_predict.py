@@ -126,6 +126,17 @@ def test_predict_criterion_preserves_invalid_ids_and_uses_fallback() -> None:
     assert result.fallback_used
 
 
+def test_predict_criterion_reports_invalid_label_diagnostic() -> None:
+    tokenizer = _Tokenizer()
+    tokenizer.generated_text = '{"evidence": [], "label": "made up"}'
+    model = _Model()
+
+    result = _predict(tokenizer, model)
+
+    assert result.invalid_label
+    assert result.fallback_used
+
+
 def test_predict_criterion_accepts_a_custom_decoder() -> None:
     tokenizer = _Tokenizer()
     tokenizer.generated_text = '{"evidence": [], "label": "not enough information"}'

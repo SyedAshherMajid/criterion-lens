@@ -243,6 +243,7 @@ class CriterionResult:
     invalid_ids_dropped: list[int]
     raw_output: str
     parse_ok: bool
+    invalid_label: bool          # an explicit label was present but outside the allowed schema
     fallback_used: bool
     decoding: dict               # mode, max_new_tokens, k (spec), timing stats
 ```

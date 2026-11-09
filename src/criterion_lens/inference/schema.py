@@ -15,6 +15,7 @@ class ParsedOutput:
     invalid_ids_dropped: list[int]
     raw_output: str
     parse_ok: bool
+    invalid_label: bool
 
 
 @dataclass
@@ -33,5 +34,6 @@ class CriterionResult:
     invalid_ids_dropped: list[int]
     raw_output: str
     parse_ok: bool
+    invalid_label: bool
     fallback_used: bool
     decoding: dict[str, Any]

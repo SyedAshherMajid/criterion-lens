@@ -15,6 +15,7 @@ def test_parse_output_reads_json_and_canonicalizes_evidence() -> None:
         invalid_ids_dropped=[],
         raw_output=output,
         parse_ok=True,
+        invalid_label=False,
     )
 
 
@@ -37,6 +38,17 @@ def test_parse_output_drops_and_reports_out_of_range_ids() -> None:
     assert parsed.evidence_ids == [0]
     assert parsed.invalid_ids_dropped == [-1, 4]
     assert not parsed.parse_ok
+
+
+def test_parse_output_marks_explicit_invalid_labels() -> None:
+    parsed = parse_output(
+        '{"evidence": [], "label": "made up"}',
+        "inclusion",
+        n_sentences=1,
+    )
+
+    assert parsed.label is None
+    assert parsed.invalid_label
 
 
 @pytest.mark.parametrize(
@@ -81,6 +93,7 @@ def test_criterion_result_schema_accepts_complete_inference_record() -> None:
         invalid_ids_dropped=[],
         raw_output='{"evidence": [0], "label": "included"}',
         parse_ok=True,
+        invalid_label=False,
         fallback_used=False,
         decoding={"mode": "greedy", "max_new_tokens": 64},
     )
