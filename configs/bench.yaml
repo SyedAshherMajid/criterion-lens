@@ -1,0 +1,23 @@
+device: cuda
+input_lengths: [128, 512, 1024, 2048]
+output_lengths: [32, 128, 256]
+warmup: 2
+repeats: 5
+models:
+  "1.5B":
+    model_name_or_path: Ashher123/criterion-lens-qwen2.5-1.5b-merged
+    dtype: float16
+  "0.5B":
+    model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+    dtype: float16
+  tiny:
+    type: tiny
+    dtype: float32
+    tiny_config:
+      vocab_size: 97
+      hidden_size: 32
+      intermediate_size: 64
+      num_hidden_layers: 2
+      num_attention_heads: 4
+      num_key_value_heads: 2
+      max_position_embeddings: 4096

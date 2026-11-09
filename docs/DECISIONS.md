@@ -105,5 +105,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** The downloaded `results/kaggle/train/criterion-lens-train.log` from version 2 has the same first-cell traceback as version 1.
 - **Consequences:** The retry confirms a Kaggle runtime issue rather than a source regression. No adapter or split evaluation was produced; continue local work and retry only if GPU availability changes.
 
+### D-020 Do not report synthetic KV smoke timings as project benchmarks
+- **Context:** The benchmark CLI and JSON/CSV outputs can be exercised with a tiny random Qwen2 model, but the fine-tuned 1.5B merged model is not available and Kaggle's T4 runtime failed both GPU preflights.
+- **Options:** Save tiny CPU smoke timings as `results/bench/kv_cache.json` and present them as project results, or keep the smoke run isolated and wait for the intended model/hardware.
+- **Decision:** Keep the smoke outputs in a temporary directory, clearly mark benchmark inputs as deterministic synthetic token IDs, and do not claim these timings as model results. Run the full precision/grid benchmark when the target model and hardware are available.
+- **Evidence:** The tiny CPU CLI smoke produced one fp32 parity check with no mismatch; the project test suite (102 passed) and Ruff passed. No fine-tuned model artifacts exist.
+- **Consequences:** Phase 6.4 remains unchecked until the planned benchmark is run; no benchmark metrics are invented.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
