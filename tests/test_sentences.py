@@ -12,6 +12,15 @@ def test_parse_numbered_note_preserves_ids_and_decimal_values() -> None:
     ]
 
 
+def test_parse_numbered_note_ignores_sentence_like_number_in_text() -> None:
+    note = "0. Age was 58. 1. Diagnosis documented."
+
+    assert parse_numbered_note(note) == [
+        (0, "Age was 58."),
+        (1, "Diagnosis documented."),
+    ]
+
+
 def test_parse_numbered_note_rejects_noncontiguous_ids() -> None:
     with pytest.raises(ValueError, match="contiguous from zero"):
         parse_numbered_note("0. First sentence. 2. Skipped sentence.")

@@ -4,7 +4,7 @@ import logging
 import re
 
 LOGGER = logging.getLogger(__name__)
-NUMBERED_SENTENCE = re.compile(r"(?:^|\s)(\d+)\.\s")
+NUMBERED_SENTENCE = re.compile(r"(?<!\S)(\d+)\.\s")
 FALLBACK_BOUNDARY = re.compile(
     r"(?<!Dr\.)(?<!Mr\.)(?<!Mrs\.)(?<!Ms\.)(?<!Prof\.)(?<!St\.)(?<=[.!?])\s+",
     flags=re.IGNORECASE,
@@ -13,26 +13,42 @@ FALLBACK_BOUNDARY = re.compile(
 
 def parse_numbered_note(note: str) -> list[tuple[int, str]]:
     """Parse dataset-style notes and require zero-based contiguous sentence IDs."""
-    matches = list(NUMBERED_SENTENCE.finditer(note))
-    if not matches:
+    candidates = list(NUMBERED_SENTENCE.finditer(note))
+    if not candidates:
         raise ValueError("Note does not contain numbered sentences")
-    if note[: matches[0].start(1)].strip():
+    if note[: candidates[0].start(1)].strip():
         raise ValueError("Unexpected text before the first numbered sentence")
 
-    sentence_ids = [int(match.group(1)) for match in matches]
-    expected_ids = list(range(len(matches)))
-    if sentence_ids != expected_ids:
-        raise ValueError(
-            f"Sentence IDs must be contiguous from zero; received {sentence_ids}"
+    matches = []
+    for index, candidate in enumerate(candidates):
+        body_end = (
+            candidates[index + 1].start(1)
+            if index + 1 < len(candidates)
+            else len(note)
         )
+        sentence_id = int(candidate.group(1))
+        body = note[candidate.end() : body_end].strip()
+        expected_id = len(matches)
+        if sentence_id == expected_id:
+            if not body:
+                raise ValueError(f"Sentence {sentence_id} has no text")
+            matches.append(candidate)
+        elif sentence_id > expected_id and not body:
+            continue
+        else:
+            received_ids = [int(match.group(1)) for match in matches] + [sentence_id]
+            raise ValueError(
+                f"Sentence IDs must be contiguous from zero; received {received_ids}"
+            )
 
     sentences: list[tuple[int, str]] = []
     for index, match in enumerate(matches):
         end = matches[index + 1].start(1) if index + 1 < len(matches) else len(note)
+        sentence_id = int(match.group(1))
         sentence = note[match.end() : end].strip()
         if not sentence:
-            raise ValueError(f"Sentence {sentence_ids[index]} has no text")
-        sentences.append((sentence_ids[index], sentence))
+            raise ValueError(f"Sentence {sentence_id} has no text")
+        sentences.append((sentence_id, sentence))
     return sentences
 
 

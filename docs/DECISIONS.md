@@ -49,5 +49,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `results/model_specs.json`, `docs/MODEL_SELECTION.md`.
 - **Consequences:** Candidate comparisons remain reproducible and do not imply that gated configs were inspected; Qwen3's total count differs from the rounded repo name.
 
+### D-012 Data audit and sequence length
+- **Context:** At dataset revision `1cfcafde94a1560a33b4addc1638664fe28fc059`, 1,015 source rows yielded 1,014 annotations after dropping one empty criterion. The audit found zero label/type inconsistencies, zero out-of-range evidence IDs, and zero numbered-note parse failures.
+- **Options:** Filter or relabel inconsistent rows, or preserve expert annotations; retain the planned 1,536-token sequence length, or size it from observed prompt-plus-target lengths.
+- **Decision:** Keep the expert labels and evidence unchanged because no inconsistencies or invalid IDs were found; retain the loader's explicit empty-criterion drop. Use `max_seq_len=640` for training: the longest chat-formatted prompt plus target and end token is 634 tokens, so 640 is the smallest multiple of eight that covers the observed data.
+- **Evidence:** `results/data_audit.json` reports 1,014 measurable prompt/target lengths, overall mean 338.54, p95 481.35, and maximum 634; the audit also reports empty-evidence rates by label.
+- **Consequences:** The configured sequence length should yield zero truncation on this audited revision; Phase 3.2 must verify the shared tokenization path and preserve the explicit truncation policy.
+
 ---
-<!-- Agent: append D-012+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
+<!-- Agent: append D-013+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

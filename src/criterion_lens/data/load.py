@@ -87,6 +87,7 @@ def load_annotations(revision: str | None = None) -> pd.DataFrame:
         )
     ]
     frame.attrs["dataset_revision"] = dataset_revision
+    frame.attrs["dropped_empty_criterion_count"] = dropped_count
 
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
     frame.to_parquet(CACHE_PATH, index=False)
