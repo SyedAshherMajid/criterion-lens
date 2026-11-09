@@ -140,5 +140,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** Train kernel v2 logs show both T4 preflight success and the PEFT/torchao version error after the dependency-install cell.
 - **Consequences:** Ordinary PEFT LoRA training can use the standard Torch backend; a later kernel failure without CUDA will be explicit and distinct from code/dependency failures.
 
+### D-025 Hugging Face Space requires an account upgrade
+- **Context:** The deploy script attempted to create `Ashher123/criterion-lens` as a Gradio Space on `cpu-basic`.
+- **Options:** Keep the planned CPU-basic Space, choose different hardware/hosting, or leave deployment ready until the account can create the requested Space.
+- **Decision:** Preserve the planned public CPU-basic deployment; do not silently change the target hardware or hosting service.
+- **Evidence:** Hugging Face returned HTTP 402 from `HfApi.create_repo` with the message that free `cpu-basic` Gradio Spaces require a PRO subscription; no Space repository was created and no files were uploaded.
+- **Consequences:** `space/` and `scripts/deploy_space.py` are prepared and tested, but deployment and live-space validation remain blocked until the account has the required subscription.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
