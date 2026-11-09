@@ -14,7 +14,7 @@ GPU work (training, 1.5B evaluation, headline benchmarks) runs on **Kaggle T4 GP
 
 ## How a Kaggle job is run from the laptop
 1. **Ship code as a private Kaggle dataset** (the GitHub repo is private, so Kaggle cannot `git clone` it):
-   `scripts/kaggle/sync_code.py` copies `src/ scripts/ configs/ data/splits/ requirements.txt pyproject.toml` into `build/kaggle_code/`, writes `datasets-metadata.json` (`id: syedashher/criterion-lens-code`, private), then creates the dataset if it is not owned by the account or versions it otherwise. Wait until `kaggle datasets status syedashher/criterion-lens-code` reports ready.
+   `scripts/kaggle/sync_code.py` copies `src/ scripts/ configs/ data/splits/ requirements.txt pyproject.toml` into `build/kaggle_code/`, writes `dataset-metadata.json` (`id: syedashher/criterion-lens-code`, private), then creates the dataset if it is not owned by the account or versions it otherwise. Wait until `kaggle datasets status syedashher/criterion-lens-code` reports ready.
 2. **One folder per job** under `kaggle/jobs/<job>/`, containing `<job>.ipynb` (or `.py`) + `kernel-metadata.json`:
    ```json
    {"id": "syedashher/criterion-lens-<job>", "title": "criterion-lens-<job>",

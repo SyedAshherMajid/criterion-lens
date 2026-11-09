@@ -84,5 +84,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `kaggle kernels list --mine` returned kernels owned by `syedashher`; `kaggle datasets list --mine --page-size 200 --format json` returned three datasets and no CriterionLens entry.
 - **Consequences:** The smoke-kernel status check against `syedashhermajid/criterion-lens-smoketest` is not valid evidence of a queued job or platform outage. Do not query or overwrite resources under that incorrect owner.
 
+### D-017 Kaggle dataset metadata filename
+- **Context:** The installed Kaggle CLI help requested `datasets-metadata.json`, but the first dataset create rejected that filename and explicitly required `dataset-metadata.json`.
+- **Options:** Follow the CLI help text or the server's validation error.
+- **Decision:** Use `dataset-metadata.json`, as required by the dataset API.
+- **Evidence:** The create request failed locally at metadata validation before the dataset was uploaded.
+- **Consequences:** The staging test and workflow docs now use the server-accepted filename.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

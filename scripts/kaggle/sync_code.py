@@ -47,7 +47,7 @@ def _write_metadata(destination: Path) -> None:
         "isPrivate": True,
         "licenses": [{"name": "MIT"}],
     }
-    (destination / "datasets-metadata.json").write_text(
+    (destination / "dataset-metadata.json").write_text(
         json.dumps(metadata, indent=2) + "\n",
         encoding="utf-8",
     )

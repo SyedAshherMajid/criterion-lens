@@ -54,7 +54,7 @@ def test_training_kernel_metadata_uses_private_code_dataset_and_t4_gpu() -> None
 def test_kaggle_dataset_metadata_uses_cli_filename_and_private_id(tmp_path: Path) -> None:
     sync_code._write_metadata(tmp_path)
 
-    metadata_path = tmp_path / "datasets-metadata.json"
+    metadata_path = tmp_path / "dataset-metadata.json"
     assert metadata_path.is_file()
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     assert metadata["id"] == sync_code.DATASET_ID
