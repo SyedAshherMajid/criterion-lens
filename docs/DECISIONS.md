@@ -91,5 +91,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** The create request failed locally at metadata validation before the dataset was uploaded.
 - **Consequences:** The staging test and workflow docs now use the server-accepted filename.
 
+### D-018 Kaggle training kernel received no GPU
+- **Context:** Training kernel version 1 was pushed with `--accelerator NvidiaTeslaT4`, began execution, then failed in the first preflight cell.
+- **Options:** Continue to training without a GPU, weaken the GPU guard, or stop before installing/training and retry when a GPU runtime is available.
+- **Decision:** Preserve the fail-fast GPU check. The downloaded Kaggle log reports `torch.cuda.is_available()` is false; no training or split regeneration ran.
+- **Evidence:** `results/kaggle/train/criterion-lens-train.log` ends with `RuntimeError: A Kaggle GPU runtime is required`.
+- **Consequences:** No adapter or training metrics exist from this run. Retry the kernel after other laptop work; the documented local fallback is tied specifically to a job remaining `QUEUED` for 45 minutes, which this failed job did not do.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
