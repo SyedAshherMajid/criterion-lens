@@ -11,6 +11,9 @@ models:
   1.5B:
     model_name_or_path: Ashher123/criterion-lens-qwen2.5-1.5b-merged
     tokenizer_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+  base_0.5B:
+    model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+    tokenizer_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
   tiny:
     type: tiny
     seed: 42

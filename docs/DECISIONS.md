@@ -126,5 +126,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** The Kaggle owner previously observed was authenticated by the stale system token, while the verified project account and existing private code dataset are `syedashhermajid`.
 - **Consequences:** Other environment variables retain their existing process-over-.env precedence. Never print or log the token; leave queued Kaggle training active while local fallback runs.
 
+### D-023 Discover Kaggle dataset mount paths
+- **Context:** The training kernel successfully received two Tesla T4 GPUs, but Kaggle mounted the attached code dataset at a path other than `/kaggle/input/criterion-lens-code`, so the install cell failed before installing dependencies.
+- **Options:** Assume a fixed Kaggle mount directory or discover the code root from its required project files.
+- **Decision:** Recursively find `requirements.txt` under `/kaggle/input`, require the same directory to contain `pyproject.toml`, print the located path, and fail explicitly if zero or multiple code roots match.
+- **Evidence:** `smoke_result.json` from train kernel version 1 records two Tesla T4 devices and `sm_75`; its log identifies the hard-coded requirements path as the failure.
+- **Consequences:** Kernel retries should proceed through dependency installation independently of Kaggle's dataset slug-to-mount naming.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

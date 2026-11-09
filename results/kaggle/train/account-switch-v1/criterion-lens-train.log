@@ -1,0 +1,62 @@
+[{"stream_name":"stderr","time":6.685645289,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.685686876,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.685692903,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.685696483,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.235992156,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.236020973,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.236024533,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.236027014,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.887171557,"data":"{'devices': ['Tesla T4', 'Tesla T4'], 'torch_architectures': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']}\n"}
+,{"stream_name":"stderr","time":16.837386940000002,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":16.838086666,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":16.838111759,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":16.838118731,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":16.838123007,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":16.838127118,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":16.838130794,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":16.83813452,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":16.838138603,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":16.83814227,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":16.838146166,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":16.838149991999998,"data":"Exception encountered at \"In [2]\":\n"}
+,{"stream_name":"stderr","time":16.838153981,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":16.83815839,"data":"FileNotFoundError                         Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":16.838162675,"data":"/tmp/ipykernel_24/1482341982.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":16.838166985,"data":"      6 INPUT_DIR = Path(\"/kaggle/input/criterion-lens-code\")\n"}
+,{"stream_name":"stderr","time":16.838171066,"data":"      7 CODE_DIR = Path(\"/kaggle/working/code\")\n"}
+,{"stream_name":"stderr","time":16.838175783,"data":"----\u003e 8 requirements = (INPUT_DIR / \"requirements.txt\").read_text(encoding=\"utf-8\").splitlines()\n"}
+,{"stream_name":"stderr","time":16.838180359,"data":"      9 requirements_without_torch = [\n"}
+,{"stream_name":"stderr","time":16.838195159,"data":"     10     line for line in requirements if not line.strip().lower().startswith(\"torch\")\n"}
+,{"stream_name":"stderr","time":16.83819942,"data":"\n"}
+,{"stream_name":"stderr","time":16.838202755,"data":"/usr/lib/python3.13/pathlib/_local.py in read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":16.838207103,"data":"    544         # appropriate stack level.\n"}
+,{"stream_name":"stderr","time":16.838210958,"data":"    545         encoding = io.text_encoding(encoding)\n"}
+,{"stream_name":"stderr","time":16.838214849,"data":"--\u003e 546         return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":16.838219031,"data":"    547 \n"}
+,{"stream_name":"stderr","time":16.838222696,"data":"    548     def write_text(self, data, encoding=None, errors=None, newline=None):\n"}
+,{"stream_name":"stderr","time":16.838226755,"data":"\n"}
+,{"stream_name":"stderr","time":16.838230796,"data":"/usr/lib/python3.13/pathlib/_abc.py in read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":16.838235213,"data":"    630         Open the file in text mode, read it, and close the file.\n"}
+,{"stream_name":"stderr","time":16.83823975,"data":"    631         \"\"\"\n"}
+,{"stream_name":"stderr","time":16.838244936,"data":"--\u003e 632         with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stderr","time":16.83824928,"data":"    633             return f.read()\n"}
+,{"stream_name":"stderr","time":16.838253217,"data":"    634 \n"}
+,{"stream_name":"stderr","time":16.838257478,"data":"\n"}
+,{"stream_name":"stderr","time":16.838260943999998,"data":"/usr/lib/python3.13/pathlib/_local.py in open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":16.838265335,"data":"    535         if \"b\" not in mode:\n"}
+,{"stream_name":"stderr","time":16.838278805,"data":"    536             encoding = io.text_encoding(encoding)\n"}
+,{"stream_name":"stderr","time":16.838282718,"data":"--\u003e 537         return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stderr","time":16.838286794,"data":"    538 \n"}
+,{"stream_name":"stderr","time":16.838290791,"data":"    539     def read_text(self, encoding=None, errors=None, newline=None):\n"}
+,{"stream_name":"stderr","time":16.83829486,"data":"\n"}
+,{"stream_name":"stderr","time":16.838298885,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/input/criterion-lens-code/requirements.txt'\n"}
+,{"stream_name":"stderr","time":16.838303298,"data":"\n"}
+,{"stream_name":"stderr","time":18.94196312,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":18.942006178,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":19.105132365,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":19.105158954,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":19.875045123,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":19.95187807,"data":"[NbConvertApp] Writing 16868 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":22.523080449,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":23.04566451,"data":"[NbConvertApp] Writing 308004 bytes to __results__.html\n"}
+]
