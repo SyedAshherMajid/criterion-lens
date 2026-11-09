@@ -98,5 +98,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `results/kaggle/train/criterion-lens-train.log` ends with `RuntimeError: A Kaggle GPU runtime is required`.
 - **Consequences:** No adapter or training metrics exist from this run. Retry the kernel after other laptop work; the documented local fallback is tied specifically to a job remaining `QUEUED` for 45 minutes, which this failed job did not do.
 
+### D-019 Kaggle GPU preflight failed on retry
+- **Context:** After the first no-CUDA failure, the source dataset was versioned to the latest commit and training kernel version 2 was pushed again with `NvidiaTeslaT4`.
+- **Options:** Remove the GPU preflight and risk CPU training, keep retrying immediately, or preserve the guard and continue the independent laptop lane.
+- **Decision:** Preserve the preflight; the second run failed with the same `torch.cuda.is_available() == False` error before data setup or training.
+- **Evidence:** The downloaded `results/kaggle/train/criterion-lens-train.log` from version 2 has the same first-cell traceback as version 1.
+- **Consequences:** The retry confirms a Kaggle runtime issue rather than a source regression. No adapter or split evaluation was produced; continue local work and retry only if GPU availability changes.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
