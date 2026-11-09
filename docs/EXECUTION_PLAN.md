@@ -35,7 +35,7 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 
 ## Phase 1 — Research notes (P0, ~1 h, can be done any time before Phase 11)
 - [x] **1.1 [COPILOT]** Create `docs/LITERATURE.md`: for each source in PLAN §11, record a verified citation (title, authors, venue, year, URL/DOI), a 2–3 line summary, its **limitation**, and **which design decision it informs**. Minimum 8 verified entries, target 12+. Mark any entry you could not verify and do not cite it.
-- [ ] **1.2 [COPILOT]** Create `docs/MODEL_SELECTION.md` from the PLAN §3.1 table. Fill each number from the model's `config.json` / model card. Write a script `scripts/inspect_models.py` that prints layers, heads, kv heads, head_dim, vocab, context and parameter counts from the configs (no weight download needed: `AutoConfig`) and writes `results/model_specs.json`. Cite it in the report.
+- [x] **1.2 [COPILOT]** Create `docs/MODEL_SELECTION.md` from the PLAN §3.1 table. Fill each number from the model's `config.json` / model card. Write a script `scripts/inspect_models.py` that prints layers, heads, kv heads, head_dim, vocab, context and parameter counts from the configs (no weight download needed: `AutoConfig`) and writes `results/model_specs.json`. Cite it in the report.
 **Accept:** ≥8 verified references, a specs JSON produced by the script.
 
 ## Phase 2 — Data, split, audit (P0)

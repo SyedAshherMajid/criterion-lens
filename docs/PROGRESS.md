@@ -8,3 +8,4 @@
 - 2026-11-09 22:12 +05:00 | 0.4 | Implemented and tested the secret-safe `.env` loader; verified the local file parses without displaying values and remains git-ignored; credentials left untouched | Phase 0.5
 - 2026-11-09 22:13 +05:00 | 0.5 | Retained the existing README skeleton for later result-backed completion; fast tests (4 passed) and Ruff passed | Phase 1.1
 - 2026-11-09 22:20 +05:00 | 1.1 | Added 12 verified sources with summaries, limitations, and design implications; fast tests (4 passed), Ruff, and diff checks passed | Phase 1.2
+- 2026-11-09 22:30 +05:00 | 1.2 | Added config-only model inspection and selection notes; specs JSON has 5 accessible configs and explicitly records 2 unavailable gated configs; tests (5 passed) and Ruff passed | Phase 2.1

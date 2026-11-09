@@ -7,7 +7,7 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 ### D-001 Target model: Qwen2.5-1.5B-Instruct
 - **Options:** Qwen2.5-1.5B-Instruct, SmolLM2-1.7B-Instruct, Llama-3.2-1B-Instruct, Phi-3.5-mini, Gemma-2-2B-it, Qwen3-1.7B.
 - **Decision:** Qwen2.5-1.5B-Instruct (Apache-2.0, ungated, 32k context, GQA 2 KV heads, same-tokenizer 0.5B draft, fits T4 training and free-CPU serving).
-- **Evidence:** `results/model_specs.json`; zero-shot val comparison vs SmolLM2 (`results/eval/val_smollm2_zs/`) — TBD.
+- **Evidence:** inspected config/parameter facts in `results/model_specs.json` and rationale in `docs/MODEL_SELECTION.md`; zero-shot val comparison vs SmolLM2 (`results/eval/val_smollm2_zs/`) — TBD.
 - **Consequences:** a small model means modest absolute accuracy, so fine-tuning matters. The draft/target size ratio (~1:3) limits the speculative speed-up.
 
 ### D-002 Fine-tuning method: LoRA (r=16, all linear layers), not full FT / QLoRA
@@ -42,5 +42,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 ### D-010 App: Gradio on a Hugging Face Space (CPU basic)
 - **Options:** Streamlit, FastAPI + React, Gradio. **Decision:** Gradio. It is the fastest to build, has native Space hosting, and its `gr.File` download and progress bars cover the required features.
 
+### D-011 Candidate inspection and inaccessible configs
+- **Context:** The model-spec run could not read the Llama 3.2 and Gemma 2 configs (`OSError`); the Qwen3-1.7B repo's safetensors metadata reports 2,031,739,904 parameters.
+- **Options:** Fill inaccessible candidate rows from estimates in the plan, omit the candidates, or preserve their unavailable status; treat the Qwen3 repo label as the count or report the retrieved tensor total.
+- **Decision:** Record Llama and Gemma as uninspected with no parameter estimates. Report the retrieved Qwen3 tensor total and retain its repo name as the model identifier.
+- **Evidence:** `results/model_specs.json`, `docs/MODEL_SELECTION.md`.
+- **Consequences:** Candidate comparisons remain reproducible and do not imply that gated configs were inspected; Qwen3's total count differs from the rounded repo name.
+
 ---
-<!-- Agent: append D-011+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
+<!-- Agent: append D-012+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
