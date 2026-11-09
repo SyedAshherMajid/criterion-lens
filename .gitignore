@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+*.token
+
+# Data & models (host weights on the HF Hub)
+data/raw/
+models/
+outputs/
+*.safetensors
+*.bin
+*.pt
+*.gguf
+wandb/
+
+# App runtime
+reports/
+flagged/
+.gradio/
+
+# LaTeX build files
+report/*.aux
+report/*.log
+report/*.out
+report/*.bbl
+report/*.blg
+report/*.synctex.gz
+
+# OS
+.DS_Store
+Thumbs.db
