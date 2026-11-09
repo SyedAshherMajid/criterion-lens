@@ -85,8 +85,8 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 **Accept:** all attention tests pass on CPU; the accuracy CSV has max/mean error per case.
 
 ## Phase 8 — Speculative decoding (P0) — PLAN §9
-- [ ] **8.1 [COPILOT]** `decoding/speculative.py::speculative_greedy(target, draft, input_ids, max_new, k, eos_id) -> SpecResult` implementing the invariant algorithm in PLAN §9.2 with **our own** draft loop, a single target verify forward, accept/reject/correct, and cache crop for both models. `SpecResult`: tokens, iterations, proposed, accepted, accepted-per-iteration list, target_forwards, draft_forwards, timings, peak memory.
-- [ ] **8.2 [COPILOT]** `tests/test_speculative.py` (tiny models, CPU fp32): the 4 unit tests in PLAN §9.3; `tests/test_tokenizers_compatible.py` (slow; real tokenizers).
+- [x] **8.1 [COPILOT]** `decoding/speculative.py::speculative_greedy(target, draft, input_ids, max_new, k, eos_id) -> SpecResult` implementing the invariant algorithm in PLAN §9.2 with **our own** draft loop, a single target verify forward, accept/reject/correct, and cache crop for both models. `SpecResult`: tokens, iterations, proposed, accepted, accepted-per-iteration list, target_forwards, draft_forwards, timings, peak memory.
+- [x] **8.2 [COPILOT]** `tests/test_speculative.py` (tiny models, CPU fp32): the 4 unit tests in PLAN §9.3; `tests/test_tokenizers_compatible.py` (slow; real tokenizers).
 - [ ] **8.3 [COPILOT]** `scripts/bench_speculative.py` (PLAN §9.3 grid) → `results/bench/speculative.json|csv` (+ optional HF `assistant_model` reference row clearly labelled).
 **Accept:** unit tests pass; a CPU run with 0.5B as target and 0.5B as draft gives 100% acceptance and equal tokens (sanity check).
 
