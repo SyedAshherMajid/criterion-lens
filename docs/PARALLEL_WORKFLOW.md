@@ -56,5 +56,12 @@ Likewise, the eval/bench job runs the val evaluations on GPU 0 and the benchmark
 
 **Rule:** the laptop never runs the 1.5B in fp16 on the GPU (it does not fit). Running the 1.5B in CPU fp32 is acceptable for app demos only.
 
+## Fallback if Kaggle stays QUEUED
+On 9 Nov 2026 the T4 smoke test (`syedashhermajid/criterion-lens-smoketest`) sat in `QUEUED` for more than 20 min, so GPU availability is not guaranteed. Rules:
+1. Never block on the queue. Keep doing laptop-lane work.
+2. If the `train` job is still QUEUED after **45 min**, start a **local fallback training of the 0.5B model on the GTX 1060** (fp32 base, LoRA r=16, grad-checkpointing, micro-batch 1, grad-accum 16, max_seq_len from the audit; `configs/train_qwen25_0p5b_local.yaml`). Expect ~1–2 h. Leave the Kaggle job queued, because it trains the 1.5B when a GPU frees up.
+3. If the 1.5B has not trained by **6 h before the deadline**, make the fine-tuned **0.5B the headline model** (it is still a full before/after comparison) and use the base 0.5B as the draft... *no smaller same-tokenizer draft exists*. In that case speculative decoding uses **target = base or fine-tuned Qwen2.5-1.5B on Kaggle/CPU, draft = fine-tuned 0.5B**, and inference-only runs are fine on CPU. Record the change in DECISIONS.md and the report's Limitations section.
+4. The first output of every Kaggle job (`smoke_result.json` or the job's first log lines) confirms the GPU name. Check it once the smoke test leaves the queue.
+
 ## Kaggle quota awareness
 About 30 GPU-hours/week, 12 h max per session. Estimated use: train ~1 h, eval_val ~1 h, bench ~1.5 h, test ~0.5 h. That leaves plenty of room for one retry of each job.
