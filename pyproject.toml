@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "criterion-lens"
+version = "0.1.0"
+description = "Evidence-grounded clinical-trial criterion screening research prototype"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Syed Ashher Majid" }]
+dependencies = [
+    "torch>=2.4",
+    "transformers==4.57.6",
+    "peft==0.19.1",
+    "accelerate==1.14.0",
+    "datasets==5.0.0",
+    "huggingface_hub==0.36.2",
+    "numpy==2.2.6",
+    "pandas==2.3.3",
+    "scikit-learn==1.7.2",
+    "matplotlib==3.10.9",
+    "pyyaml",
+    "tqdm",
+    "jinja2",
+]
+
+[project.optional-dependencies]
+app = ["gradio==5.50.0", "pysbd", "requests", "psutil"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["slow: requires a GPU or a large model download"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
