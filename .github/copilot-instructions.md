@@ -5,6 +5,7 @@ Your job is to implement it exactly, step by step, following `docs/EXECUTION_PLA
 
 ## Read these first (in this order)
 0. `docs/LOCAL_ENVIRONMENT.md` — **the Python env is already built (`.venv`, reusing installed libraries). Do not reinstall torch/transformers/peft/datasets/accelerate/huggingface_hub. Always run Python as `.venv\Scripts\python.exe`.** LaTeX (MiKTeX) is installed locally. The HF token is in `.env` (never print, log or commit it).
+0b. `docs/PARALLEL_WORKFLOW.md` — run GPU jobs on Kaggle **from the laptop via the Kaggle CLI** (`C:\Users\ASUS\.local\bin\kaggle.exe`, token in `.env`) while doing laptop work in parallel. HF username = `Ashher123` (HF repo ids `Ashher123/...`); GitHub = `SyedAshherMajid`; Kaggle = `syedashhermajid`.
 1. `docs/EXECUTION_PLAN.md` — the ordered task list. Work through it phase by phase. Tick boxes (`- [x]`) as you finish steps and commit.
 2. `docs/PLAN.md` — design, interfaces, prompt format, metrics definitions, algorithms. **This is the source of truth for every technical detail.**
 3. `docs/RUBRIC_CHECKLIST.md` — what the grader will look for. Every rubric row must end up with evidence.

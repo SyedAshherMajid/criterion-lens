@@ -181,8 +181,8 @@ Causal-LM cross-entropy on **assistant-response tokens only** (prompt tokens get
 - `max_seq_len` set ≥ max observed length → expected **zero truncation**. If any example still exceeds it: drop **whole sentences from the end of the note** that are not gold evidence (training only), log `{annotation_id, removed_sentence_ids, removed_gold_evidence: bool}` to `results/truncation_log.json`, and never silently cut the target. At inference (app) a note exceeding the budget triggers a visible warning listing which sentence IDs were not seen.
 
 ### 4.5 Artifacts
-- Adapters: HF Hub `SyedAshherMajid/criterion-lens-qwen2.5-1.5b-lora` and `...-0.5b-lora` (README model card with training config, split, metrics).
-- Merged fp16 weights (for app speed, optional): `SyedAshherMajid/criterion-lens-qwen2.5-1.5b-merged`.
+- Adapters: HF Hub `Ashher123/criterion-lens-qwen2.5-1.5b-lora` and `...-0.5b-lora` (README model card with training config, split, metrics).
+- Merged fp16 weights (for app speed, optional): `Ashher123/criterion-lens-qwen2.5-1.5b-merged`.
 - `scripts/download_weights.py` → `snapshot_download` into `models/`. README documents it.
 
 ---

@@ -8,19 +8,19 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 - **P1** = adds strong evidence (ablations, integration demos). Do these only after all P0 steps work.
 - **P2** = stretch. Skip if behind schedule.
 
-Run CPU work (Phases 3–8 code + tests) **in parallel** with GPU jobs on Kaggle (Phases 4, 5, 9). The GPU is the bottleneck, so start training as early as possible.
+**Work runs in two parallel lanes. Read `docs/PARALLEL_WORKFLOW.md` first.** The Kaggle GPU lane (training, 1.5B evaluation, T4 benchmarks) is launched and collected **from the laptop by [COPILOT] using the Kaggle CLI** (token already in `.env`, verified). The laptop lane (GTX 1060 + CPU) does coding, tests, 0.5B runs, attention benchmarks, the app and the report at the same time. The Kaggle steps below that say **[YOU]** are now done by **[COPILOT]** through the CLI. The only exception: if Kaggle assigns an unsupported GPU, the student switches the accelerator to T4 x2 once on kaggle.com. Weights are pushed to the HF Hub from the laptop, so **no Kaggle Secrets are needed**.
 
-## Suggested timeline (≈ 26 working hours)
-| Block | Hours | Work |
+## Suggested timeline (≈ 22 working hours with both lanes)
+| Hours | Kaggle lane (GPU T4 x2) | Laptop lane (GTX 1060 + CPU) |
 |---|---|---|
-| A | 0–2 | Phase 0–2: repo, environment, data, split, audit |
-| B | 2–4 | Phase 3: prompts and training script, then launch Kaggle training **[YOU]** |
-| C | 4–10 | (GPU trains) Phases 6, 7, 8: KV cache, tiled attention and speculative decoding code, with tiny-model tests on CPU |
-| D | 10–13 | Phase 5: evaluation pipeline; Kaggle run of val eval + benchmarks **[YOU]** |
-| E | 13–18 | Phase 10: app, then deploy the Space |
-| F | 18–19 | Phase 9: **final test evaluation, once** + error analysis |
-| G | 19–24 | Phase 11: IEEE report (Overleaf), figures |
-| H | 24–26 | Phase 12: video, README polish, submission |
+| 0–2 | — | Phase 0–2: package, data, split, audit; Phase 3 code; `sync_code.py` |
+| 2–3 | **push `train`**: 1.5B on GPU0 ∥ 0.5B on GPU1 | Phase 6–8 code with tiny-model tests |
+| 3–6 | train → **push `eval_val`** | Phase 5 metrics + pipeline; base-0.5B val smoke eval on the GTX 1060; Phase 7 attention tests + local bench |
+| 6–9 | **push `bench`** (KV, speculative, attention on T4) | push adapters/merged models to HF; Phase 10 app |
+| 9–12 | (idle / P1 `sweep`) | app finished; deploy the Space; Phase 9.3 figures |
+| 12–13 | **freeze → push `eval_test_final` (once)** | error-analysis tooling |
+| 13–19 | — | Phase 9.2 error analysis; Phase 11 report (local MiKTeX) |
+| 19–22 | — | Phase 12 video **[YOU]**, README, submission |
 
 ---
 
@@ -29,7 +29,7 @@ Run CPU work (Phases 3–8 code + tests) **in parallel** with GPU jobs on Kaggle
 - [ ] **0.1 [COPILOT]** The repo `criterion-lens` already exists with `docs/` and `.github/copilot-instructions.md`. Create the layout from PLAN §12 (empty `__init__.py` files, folders with `.gitkeep`), `.gitignore` (Python, `data/raw/`, `models/`, `outputs/`, `*.safetensors`, `*.bin`, `.env`, `wandb/`, `report/*.aux|log|out`), `.gitattributes` (`* text=auto`), `LICENSE` (MIT, author "Syed Ashher Majid").
 - [ ] **0.2 [COPILOT]** `pyproject.toml` (package `criterion_lens` in `src/`, Python `>=3.10`, pytest config with marker `slow`, ruff). Pin `requirements.txt` to the versions **already installed** (see `docs/LOCAL_ENVIRONMENT.md`): `transformers==4.57.6`, `peft==0.19.1`, `accelerate==1.14.0`, `datasets==5.0.0`, `huggingface_hub==0.36.2`, `numpy==2.2.6`, `pandas==2.3.3`, `scikit-learn==1.7.2`, `matplotlib==3.10.9`, `pyyaml`, `tqdm`, `jinja2`, `pytest`; `torch>=2.4` left unpinned (local = 2.6.0+cu124, Kaggle uses its preinstalled one). `requirements-app.txt`: `-r requirements.txt` + `gradio==5.50.0`, `pysbd`, `requests`, `psutil`. On Kaggle, install only `-r requirements.txt` (never reinstall torch).
 - [x] **0.3 [DONE by Claude]** The local env is **already built**: `criterion-lens/.venv` (Python 3.10.11) reuses the ML stack from `D:\Nastp_Project\venv` via a `.pth` file, and gradio/matplotlib/pytest/pysbd were added. **Do not reinstall anything.** Read `docs/LOCAL_ENVIRONMENT.md` for the rules. [COPILOT] only runs `.venv\Scripts\python.exe -m pip install -e . --no-deps` after creating `pyproject.toml`.
-- [ ] **0.4 [YOU]** Paste your Hugging Face **write** token into `criterion-lens/.env` (`HF_TOKEN=hf_...`; the file already exists and is git-ignored). Add the same token on Kaggle as secret `HF_TOKEN` (Add-ons → Secrets). [COPILOT] writes `src/criterion_lens/utils/env.py::load_env()` (a tiny `.env` parser with no extra dependency; it never logs the value). All scripts call it, and `huggingface_hub` picks up `HF_TOKEN` from the environment. **Never commit or print the token.**
+- [ ] **0.4 [YOU]** `.env` already holds `HF_TOKEN`, `HF_USERNAME=Ashher123`, `KAGGLE_API_TOKEN` and `KAGGLE_USERNAME`. **The HF token is currently READ-only (verified via whoami), so replace it with a WRITE token**, which is needed to upload adapters and the Space. Kaggle Secrets are not needed (see PARALLEL_WORKFLOW.md). [COPILOT] writes `src/criterion_lens/utils/env.py::load_env()` (a tiny `.env` parser with no extra dependency; it never logs the value). All scripts call it, and `huggingface_hub` picks up `HF_TOKEN` from the environment. **Never commit or print the token.**
 - [ ] **0.5 [COPILOT]** `README.md` skeleton (keep the existing one and fill sections as phases complete).
 **Accept:** `pytest -q` runs (0 tests OK), `python -c "import criterion_lens"` works, first commit pushed.
 
@@ -52,7 +52,7 @@ Run CPU work (Phases 3–8 code + tests) **in parallel** with GPU jobs on Kaggle
 - [ ] **3.3 [COPILOT]** `inference/parse.py` (`parse_output(text, criterion_type, n_sentences) -> ParsedOutput`), `inference/schema.py` (PLAN §6.1). Tests on malformed outputs.
 - [ ] **3.4 [COPILOT]** `training/sft.py` + `scripts/train.py --config configs/train_qwen25_1p5b.yaml`: load model (fp16 or fp32 via config), PEFT LoRA (PLAN §4.3), HF `Trainer` (eval on val loss each epoch, save each epoch, `logging_steps=5`, `report_to="none"`), grad clipping 1.0, seed 42. Saves `log_history.json`, `train_config.json`, the trainable-params count, adapters → `outputs/<run_name>/`. A `--max_steps 5 --model <tiny>` smoke mode for CPU.
 - [ ] **3.5 [COPILOT]** `configs/train_qwen25_0p5b.yaml` (same recipe, draft model).
-- [ ] **3.6 [COPILOT]** `notebooks/01_kaggle_train.ipynb` (thin): first cell loads the token as `try: from kaggle_secrets import UserSecretsClient; os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")` `except Exception: load_env()` (local `.env` fallback), and never prints it; `git clone` the repo (public, or pass a token if private); `pip install -r requirements.txt` (keep Kaggle's torch); `python scripts/make_split.py`; `python scripts/train.py --config configs/train_qwen25_1p5b.yaml`; then the 0.5B config; `python scripts/push_to_hub.py --run outputs/... --repo SyedAshherMajid/criterion-lens-qwen2.5-1.5b-lora`; zip `outputs/*/log_history.json` for download. Also `scripts/push_to_hub.py` (writes a model card README with config + split + metrics placeholders).
+- [ ] **3.6 [COPILOT]** `notebooks/01_kaggle_train.ipynb` (thin): first cell loads the token as `try: from kaggle_secrets import UserSecretsClient; os.environ["HF_TOKEN"] = UserSecretsClient().get_secret("HF_TOKEN")` `except Exception: load_env()` (local `.env` fallback), and never prints it; `git clone` the repo (public, or pass a token if private); `pip install -r requirements.txt` (keep Kaggle's torch); `python scripts/make_split.py`; `python scripts/train.py --config configs/train_qwen25_1p5b.yaml`; then the 0.5B config; `python scripts/push_to_hub.py --run outputs/... --repo Ashher123/criterion-lens-qwen2.5-1.5b-lora`; zip `outputs/*/log_history.json` for download. Also `scripts/push_to_hub.py` (writes a model card README with config + split + metrics placeholders).
 - [ ] **3.7 [YOU]** On Kaggle: New Notebook → upload/import `01_kaggle_train.ipynb` → Settings: **Accelerator GPU T4 x2**, Internet ON → add secret `HF_TOKEN` → Run All. Expected ≈ 30–60 min for 1.5B, 3 epochs, ~700 examples. Download `log_history.json` files and copy them into `results/train/<run>/`. If loss is NaN, set `torch_dtype: float32` in the config and rerun (log this in DECISIONS.md).
 **Accept:** adapters for both models on the HF Hub; training logs in `results/train/`.
 
@@ -101,8 +101,8 @@ Run CPU work (Phases 3–8 code + tests) **in parallel** with GPU jobs on Kaggle
 - [ ] **10.3 [COPILOT]** `report/export.py` + Jinja template → HTML / JSON / Markdown with provenance and disclaimer (PLAN §10.1).
 - [ ] **10.4 [COPILOT]** `app/` Gradio Blocks with the 5 tabs from PLAN §10.1, the validation/error handling from §10.2, a disclaimer banner on top of every tab, and `app/examples/` with 3 **synthetic** patient notes + criteria written for the demo (not dataset test patients). `python -m app` starts it.
 - [ ] **10.5 [COPILOT]** `tests/test_app_smoke.py`: import the app, run the screening function with the tiny model on an example, assert the report exports; and invalid inputs return friendly errors.
-- [ ] **10.6 [COPILOT]** `space/` deployment files + `scripts/deploy_space.py` (uses `huggingface_hub.HfApi().upload_folder` to `SyedAshherMajid/criterion-lens` Space, SDK gradio, hardware cpu-basic).
-- [ ] **10.7 [YOU]** Run locally (`.venv\Scripts\python.exe -m app`, which uses the GTX 1060 for the 0.5B model and the CPU for 1.5B), screen 2 examples, export reports, try invalid inputs. Then deploy the Space: `.venv\Scripts\python.exe scripts\deploy_space.py`, which uploads `space/` to huggingface.co/spaces/SyedAshherMajid/criterion-lens using the `.env` token. HF builds it and gives a public URL in ~5 min. Check it from an incognito browser. Take screenshots (each tab, results, report, error message) → `report/figures/screens/`.
+- [ ] **10.6 [COPILOT]** `space/` deployment files + `scripts/deploy_space.py` (uses `huggingface_hub.HfApi().upload_folder` to `Ashher123/criterion-lens` Space, SDK gradio, hardware cpu-basic).
+- [ ] **10.7 [YOU]** Run locally (`.venv\Scripts\python.exe -m app`, which uses the GTX 1060 for the 0.5B model and the CPU for 1.5B), screen 2 examples, export reports, try invalid inputs. Then deploy the Space: `.venv\Scripts\python.exe scripts\deploy_space.py`, which uploads `space/` to huggingface.co/spaces/Ashher123/criterion-lens using the `.env` token. HF builds it and gives a public URL in ~5 min. Check it from an incognito browser. Take screenshots (each tab, results, report, error message) → `report/figures/screens/`.
 **Accept:** the Space URL works with no code execution; the exported report contains provenance + disclaimer.
 
 ## Phase 11 — IEEE report (P0) — see `docs/REPORT_OUTLINE.md`
