@@ -98,7 +98,7 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 ## Phase 10 — Application (P0) — PLAN §10
 - [x] **10.1 [COPILOT]** `modeling/load_model.py` (load merged or base+adapter; device/dtype from env; lazy singleton cache; draft loader).
 - [x] **10.2 [COPILOT]** `trials/criteria_parser.py` (+ tests on 3 real-style criteria texts) and `trials/ctgov.py` (API v2 fetch, timeout 10 s, errors → typed exceptions).
-- [ ] **10.3 [COPILOT]** `report/export.py` + Jinja template → HTML / JSON / Markdown with provenance and disclaimer (PLAN §10.1).
+- [x] **10.3 [COPILOT]** `report/export.py` + Jinja template → HTML / JSON / Markdown with provenance and disclaimer (PLAN §10.1).
 - [ ] **10.4 [COPILOT]** `app/` Gradio Blocks with the 5 tabs from PLAN §10.1, the validation/error handling from §10.2, a disclaimer banner on top of every tab, and `app/examples/` with 3 **synthetic** patient notes + criteria written for the demo (not dataset test patients). `python -m app` starts it.
 - [ ] **10.5 [COPILOT]** `tests/test_app_smoke.py`: import the app, run the screening function with the tiny model on an example, assert the report exports; and invalid inputs return friendly errors.
 - [ ] **10.6 [COPILOT]** `space/` deployment files + `scripts/deploy_space.py` (uses `huggingface_hub.HfApi().upload_folder` to `Ashher123/criterion-lens` Space, SDK gradio, hardware cpu-basic).

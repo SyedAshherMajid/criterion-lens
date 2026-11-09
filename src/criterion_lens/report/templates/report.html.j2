@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CriterionLens Screening Summary</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 56rem; padding: 0 1rem; color: #17212b; }
+    header, section { border-bottom: 1px solid #d5dde5; padding: 1rem 0; }
+    .verdict { background: #eef4f8; border-left: 4px solid #27617e; padding: 1rem; }
+    .disclaimer { color: #5c3540; font-weight: 600; }
+    code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CriterionLens Screening Summary</h1>
+    <p class="verdict"><strong>Preliminary outcome:</strong> {{ report.aggregation.verdict }}</p>
+    <p>{{ report.aggregation.interpretation }}</p>
+    <p>Generated (UTC): {{ report.created_at_utc }}</p>
+    <p>Patient note SHA-256: <code>{{ report.patient_note_sha256 }}</code></p>
+    <p>Criteria SHA-256: <code>{{ report.criteria_sha256 }}</code></p>
+  </header>
+  <main>
+    <section>
+      <h2>Criterion results</h2>
+      {% for result in report.criteria %}
+      <article>
+        <h3>{{ result.criterion_type|title }}: {{ result.criterion_text }}</h3>
+        <p><strong>Label:</strong> {{ result.label }}</p>
+        <p><strong>Evidence sentence IDs:</strong> {{ result.evidence_ids|join(", ") if result.evidence_ids else "None" }}</p>
+        <p><strong>Evidence:</strong> {{ result.evidence_text|join(" ") }}</p>
+        <p><strong>Explanation:</strong> {{ result.explanation }}</p>
+        {% if result.missing_information %}<p>Missing information flagged.</p>{% endif %}
+        {% if result.unsupported_decision %}<p>Unsupported decision flagged.</p>{% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    <section>
+      <h2>Provenance</h2>
+      <pre>{{ report.provenance|tojson(indent=2) }}</pre>
+    </section>
+    <section>
+      <h2>Disclaimer</h2>
+      <p class="disclaimer">{{ report.disclaimer }}</p>
+    </section>
+  </main>
+</body>
+</html>
