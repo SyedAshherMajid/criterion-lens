@@ -56,5 +56,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `results/data_audit.json` reports 1,014 measurable prompt/target lengths, overall mean 338.54, p95 481.35, and maximum 634; the audit also reports empty-evidence rates by label.
 - **Consequences:** Phase 3.2 verified all 602 training examples fit within 640 tokens with a maximum of 634 and zero truncations. The shared tokenization helper preserves the target and gold evidence and records any removed sentence IDs.
 
+### D-013 Model-output parsing
+- **Context:** Generated responses may contain extra prose, malformed JSON, labels incompatible with the criterion type, or evidence IDs outside the note.
+- **Options:** Reject any non-JSON output or attempt a constrained regex recovery; silently accept bad fields or preserve a failed-parse state for constrained label fallback.
+- **Decision:** Parse the first JSON object, then try regex recovery when its structure is unusable. Normalize and validate the label, sort/deduplicate in-range evidence, record out-of-range IDs, and set `parse_ok=False` whenever validation fails.
+- **Evidence:** `tests/test_parse.py` covers fenced JSON, malformed-JSON recovery, type-incompatible labels, malformed evidence, invalid IDs, and parser arguments.
+- **Consequences:** A recovered label/evidence pair can be used without hiding malformed output; failed validation remains explicit for the later fallback path.
+
 ---
-<!-- Agent: append D-013+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
+<!-- Agent: append D-014+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
