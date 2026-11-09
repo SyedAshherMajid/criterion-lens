@@ -120,11 +120,11 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Consequences:** Backend availability is hardware-specific; the local GTX result is not a T4 performance result. Phase 7.3 remains unchecked until the full benchmark outputs are run and reviewed.
 
 ### D-022 Kaggle credentials and training fallback
-- **Context:** A machine-level `KAGGLE_API_TOKEN` can silently select a different Kaggle account than the project `.env`; the previous 45-minute queued-only fallback also does not address immediate no-GPU errors under the current deadline.
-- **Options:** Trust inherited process credentials and wait for queued kernels, or prioritize `.env` Kaggle credentials and start laptop fallback on a no-GPU error or 20-minute queue.
-- **Decision:** Override process values from `.env` for `KAGGLE_API_TOKEN` and `KAGGLE_USERNAME` only. Launch training as `syedashhermajid/criterion-lens-train`; start local 0.5B training on GTX 1060 immediately on a no-GPU `ERROR` or after 20 minutes QUEUED.
+- **Context:** A machine-level `KAGGLE_API_TOKEN` can silently select a different Kaggle account than the project `.env`; the previous 45-minute queued-only fallback also does not address a confirmed no-GPU error under the current deadline.
+- **Options:** Trust inherited process credentials and wait for queued kernels, or prioritize `.env` Kaggle credentials and start laptop fallback only when a retry confirms no GPU was allocated.
+- **Decision:** Override process values from `.env` for `KAGGLE_API_TOKEN` and `KAGGLE_USERNAME` only. Launch training as `syedashhermajid/criterion-lens-train`; use local 0.5B training only for a no-GPU preflight error or a 20-minute queue with no GPU allocation, never for a code/path/dependency failure when T4 is allocated.
 - **Evidence:** The Kaggle owner previously observed was authenticated by the stale system token, while the verified project account and existing private code dataset are `syedashhermajid`.
-- **Consequences:** Other environment variables retain their existing process-over-.env precedence. Never print or log the token; leave queued Kaggle training active while local fallback runs.
+- **Consequences:** Other environment variables retain their existing process-over-.env precedence. Never print or log the token; leave queued Kaggle training active while any eligible local fallback runs.
 
 ### D-023 Discover Kaggle dataset mount paths
 - **Context:** The training kernel successfully received two Tesla T4 GPUs, but Kaggle mounted the attached code dataset at a path other than `/kaggle/input/criterion-lens-code`, so the install cell failed before installing dependencies.
@@ -132,6 +132,13 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Decision:** Recursively find `requirements.txt` under `/kaggle/input`, require the same directory to contain `pyproject.toml`, print the located path, and fail explicitly if zero or multiple code roots match.
 - **Evidence:** `smoke_result.json` from train kernel version 1 records two Tesla T4 devices and `sm_75`; its log identifies the hard-coded requirements path as the failure.
 - **Consequences:** Kernel retries should proceed through dependency installation independently of Kaggle's dataset slug-to-mount naming.
+
+### D-024 Handle Kaggle's incompatible optional torchao package
+- **Context:** The corrected train kernel found the dataset and passed dependency installation, but PEFT 0.19.1 failed while inspecting Kaggle's preinstalled `torchao==0.10.0`; PEFT supports only versions above 0.16.0.
+- **Options:** Upgrade Torch or torchao in the Kaggle environment, bypass PEFT's dispatcher, or remove only the incompatible optional torchao package.
+- **Decision:** Preserve Kaggle's preinstalled Torch and Transformers; uninstall torchao only when its installed version is at most 0.16.0. Also make full training fail fast when CUDA is unavailable, reserving CPU for explicit smoke tests.
+- **Evidence:** Train kernel v2 logs show both T4 preflight success and the PEFT/torchao version error after the dependency-install cell.
+- **Consequences:** Ordinary PEFT LoRA training can use the standard Torch backend; a later kernel failure without CUDA will be explicit and distinct from code/dependency failures.
 
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

@@ -1,0 +1,15 @@
+{
+  "devices": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "architectures": [
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120"
+  ],
+  "torch": "2.11.0+cu130"
+}

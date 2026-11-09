@@ -2,10 +2,12 @@ import ast
 import contextlib
 import io
 import json
+from importlib.metadata import PackageNotFoundError
 from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+from packaging.version import Version
 
 from scripts.kaggle import sync_code
 
@@ -34,6 +36,8 @@ def test_training_notebooks_are_valid_identical_and_secret_free() -> None:
     assert "requirements_without_torch" in combined_source
     assert 'input_root.glob("**/requirements.txt")' in combined_source
     assert "/kaggle/input/criterion-lens-code" not in combined_source
+    assert "uninstall" in combined_source
+    assert "\"torchao\"" in combined_source
     assert "HF_TOKEN" not in combined_source
     assert "kaggle_secrets" not in combined_source
 
@@ -72,6 +76,42 @@ def test_training_notebook_finds_dataset_at_nested_mount_path(tmp_path: Path) ->
 
     assert found == dataset_root
     assert str(dataset_root / "requirements.txt") in output.getvalue()
+
+
+def test_training_notebook_removes_only_incompatible_optional_torchao() -> None:
+    notebook = json.loads(
+        (PROJECT_ROOT / "notebooks" / "01_kaggle_train.ipynb").read_text(
+            encoding="utf-8"
+        )
+    )
+    cell = next(cell for cell in notebook["cells"] if cell["id"] == "install-code")
+    tree = ast.parse("".join(cell["source"]))
+    function = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "remove_incompatible_optional_torchao"
+    )
+    calls = []
+    namespace = {
+        "PackageNotFoundError": PackageNotFoundError,
+        "Version": Version,
+        "version": lambda package: "0.10.0",
+        "subprocess": SimpleNamespace(
+            run=lambda command, *, check: calls.append((command, check))
+        ),
+        "sys": SimpleNamespace(executable="python"),
+    }
+    exec(
+        compile(ast.Module(body=[function], type_ignores=[]), "<notebook-test>", "exec"),
+        namespace,
+    )
+
+    namespace["remove_incompatible_optional_torchao"]()
+
+    assert calls == [
+        (["python", "-m", "pip", "uninstall", "-y", "torchao"], True)
+    ]
 
 
 def test_training_notebook_requires_unique_code_dataset_root(tmp_path: Path) -> None:

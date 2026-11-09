@@ -119,6 +119,8 @@ def run_training(
 ) -> Path:
     """Train a LoRA adapter on train patients and evaluate loss on validation only."""
     load_env()
+    if not torch.cuda.is_available() and max_steps is None:
+        raise RuntimeError("A CUDA GPU is required for full training; CPU is for smoke tests only")
     config = load_training_config(config_path)
     set_seed(int(config["seed"]))
     model_name = model_override or str(config["model_name_or_path"])

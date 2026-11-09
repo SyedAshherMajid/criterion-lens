@@ -2,7 +2,11 @@ from pathlib import Path
 
 import pytest
 
-from criterion_lens.training.sft import build_training_arguments, load_training_config
+from criterion_lens.training.sft import (
+    build_training_arguments,
+    load_training_config,
+    run_training,
+)
 
 
 def _config() -> dict[str, object]:
@@ -50,6 +54,13 @@ def test_training_arguments_match_recipe_and_cpu_smoke() -> None:
 def test_training_arguments_reject_nonpositive_smoke_steps() -> None:
     with pytest.raises(ValueError, match="must be positive"):
         build_training_arguments(_config(), Path("outputs/smoke"), max_steps=0)
+
+
+def test_full_training_fails_fast_without_cuda(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setattr("criterion_lens.training.sft.torch.cuda.is_available", lambda: False)
+
+    with pytest.raises(RuntimeError, match="CUDA GPU is required for full training"):
+        run_training(tmp_path / "unused.yaml")
 
 
 def test_full_training_arguments_evaluate_and_save_each_epoch() -> None:
