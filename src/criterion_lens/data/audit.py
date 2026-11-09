@@ -7,6 +7,7 @@ import pandas as pd
 
 from criterion_lens.data.prompts import ALLOWED_LABELS, build_messages, format_target
 from criterion_lens.data.sentences import parse_numbered_note
+from criterion_lens.data.tokenize import _encode_messages_and_target
 
 
 def _counts(values: pd.Series) -> dict[str, int]:
@@ -135,9 +136,6 @@ def audit_annotations(
         len(tokenizer.encode(text, add_special_tokens=False))
         for text in audit_frame["criterion_text"].astype(str)
     ]
-    end_token_id = tokenizer.convert_tokens_to_ids("<|im_end|>")
-    if end_token_id is None or end_token_id == tokenizer.unk_token_id:
-        raise ValueError("Tokenizer does not recognize the <|im_end|> token")
     prompt_target_lengths: list[dict[str, Any]] = []
     allowed_labels = {
         label for labels in ALLOWED_LABELS.values() for label in labels
@@ -156,17 +154,15 @@ def audit_annotations(
         messages = build_messages(
             sentences, row.criterion_type, row.criterion_text
         )
-        prompt_ids = tokenizer.apply_chat_template(
-            messages, tokenize=True, add_generation_prompt=True
-        )
-        target_ids = tokenizer.encode(
+        prompt_ids, response_ids = _encode_messages_and_target(
+            tokenizer,
+            messages,
             format_target(row.expert_sentences, row.expert_eligibility),
-            add_special_tokens=False,
         )
         prompt_target_lengths.append(
             {
                 "split": row.split,
-                "tokens": len(prompt_ids) + len(target_ids) + 1,
+                "tokens": len(prompt_ids) + len(response_ids),
             }
         )
     prompt_target_by_split = {

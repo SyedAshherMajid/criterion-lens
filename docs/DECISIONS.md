@@ -54,7 +54,7 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Options:** Filter or relabel inconsistent rows, or preserve expert annotations; retain the planned 1,536-token sequence length, or size it from observed prompt-plus-target lengths.
 - **Decision:** Keep the expert labels and evidence unchanged because no inconsistencies or invalid IDs were found; retain the loader's explicit empty-criterion drop. Use `max_seq_len=640` for training: the longest chat-formatted prompt plus target and end token is 634 tokens, so 640 is the smallest multiple of eight that covers the observed data.
 - **Evidence:** `results/data_audit.json` reports 1,014 measurable prompt/target lengths, overall mean 338.54, p95 481.35, and maximum 634; the audit also reports empty-evidence rates by label.
-- **Consequences:** The configured sequence length should yield zero truncation on this audited revision; Phase 3.2 must verify the shared tokenization path and preserve the explicit truncation policy.
+- **Consequences:** Phase 3.2 verified all 602 training examples fit within 640 tokens with a maximum of 634 and zero truncations. The shared tokenization helper preserves the target and gold evidence and records any removed sentence IDs.
 
 ---
 <!-- Agent: append D-013+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
