@@ -1,0 +1,16 @@
+{
+  "id": "syedashhermajid/criterion-lens-eval-bench",
+  "title": "criterion-lens-eval-bench",
+  "code_file": "02_kaggle_eval_bench.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "syedashhermajid/criterion-lens-code"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

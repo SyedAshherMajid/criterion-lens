@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Synthetic oncology screening",
+    "note": "0. The patient is 52 years old.\n1. Biopsy confirmed stage III lung cancer.\n2. The patient has no history of autoimmune disease.",
+    "criteria": "Inclusion Criteria:\n- Adults aged 18 years or older.\n- Histologically confirmed stage III or IV lung cancer.\nExclusion Criteria:\n- Active autoimmune disease requiring systemic treatment."
+  },
+  {
+    "name": "Synthetic cardiology screening",
+    "note": "0. The patient is 67 years old.\n1. Echocardiography shows a left ventricular ejection fraction of 30%.\n2. Current medications include an ACE inhibitor.",
+    "criteria": "Inclusion Criteria:\n- Age 18 years or older.\n- Left ventricular ejection fraction at or below 35%.\nExclusion Criteria:\n- Known intolerance to ACE inhibitors."
+  },
+  {
+    "name": "Synthetic diabetes screening",
+    "note": "0. The patient is 44 years old.\n1. Type 2 diabetes was diagnosed six years ago.\n2. The latest HbA1c is 8.1%.\n3. No history of pancreatitis is documented.",
+    "criteria": "Inclusion Criteria:\n- Adults with type 2 diabetes for at least one year.\n- HbA1c between 7.0% and 10.0%.\nExclusion Criteria:\n- History of pancreatitis."
+  }
+]

@@ -24,7 +24,9 @@ build/.criterionlens-kaggle-stage-syedashhermajid
 *.bin
 *.pt
 *.gguf
+*.zip
 wandb/
+results/kaggle/**/out/
 
 # App runtime
 reports/

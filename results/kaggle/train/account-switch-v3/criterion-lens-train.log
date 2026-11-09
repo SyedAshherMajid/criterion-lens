@@ -1,0 +1,111 @@
+[{"stream_name":"stderr","time":8.285531536,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.285604858,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.285611475,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.285615457,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.902302173,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.90233842,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.902342063,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.902344572,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.70315694,"data":"{'devices': ['Tesla T4', 'Tesla T4'], 'torch_architectures': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']}\n"}
+,{"stream_name":"stdout","time":22.267219917,"data":"Found Kaggle code dataset requirements: /kaggle/input/datasets/syedashhermajid/criterion-lens-code/requirements.txt\n"}
+,{"stream_name":"stderr","time":67.770985655,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":67.771014555,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":67.771020227,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771025126,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771029566,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771034069,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771038533,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771043025,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771047558,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.771056147,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980182873,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":67.980210104,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":67.980217786,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980224223,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980241274,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980246479,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980251052,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980255601,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980260735,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980265496,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980269752,"data":"\n"}
+,{"stream_name":"stderr","time":67.98027361,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":67.980277953,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":67.980282098,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980286239,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.98029043,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980294554,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980298741,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980302989,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980308562,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":67.980312831,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":68.308957858,"data":"Removing incompatible optional torchao 0.10.0; Torch remains untouched\n"}
+,{"stream_name":"stdout","time":68.461115136,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":68.486023252,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":68.663440494,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":68.663462863,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":69.002789661,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":69.205101271,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":75.124519866,"data":"Obtaining file:///kaggle/working/code\n"}
+,{"stream_name":"stdout","time":75.126754921,"data":"  Installing build dependencies: started\n"}
+,{"stream_name":"stdout","time":75.327303074,"data":"Obtaining file:///kaggle/working/code\n"}
+,{"stream_name":"stdout","time":75.327338,"data":"  Installing build dependencies: started\n"}
+,{"stream_name":"stdout","time":77.553832401,"data":"  Installing build dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":77.554628358,"data":"  Checking if build backend supports build_editable: started\n"}
+,{"stream_name":"stdout","time":77.756379326,"data":"  Installing build dependencies: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":77.756407322,"data":"  Checking if build backend supports build_editable: started\n"}
+,{"stream_name":"stdout","time":77.866581265,"data":"  Checking if build backend supports build_editable: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":77.867791535,"data":"  Getting requirements to build editable: started\n"}
+,{"stream_name":"stdout","time":78.069422578,"data":"  Checking if build backend supports build_editable: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.069443538,"data":"  Getting requirements to build editable: started\n"}
+,{"stream_name":"stdout","time":78.235854597,"data":"  Getting requirements to build editable: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.237054802,"data":"  Preparing editable metadata (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":78.438283039,"data":"  Getting requirements to build editable: finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.438311954,"data":"  Preparing editable metadata (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":78.464202825,"data":"  Preparing editable metadata (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.502216483,"data":"Building wheels for collected packages: criterion-lens\n"}
+,{"stream_name":"stdout","time":78.503296378,"data":"  Building editable for criterion-lens (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":78.666903197,"data":"  Preparing editable metadata (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.666958992,"data":"Building wheels for collected packages: criterion-lens\n"}
+,{"stream_name":"stdout","time":78.666966998,"data":"  Building editable for criterion-lens (pyproject.toml): started\n"}
+,{"stream_name":"stdout","time":78.757155256,"data":"  Building editable for criterion-lens (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.757873405,"data":"  Created wheel for criterion-lens: filename=criterion_lens-0.1.0-0.editable-py3-none-any.whl size=3639 sha256=a69911be809441e18cc6eb45a9e212aac40074da8022eac1f9ac1ca3eb1b7e91\n"}
+,{"stream_name":"stdout","time":78.758201531,"data":"  Stored in directory: /tmp/pip-ephem-wheel-cache-okn0w2ml/wheels/f4/3c/f4/f7c0cccf86d2f40544ded32e227b82d6cbf64f17f8bfb1a978\n"}
+,{"stream_name":"stdout","time":78.760951239,"data":"Successfully built criterion-lens\n"}
+,{"stream_name":"stdout","time":78.773924895,"data":"Installing collected packages: criterion-lens\n"}
+,{"stream_name":"stdout","time":78.879452205,"data":"Successfully installed criterion-lens-0.1.0\n"}
+,{"stream_name":"stdout","time":78.954775511,"data":"  Building editable for criterion-lens (pyproject.toml): finished with status 'done'\n"}
+,{"stream_name":"stdout","time":78.954818811,"data":"  Created wheel for criterion-lens: filename=criterion_lens-0.1.0-0.editable-py3-none-any.whl size=3639 sha256=a69911be809441e18cc6eb45a9e212aac40074da8022eac1f9ac1ca3eb1b7e91\n"}
+,{"stream_name":"stdout","time":78.954823828,"data":"  Stored in directory: /tmp/pip-ephem-wheel-cache-okn0w2ml/wheels/f4/3c/f4/f7c0cccf86d2f40544ded32e227b82d6cbf64f17f8bfb1a978\n"}
+,{"stream_name":"stdout","time":78.954839652,"data":"Successfully built criterion-lens\n"}
+,{"stream_name":"stdout","time":78.954843069,"data":"Installing collected packages: criterion-lens\n"}
+,{"stream_name":"stdout","time":78.954846488,"data":"Successfully installed criterion-lens-0.1.0\n"}
+,{"stream_name":"stdout","time":78.954849743,"data":"Installed allowlisted project source from /kaggle/input/datasets/syedashhermajid/criterion-lens-code\n"}
+,{"stream_name":"stderr","time":81.574221601,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":81.77645144,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":81.776476412,"data":"\n"}
+,{"stream_name":"stderr","time":81.776481093,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":83.39560309,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10453.78 examples/s]\n"}
+,{"stream_name":"stderr","time":83.4326657,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":83.460271139,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":83.485269069,"data":"INFO Wrote 37/8/8 patient split for revision 1cfcafde94a1560a33b4addc1638664fe28fc059 to data/splits/split_manifest.json and data/splits/split_manifest.csv\n"}
+,{"stream_name":"stderr","time":83.501143121,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10453.78 examples/s]\n"}
+,{"stream_name":"stderr","time":83.501165886,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":83.501170891,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":83.501174693,"data":"INFO Wrote 37/8/8 patient split for revision 1cfcafde94a1560a33b4addc1638664fe28fc059 to data/splits/split_manifest.json and data/splits/split_manifest.csv\n"}
+,{"stream_name":"stderr","time":83.501178666,"data":"\n"}
+,{"stream_name":"stderr","time":83.501181841,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 10453.78 examples/s]\n"}
+,{"stream_name":"stderr","time":83.501187729,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":83.501195238,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":83.501210274,"data":"INFO Wrote 37/8/8 patient split for revision 1cfcafde94a1560a33b4addc1638664fe28fc059 to data/splits/split_manifest.json and data/splits/split_manifest.csv\n"}
+,{"stream_name":"stdout","time":824.338133758,"data":"Both target and draft training jobs completed successfully\n"}
+,{"stream_name":"stdout","time":830.548190169,"data":"Packaged training outputs at /kaggle/working/out/training_artifacts.zip\n"}
+,{"stream_name":"stderr","time":833.496846657,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":833.496892977,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":833.655693657,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":833.655718405,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":834.44229414,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":834.517704719,"data":"[NbConvertApp] Writing 16183 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":837.04206105,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":837.563102346,"data":"[NbConvertApp] Writing 310288 bytes to __results__.html\n"}
+]

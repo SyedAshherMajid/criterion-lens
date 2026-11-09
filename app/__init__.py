@@ -1,0 +1,1 @@
+"""CriterionLens Gradio application."""
