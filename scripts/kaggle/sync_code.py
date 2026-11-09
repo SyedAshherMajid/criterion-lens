@@ -18,6 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATASET_ID = "syedashhermajid/criterion-lens-code"
 _DIRECTORIES = ("src", "scripts", "configs", "data/splits")
 _FILES = ("requirements.txt", "pyproject.toml", "README.md", "LICENSE")
+FREEZE_MANIFEST_NAME = "freeze_manifest.json"
 _IGNORE = shutil.ignore_patterns(
     "__pycache__", "*.pyc", ".pytest_cache", ".ruff_cache", ".venv"
 )
@@ -49,6 +50,30 @@ def _write_metadata(destination: Path) -> None:
     }
     (destination / "dataset-metadata.json").write_text(
         json.dumps(metadata, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _write_freeze_manifest(destination: Path) -> None:
+    tag = subprocess.run(
+        ["git", "describe", "--exact-match", "--tags", "HEAD"],
+        cwd=PROJECT_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if tag.returncode or tag.stdout.strip() != "v1.0-frozen":
+        return
+    commit = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=PROJECT_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    manifest = {"tag": "v1.0-frozen", "commit": commit}
+    (destination / FREEZE_MANIFEST_NAME).write_text(
+        json.dumps(manifest, indent=2) + "\n",
         encoding="utf-8",
     )
 
@@ -108,6 +133,7 @@ def sync_code(wait_seconds: int = 600) -> Path:
     destination.mkdir(parents=True)
     marker.write_text(DATASET_ID, encoding="utf-8")
     _copy_code(destination)
+    _write_freeze_manifest(destination)
     _write_metadata(destination)
     if any(path.name == ".env" for path in destination.rglob("*")):
         raise RuntimeError("Refusing to publish a staging directory containing .env")

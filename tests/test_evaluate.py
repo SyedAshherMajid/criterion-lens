@@ -82,40 +82,107 @@ def test_test_access_requires_final_flag_and_frozen_tag(
 ) -> None:
     access_log = tmp_path / "results" / "TEST_ACCESS_LOG.md"
     monkeypatch.setattr(evaluate, "TEST_ACCESS_LOG", access_log)
+    frozen_commit = "a" * 40
     monkeypatch.setattr(
         evaluate,
         "_git_output",
-        lambda arguments: "v1.0-frozen" if "describe" in arguments else "abc123",
+        lambda arguments: "v1.0-frozen" if "describe" in arguments else frozen_commit,
     )
 
     with pytest.raises(ValueError, match="requires --final"):
         evaluate.record_test_access(
             split="test",
             final=False,
-            model="test/model",
+            model="Qwen/Qwen2.5-1.5B-Instruct",
             adapter=None,
-            decoding_config={"mode": "no_cache"},
+            decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
         )
 
     evaluate.record_test_access(
         split="test",
         final=True,
-        model="test/model",
-        adapter="test/adapter",
-        decoding_config={"mode": "greedy_kv", "max_new_tokens": 64},
+        model="Qwen/Qwen2.5-1.5B-Instruct",
+        adapter=None,
+        decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
+    )
+    evaluate.record_test_access(
+        split="test",
+        final=True,
+        model="Qwen/Qwen2.5-1.5B-Instruct",
+        adapter="Ashher123/criterion-lens-qwen2.5-1.5b-lora",
+        decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
     )
     log = access_log.read_text(encoding="utf-8")
-    assert "abc123" in log
-    assert "test/model" in log
-    assert "test/adapter" in log
+    assert frozen_commit in log
+    assert "Qwen/Qwen2.5-1.5B-Instruct" in log
+    assert "criterion-lens-qwen2.5-1.5b-lora" in log
     with pytest.raises(RuntimeError, match="already been accessed"):
         evaluate.record_test_access(
             split="test",
             final=True,
-            model="test/model",
+            model="Qwen/Qwen2.5-1.5B-Instruct",
             adapter=None,
-            decoding_config={"mode": "no_cache"},
+            decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
         )
+
+
+def test_test_access_in_kaggle_uses_validated_freeze_manifest(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    access_log = tmp_path / "results" / "TEST_ACCESS_LOG.md"
+    freeze_manifest = tmp_path / "freeze_manifest.json"
+    commit = "b" * 40
+    freeze_manifest.write_text(
+        json.dumps({"tag": "v1.0-frozen", "commit": commit}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(evaluate, "TEST_ACCESS_LOG", access_log)
+    monkeypatch.setattr(evaluate, "FREEZE_MANIFEST", freeze_manifest)
+    monkeypatch.setattr(evaluate, "PROJECT_ROOT", tmp_path)
+
+    def missing_git(_arguments: list[str]) -> str:
+        raise RuntimeError("not a Git checkout")
+
+    monkeypatch.setattr(evaluate, "_git_output", missing_git)
+    evaluate.record_test_access(
+        split="test",
+        final=True,
+        model="Qwen/Qwen2.5-0.5B-Instruct",
+        adapter=None,
+        decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
+    )
+
+    assert commit in access_log.read_text(encoding="utf-8")
+
+
+def test_test_access_rejects_unplanned_model_or_decoding(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    access_log = tmp_path / "results" / "TEST_ACCESS_LOG.md"
+    monkeypatch.setattr(evaluate, "TEST_ACCESS_LOG", access_log)
+    monkeypatch.setattr(
+        evaluate,
+        "_git_output",
+        lambda arguments: "v1.0-frozen" if "describe" in arguments else "c" * 40,
+    )
+
+    with pytest.raises(ValueError, match="four frozen model variants"):
+        evaluate.record_test_access(
+            split="test",
+            final=True,
+            model="Qwen/Qwen2.5-1.5B-Instruct",
+            adapter="Ashher123/unplanned-adapter",
+            decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
+        )
+    with pytest.raises(ValueError, match="greedy no-cache"):
+        evaluate.record_test_access(
+            split="test",
+            final=True,
+            model="Qwen/Qwen2.5-1.5B-Instruct",
+            adapter=None,
+            decoding_config={"mode": "greedy_kv", "max_new_tokens": 64, "do_sample": False},
+        )
+    assert not access_log.exists()
 
 
 def test_test_access_rejects_nonfrozen_head_without_creating_log(
@@ -129,9 +196,9 @@ def test_test_access_rejects_nonfrozen_head_without_creating_log(
         evaluate.record_test_access(
             split="test",
             final=True,
-            model="test/model",
+            model="Qwen/Qwen2.5-1.5B-Instruct",
             adapter=None,
-            decoding_config={"mode": "no_cache"},
+            decoding_config=evaluate.FINAL_TEST_DECODING_CONFIG,
         )
     assert not access_log.exists()
 

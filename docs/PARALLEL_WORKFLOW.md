@@ -24,7 +24,7 @@ GPU work (training, 1.5B evaluation, headline benchmarks) runs on **Kaggle T4 GP
     "competition_sources": [], "kernel_sources": [], "model_sources": []}
    ```
    Check `kaggle kernels push --help` for an accelerator option. If one exists, request **T4 x2** (e.g. `NvidiaTeslaT4`). Every job's first cell prints `torch.cuda.get_device_name()`, the device count and `torch.cuda.get_arch_list()`, and **aborts** if the GPU is unsupported. If the CLI cannot select T4 and gives a P100 that fails, ask the student to open the kernel on kaggle.com once, set *Accelerator → GPU T4 x2*, and *Save & Run All*.
-3. The job's first cells: `pip install -q -r /kaggle/input/criterion-lens-code/requirements.txt` (never torch), `pip install -e . --no-deps` from a copy in `/kaggle/working/code`, then run the scripts. Write all outputs to `/kaggle/working/out/`.
+3. The job's first cells recursively discover the unique `/kaggle/input/` directory containing both `requirements.txt` and `pyproject.toml`, print that path, install its requirements (never torch), copy the source to `/kaggle/working/code`, install it with `pip install -e . --no-deps`, then run the scripts. Write all outputs to `/kaggle/working/out/`.
 4. Launch: `kaggle kernels push -p kaggle/jobs/<job>`. Monitor: `kaggle kernels status syedashhermajid/criterion-lens-<job>` (poll every 5–10 min, not more often). Collect: `kaggle kernels output syedashhermajid/criterion-lens-<job> -p results/kaggle/<job>/`. Then copy the logs/metrics into `results/` and commit them. Adapters/weights go to `outputs/` (git-ignored).
 5. **Pushing weights to the HF Hub happens from the laptop**, using the `.env` `HF_TOKEN` (`scripts/push_to_hub.py`). The HF token therefore never has to be stored on Kaggle (no Kaggle Secrets needed). Kaggle only downloads public Qwen models and the public dataset, which needs no token.
 
@@ -35,16 +35,19 @@ CUDA_VISIBLE_DEVICES=0 python scripts/train.py --config configs/train_qwen25_1p5
 CUDA_VISIBLE_DEVICES=1 python scripts/train.py --config configs/train_qwen25_0p5b.yaml > out/log_0p5b.txt 2>&1 &
 wait
 ```
-Likewise, the eval/bench job runs the val evaluations on GPU 0 and the benchmarks on GPU 1. Kaggle may also allow more than one GPU session at a time: if a second `push` gets queued, just let it queue.
+The validation job and benchmarks-only job are separate. The benchmark job runs sequentially on the T4s and uses deterministic synthetic prompts for speculative decoding; it does not rerun validation or read the test split.
 
 ## Jobs (Kaggle lane)
 | Job | Contents | Needs | Output → repo |
 |---|---|---|---|
 | `train` | LoRA 1.5B (GPU0) ∥ LoRA 0.5B (GPU1), per-epoch adapters, log_history | Phase 2–3 code | `outputs/train/*` (adapters), `results/train/*/log_history.json` |
-| `eval_val` | base vs fine-tuned per-epoch on **val**, 1.5B (GPU0) ∥ 0.5B + SmolLM2 zero-shot (GPU1) | train done, Phase 5 code | `results/eval/val_*` |
-| `bench` | KV-cache grid, speculative grid (k sweep, both drafts), attention perf on T4, tiled-attention model integration | Phases 6–8 code + merged models | `results/bench/*` |
-| `eval_test_final` | **once**, after tag `v1.0-frozen`: test eval for base/FT 1.5B and 0.5B | everything frozen | `results/eval/test_*`, `TEST_ACCESS_LOG.md` |
+| `eval_val` | Completed: base and fine-tuned 1.5B and 0.5B on **val**; no P1 zero-shot/2-shot extras | train done, Phase 5 code | `results/eval/val_*` |
+| `bench` | KV-cache, tiled-attention, and speculative benchmarks only; synthetic speculative prompts | Phases 6–8 code + public 1.5B merged model | `results/bench/*` |
+| `eval_test_final` | One tagged job; base/FT 1.5B and 0.5B, each once with the frozen greedy no-cache/64-token config | everything frozen and merged model public | `results/eval/test_*`, `results/TEST_ACCESS_LOG.md` |
 | `sweep` (P1) | r/lr sweep on val | spare GPU time | `results/train/runs.csv` |
+
+### Frozen final-evaluation handoff
+The private Kaggle code dataset omits `.git`. Therefore, run `scripts/kaggle/sync_code.py` while `HEAD` is exactly tagged `v1.0-frozen`; it adds `freeze_manifest.json` containing the tag and full commit SHA to that dataset version. `evaluate.py --split test --final` verifies this manifest in Kaggle and permits only the four planned base/adapter model variants, each once, with greedy no-cache decoding and 64 new tokens. Push one final-evaluation kernel and do not retry an already logged model.
 
 ## Laptop lane (same time)
 | While Kaggle runs… | Laptop does |

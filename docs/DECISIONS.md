@@ -161,5 +161,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `results/eval/val_ft_1p5b/metrics.json` reports fixed-label macro-F1 0.5500 and accuracy 0.7476; the fine-tuned 0.5B comparison reports 0.4319 and 0.7136, respectively. All four validation runs have 206 annotations. No test split was accessed.
 - **Consequences:** Freeze the 1.5B fine-tuned adapter and its inference settings before the one-time final test evaluation; report the 0.5B model as a size comparison.
 
+### D-028 Preserve the test-set seal in Kaggle snapshots
+- **Context:** The Kaggle code dataset contains allowlisted source files but no `.git` directory, while the final evaluator originally required `git describe` on the execution host. Its first test-access guard also rejected every model after the first.
+- **Options:** Weaken the tag check, use a Kaggle secret/token to clone GitHub, or transfer verifiable freeze provenance with the private code-dataset version and allow each planned model once.
+- **Decision:** Keep the local exact-tag check; when syncing `HEAD` at `v1.0-frozen`, add a `freeze_manifest.json` with the full commit SHA to the private Kaggle dataset. In Kaggle, require that manifest and restrict final evaluation to the four planned base/adapter pairs, each once, with greedy no-cache decoding and 64 new tokens.
+- **Evidence:** `sync_code.py` copies only allowlisted source and split files, not `.git`; unit tests cover both manifest-based Kaggle verification and duplicate/unplanned test requests.
+- **Consequences:** The final evaluation can run from a reproducible tagged Kaggle snapshot without transmitting GitHub credentials or permitting test-set tuning. No test rows have been accessed.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->

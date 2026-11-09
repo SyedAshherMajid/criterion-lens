@@ -3,6 +3,7 @@
 import argparse
 import json
 import logging
+import re
 import subprocess
 from dataclasses import asdict
 from datetime import datetime, timezone
@@ -27,6 +28,18 @@ from criterion_lens.utils.env import load_env
 LOGGER = logging.getLogger(__name__)
 SPLIT_MANIFEST = PROJECT_ROOT / "data" / "splits" / "split_manifest.json"
 TEST_ACCESS_LOG = PROJECT_ROOT / "results" / "TEST_ACCESS_LOG.md"
+FREEZE_MANIFEST = PROJECT_ROOT / "freeze_manifest.json"
+FINAL_TEST_MODELS = {
+    ("Qwen/Qwen2.5-1.5B-Instruct", None),
+    ("Qwen/Qwen2.5-1.5B-Instruct", "Ashher123/criterion-lens-qwen2.5-1.5b-lora"),
+    ("Qwen/Qwen2.5-0.5B-Instruct", None),
+    ("Qwen/Qwen2.5-0.5B-Instruct", "Ashher123/criterion-lens-qwen2.5-0.5b-lora"),
+}
+FINAL_TEST_DECODING_CONFIG = {
+    "mode": "no_cache",
+    "max_new_tokens": 64,
+    "do_sample": False,
+}
 
 
 def _git_output(arguments: list[str]) -> str:
@@ -40,6 +53,28 @@ def _git_output(arguments: list[str]) -> str:
     if result.returncode:
         raise RuntimeError(f"Git command failed: git {' '.join(arguments)}")
     return result.stdout.strip()
+
+
+def _frozen_source_identity() -> tuple[str, str]:
+    if (PROJECT_ROOT / ".git").exists():
+        tag = _git_output(["describe", "--exact-match", "--tags", "HEAD"])
+        commit = _git_output(["rev-parse", "HEAD"])
+    else:
+        if not FREEZE_MANIFEST.is_file():
+            raise RuntimeError(
+                "Final test evaluation requires a tagged Git checkout or freeze manifest"
+            )
+        manifest = json.loads(FREEZE_MANIFEST.read_text(encoding="utf-8"))
+        if not isinstance(manifest, dict):
+            raise ValueError(f"Freeze manifest must be a JSON object: {FREEZE_MANIFEST}")
+        tag = manifest.get("tag")
+        commit = manifest.get("commit")
+
+    if tag != "v1.0-frozen":
+        raise RuntimeError("Final test evaluation requires HEAD tagged v1.0-frozen")
+    if not isinstance(commit, str) or re.fullmatch(r"[0-9a-f]{40}", commit) is None:
+        raise ValueError("Frozen source commit must be a full lowercase Git SHA-1")
+    return commit, tag
 
 
 def record_test_access(
@@ -57,15 +92,28 @@ def record_test_access(
         return
     if not final:
         raise ValueError("Test evaluation requires --final")
-    if TEST_ACCESS_LOG.exists():
-        existing_entries = TEST_ACCESS_LOG.read_text(encoding="utf-8").splitlines()
-        if any(line.startswith("|") and "| test |" in line for line in existing_entries):
-            raise RuntimeError("The final test split has already been accessed")
+    model_key = (model, adapter)
+    if model_key not in FINAL_TEST_MODELS:
+        raise ValueError("Final test evaluation is restricted to the four frozen model variants")
+    if decoding_config != FINAL_TEST_DECODING_CONFIG:
+        raise ValueError("Final test evaluation requires greedy no-cache decoding with 64 tokens")
 
-    tag = _git_output(["describe", "--exact-match", "--tags", "HEAD"])
-    if tag != "v1.0-frozen":
-        raise RuntimeError("Final test evaluation requires HEAD tagged v1.0-frozen")
-    commit = _git_output(["rev-parse", "HEAD"])
+    if TEST_ACCESS_LOG.exists():
+        for line in TEST_ACCESS_LOG.read_text(encoding="utf-8").splitlines():
+            if not line.startswith("|"):
+                continue
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            if len(cells) < 2 or cells[1] != "test":
+                continue
+            if len(cells) != 7:
+                raise RuntimeError("The test access log contains a malformed test entry")
+            existing_key = (cells[4], None if cells[5] == "none" else cells[5])
+            if existing_key not in FINAL_TEST_MODELS:
+                raise RuntimeError("The test access log contains an unexpected model variant")
+            if existing_key == model_key:
+                raise RuntimeError("This final test model has already been accessed")
+
+    commit, tag = _frozen_source_identity()
     TEST_ACCESS_LOG.parent.mkdir(parents=True, exist_ok=True)
     if not TEST_ACCESS_LOG.exists():
         TEST_ACCESS_LOG.write_text(
