@@ -154,5 +154,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 - **Evidence:** `run_app.bat` starts `.venv\Scripts\python.exe -m app`; the app opens at `http://127.0.0.1:7860`. The optional `--share` flag is for temporary remote access on defense day.
 - **Consequences:** README and handoff describe local startup, first-use model downloads, hardware behavior, troubleshooting, and the defense-day share option.
 
+### D-027 Select the fine-tuned 1.5B model as the headline checkpoint
+- **Context:** The four original Kaggle validation evaluations were recovered from the failed eval-bench v1 output; each evaluation contains 206 annotations and was not rerun.
+- **Options:** Select the fine-tuned checkpoint with the best fixed-label macro-F1, use accuracy alone, or select the smaller model without considering the validation comparison.
+- **Decision:** Use the fine-tuned 1.5B model as the headline checkpoint, selected by fixed-label macro-F1 on the fixed validation split.
+- **Evidence:** `results/eval/val_ft_1p5b/metrics.json` reports fixed-label macro-F1 0.5500 and accuracy 0.7476; the fine-tuned 0.5B comparison reports 0.4319 and 0.7136, respectively. All four validation runs have 206 annotations. No test split was accessed.
+- **Consequences:** Freeze the 1.5B fine-tuned adapter and its inference settings before the one-time final test evaluation; report the 0.5B model as a size comparison.
+
 ---
 <!-- Agent: append D-015+ below: data-audit findings, NaN/OOM incidents, fp16 mismatch investigations, sweep results, speculative slowdowns, etc. -->
