@@ -10,3 +10,4 @@
 - 2026-11-09 22:20 +05:00 | 1.1 | Added 12 verified sources with summaries, limitations, and design implications; fast tests (4 passed), Ruff, and diff checks passed | Phase 1.2
 - 2026-11-09 22:30 +05:00 | 1.2 | Added config-only model inspection and selection notes; specs JSON has 5 accessible configs and explicitly records 2 unavailable gated configs; tests (5 passed) and Ruff passed | Phase 2.1
 - 2026-11-09 22:44 +05:00 | 2.1 | Implemented and tested the revision-pinned annotation loader; 1,015 source rows yielded 1,014 after dropping one empty criterion, 53 patients, and no leakage columns; cached locally (git-ignored) at revision `1cfcafde94a1560a33b4addc1638664fe28fc059` | Phase 2.2
+- 2026-11-09 22:49 +05:00 | 2.2 | Added numbered-note parsing with contiguous-ID validation and pysbd/free-text splitting; decimals, abbreviations, malformed numbering, and empty input covered; fast tests (12 passed) and Ruff passed | Phase 2.3
