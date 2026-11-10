@@ -13,7 +13,7 @@ retried as a prerequisite.
 
 ## Checkpoint status — 2026-11-10 05:44:40 +05:00
 
-- Latest checkpoint commit: [`d101a5a`](https://github.com/SyedAshherMajid/criterion-lens/commit/d101a5a).
+- Latest checkpoint commit: [`8ea9ab7`](https://github.com/SyedAshherMajid/criterion-lens/commit/8ea9ab7).
 - No Kaggle kernel is currently running. The train kernel is `COMPLETE`; the
   prior evaluation/benchmark kernel is `ERROR` after all four validation
   evaluations completed and the benchmark step failed because the 1.5B merged
