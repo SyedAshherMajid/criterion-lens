@@ -1,4 +1,17 @@
 \section{Application, Deployment, and Limitations}
-The Gradio application presents criterion screening, evidence, an inference lab, benchmarks, and offline results. It is officially deployed as a locally hosted browser application, which satisfies the assignment. On Windows, \texttt{run\_app.bat} starts the app; the first run downloads the selected public model. An optional temporary Gradio share link is intended only for defense-day remote access. The Hugging Face Space remains staged but was not deployed because the platform requires a PRO account for the selected 2026 hardware.
+The Gradio application presents criterion screening, evidence, an inference lab, benchmarks, and offline results. It is officially deployed as a locally hosted browser application, which satisfies the assignment. On Windows, \texttt{run\_app.bat} starts the app; the first run downloads the selected public model. An optional temporary Gradio share link is intended only for defense-day remote access. The Hugging Face Space remains staged but was not deployed because the platform requires a PRO account for the selected 2026 hardware. Fig.~\ref{fig:app-screening} shows a screening run on an unseen synthetic note: each criterion receives a label and cited sentence IDs, the missing-information and unsupported-decision lists are shown explicitly, and the rule-based preliminary outcome is ``needs manual review'' because criterion~3 lacks supporting evidence. Fig.~\ref{fig:app-inference} shows the Inference Lab, which decodes the same input without a cache, with our KV cache, and with speculative decoding, and reports per-run diagnostics (iterations, proposed and accepted draft tokens, target and draft forward passes).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{app_screening.png}
+\caption{Screening tab (frame from the demo video): per-criterion labels, evidence IDs, missing information and the preliminary outcome.}
+\label{fig:app-screening}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{app_inference_lab.png}
+\caption{Inference Lab (frame from the demo video): speculative-decoding diagnostics for the same input, alongside no-cache and KV-cache runs.}
+\label{fig:app-inference}
+\end{figure}
 
 The dataset contains a limited number of patients and the held-out split is correspondingly small; bootstrap intervals are included to communicate uncertainty. Labels and evidence inherit the source annotation's limitations, while evidence disagreement may reflect incomplete annotation rather than a model error. Synthetic-token inference benchmarks do not predict clinical workload latency. The application uses deterministic templates rather than independently verified rationales, and its aggregation rule is explicitly preliminary. CriterionLens is not a clinical decision system, must not be used for enrollment decisions, and requires expert review of every case.
