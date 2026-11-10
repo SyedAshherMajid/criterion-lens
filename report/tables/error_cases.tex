@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Provisional error candidates for author review; note text is omitted.}
+\label{tab:error-cases}
+\begin{tabularx}{\textwidth}{rllX}
+\toprule
+ID & Variant/type & Gold $\rightarrow$ predicted & Candidate analysis \\
+\midrule
+169 & ft\_1p5b/exclusion & not enough information $\rightarrow$ not excluded & missing\_information\_guess, unsupported\_decision: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. \\
+174 & ft\_1p5b/exclusion & not enough information $\rightarrow$ not excluded & missing\_information\_guess, unsupported\_decision: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. \\
+179 & ft\_0p5b/exclusion & not excluded $\rightarrow$ not excluded & unsupported\_decision, missed\_gold\_evidence: The output marks a decisive judgment without cited evidence; this should remain a manual-review case. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact. \\
+166 & ft\_1p5b/exclusion & not excluded $\rightarrow$ not excluded & evidence\_set\_discrepancy: The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+193 & ft\_1p5b/exclusion & not enough information $\rightarrow$ not excluded & missing\_information\_guess, unsupported\_decision, missed\_gold\_evidence: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact. \\
+307 & ft\_1p5b/inclusion & not enough information $\rightarrow$ not enough information & evidence\_set\_discrepancy: The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+190 & ft\_0p5b/inclusion & not enough information $\rightarrow$ not enough information & evidence\_set\_discrepancy: The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+305 & ft\_1p5b/inclusion & not enough information $\rightarrow$ not enough information & evidence\_set\_discrepancy: The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+315 & base\_1p5b/exclusion & not enough information $\rightarrow$ excluded & missing\_information\_guess, evidence\_set\_discrepancy: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+323 & ft\_0p5b/inclusion & not enough information $\rightarrow$ included & missing\_information\_guess: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. \\
+325 & ft\_1p5b/inclusion & not enough information $\rightarrow$ not enough information & evidence\_set\_discrepancy: The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive. \\
+389 & ft\_1p5b/exclusion & not enough information $\rightarrow$ not excluded & missing\_information\_guess, unsupported\_decision: The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

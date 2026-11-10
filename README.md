@@ -10,7 +10,7 @@
 | Optional hosted app | Hugging Face Space files are ready in `space/`; creation requires HF PRO for `cpu-basic` |
 | Paper (IEEE) | _TBD (`report/CriterionLens_IEEE.pdf`)_ |
 | Fine-tuned adapters | [Qwen2.5 1.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-lora) · [Qwen2.5 0.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-lora) |
-| Merged 0.5B model | [Qwen2.5 0.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged) |
+| Merged models | [Qwen2.5 1.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged) · [Qwen2.5 0.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged) |
 | Demo video | _TBD_ |
 | Split manifest | [`data/splits/split_manifest.json`](data/splits/split_manifest.json) |
 
@@ -23,8 +23,19 @@ Given a patient note and a trial's inclusion/exclusion criteria, CriterionLens j
 - **App:** a Gradio browser app with screening, live inference/attention benchmarking and report export.
 - **Deployment:** locally hosted on Windows; the assignment allows a browser-accessible local application. A free Hugging Face `cpu-basic` Space could not be created because HF requires PRO (2026); deployment files remain ready if PRO becomes available.
 
-## Results (held-out test split, 8 patients)
-_TBD — generated from `results/eval/` by `scripts/make_figures.py`._
+## Results (held-out test split, 8 patients, 206 criteria)
+Evaluated **once** at tag `v1.0-frozen` (see [`results/TEST_ACCESS_LOG.md`](results/TEST_ACCESS_LOG.md)). Greedy decoding. 95% bootstrap CIs (1,000 resamples) are in `report/tables/main_results.tex`.
+
+| Model | Accuracy [95% CI] | Macro-F1 (all 6 labels) | Evidence micro-F1 | Evidence macro-F1* | Abstention acc. |
+|---|---|---|---|---|---|
+| Base Qwen2.5-0.5B | 0.325 | 0.093 | 0.020 | 0.007 | 1.000 |
+| Base Qwen2.5-1.5B | 0.204 | 0.158 | 0.242 | 0.498 | 0.000 |
+| Fine-tuned 0.5B (LoRA) | 0.694 | 0.410 | 0.473 | 0.526 | 0.890 |
+| **Fine-tuned 1.5B (LoRA, headline)** | **0.762 [0.704, 0.816]** | **0.476 [0.420, 0.529]** | **0.542** | **0.584** | 0.897 |
+
+\*Averaged over criteria with non-empty expert evidence. Macro-F1 averages all six fixed labels, so labels that never occur in the 8 test patients count as 0. Averaged over only the labels present, the fine-tuned 1.5B scores 0.571. JSON parse failures for both fine-tuned models: 0%. Validation results, per-class scores and confusion matrices: `results/eval/`, `results/figures/`. Error analysis (12 distinct cases): [`docs/ERROR_ANALYSIS.md`](docs/ERROR_ANALYSIS.md).
+
+Inference-mechanism benchmarks (Kaggle T4): see [Benchmarks](#benchmarks-kaggle-tesla-t4).
 
 ## Windows quick start
 

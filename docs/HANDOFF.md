@@ -1,79 +1,40 @@
 # CriterionLens Handoff
 
-The official application is the locally hosted Gradio app. Start it on Windows
-from the repository root with `run_app.bat`; it opens
-`http://127.0.0.1:7860`. See the README for setup, first-use model downloads,
-CPU/GPU behavior, and troubleshooting.
+Everything automated is done. Only the human tasks at the bottom remain.
 
-The Hugging Face Space was not created: in 2026, Hugging Face requires PRO for
-free `cpu-basic` Gradio Spaces. The assignment permits a browser-accessible
-locally hosted app. `space/` and `scripts/deploy_space.py` remain available if
-PRO becomes available, but Space deployment is not required and should not be
-retried as a prerequisite.
+## Application
+The official application is the **locally hosted Gradio app** (the assignment allows "a browser-accessible locally hosted or deployed application").
+Start it on Windows from the repository root with `run_app.bat`. It opens `http://127.0.0.1:7860`. See the README for setup, first-use model downloads, CPU/GPU behaviour and troubleshooting.
+No Hugging Face Space was created, because in 2026 Hugging Face requires PRO for `cpu-basic` Gradio Spaces (D-025). `space/` and `scripts/deploy_space.py` remain ready if PRO is ever available.
 
-## Checkpoint status — 2026-11-10 05:44:40 +05:00
+## Links to submit
+- GitHub: https://github.com/SyedAshherMajid/criterion-lens (**make public before submitting**, see below)
+- Report PDF: `report/CriterionLens_IEEE.pdf` (in the repo)
+- Weights (public on the Hugging Face Hub):
+  - 1.5B LoRA adapter (headline): https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-lora
+  - 1.5B merged: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged
+  - 0.5B LoRA adapter: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-lora
+  - 0.5B merged: https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged
+- Split manifest: `data/splits/split_manifest.json` (attach the file too)
+- Benchmark logs: `results/bench/` and `results/kaggle/benchmarks/`
+- Test access log: `results/TEST_ACCESS_LOG.md`
+- Demo video: _add your link here after uploading_
 
-- Latest checkpoint commit: [`8ea9ab7`](https://github.com/SyedAshherMajid/criterion-lens/commit/8ea9ab7).
-- No Kaggle kernel is currently running. The train kernel is `COMPLETE`; the
-  prior evaluation/benchmark kernel is `ERROR` after all four validation
-  evaluations completed and the benchmark step failed because the 1.5B merged
-  model was not yet on the Hub. The validation outputs are already committed;
-  do not rerun or download them again.
-- The public 1.5B merged-model repository is still uploading. The last check
-  saw 69% progress, and the Hub API listed only `.gitattributes`; verify that
-  `config.json` and model weights are listed and publicly accessible before
-  launching benchmarks.
-- The private Kaggle code dataset is ready, but re-sync the latest committed
-  source before the next job.
-
-## Current links
-
-- GitHub: [CriterionLens repository](https://github.com/SyedAshherMajid/criterion-lens).
-- Hugging Face models:
-  - [Qwen2.5 0.5B LoRA adapter](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-lora)
-  - [Qwen2.5 1.5B LoRA adapter](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-lora)
-  - [Qwen2.5 0.5B merged model](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged)
-  - [Qwen2.5 1.5B merged model](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged) — upload in progress; not ready for benchmarking until weights/config are visible.
-- Kaggle:
-  - [Private code dataset](https://www.kaggle.com/datasets/syedashhermajid/criterion-lens-code) — ready.
-  - [Training kernel](https://www.kaggle.com/code/syedashhermajid/criterion-lens-train) — `COMPLETE`.
-  - [Prior evaluation/benchmark kernel](https://www.kaggle.com/code/syedashhermajid/criterion-lens-eval-bench) — `ERROR` after the four completed validation runs; do not rerun validation.
-  - [Old smoke-test kernel](https://www.kaggle.com/code/syedashhermajid/criterion-lens-smoketest) — ignore.
-  - Benchmarks-only kernel slug to push: `syedashhermajid/criterion-lens-benchmarks`; it has not been pushed. Source: [`kaggle/jobs/benchmarks/`](../kaggle/jobs/benchmarks/).
-  - Final-test kernel slug to push only after `v1.0-frozen`: `syedashhermajid/criterion-lens-eval-test-final`; source metadata: [`kernel-metadata.json`](../kaggle/jobs/eval_test_final/kernel-metadata.json).
-
-## Ordered next steps
-
-1. **Benchmarks-only Kaggle job:** verify the 1.5B merged model is public with
-   its weights/config, sync the latest source, push
-   `syedashhermajid/criterion-lens-benchmarks` with T4, then download only
-   benchmark outputs (KV, attention, and speculative CSV/JSON; do not rerun
-   validation).
-2. **Freeze:** freeze the selected prompt/decoding and adapters; commit/tag
-   `v1.0-frozen`, then sync the source dataset from that exact tag.
-3. **Final test evaluation:** push
-   `syedashhermajid/criterion-lens-eval-test-final` once; download the four
-   `test_*` result folders and `results/TEST_ACCESS_LOG.md`.
-4. **Error analysis + figures:** run `scripts/error_analysis.py` on the final
-   test outputs, then regenerate figures and tables.
-5. **Report:** fill generated final numbers and compile `report/main.tex`
-   locally with MiKTeX to `report/CriterionLens_IEEE.pdf`.
-6. **README + HANDOFF.md:** replace pending results/PDF placeholders, add
-   verified links, and leave only video recording, submission, and live
-   defense as human tasks.
-
-## Defense day
-
-- [ ] Start the app with `run_app.bat` and confirm it opens at
-  `http://127.0.0.1:7860`.
-- [ ] Test one unseen **synthetic or appropriately de-identified** patient note
-  with trial criteria; verify evidence, missing information, the preliminary
-  outcome, and report export.
-- [ ] Use `run_app.bat --share` only if the evaluator needs remote access. The
-  link is temporary; do not submit real or identifiable patient information.
+## Final state (10 Nov 2026)
+- Freeze tag `v1.0-frozen` = commit `b1b089d`. The one-time test evaluation ran on Kaggle (2× T4) from that tag: four rows in `results/TEST_ACCESS_LOG.md`.
+- Headline (test, fine-tuned 1.5B): accuracy 0.762 [0.704, 0.816], fixed-label macro-F1 0.476 [0.420, 0.529]. Base 1.5B: accuracy 0.204.
+- Error analysis: `docs/ERROR_ANALYSIS.md` (12 curated cases + automated candidates).
+- Kaggle kernels (private, account `syedashhermajid`): `criterion-lens-train`, `criterion-lens-eval-bench` (validation), `criterion-lens-benchmarks`, `criterion-lens-eval-test-final`.
 
 ## Human-only remaining tasks
+1. **Record the 5–7 min demo video** following `docs/REPORT_OUTLINE.md` → "Demo video script". Start the app with `run_app.bat`. Upload it unlisted (YouTube or Google Drive with link access) and paste the link into the README "Demo video" row and above.
+2. **Make the repo public:** `gh repo edit SyedAshherMajid/criterion-lens --visibility public --accept-visibility-change-consequences`, then open it in a logged-out browser to check.
+3. **Submit on Google Classroom:** the report PDF, GitHub URL, startup instructions (README), weight links, the split manifest JSON, benchmark logs and the video link.
+4. **After grading:** regenerate the Hugging Face and Kaggle tokens. They were visible in a screenshot.
 
-- Record the demo video.
-- Submit the required materials.
-- Attend and complete the live defense.
+## Defense day
+- [ ] Start the app with `run_app.bat` and confirm it opens at `http://127.0.0.1:7860`. Run one example first so the model is downloaded and warm.
+- [ ] Test one unseen **synthetic or de-identified** patient note with trial criteria. Show the evidence, missing information, the preliminary outcome and the report export.
+- [ ] Show the Inference Lab (no-cache vs KV cache vs speculative) and the Attention Lab live.
+- [ ] Use `run_app.bat --share` only if the evaluator needs remote access. The link is temporary.
+- [ ] Be ready to explain: the KV-cache position handling (`docs/PLAN.md` §7), online softmax (§8), speculative accept/rollback (§9), and why absence-as-negation is the main error (`docs/ERROR_ANALYSIS.md`).
