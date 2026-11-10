@@ -26,3 +26,12 @@ def test_kaggle_benchmark_notebook_does_not_rerun_evaluation() -> None:
     assert "scripts/bench_speculative.py" in code
     assert "'--prompt-source', 'synthetic'" in code
     assert "'--prompt-source', 'val'" not in code
+    for output_name in (
+        "kv_1p5b",
+        "kv_0p5b",
+        "kv_tiny",
+        "attention",
+        "speculative_base_0p5b",
+        "speculative_finetuned_0p5b",
+    ):
+        assert output_name in code

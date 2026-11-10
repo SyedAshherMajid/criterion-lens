@@ -59,7 +59,12 @@ No test-set metrics are included.
     (output_dir / "README.md").write_text(card, encoding="utf-8")
 
 
-def merge_run(run_dir: Path, output_dir: Path) -> Path:
+def merge_run(
+    run_dir: Path,
+    output_dir: Path,
+    *,
+    base_model_path: Path | None = None,
+) -> Path:
     """Merge a local adapter directory into a standalone model directory."""
     if output_dir.exists():
         raise FileExistsError(f"Refusing to overwrite existing merged model: {output_dir}")
@@ -79,7 +84,7 @@ def merge_run(run_dir: Path, output_dir: Path) -> Path:
         raise ValueError(f"Unsupported merge dtype: {dtype_name}")
 
     base = AutoModelForCausalLM.from_pretrained(
-        config["model_name_or_path"],
+        str(base_model_path) if base_model_path is not None else config["model_name_or_path"],
         dtype=dtypes[dtype_name],
         low_cpu_mem_usage=True,
         device_map="cpu",
@@ -127,6 +132,11 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--base-model-path",
+        type=Path,
+        help="Use a local copy of the configured base model instead of resolving its Hub ID",
+    )
     parser.add_argument("--repo")
     return parser.parse_args()
 
@@ -134,7 +144,11 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    output_dir = merge_run(args.run, args.output_dir)
+    output_dir = merge_run(
+        args.run,
+        args.output_dir,
+        base_model_path=args.base_model_path,
+    )
     if args.repo:
         publish_merged(output_dir, args.repo)
     return 0

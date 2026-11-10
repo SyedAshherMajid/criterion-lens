@@ -37,10 +37,12 @@ def test_merge_run_saves_merged_model_tokenizer_and_safe_card(tmp_path, monkeypa
     (run_dir / "adapter_config.json").write_text("{}", encoding="utf-8")
     (run_dir / "adapter_model.safetensors").write_bytes(b"adapter")
 
+    loaded_models = []
+
     class _AutoModel:
         @staticmethod
         def from_pretrained(model_id, **kwargs):
-            assert model_id == "Qwen/Qwen2.5-0.5B-Instruct"
+            loaded_models.append(model_id)
             assert kwargs["device_map"] == "cpu"
             return object()
 
@@ -64,6 +66,13 @@ def test_merge_run_saves_merged_model_tokenizer_and_safe_card(tmp_path, monkeypa
     output_dir = tmp_path / "merged"
 
     assert merge_adapter.merge_run(run_dir, output_dir) == output_dir
+    local_output = tmp_path / "merged-local-base"
+    local_base = tmp_path / "local-base"
+    assert (
+        merge_adapter.merge_run(run_dir, local_output, base_model_path=local_base)
+        == local_output
+    )
+    assert loaded_models == ["Qwen/Qwen2.5-0.5B-Instruct", str(local_base)]
     assert (output_dir / "model.safetensors").is_file()
     assert (output_dir / "tokenizer.json").is_file()
     card = (output_dir / "README.md").read_text(encoding="utf-8")

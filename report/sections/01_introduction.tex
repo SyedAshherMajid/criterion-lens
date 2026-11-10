@@ -1,0 +1,7 @@
+\section{Introduction}
+Clinical-trial screening compares a patient's clinical history with many protocol eligibility criteria. A trial-level decision can hide which individual requirement was supported, contradicted, or left unknown. Prior work has therefore framed matching as criterion-level classification and explanation \cite{jin2024trialgpt,koopman2016collection}. CriterionLens follows that framing but targets a small, locally runnable decoder and returns sentence identifiers rather than an unconstrained rationale.
+
+The system has four contributions. First, it fine-tunes Qwen2.5 instruction models with completion-only LoRA updates and evaluates them on a patient-disjoint split. Second, it extracts numbered evidence, validates output schemas, and treats missing information and unsupported decisive labels conservatively. Third, it implements and measures explicit KV-cached generation, tiled online-softmax attention, and greedy speculative decoding. Fourth, it packages these components in a local Gradio application that is explicitly a research aid, not a medical device.
+
+\section{Problem formulation}
+Given a numbered patient note $x$ and one inclusion or exclusion criterion $c$, the model predicts an allowed criterion-type-specific label $y$ and a set of supporting sentence IDs $E$. The label includes a not-enough-information option; absent evidence is not interpreted as proof of eligibility or ineligibility. A later aggregation rule produces only a preliminary trial-level summary and routes unresolved cases to manual review.

@@ -1,0 +1,14 @@
+\section{Data and Model Selection}
+\subsection{Dataset and audit}
+The experiments use the public TrialGPT criterion-annotation dataset \cite{jin2024trialgpt}. The audit retained \DatasetAnnotationCount{} annotations from \DatasetPatientCount{} patients and \DatasetTrialCount{} trials after dropping empty criterion text. GPT-4-generated explanations and labels were excluded at load time; training targets use only expert eligibility labels and expert evidence sentence IDs. The fixed split is patient-disjoint, with seed 42 and counts shown in Table~\ref{tab:split}.
+
+\input{tables/split_statistics.tex}
+\input{tables/training_hyperparameters.tex}
+
+The split is frozen by a manifest containing the dataset revision and patient assignments. All prompt, training, and model comparisons use the same split; the held-out test partition is accessed only by the tagged final evaluation.
+
+\subsection{Models and supervised fine-tuning}
+Qwen2.5-1.5B-Instruct is the primary target and Qwen2.5-0.5B-Instruct is the size comparison and same-tokenizer draft \cite{yang2025qwen25}. LoRA updates query, key, value, output, and MLP projections while the base weights remain frozen \cite{hu2022lora}. The training target is a compact JSON object with evidence IDs followed by a criterion-type-specific label. The patient note is placed before the criterion; explanations are generated from cited text by a deterministic template, not learned from GPT-4 columns.
+
+Training histories record optimization loss and validation loss by epoch. They do not contain generation-based validation F1 for every checkpoint. Therefore, the report compares the completed final adapters on the already-run fixed validation evaluations and does not claim an epoch was selected by generation F1 (D-006).
+The versioned training settings are summarized in Table~\ref{tab:hyperparameters}.

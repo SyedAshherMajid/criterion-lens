@@ -1,0 +1,44 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+\input{tables/result_macros.tex}
+
+\title{CriterionLens: Evidence-Grounded Criterion-Level Clinical Trial Matching with Small Language Models}
+\author{\IEEEauthorblockN{Syed Ashher Majid}
+\IEEEauthorblockA{FAST-NUCES Islamabad\\
+\texttt{i230007@isb.nu.edu.pk}}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Clinical-trial eligibility matching requires a separate, evidence-grounded judgment for each criterion, including an explicit way to abstain when a note is incomplete. CriterionLens fine-tunes compact instruction models to return a structured label and numbered supporting sentences, and pairs the screening pipeline with explicit KV-cache, tiled-attention, and greedy speculative-decoding implementations. On the fixed held-out split, the fine-tuned 1.5B model obtains accuracy \TestHeadlineAccuracy{} and fixed-label macro-F1 \TestHeadlineMacroFone{} (bootstrap 95\% intervals \TestHeadlineAccuracyCI{} and \TestHeadlineMacroFoneCI{}). These results characterize a small research prototype on a limited annotated dataset; they do not establish clinical utility. The official application is browser-accessible and locally hosted, as permitted by the assignment.
+\end{abstract}
+
+\begin{IEEEkeywords}
+clinical trial matching, evidence extraction, language models, parameter-efficient fine-tuning, inference
+\end{IEEEkeywords}
+
+\input{sections/01_introduction.tex}
+\input{sections/02_related_work.tex}
+\input{sections/03_data_and_model.tex}
+\input{sections/04_methods.tex}
+\input{sections/05_experimental_setup.tex}
+\input{sections/06_results.tex}
+\input{sections/07_deployment_and_limitations.tex}
+\input{sections/08_conclusion.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\appendices
+\input{sections/09_reproducibility_and_ai_use.tex}
+\end{document}

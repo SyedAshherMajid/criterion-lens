@@ -26,8 +26,12 @@ Each entry: **Context → Options → Decision → Evidence → Consequences.** 
 ### D-005 Completion-only loss with a manual tokenization + HF Trainer
 - **Why:** full control and testability of label masking; avoids TRL API version churn.
 
-### D-006 Checkpoint selection by val macro-F1 (generation-based), not val loss
-- **Why:** the target metric is label macro-F1. Val loss is dominated by the JSON formatting tokens.
+### D-006 Select only among checkpoints with recorded generation metrics
+- **Context:** The Kaggle training histories contain training loss and per-epoch validation loss, but no per-epoch generation-based validation metrics. The four recovered validation evaluations are final-adapter comparisons and must not be rerun.
+- **Options:** Claim the lowest-loss epoch is best, rerun per-epoch generation evaluations, or limit selection to the completed final-adapter validation comparison.
+- **Decision:** Do not claim that a particular training epoch was selected by macro-F1. Compare the completed final adapters on the fixed validation split and report the recorded training/validation-loss curves separately.
+- **Evidence:** `results/train/qwen25_1p5b_lora/log_history.json` and the 0.5B history record per-epoch `eval_loss`; each of the four recovered validation folders contains one 206-annotation final-adapter evaluation.
+- **Consequences:** No per-epoch validation-F1 figure or best-epoch claim; D-027 selects the headline model among the completed final-adapter comparisons. Do not rerun validation for this purpose.
 
 ### D-007 Fallback = constrained label scoring
 - **Why:** it guarantees a valid label for every criterion (reliability, Task 2). The fallback rate is reported, so the fallback cannot hide model weakness.

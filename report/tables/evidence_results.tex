@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Evidence-set scores; primary macro-F1 averages records with non-empty expert evidence.}
+\label{tab:evidence-results}
+\begin{tabular}{lrrrrr}
+\toprule
+Split & Model & Micro-F1 & Primary macro-F1 & Empty gold & Abstention acc. \\
+\midrule
+VAL & Base 0.5B & 0.030 & 0.009 & 116 & 0.991 \\
+VAL & Base 1.5B & 0.216 & 0.409 & 116 & 0.000 \\
+VAL & Fine-tuned 0.5B & 0.420 & 0.470 & 116 & 0.888 \\
+VAL & Fine-tuned 1.5B & 0.546 & 0.616 & 116 & 0.853 \\
+\bottomrule
+\end{tabular}
+\end{table}

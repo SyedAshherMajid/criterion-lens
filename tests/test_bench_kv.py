@@ -48,3 +48,7 @@ def test_tiny_benchmark_writes_structured_json_and_csv(tmp_path) -> None:
     assert rows[0]["input_length"] == "8"
     assert rows[0]["output_length"] == "2"
     assert json.loads(rows[0]["kv_cache"])["peak_memory_bytes"] is None
+    assert json.loads(rows[0]["cache_growth"]) == [
+        {"cache_bytes": 2048, "cache_len": 8},
+        {"cache_bytes": 2304, "cache_len": 9},
+    ]

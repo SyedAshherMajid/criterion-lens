@@ -1,0 +1,9 @@
+\section{Related Work}
+\subsection{Patient-to-trial matching}
+TrialGPT structures matching around criterion-level judgments and explanations \cite{jin2024trialgpt}. The SIGIR clinical-trial collection provides a reproducible benchmark for patient-to-trial matching \cite{koopman2016collection}. These resources motivate explicit criterion-level output, but benchmark performance alone cannot establish safe enrollment decisions. CriterionLens therefore exposes evidence and abstention and makes no clinical-use claim.
+
+\subsection{Transformers and parameter-efficient adaptation}
+Self-attention provides parallel sequence modeling but its full attention matrix scales quadratically with sequence length \cite{vaswani2017attention}. Qwen2.5 is an open-weight instruction-model family \cite{yang2025qwen25}; its rotary positions and grouped-query attention inform the decoding implementation \cite{su2021roformer,ainslie2023gqa}. LoRA learns low-rank updates while freezing base weights \cite{hu2022lora}. QLoRA is a memory-saving alternative, but was not required for the selected training runs \cite{dettmers2023qlora}.
+
+\subsection{Efficient inference}
+The KV cache avoids recomputing prior keys and values during autoregressive generation; grouped-query attention reduces its size. Online softmax and FlashAttention motivate tiled attention that avoids materializing the full score matrix \cite{milakov2018online,dao2022flashattention}. PagedAttention addresses serving-time cache management at a different systems level \cite{kwon2023pagedattention}. Speculative decoding uses a draft model and target verification, with realized speed depending on acceptance and hardware \cite{leviathan2023speculative}. The implementations here are measured independently; theoretical efficiency is not treated as an empirical speedup.

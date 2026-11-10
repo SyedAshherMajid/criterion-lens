@@ -240,7 +240,7 @@ def bootstrap_confidence_intervals(
     n_resamples: int = 1_000,
     seed: int = 42,
 ) -> dict[str, Any]:
-    """Bootstrap criterion-level accuracy and observed-label macro-F1 intervals."""
+    """Bootstrap criterion-level accuracy and fixed six-label macro-F1 intervals."""
     if len(y_true) == 0 or len(y_true) != len(y_pred):
         raise ValueError("Non-empty y_true and equally sized y_pred are required")
     if n_resamples <= 0:
@@ -255,14 +255,13 @@ def bootstrap_confidence_intervals(
         selected = rng.integers(0, len(gold), size=len(gold))
         sample_gold = gold[selected]
         sample_predicted = predicted[selected]
-        labels = sorted(set(sample_gold) | set(sample_predicted))
         accuracy_samples[sample_index] = accuracy_score(
             sample_gold, sample_predicted
         )
         macro_f1_samples[sample_index] = f1_score(
             sample_gold,
             sample_predicted,
-            labels=labels,
+            labels=list(_ALL_LABELS),
             average="macro",
             zero_division=0,
         )

@@ -38,9 +38,7 @@ def _summary(samples: list[float]) -> dict[str, float]:
 def _token_ids(length: int, vocab_size: int, device: torch.device) -> torch.Tensor:
     if vocab_size <= 3:
         raise ValueError(f"Model vocabulary is too small for synthetic inputs: {vocab_size}")
-    return (torch.arange(length, device=device, dtype=torch.long) % (vocab_size - 3) + 3)[
-        None, :
-    ]
+    return (torch.arange(length, device=device, dtype=torch.long) % (vocab_size - 3) + 3)[None, :]
 
 
 def _first_divergence(
@@ -49,9 +47,7 @@ def _first_divergence(
 ) -> dict[str, Any] | None:
     reference_ids = reference.tokens[0].detach().cpu().tolist()
     cached_ids = cached.tokens[0].detach().cpu().tolist()
-    for index, (reference_id, cached_id) in enumerate(
-        zip(reference_ids, cached_ids, strict=True)
-    ):
+    for index, (reference_id, cached_id) in enumerate(zip(reference_ids, cached_ids, strict=True)):
         if reference_id != cached_id:
             return {
                 "step": index + 1,
@@ -77,9 +73,7 @@ def _timed_generation(
         result = decoder(model, input_ids, output_length, eos_id=None)
     if timer.elapsed_s is None:
         raise RuntimeError("Timer did not record an elapsed duration")
-    peak_memory = (
-        int(torch.cuda.max_memory_allocated(device)) if device.type == "cuda" else None
-    )
+    peak_memory = int(torch.cuda.max_memory_allocated(device)) if device.type == "cuda" else None
     return result, timer.elapsed_s, peak_memory
 
 
@@ -103,9 +97,7 @@ def _path_metrics(
         "output_tokens_per_second": (
             _summary(output_tokens_per_second) if output_tokens_per_second else None
         ),
-        "time_per_output_token_s": _summary(
-            [total_s / output_length for total_s in total_samples]
-        ),
+        "time_per_output_token_s": _summary([total_s / output_length for total_s in total_samples]),
         "peak_memory_bytes": max(peak_samples) if peak_samples else None,
     }
 
@@ -187,6 +179,13 @@ def benchmark_model(
                     )
             no_cache_metrics = _path_metrics(measurements["no_cache"], output_length)
             kv_metrics = _path_metrics(measurements["kv_cache"], output_length)
+            cache_growth = [
+                {
+                    "cache_len": int(step["cache_len"]),
+                    "cache_bytes": int(step["cache_bytes"]),
+                }
+                for step in measurements["kv_cache"][0][0].per_step
+            ]
             no_cache_total = no_cache_metrics["total_latency_s"]["mean"]
             kv_total = kv_metrics["total_latency_s"]["mean"]
             timed_rows.append(
@@ -196,9 +195,8 @@ def benchmark_model(
                     "dtype": dtype_name,
                     "no_cache": no_cache_metrics,
                     "kv_cache": kv_metrics,
-                    "total_latency_speedup": (
-                        no_cache_total / kv_total if kv_total > 0 else None
-                    ),
+                    "cache_growth": cache_growth,
+                    "total_latency_speedup": (no_cache_total / kv_total if kv_total > 0 else None),
                 }
             )
 
@@ -259,6 +257,7 @@ def _write_results(result: dict[str, Any], output_dir: Path) -> None:
         "dtype",
         "no_cache",
         "kv_cache",
+        "cache_growth",
         "total_latency_speedup",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as csv_file:
@@ -270,6 +269,7 @@ def _write_results(result: dict[str, Any], output_dir: Path) -> None:
                     **row,
                     "no_cache": json.dumps(row["no_cache"], sort_keys=True),
                     "kv_cache": json.dumps(row["kv_cache"], sort_keys=True),
+                    "cache_growth": json.dumps(row["cache_growth"], sort_keys=True),
                 }
             )
 
@@ -327,9 +327,7 @@ def main() -> int:
         model_id=model_id,
         device=device,
         dtype_name=dtype_name,
-        input_lengths=[
-            int(length) for length in (args.input_lengths or config["input_lengths"])
-        ],
+        input_lengths=[int(length) for length in (args.input_lengths or config["input_lengths"])],
         output_lengths=[
             int(length) for length in (args.output_lengths or config["output_lengths"])
         ],
@@ -338,9 +336,7 @@ def main() -> int:
     )
     result["model_source"] = spec.get("model_name_or_path", "random tiny Qwen2")
     result["config_path"] = str(args.config)
-    result["parity_dtypes"] = (
-        ["float16", "float32"] if device.type == "cuda" else ["float32"]
-    )
+    result["parity_dtypes"] = ["float16", "float32"] if device.type == "cuda" else ["float32"]
     _write_results(result, args.output_dir)
     LOGGER.info(
         "Wrote benchmark JSON and CSV to %s; %d precision checks, %d mismatches",

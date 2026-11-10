@@ -59,6 +59,16 @@ def test_bootstrap_confidence_intervals_are_repeatable() -> None:
     assert all(0 <= bound <= 1 for bound in first["accuracy"])
 
 
+def test_bootstrap_macro_f1_uses_the_fixed_six_label_space() -> None:
+    result = bootstrap_confidence_intervals(
+        ["included"],
+        ["included"],
+        n_resamples=20,
+    )
+
+    assert result["macro_f1"] == pytest.approx([1 / 6, 1 / 6])
+
+
 def test_confusion_matrix_images_are_written(tmp_path) -> None:
     metrics = classification_metrics(
         ["included", "excluded"],

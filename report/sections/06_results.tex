@@ -1,0 +1,105 @@
+\section{Results}
+\subsection{Classification and evidence}
+Table~\ref{tab:main-results} is generated directly from the four recovered validation outputs and the one-time final test outputs. The headline test values and their bootstrap intervals are reported in the abstract. Figure~\ref{fig:classification} compares accuracy and fixed-label macro-F1 with criterion-level bootstrap intervals; Fig.~\ref{fig:per-class} shows per-class behavior. Confusion matrices are saved for every evaluated model; the headline model's test confusion matrix is included below.
+
+\input{tables/main_results.tex}
+\input{tables/evidence_results.tex}
+\input{tables/per_class_results.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{classification_metrics.png}
+\caption{Accuracy and fixed-label macro-F1 across validation and final test evaluations.}
+\label{fig:classification}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{per_class_f1.png}
+\caption{Per-class F1 across the evaluated base and fine-tuned variants.}
+\label{fig:per-class}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{test_ft_1p5b_confusion_overall_normalized.png}
+\caption{Row-normalized six-label confusion matrix for the fine-tuned 1.5B headline model on the fixed test set.}
+\label{fig:headline-confusion}
+\end{figure}
+
+The validation comparison selected the final fine-tuned 1.5B adapter as the headline model (fixed-label macro-F1 \ValidationHeadlineMacroFone{}); this is a comparison among final adapters, not per-epoch checkpoint selection. Evidence metrics and empty-gold conventions are shown in Table~\ref{tab:evidence-results}.
+
+\subsection{Training dynamics}
+Figure~\ref{fig:training} plots the logged optimization loss and validation loss. The available histories do not contain generation-based F1 for each epoch, so no epoch-level F1 curve is inferred.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{training_curves.png}
+\caption{Training and recorded validation loss; validation generation F1 was not logged per epoch.}
+\label{fig:training}
+\end{figure}
+
+\subsection{Inference benchmarks}
+The KV-cache results report latency, decode throughput, peak allocation, and measured cache growth; Table~\ref{tab:kv-results} and Figs.~\ref{fig:kv-latency}--\ref{fig:kv-growth} are generated from the benchmark JSON. The tiled-attention error table (Table~\ref{tab:attention-accuracy}) and performance plots distinguish successful, unavailable, and OOM rows. Speculative acceptance, speedup, and latency are plotted against $k$ separately for each draft and output length (Table~\ref{tab:speculative}). No speedup is asserted without the corresponding measured result.
+
+\input{tables/kv_summary.tex}
+\input{tables/attention_accuracy.tex}
+\input{tables/speculative_summary.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{kv_latency.png}
+\caption{Full-prefix and KV-cache latency on synthetic token IDs.}
+\label{fig:kv-latency}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{kv_cache_growth.png}
+\caption{Measured key/value allocation versus cached sequence length.}
+\label{fig:kv-growth}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{kv_throughput.png}
+\caption{KV-cache decode throughput on synthetic token IDs.}
+\label{fig:kv-throughput}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{kv_memory.png}
+\caption{Peak memory allocation for no-cache and KV-cache decoding.}
+\label{fig:kv-memory}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{attention_accuracy.png}
+\caption{Worst observed numerical errors for tiled attention.}
+\label{fig:attention-accuracy}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{attention_performance.png}
+\caption{Tiled, reference, and available fused attention performance on synthetic tensors.}
+\label{fig:attention}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{speculative_acceptance.png}
+\caption{Speculative draft-token acceptance by lookahead, draft model, and output length.}
+\label{fig:spec-acceptance}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{speculative_speedup.png}
+\caption{Measured target-to-speculative latency ratio; values below one indicate slowdown.}
+\label{fig:spec-speedup}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{speculative_latency_breakdown.png}
+\caption{Target and speculative latency by lookahead.}
+\label{fig:spec-latency}
+\end{figure}
+
+\subsection{Error analysis}
+The automated error analyzer selects distinct candidate annotations from final predictions using label and evidence discrepancies. Its diagnoses are provisional, and note text is not copied into tracked report files. Table~\ref{tab:error-cases} summarizes candidates for author review; the full review worksheet is \texttt{docs/ERROR\_ANALYSIS.md}.
+\input{tables/error_cases.tex}

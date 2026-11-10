@@ -1,0 +1,8 @@
+\section{Experimental Setup and Metrics}
+The training and benchmark kernels requested two NVIDIA Tesla T4 GPUs on Kaggle. Each benchmark process measures one model at a time; the two-GPU allocation is not described as data-parallel inference. The laptop environment was used for unit tests and application work. The exact software versions, model identifiers, dtype, device, timing repetitions, and input source are retained in the result JSON files.
+
+Classification reports accuracy, observed-label macro-F1, fixed-label macro-F1, per-class scores, and confusion matrices. For the final test split, criterion-level accuracy and macro-F1 receive percentile bootstrap 95\% intervals from 1,000 resamples with seed 42. Evidence extraction reports micro scores and primary macro scores over records with non-empty expert evidence; empty-gold abstention accuracy and invalid sentence IDs are reported separately.
+
+KV-cache benchmarks use deterministic synthetic token IDs, two warm-ups, and five timed repeats per grid point; they compare full-prefix recomputation with cached decoding. Tiled attention uses deterministic random query/key/value tensors and records accuracy and performance grids, including unavailable fused backends and out-of-memory cases. Speculative-decoding benchmarks use deterministic synthetic prompts, two warm-ups, five repeats, two output lengths, and multiple values of $k$. These synthetic workloads measure inference mechanics, not clinical matching quality.
+
+The final evaluation uses greedy no-cache decoding with 64 generated tokens on the four predeclared base/adapter combinations. The final kernel requires a verified freeze manifest for tag \texttt{v1.0-frozen}; each pair is guarded against repeat access in the access log.

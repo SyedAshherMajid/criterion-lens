@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Criterion-level bootstrap 95\% confidence intervals (1,000 resamples; seed 42).}
+\label{tab:main-results}
+\begin{tabular}{lrrrrr}
+\toprule
+Split & Model & Accuracy & Macro-F1 & Accuracy CI & Macro-F1 CI \\
+\midrule
+VAL & Base 0.5B & 0.257 & 0.084 & [0.204, 0.320] & [0.061, 0.111] \\
+VAL & Base 1.5B & 0.267 & 0.204 & [0.209, 0.330] & [0.165, 0.243] \\
+VAL & Fine-tuned 0.5B & 0.714 & 0.432 & [0.650, 0.777] & [0.365, 0.487] \\
+VAL & Fine-tuned 1.5B & 0.748 & 0.550 & [0.689, 0.806] & [0.394, 0.646] \\
+\bottomrule
+\end{tabular}
+\end{table}

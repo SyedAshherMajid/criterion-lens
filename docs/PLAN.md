@@ -171,9 +171,9 @@ Causal-LM cross-entropy on **assistant-response tokens only** (prompt tokens get
 - **LoRA** (PEFT): r=16, alpha=32, dropout=0.05, targets `q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj`, bias none. Report trainable params (~18M, ~1.2%).
 - Base weights fp16 on T4 with fp32 LoRA params + AMP fp16. **If loss becomes NaN/inf** (Qwen2 fp16 overflow is a known risk): load base in fp32 + gradient checkpointing (fits in 16 GB) and log this in `DECISIONS.md`. QLoRA 4-bit is the fallback if memory fails.
 - lr 2e-4, cosine, warmup 3%, weight-decay 0, epochs 3, micro-batch 4, grad-accum 4 (effective 16), max_seq_len 1,536 (adjust from audit), grad-checkpointing on, seed 42, `group_by_length=True`.
-- Save adapter every epoch. **Checkpoint selection = best val macro-F1** (generation-based eval of each epoch checkpoint, `scripts/evaluate.py --split val`), not val loss alone; also log val loss each epoch.
+- Save adapter every epoch and log training/validation loss. The completed Kaggle run did not record generation-based macro-F1 per epoch; do not infer a best epoch from loss or rerun the four recovered validation evaluations. Select the headline model only from the completed final-adapter comparison on the fixed validation split (D-006, D-027).
 - Small sweep on val only (P1, if time): r ∈ {8,16}, lr ∈ {1e-4, 2e-4}; class-balanced oversampling of rare labels on/off. Record every run in `results/train/runs.csv`.
-- Logs: `trainer_state.json` `log_history` → `results/train/<run>/log_history.json`; curves plotted by `scripts/make_figures.py` (train loss vs step, val loss vs epoch, val macro-F1 vs epoch).
+- Logs: `trainer_state.json` `log_history` → `results/train/<run>/log_history.json`; plot the recorded train loss vs step and validation loss vs epoch. Compare final-adapter validation macro-F1 across models separately; do not fabricate epoch-level F1.
 - Same recipe for the **draft** `Qwen2.5-0.5B-Instruct` (`configs/train_qwen25_0p5b.yaml`) — gives (a) a fine-tuned draft with higher acceptance and (b) a second model-size comparison point.
 
 ### 4.4 Truncation policy

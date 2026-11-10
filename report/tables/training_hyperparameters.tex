@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{LoRA training configuration read from the versioned YAML files.}
+\label{tab:hyperparameters}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Max tokens & Epochs & Batch x accum. & Rank/alpha & Learning rate & Seed \\
+\midrule
+1.5B & 640 & 3 & 4 x 4 & 16/32 & 2.0e-04 & 42 \\
+0.5B & 640 & 3 & 4 x 4 & 16/32 & 2.0e-04 & 42 \\
+\bottomrule
+\end{tabular}
+\end{table}

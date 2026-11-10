@@ -1,0 +1,5 @@
+\section{Reproducibility}
+The repository records the dataset revision, patient split manifest, training configurations, model identifiers, benchmark configurations, evaluation metrics, and the final-test access log. Fast tests run with \texttt{.venv\textbackslash Scripts\textbackslash python.exe -m pytest -q}. Result tables and figures are regenerated with \texttt{.venv\textbackslash Scripts\textbackslash python.exe scripts\textbackslash make\_figures.py --require-test --require-bench}. Training archives and model weights are excluded from Git; published adapters and merged models are linked from the project README.
+
+\section{AI-use statement}
+Claude assisted with requirements analysis and preparation of the design and execution plan. An AI coding assistant using Copilot SDK in VS Code assisted with implementation, tests, and documentation. Experimental values in this paper are generated from the repository's recorded result files; citations are taken from the verified literature notes. The author remains responsible for reviewing the paper, the analysis, and every claim before submission.
