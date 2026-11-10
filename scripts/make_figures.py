@@ -16,6 +16,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 from criterion_lens.eval.metrics import (
     bootstrap_confidence_intervals,
@@ -93,9 +94,113 @@ def _load_evaluations(results_root: Path) -> dict[str, dict[str, Any]]:
 
 def _save_figure(figure: plt.Figure, name: str, *destinations: Path) -> None:
     for destination in destinations:
-        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.mkdir(parents=True, exist_ok=True)
         figure.savefig(destination / name, dpi=180, bbox_inches="tight")
     plt.close(figure)
+
+
+def _make_architecture_figures(figures_dir: Path, report_figures_dir: Path) -> None:
+    diagrams = (
+        (
+            "system_pipeline.png",
+            "CriterionLens screening pipeline",
+            (
+                "Numbered patient note",
+                "Trial criterion\n(inclusion / exclusion)",
+                "Qwen2.5 + LoRA\nper-criterion inference",
+                "Validated label,\nevidence IDs",
+                "Preliminary result\n+ human review",
+            ),
+        ),
+        (
+            "finetuning_pipeline.png",
+            "Supervised fine-tuning data flow",
+            (
+                "Patient note\n+ criterion",
+                "Instruction prompt\n(context tokens)",
+                "Expert JSON target\n(label + evidence IDs)",
+                "Loss on response\ntokens only",
+                "Optimized LoRA\nadapter",
+            ),
+        ),
+        (
+            "kv_cache_flow.png",
+            "Autoregressive decoding with a KV cache",
+            (
+                "Prompt tokens",
+                "Transformer prefill",
+                "Store per-layer\nkeys and values",
+                "Decode next token\nusing cached K/V",
+                "Append token and\nreuse cache",
+            ),
+        ),
+        (
+            "tiled_attention_flow.png",
+            "Tiled online-softmax attention",
+            (
+                "Query block\n+ K/V tiles",
+                "Compute tile\nscores $QK^T / \\sqrt{d}$",
+                "Update running\nmaximum $m$, sum $\\ell$",
+                "Rescale prior state\n$\\exp(m_{old} - m_{new})$",
+                "Normalize weighted\nvalue accumulator",
+            ),
+        ),
+        (
+            "speculative_decoding_flow.png",
+            "Greedy speculative decoding",
+            (
+                "Draft proposes\nup to k tokens",
+                "Target verifies\ndraft block",
+                "Accept matching\nargmax prefix",
+                "At mismatch, emit\ntarget token",
+                "Continue with\nverified cache",
+            ),
+        ),
+    )
+    colors = ("#e8f1fb", "#e7f4ed", "#fff2dd", "#f4eafb", "#e9f4f4")
+    for filename, title, labels in diagrams:
+        figure, axis = plt.subplots(figsize=(7.2, 2.35))
+        axis.set_axis_off()
+        axis.set_xlim(0, 1)
+        axis.set_ylim(0, 1)
+        width = 0.17
+        height = 0.48
+        gap = (1 - 2 * 0.03 - len(labels) * width) / (len(labels) - 1)
+        y = 0.30
+        for index, label in enumerate(labels):
+            x = 0.03 + index * (width + gap)
+            box = FancyBboxPatch(
+                (x, y),
+                width,
+                height,
+                boxstyle="round,pad=0.012,rounding_size=0.015",
+                linewidth=0.8,
+                edgecolor="#38536b",
+                facecolor=colors[index],
+            )
+            axis.add_patch(box)
+            axis.text(
+                x + width / 2,
+                y + height / 2,
+                label,
+                ha="center",
+                va="center",
+                fontsize=8,
+                wrap=True,
+            )
+            if index < len(labels) - 1:
+                axis.add_patch(
+                    FancyArrowPatch(
+                        (x + width + 0.002, y + height / 2),
+                        (x + width + gap - 0.002, y + height / 2),
+                        arrowstyle="-|>",
+                        mutation_scale=9,
+                        linewidth=0.8,
+                        color="#38536b",
+                    )
+                )
+        axis.set_title(title, fontsize=11, pad=8)
+        _save_figure(figure, filename, figures_dir, report_figures_dir)
 
 
 def _ordered_names(names: list[str]) -> list[str]:
@@ -910,6 +1015,7 @@ def generate(
         )
     else:
         _write_error_table(results_root, tables_dir, required=False)
+    _make_architecture_figures(figures_dir, report_figures_dir)
     _make_evaluation_figures(evaluations, figures_dir, report_figures_dir)
     _make_training_figure(results_root, figures_dir, report_figures_dir)
     _write_evaluation_tables(evaluations, tables_dir)

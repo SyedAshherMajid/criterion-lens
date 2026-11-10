@@ -12,3 +12,11 @@ Qwen2.5-1.5B-Instruct is the primary target and Qwen2.5-0.5B-Instruct is the siz
 
 Training histories record optimization loss and validation loss by epoch. They do not contain generation-based validation F1 for every checkpoint. Therefore, the report compares the completed final adapters on the already-run fixed validation evaluations and does not claim an epoch was selected by generation F1 (D-006).
 The versioned training settings are summarized in Table~\ref{tab:hyperparameters}.
+Figure~\ref{fig:finetuning-pipeline} shows the prompt/target construction and the response-only loss mask.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{finetuning_pipeline.png}
+\caption{Fine-tuning flow using expert labels and evidence IDs, with loss applied to response tokens only.}
+\label{fig:finetuning-pipeline}
+\end{figure*}

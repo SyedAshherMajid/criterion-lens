@@ -6,7 +6,24 @@ from criterion_lens.eval.metrics import (
     bootstrap_confidence_intervals,
     classification_metrics,
 )
-from scripts.make_figures import _load_evaluations
+from scripts.make_figures import _load_evaluations, _make_architecture_figures
+
+
+def test_architecture_diagrams_are_written_to_both_figure_directories(tmp_path):
+    results_figures = tmp_path / "results" / "figures"
+    report_figures = tmp_path / "report" / "figures"
+
+    _make_architecture_figures(results_figures, report_figures)
+
+    expected = {
+        "system_pipeline.png",
+        "finetuning_pipeline.png",
+        "kv_cache_flow.png",
+        "tiled_attention_flow.png",
+        "speculative_decoding_flow.png",
+    }
+    assert {path.name for path in results_figures.iterdir()} == expected
+    assert {path.name for path in report_figures.iterdir()} == expected
 
 
 def test_load_evaluations_bootstraps_saved_predictions(tmp_path):
