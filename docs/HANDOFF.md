@@ -18,7 +18,7 @@ No Hugging Face Space was created, because in 2026 Hugging Face requires PRO for
 - Split manifest: `data/splits/split_manifest.json` (attach the file too)
 - Benchmark logs: `results/bench/` and `results/kaggle/benchmarks/`
 - Test access log: `results/TEST_ACCESS_LOG.md`
-- Demo video: _add your link here after uploading_
+- Demo video: https://youtu.be/Z3mVr0ccfKE
 
 ## Final state (10 Nov 2026)
 - Freeze tag `v1.0-frozen` = commit `b1b089d`. The one-time test evaluation ran on Kaggle (2× T4) from that tag: four rows in `results/TEST_ACCESS_LOG.md`.

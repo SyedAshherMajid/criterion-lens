@@ -11,7 +11,7 @@
 | Paper (IEEE) | _TBD (`report/CriterionLens_IEEE.pdf`)_ |
 | Fine-tuned adapters | [Qwen2.5 1.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-lora) · [Qwen2.5 0.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-lora) |
 | Merged models | [Qwen2.5 1.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged) · [Qwen2.5 0.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged) |
-| Demo video | _TBD_ |
+| Demo video | [YouTube (5:35, captioned)](https://youtu.be/Z3mVr0ccfKE) |
 | Split manifest | [`data/splits/split_manifest.json`](data/splits/split_manifest.json) |
 
 ## What it does
