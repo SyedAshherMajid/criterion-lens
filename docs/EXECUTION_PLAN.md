@@ -108,7 +108,7 @@ Technical details for every step are in `docs/PLAN.md` (section numbers given as
 ## Phase 11 — IEEE report (P0) — see `docs/REPORT_OUTLINE.md`
 - [ ] **11.1 [COPILOT]** `report/main.tex` using `\documentclass[conference]{IEEEtran}`, the sections in `sections/`, `references.bib` from `docs/LITERATURE.md` (verified entries only), and figures/tables from Phase 9.3. Every figure/table is `\ref`'d **and interpreted** in the text. Architecture diagrams in TikZ or a PNG drawn with draw.io (system pipeline, fine-tuning I/O, KV cache flow, tiled attention, speculative loop).
 - [ ] **11.2 [COPILOT]** Compile **locally**: MiKTeX is installed (see `docs/LOCAL_ENVIRONMENT.md`): `cd report; pdflatex main; bibtex main; pdflatex main; pdflatex main`. Fix every error and overfull box, then copy the output to `report/CriterionLens_IEEE.pdf`. **[YOU]** read every paragraph, since you must defend it.
-- [ ] **11.3 [COPILOT]** AI-use appendix (template in REPORT_OUTLINE.md), filled honestly.
+- [x] **11.3 [COPILOT]** AI-use appendix (template in REPORT_OUTLINE.md), filled honestly.
 
 ## Phase 12 — Video, README, submission (P0)
 - [ ] **12.1 [YOU]** Record a 5–7 min demo following `docs/REPORT_OUTLINE.md` → "Demo video script" (OBS or Xbox Game Bar `Win+Alt+R`). Upload unlisted to YouTube or Google Drive (link visible to anyone with the link).

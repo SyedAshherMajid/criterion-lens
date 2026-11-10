@@ -44,3 +44,29 @@
 - 2026-11-10 | Final-test seal hardening | Added a tagged-source manifest for Kaggle snapshots without `.git`, and restricted final test runs to the four planned base/adapter pairs with one no-cache/64-token access per pair. Updated the final-job workflow; focused guard and sync tests pass. No test rows have been accessed | Complete merged-model upload and benchmarks before tagging and launching the one final-evaluation job
 - 2026-11-10 | Final-test kernel preparation | Added the private Kaggle notebook and metadata for the one-time four-variant final evaluation. It requires two T4s and a verified `v1.0-frozen` manifest, packages outputs and access log, and continues remaining unique variants if one fails. Added a guard test; focused tests (9 passed), Ruff, and notebook JSON/code parsing pass. The notebook is not pushed or run until after freeze | Finish benchmarks, commit/tag the freeze, sync its manifest, then push the final job once
 - 2026-11-10 | Benchmark/report preparation | Merged the 1.5B adapter locally; the public Hugging Face repository is visible, but its API still lists only a partial upload without model weights, so benchmarks remain blocked. Fixed benchmark output-directory collisions and added measured KV-cache growth; completed the error-analysis and report generators. The figure generator now derives seeded fixed-label bootstrap CIs from saved per-annotation predictions and checks them against committed metrics, without rerunning evaluation. Generated validation-only figures/tables; the four recovered validation evaluations remain untouched and no test rows were accessed. Full suite: 239 passed, 1 skipped; scoped Ruff and whitespace checks passed. Full-project Ruff reports an existing import-order issue in the unrelated eval_val notebook, left unchanged. Confirmed the training ZIP and Kaggle output folders are ignored. Commit 9329eb5 was pushed; the private Kaggle code dataset was versioned and is ready. `kernels list --mine` confirms owner `syedashhermajid`; the old smoke-test kernel was ignored | Wait for complete public model listing, then push the benchmarks-only Kaggle job
+
+## RESUME HERE — 2026-11-10 05:44:40 +05:00
+
+### Done
+- Commit `d101a5a` (`chore: checkpoint before credit reset`) was pushed. It adds the five report architecture diagrams and includes the report/figure generator changes; the earlier benchmark/report preparation is in `9329eb5`.
+- The four recovered validation runs (`results/eval/val_*`, 206 predictions each) remain unchanged and committed. Validation-only charts, tables, bootstrap intervals, and architecture diagrams are generated under `results/figures/`, `report/figures/`, and `report/tables/`.
+- The Kaggle code dataset `syedashhermajid/criterion-lens-code` was versioned and ready. The private training ZIP and `results/kaggle/**/out/` are ignored; no model weights, ZIPs, or `outputs/` were committed.
+- Report source and AI-use appendix exist. `11.3` is checked; `9.1`–`9.3`, `10.7`, `11.1`–`11.2`, and `12.2` remain unchecked because final benchmark/test results, local app screenshots, and the compiled PDF/finished README are still missing.
+
+### In progress / Kaggle status
+- No Kaggle kernel is currently running. Last checked: `syedashhermajid/criterion-lens-train` is `COMPLETE`; the prior `syedashhermajid/criterion-lens-eval-bench` is `ERROR` after all four validation evaluations and a failed benchmark caused by the not-yet-uploaded 1.5B merged model. Do not rerun or redownload the validation evaluations. The old smoke-test kernel is ignored.
+- The merged 1.5B upload from `outputs/qwen25_1p5b_merged/` is still running in PowerShell session `562`. At 05:44:40 it was at 69%; the public Hub API listed only `.gitattributes`, not `model.safetensors` or `config.json`. Verify the upload and public file listing before launching benchmarks.
+- The benchmarks-only kernel `syedashhermajid/criterion-lens-benchmarks` has **not** been pushed. Its source is `kaggle/jobs/benchmarks/`; metadata for the one-time final job is `kaggle/jobs/eval_test_final/kernel-metadata.json`. Re-sync the latest committed source before pushing either job.
+- After the benchmarks-only kernel completes, download its KV, attention, and speculative benchmark outputs to `results/kaggle/benchmarks/` and commit the compact CSV/JSON results under `results/bench/`. There is currently no Kaggle output waiting to download.
+
+### Tests
+- The first fast-test run exposed a missing figure-output-directory creation in `_save_figure`; this was fixed. Final `.venv\Scripts\python.exe -m pytest -q -m "not slow"`: **240 passed, 1 deselected, 0 failures** (7 existing Gradio deprecation warnings).
+- No test-split rows have been accessed. The 1.5B Hub listing is the current external blocker; no new Kaggle job was started.
+
+### Ordered next steps
+1. **Benchmarks-only Kaggle job:** verify the 1.5B merged model is public with its weights/config, sync the latest source, push `syedashhermajid/criterion-lens-benchmarks` with T4, then download only benchmark outputs (do not rerun validation).
+2. **Freeze:** freeze the selected prompt/decoding and adapters; commit/tag `v1.0-frozen`, then sync the source dataset from that exact tag.
+3. **Final test evaluation:** push `syedashhermajid/criterion-lens-eval-test-final` once; download the four `test_*` result folders and `results/TEST_ACCESS_LOG.md`.
+4. **Error analysis + figures:** run `scripts/error_analysis.py` on the final test outputs, then regenerate figures and tables.
+5. **Report:** fill generated final numbers and compile `report/main.tex` locally with MiKTeX to `report/CriterionLens_IEEE.pdf`.
+6. **README + HANDOFF.md:** replace pending results/PDF placeholders, add verified links, and leave only video recording, submission, and live defense as human tasks.
