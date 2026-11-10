@@ -1,0 +1,7593 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-10T14:19:37+00:00",
+  "model": "1.5B",
+  "model_id": "Ashher123/criterion-lens-qwen2.5-1.5b-merged",
+  "device": "cuda",
+  "hardware": "Tesla T4",
+  "dtype": "float16",
+  "input_source": "deterministic_synthetic_token_ids",
+  "torch_version": "2.11.0+cu130",
+  "transformers_version": "4.57.6",
+  "precision_checks": [
+    {
+      "precision": "float16",
+      "input_length": 128,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 128,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 128,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 512,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 512,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 512,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 1024,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 1024,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 1024,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 2048,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 2048,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float16",
+      "input_length": 2048,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 128,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 128,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 128,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 512,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 512,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 512,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 1024,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 1024,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 1024,
+      "output_length": 256,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 2048,
+      "output_length": 32,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 2048,
+      "output_length": 128,
+      "tokens_equal": true
+    },
+    {
+      "precision": "float32",
+      "input_length": 2048,
+      "output_length": 256,
+      "tokens_equal": true
+    }
+  ],
+  "mismatches": [],
+  "benchmarks": [
+    {
+      "input_length": 128,
+      "output_length": 32,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.03989746419993025,
+          "std": 0.00047503980703844244,
+          "median": 0.04009404299995367
+        },
+        "decode_s": {
+          "mean": 1.453782661799869,
+          "std": 0.00832723338887629,
+          "median": 1.4493668509985582
+        },
+        "total_latency_s": {
+          "mean": 1.5124264121999658,
+          "std": 0.007966785576329552,
+          "median": 1.5080347530001745
+        },
+        "output_tokens_per_second": {
+          "mean": 21.324378669407483,
+          "std": 0.12152782364764177,
+          "median": 21.38864979466185
+        },
+        "time_per_output_token_s": {
+          "mean": 0.04726332538124893,
+          "std": 0.0002489620492602985,
+          "median": 0.047126086031255454
+        },
+        "peak_memory_bytes": 3200658944
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.04124614199990902,
+          "std": 0.0006315867106958028,
+          "median": 0.04153803299959691
+        },
+        "decode_s": {
+          "mean": 1.1027898406000531,
+          "std": 0.010963446997877924,
+          "median": 1.107589631999872
+        },
+        "total_latency_s": {
+          "mean": 1.1638060324000434,
+          "std": 0.011847024829845591,
+          "median": 1.169359115000134
+        },
+        "output_tokens_per_second": {
+          "mean": 28.11334075093749,
+          "std": 0.28335929869040544,
+          "median": 27.988705477520742
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03636893851250136,
+          "std": 0.0003702195259326747,
+          "median": 0.036542472343754184
+        },
+        "peak_memory_bytes": 3149094912
+      },
+      "cache_growth": [
+        {
+          "cache_len": 128,
+          "cache_bytes": 3670016
+        },
+        {
+          "cache_len": 129,
+          "cache_bytes": 3698688
+        },
+        {
+          "cache_len": 130,
+          "cache_bytes": 3727360
+        },
+        {
+          "cache_len": 131,
+          "cache_bytes": 3756032
+        },
+        {
+          "cache_len": 132,
+          "cache_bytes": 3784704
+        },
+        {
+          "cache_len": 133,
+          "cache_bytes": 3813376
+        },
+        {
+          "cache_len": 134,
+          "cache_bytes": 3842048
+        },
+        {
+          "cache_len": 135,
+          "cache_bytes": 3870720
+        },
+        {
+          "cache_len": 136,
+          "cache_bytes": 3899392
+        },
+        {
+          "cache_len": 137,
+          "cache_bytes": 3928064
+        },
+        {
+          "cache_len": 138,
+          "cache_bytes": 3956736
+        },
+        {
+          "cache_len": 139,
+          "cache_bytes": 3985408
+        },
+        {
+          "cache_len": 140,
+          "cache_bytes": 4014080
+        },
+        {
+          "cache_len": 141,
+          "cache_bytes": 4042752
+        },
+        {
+          "cache_len": 142,
+          "cache_bytes": 4071424
+        },
+        {
+          "cache_len": 143,
+          "cache_bytes": 4100096
+        },
+        {
+          "cache_len": 144,
+          "cache_bytes": 4128768
+        },
+        {
+          "cache_len": 145,
+          "cache_bytes": 4157440
+        },
+        {
+          "cache_len": 146,
+          "cache_bytes": 4186112
+        },
+        {
+          "cache_len": 147,
+          "cache_bytes": 4214784
+        },
+        {
+          "cache_len": 148,
+          "cache_bytes": 4243456
+        },
+        {
+          "cache_len": 149,
+          "cache_bytes": 4272128
+        },
+        {
+          "cache_len": 150,
+          "cache_bytes": 4300800
+        },
+        {
+          "cache_len": 151,
+          "cache_bytes": 4329472
+        },
+        {
+          "cache_len": 152,
+          "cache_bytes": 4358144
+        },
+        {
+          "cache_len": 153,
+          "cache_bytes": 4386816
+        },
+        {
+          "cache_len": 154,
+          "cache_bytes": 4415488
+        },
+        {
+          "cache_len": 155,
+          "cache_bytes": 4444160
+        },
+        {
+          "cache_len": 156,
+          "cache_bytes": 4472832
+        },
+        {
+          "cache_len": 157,
+          "cache_bytes": 4501504
+        },
+        {
+          "cache_len": 158,
+          "cache_bytes": 4530176
+        },
+        {
+          "cache_len": 159,
+          "cache_bytes": 4558848
+        }
+      ],
+      "total_latency_speedup": 1.299551961490511
+    },
+    {
+      "input_length": 128,
+      "output_length": 128,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.040070920599919194,
+          "std": 0.0011955592443754792,
+          "median": 0.03949867300025289
+        },
+        "decode_s": {
+          "mean": 6.776919419400929,
+          "std": 0.01074981799844181,
+          "median": 6.771356507005294
+        },
+        "total_latency_s": {
+          "mean": 6.890818378399945,
+          "std": 0.01351136139190681,
+          "median": 6.888311992999661
+        },
+        "output_tokens_per_second": {
+          "mean": 18.74012534602009,
+          "std": 0.029710226879578396,
+          "median": 18.755473865334427
+        },
+        "time_per_output_token_s": {
+          "mean": 0.05383451858124957,
+          "std": 0.00010555751087427196,
+          "median": 0.05381493744530985
+        },
+        "peak_memory_bytes": 3259352064
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.043311483599973145,
+          "std": 0.0031136025111558868,
+          "median": 0.04195752600026026
+        },
+        "decode_s": {
+          "mean": 4.550732026398509,
+          "std": 0.046229159229689426,
+          "median": 4.534659031996853
+        },
+        "total_latency_s": {
+          "mean": 4.666104887399979,
+          "std": 0.050617519445330675,
+          "median": 4.647537032999935
+        },
+        "output_tokens_per_second": {
+          "mean": 27.910475895452397,
+          "std": 0.2833016566509817,
+          "median": 28.00651583809932
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03645394443281234,
+          "std": 0.0003954493706666459,
+          "median": 0.03630888307031199
+        },
+        "peak_memory_bytes": 3149099520
+      },
+      "cache_growth": [
+        {
+          "cache_len": 128,
+          "cache_bytes": 3670016
+        },
+        {
+          "cache_len": 129,
+          "cache_bytes": 3698688
+        },
+        {
+          "cache_len": 130,
+          "cache_bytes": 3727360
+        },
+        {
+          "cache_len": 131,
+          "cache_bytes": 3756032
+        },
+        {
+          "cache_len": 132,
+          "cache_bytes": 3784704
+        },
+        {
+          "cache_len": 133,
+          "cache_bytes": 3813376
+        },
+        {
+          "cache_len": 134,
+          "cache_bytes": 3842048
+        },
+        {
+          "cache_len": 135,
+          "cache_bytes": 3870720
+        },
+        {
+          "cache_len": 136,
+          "cache_bytes": 3899392
+        },
+        {
+          "cache_len": 137,
+          "cache_bytes": 3928064
+        },
+        {
+          "cache_len": 138,
+          "cache_bytes": 3956736
+        },
+        {
+          "cache_len": 139,
+          "cache_bytes": 3985408
+        },
+        {
+          "cache_len": 140,
+          "cache_bytes": 4014080
+        },
+        {
+          "cache_len": 141,
+          "cache_bytes": 4042752
+        },
+        {
+          "cache_len": 142,
+          "cache_bytes": 4071424
+        },
+        {
+          "cache_len": 143,
+          "cache_bytes": 4100096
+        },
+        {
+          "cache_len": 144,
+          "cache_bytes": 4128768
+        },
+        {
+          "cache_len": 145,
+          "cache_bytes": 4157440
+        },
+        {
+          "cache_len": 146,
+          "cache_bytes": 4186112
+        },
+        {
+          "cache_len": 147,
+          "cache_bytes": 4214784
+        },
+        {
+          "cache_len": 148,
+          "cache_bytes": 4243456
+        },
+        {
+          "cache_len": 149,
+          "cache_bytes": 4272128
+        },
+        {
+          "cache_len": 150,
+          "cache_bytes": 4300800
+        },
+        {
+          "cache_len": 151,
+          "cache_bytes": 4329472
+        },
+        {
+          "cache_len": 152,
+          "cache_bytes": 4358144
+        },
+        {
+          "cache_len": 153,
+          "cache_bytes": 4386816
+        },
+        {
+          "cache_len": 154,
+          "cache_bytes": 4415488
+        },
+        {
+          "cache_len": 155,
+          "cache_bytes": 4444160
+        },
+        {
+          "cache_len": 156,
+          "cache_bytes": 4472832
+        },
+        {
+          "cache_len": 157,
+          "cache_bytes": 4501504
+        },
+        {
+          "cache_len": 158,
+          "cache_bytes": 4530176
+        },
+        {
+          "cache_len": 159,
+          "cache_bytes": 4558848
+        },
+        {
+          "cache_len": 160,
+          "cache_bytes": 4587520
+        },
+        {
+          "cache_len": 161,
+          "cache_bytes": 4616192
+        },
+        {
+          "cache_len": 162,
+          "cache_bytes": 4644864
+        },
+        {
+          "cache_len": 163,
+          "cache_bytes": 4673536
+        },
+        {
+          "cache_len": 164,
+          "cache_bytes": 4702208
+        },
+        {
+          "cache_len": 165,
+          "cache_bytes": 4730880
+        },
+        {
+          "cache_len": 166,
+          "cache_bytes": 4759552
+        },
+        {
+          "cache_len": 167,
+          "cache_bytes": 4788224
+        },
+        {
+          "cache_len": 168,
+          "cache_bytes": 4816896
+        },
+        {
+          "cache_len": 169,
+          "cache_bytes": 4845568
+        },
+        {
+          "cache_len": 170,
+          "cache_bytes": 4874240
+        },
+        {
+          "cache_len": 171,
+          "cache_bytes": 4902912
+        },
+        {
+          "cache_len": 172,
+          "cache_bytes": 4931584
+        },
+        {
+          "cache_len": 173,
+          "cache_bytes": 4960256
+        },
+        {
+          "cache_len": 174,
+          "cache_bytes": 4988928
+        },
+        {
+          "cache_len": 175,
+          "cache_bytes": 5017600
+        },
+        {
+          "cache_len": 176,
+          "cache_bytes": 5046272
+        },
+        {
+          "cache_len": 177,
+          "cache_bytes": 5074944
+        },
+        {
+          "cache_len": 178,
+          "cache_bytes": 5103616
+        },
+        {
+          "cache_len": 179,
+          "cache_bytes": 5132288
+        },
+        {
+          "cache_len": 180,
+          "cache_bytes": 5160960
+        },
+        {
+          "cache_len": 181,
+          "cache_bytes": 5189632
+        },
+        {
+          "cache_len": 182,
+          "cache_bytes": 5218304
+        },
+        {
+          "cache_len": 183,
+          "cache_bytes": 5246976
+        },
+        {
+          "cache_len": 184,
+          "cache_bytes": 5275648
+        },
+        {
+          "cache_len": 185,
+          "cache_bytes": 5304320
+        },
+        {
+          "cache_len": 186,
+          "cache_bytes": 5332992
+        },
+        {
+          "cache_len": 187,
+          "cache_bytes": 5361664
+        },
+        {
+          "cache_len": 188,
+          "cache_bytes": 5390336
+        },
+        {
+          "cache_len": 189,
+          "cache_bytes": 5419008
+        },
+        {
+          "cache_len": 190,
+          "cache_bytes": 5447680
+        },
+        {
+          "cache_len": 191,
+          "cache_bytes": 5476352
+        },
+        {
+          "cache_len": 192,
+          "cache_bytes": 5505024
+        },
+        {
+          "cache_len": 193,
+          "cache_bytes": 5533696
+        },
+        {
+          "cache_len": 194,
+          "cache_bytes": 5562368
+        },
+        {
+          "cache_len": 195,
+          "cache_bytes": 5591040
+        },
+        {
+          "cache_len": 196,
+          "cache_bytes": 5619712
+        },
+        {
+          "cache_len": 197,
+          "cache_bytes": 5648384
+        },
+        {
+          "cache_len": 198,
+          "cache_bytes": 5677056
+        },
+        {
+          "cache_len": 199,
+          "cache_bytes": 5705728
+        },
+        {
+          "cache_len": 200,
+          "cache_bytes": 5734400
+        },
+        {
+          "cache_len": 201,
+          "cache_bytes": 5763072
+        },
+        {
+          "cache_len": 202,
+          "cache_bytes": 5791744
+        },
+        {
+          "cache_len": 203,
+          "cache_bytes": 5820416
+        },
+        {
+          "cache_len": 204,
+          "cache_bytes": 5849088
+        },
+        {
+          "cache_len": 205,
+          "cache_bytes": 5877760
+        },
+        {
+          "cache_len": 206,
+          "cache_bytes": 5906432
+        },
+        {
+          "cache_len": 207,
+          "cache_bytes": 5935104
+        },
+        {
+          "cache_len": 208,
+          "cache_bytes": 5963776
+        },
+        {
+          "cache_len": 209,
+          "cache_bytes": 5992448
+        },
+        {
+          "cache_len": 210,
+          "cache_bytes": 6021120
+        },
+        {
+          "cache_len": 211,
+          "cache_bytes": 6049792
+        },
+        {
+          "cache_len": 212,
+          "cache_bytes": 6078464
+        },
+        {
+          "cache_len": 213,
+          "cache_bytes": 6107136
+        },
+        {
+          "cache_len": 214,
+          "cache_bytes": 6135808
+        },
+        {
+          "cache_len": 215,
+          "cache_bytes": 6164480
+        },
+        {
+          "cache_len": 216,
+          "cache_bytes": 6193152
+        },
+        {
+          "cache_len": 217,
+          "cache_bytes": 6221824
+        },
+        {
+          "cache_len": 218,
+          "cache_bytes": 6250496
+        },
+        {
+          "cache_len": 219,
+          "cache_bytes": 6279168
+        },
+        {
+          "cache_len": 220,
+          "cache_bytes": 6307840
+        },
+        {
+          "cache_len": 221,
+          "cache_bytes": 6336512
+        },
+        {
+          "cache_len": 222,
+          "cache_bytes": 6365184
+        },
+        {
+          "cache_len": 223,
+          "cache_bytes": 6393856
+        },
+        {
+          "cache_len": 224,
+          "cache_bytes": 6422528
+        },
+        {
+          "cache_len": 225,
+          "cache_bytes": 6451200
+        },
+        {
+          "cache_len": 226,
+          "cache_bytes": 6479872
+        },
+        {
+          "cache_len": 227,
+          "cache_bytes": 6508544
+        },
+        {
+          "cache_len": 228,
+          "cache_bytes": 6537216
+        },
+        {
+          "cache_len": 229,
+          "cache_bytes": 6565888
+        },
+        {
+          "cache_len": 230,
+          "cache_bytes": 6594560
+        },
+        {
+          "cache_len": 231,
+          "cache_bytes": 6623232
+        },
+        {
+          "cache_len": 232,
+          "cache_bytes": 6651904
+        },
+        {
+          "cache_len": 233,
+          "cache_bytes": 6680576
+        },
+        {
+          "cache_len": 234,
+          "cache_bytes": 6709248
+        },
+        {
+          "cache_len": 235,
+          "cache_bytes": 6737920
+        },
+        {
+          "cache_len": 236,
+          "cache_bytes": 6766592
+        },
+        {
+          "cache_len": 237,
+          "cache_bytes": 6795264
+        },
+        {
+          "cache_len": 238,
+          "cache_bytes": 6823936
+        },
+        {
+          "cache_len": 239,
+          "cache_bytes": 6852608
+        },
+        {
+          "cache_len": 240,
+          "cache_bytes": 6881280
+        },
+        {
+          "cache_len": 241,
+          "cache_bytes": 6909952
+        },
+        {
+          "cache_len": 242,
+          "cache_bytes": 6938624
+        },
+        {
+          "cache_len": 243,
+          "cache_bytes": 6967296
+        },
+        {
+          "cache_len": 244,
+          "cache_bytes": 6995968
+        },
+        {
+          "cache_len": 245,
+          "cache_bytes": 7024640
+        },
+        {
+          "cache_len": 246,
+          "cache_bytes": 7053312
+        },
+        {
+          "cache_len": 247,
+          "cache_bytes": 7081984
+        },
+        {
+          "cache_len": 248,
+          "cache_bytes": 7110656
+        },
+        {
+          "cache_len": 249,
+          "cache_bytes": 7139328
+        },
+        {
+          "cache_len": 250,
+          "cache_bytes": 7168000
+        },
+        {
+          "cache_len": 251,
+          "cache_bytes": 7196672
+        },
+        {
+          "cache_len": 252,
+          "cache_bytes": 7225344
+        },
+        {
+          "cache_len": 253,
+          "cache_bytes": 7254016
+        },
+        {
+          "cache_len": 254,
+          "cache_bytes": 7282688
+        },
+        {
+          "cache_len": 255,
+          "cache_bytes": 7311360
+        }
+      ],
+      "total_latency_speedup": 1.476781715089051
+    },
+    {
+      "input_length": 128,
+      "output_length": 256,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.0402457350000077,
+          "std": 0.0008996915316362589,
+          "median": 0.03975649199992404
+        },
+        "decode_s": {
+          "mean": 17.931467347397394,
+          "std": 0.04260640416728368,
+          "median": 17.932917324992104
+        },
+        "total_latency_s": {
+          "mean": 18.143870043199968,
+          "std": 0.04380619755947704,
+          "median": 18.14502850300005
+        },
+        "output_tokens_per_second": {
+          "mean": 14.220890835440164,
+          "std": 0.03378995011293714,
+          "median": 14.219660715472143
+        },
+        "time_per_output_token_s": {
+          "mean": 0.07087449235624987,
+          "std": 0.00017111795921670718,
+          "median": 0.07087901758984394
+        },
+        "peak_memory_bytes": 3338009600
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.04205264940010238,
+          "std": 0.0005979400174765645,
+          "median": 0.04232067900011316
+        },
+        "decode_s": {
+          "mean": 9.184892347600453,
+          "std": 0.0744837629599089,
+          "median": 9.167136639004184
+        },
+        "total_latency_s": {
+          "mean": 9.3670363876,
+          "std": 0.07502254978108157,
+          "median": 9.346271804000025
+        },
+        "output_tokens_per_second": {
+          "mean": 27.764806388693636,
+          "std": 0.22498745490762587,
+          "median": 27.81675566119852
+        },
+        "time_per_output_token_s": {
+          "mean": 0.0365899858890625,
+          "std": 0.0002930568350823499,
+          "median": 0.0365088742343751
+        },
+        "peak_memory_bytes": 3149108736
+      },
+      "cache_growth": [
+        {
+          "cache_len": 128,
+          "cache_bytes": 3670016
+        },
+        {
+          "cache_len": 129,
+          "cache_bytes": 3698688
+        },
+        {
+          "cache_len": 130,
+          "cache_bytes": 3727360
+        },
+        {
+          "cache_len": 131,
+          "cache_bytes": 3756032
+        },
+        {
+          "cache_len": 132,
+          "cache_bytes": 3784704
+        },
+        {
+          "cache_len": 133,
+          "cache_bytes": 3813376
+        },
+        {
+          "cache_len": 134,
+          "cache_bytes": 3842048
+        },
+        {
+          "cache_len": 135,
+          "cache_bytes": 3870720
+        },
+        {
+          "cache_len": 136,
+          "cache_bytes": 3899392
+        },
+        {
+          "cache_len": 137,
+          "cache_bytes": 3928064
+        },
+        {
+          "cache_len": 138,
+          "cache_bytes": 3956736
+        },
+        {
+          "cache_len": 139,
+          "cache_bytes": 3985408
+        },
+        {
+          "cache_len": 140,
+          "cache_bytes": 4014080
+        },
+        {
+          "cache_len": 141,
+          "cache_bytes": 4042752
+        },
+        {
+          "cache_len": 142,
+          "cache_bytes": 4071424
+        },
+        {
+          "cache_len": 143,
+          "cache_bytes": 4100096
+        },
+        {
+          "cache_len": 144,
+          "cache_bytes": 4128768
+        },
+        {
+          "cache_len": 145,
+          "cache_bytes": 4157440
+        },
+        {
+          "cache_len": 146,
+          "cache_bytes": 4186112
+        },
+        {
+          "cache_len": 147,
+          "cache_bytes": 4214784
+        },
+        {
+          "cache_len": 148,
+          "cache_bytes": 4243456
+        },
+        {
+          "cache_len": 149,
+          "cache_bytes": 4272128
+        },
+        {
+          "cache_len": 150,
+          "cache_bytes": 4300800
+        },
+        {
+          "cache_len": 151,
+          "cache_bytes": 4329472
+        },
+        {
+          "cache_len": 152,
+          "cache_bytes": 4358144
+        },
+        {
+          "cache_len": 153,
+          "cache_bytes": 4386816
+        },
+        {
+          "cache_len": 154,
+          "cache_bytes": 4415488
+        },
+        {
+          "cache_len": 155,
+          "cache_bytes": 4444160
+        },
+        {
+          "cache_len": 156,
+          "cache_bytes": 4472832
+        },
+        {
+          "cache_len": 157,
+          "cache_bytes": 4501504
+        },
+        {
+          "cache_len": 158,
+          "cache_bytes": 4530176
+        },
+        {
+          "cache_len": 159,
+          "cache_bytes": 4558848
+        },
+        {
+          "cache_len": 160,
+          "cache_bytes": 4587520
+        },
+        {
+          "cache_len": 161,
+          "cache_bytes": 4616192
+        },
+        {
+          "cache_len": 162,
+          "cache_bytes": 4644864
+        },
+        {
+          "cache_len": 163,
+          "cache_bytes": 4673536
+        },
+        {
+          "cache_len": 164,
+          "cache_bytes": 4702208
+        },
+        {
+          "cache_len": 165,
+          "cache_bytes": 4730880
+        },
+        {
+          "cache_len": 166,
+          "cache_bytes": 4759552
+        },
+        {
+          "cache_len": 167,
+          "cache_bytes": 4788224
+        },
+        {
+          "cache_len": 168,
+          "cache_bytes": 4816896
+        },
+        {
+          "cache_len": 169,
+          "cache_bytes": 4845568
+        },
+        {
+          "cache_len": 170,
+          "cache_bytes": 4874240
+        },
+        {
+          "cache_len": 171,
+          "cache_bytes": 4902912
+        },
+        {
+          "cache_len": 172,
+          "cache_bytes": 4931584
+        },
+        {
+          "cache_len": 173,
+          "cache_bytes": 4960256
+        },
+        {
+          "cache_len": 174,
+          "cache_bytes": 4988928
+        },
+        {
+          "cache_len": 175,
+          "cache_bytes": 5017600
+        },
+        {
+          "cache_len": 176,
+          "cache_bytes": 5046272
+        },
+        {
+          "cache_len": 177,
+          "cache_bytes": 5074944
+        },
+        {
+          "cache_len": 178,
+          "cache_bytes": 5103616
+        },
+        {
+          "cache_len": 179,
+          "cache_bytes": 5132288
+        },
+        {
+          "cache_len": 180,
+          "cache_bytes": 5160960
+        },
+        {
+          "cache_len": 181,
+          "cache_bytes": 5189632
+        },
+        {
+          "cache_len": 182,
+          "cache_bytes": 5218304
+        },
+        {
+          "cache_len": 183,
+          "cache_bytes": 5246976
+        },
+        {
+          "cache_len": 184,
+          "cache_bytes": 5275648
+        },
+        {
+          "cache_len": 185,
+          "cache_bytes": 5304320
+        },
+        {
+          "cache_len": 186,
+          "cache_bytes": 5332992
+        },
+        {
+          "cache_len": 187,
+          "cache_bytes": 5361664
+        },
+        {
+          "cache_len": 188,
+          "cache_bytes": 5390336
+        },
+        {
+          "cache_len": 189,
+          "cache_bytes": 5419008
+        },
+        {
+          "cache_len": 190,
+          "cache_bytes": 5447680
+        },
+        {
+          "cache_len": 191,
+          "cache_bytes": 5476352
+        },
+        {
+          "cache_len": 192,
+          "cache_bytes": 5505024
+        },
+        {
+          "cache_len": 193,
+          "cache_bytes": 5533696
+        },
+        {
+          "cache_len": 194,
+          "cache_bytes": 5562368
+        },
+        {
+          "cache_len": 195,
+          "cache_bytes": 5591040
+        },
+        {
+          "cache_len": 196,
+          "cache_bytes": 5619712
+        },
+        {
+          "cache_len": 197,
+          "cache_bytes": 5648384
+        },
+        {
+          "cache_len": 198,
+          "cache_bytes": 5677056
+        },
+        {
+          "cache_len": 199,
+          "cache_bytes": 5705728
+        },
+        {
+          "cache_len": 200,
+          "cache_bytes": 5734400
+        },
+        {
+          "cache_len": 201,
+          "cache_bytes": 5763072
+        },
+        {
+          "cache_len": 202,
+          "cache_bytes": 5791744
+        },
+        {
+          "cache_len": 203,
+          "cache_bytes": 5820416
+        },
+        {
+          "cache_len": 204,
+          "cache_bytes": 5849088
+        },
+        {
+          "cache_len": 205,
+          "cache_bytes": 5877760
+        },
+        {
+          "cache_len": 206,
+          "cache_bytes": 5906432
+        },
+        {
+          "cache_len": 207,
+          "cache_bytes": 5935104
+        },
+        {
+          "cache_len": 208,
+          "cache_bytes": 5963776
+        },
+        {
+          "cache_len": 209,
+          "cache_bytes": 5992448
+        },
+        {
+          "cache_len": 210,
+          "cache_bytes": 6021120
+        },
+        {
+          "cache_len": 211,
+          "cache_bytes": 6049792
+        },
+        {
+          "cache_len": 212,
+          "cache_bytes": 6078464
+        },
+        {
+          "cache_len": 213,
+          "cache_bytes": 6107136
+        },
+        {
+          "cache_len": 214,
+          "cache_bytes": 6135808
+        },
+        {
+          "cache_len": 215,
+          "cache_bytes": 6164480
+        },
+        {
+          "cache_len": 216,
+          "cache_bytes": 6193152
+        },
+        {
+          "cache_len": 217,
+          "cache_bytes": 6221824
+        },
+        {
+          "cache_len": 218,
+          "cache_bytes": 6250496
+        },
+        {
+          "cache_len": 219,
+          "cache_bytes": 6279168
+        },
+        {
+          "cache_len": 220,
+          "cache_bytes": 6307840
+        },
+        {
+          "cache_len": 221,
+          "cache_bytes": 6336512
+        },
+        {
+          "cache_len": 222,
+          "cache_bytes": 6365184
+        },
+        {
+          "cache_len": 223,
+          "cache_bytes": 6393856
+        },
+        {
+          "cache_len": 224,
+          "cache_bytes": 6422528
+        },
+        {
+          "cache_len": 225,
+          "cache_bytes": 6451200
+        },
+        {
+          "cache_len": 226,
+          "cache_bytes": 6479872
+        },
+        {
+          "cache_len": 227,
+          "cache_bytes": 6508544
+        },
+        {
+          "cache_len": 228,
+          "cache_bytes": 6537216
+        },
+        {
+          "cache_len": 229,
+          "cache_bytes": 6565888
+        },
+        {
+          "cache_len": 230,
+          "cache_bytes": 6594560
+        },
+        {
+          "cache_len": 231,
+          "cache_bytes": 6623232
+        },
+        {
+          "cache_len": 232,
+          "cache_bytes": 6651904
+        },
+        {
+          "cache_len": 233,
+          "cache_bytes": 6680576
+        },
+        {
+          "cache_len": 234,
+          "cache_bytes": 6709248
+        },
+        {
+          "cache_len": 235,
+          "cache_bytes": 6737920
+        },
+        {
+          "cache_len": 236,
+          "cache_bytes": 6766592
+        },
+        {
+          "cache_len": 237,
+          "cache_bytes": 6795264
+        },
+        {
+          "cache_len": 238,
+          "cache_bytes": 6823936
+        },
+        {
+          "cache_len": 239,
+          "cache_bytes": 6852608
+        },
+        {
+          "cache_len": 240,
+          "cache_bytes": 6881280
+        },
+        {
+          "cache_len": 241,
+          "cache_bytes": 6909952
+        },
+        {
+          "cache_len": 242,
+          "cache_bytes": 6938624
+        },
+        {
+          "cache_len": 243,
+          "cache_bytes": 6967296
+        },
+        {
+          "cache_len": 244,
+          "cache_bytes": 6995968
+        },
+        {
+          "cache_len": 245,
+          "cache_bytes": 7024640
+        },
+        {
+          "cache_len": 246,
+          "cache_bytes": 7053312
+        },
+        {
+          "cache_len": 247,
+          "cache_bytes": 7081984
+        },
+        {
+          "cache_len": 248,
+          "cache_bytes": 7110656
+        },
+        {
+          "cache_len": 249,
+          "cache_bytes": 7139328
+        },
+        {
+          "cache_len": 250,
+          "cache_bytes": 7168000
+        },
+        {
+          "cache_len": 251,
+          "cache_bytes": 7196672
+        },
+        {
+          "cache_len": 252,
+          "cache_bytes": 7225344
+        },
+        {
+          "cache_len": 253,
+          "cache_bytes": 7254016
+        },
+        {
+          "cache_len": 254,
+          "cache_bytes": 7282688
+        },
+        {
+          "cache_len": 255,
+          "cache_bytes": 7311360
+        },
+        {
+          "cache_len": 256,
+          "cache_bytes": 7340032
+        },
+        {
+          "cache_len": 257,
+          "cache_bytes": 7368704
+        },
+        {
+          "cache_len": 258,
+          "cache_bytes": 7397376
+        },
+        {
+          "cache_len": 259,
+          "cache_bytes": 7426048
+        },
+        {
+          "cache_len": 260,
+          "cache_bytes": 7454720
+        },
+        {
+          "cache_len": 261,
+          "cache_bytes": 7483392
+        },
+        {
+          "cache_len": 262,
+          "cache_bytes": 7512064
+        },
+        {
+          "cache_len": 263,
+          "cache_bytes": 7540736
+        },
+        {
+          "cache_len": 264,
+          "cache_bytes": 7569408
+        },
+        {
+          "cache_len": 265,
+          "cache_bytes": 7598080
+        },
+        {
+          "cache_len": 266,
+          "cache_bytes": 7626752
+        },
+        {
+          "cache_len": 267,
+          "cache_bytes": 7655424
+        },
+        {
+          "cache_len": 268,
+          "cache_bytes": 7684096
+        },
+        {
+          "cache_len": 269,
+          "cache_bytes": 7712768
+        },
+        {
+          "cache_len": 270,
+          "cache_bytes": 7741440
+        },
+        {
+          "cache_len": 271,
+          "cache_bytes": 7770112
+        },
+        {
+          "cache_len": 272,
+          "cache_bytes": 7798784
+        },
+        {
+          "cache_len": 273,
+          "cache_bytes": 7827456
+        },
+        {
+          "cache_len": 274,
+          "cache_bytes": 7856128
+        },
+        {
+          "cache_len": 275,
+          "cache_bytes": 7884800
+        },
+        {
+          "cache_len": 276,
+          "cache_bytes": 7913472
+        },
+        {
+          "cache_len": 277,
+          "cache_bytes": 7942144
+        },
+        {
+          "cache_len": 278,
+          "cache_bytes": 7970816
+        },
+        {
+          "cache_len": 279,
+          "cache_bytes": 7999488
+        },
+        {
+          "cache_len": 280,
+          "cache_bytes": 8028160
+        },
+        {
+          "cache_len": 281,
+          "cache_bytes": 8056832
+        },
+        {
+          "cache_len": 282,
+          "cache_bytes": 8085504
+        },
+        {
+          "cache_len": 283,
+          "cache_bytes": 8114176
+        },
+        {
+          "cache_len": 284,
+          "cache_bytes": 8142848
+        },
+        {
+          "cache_len": 285,
+          "cache_bytes": 8171520
+        },
+        {
+          "cache_len": 286,
+          "cache_bytes": 8200192
+        },
+        {
+          "cache_len": 287,
+          "cache_bytes": 8228864
+        },
+        {
+          "cache_len": 288,
+          "cache_bytes": 8257536
+        },
+        {
+          "cache_len": 289,
+          "cache_bytes": 8286208
+        },
+        {
+          "cache_len": 290,
+          "cache_bytes": 8314880
+        },
+        {
+          "cache_len": 291,
+          "cache_bytes": 8343552
+        },
+        {
+          "cache_len": 292,
+          "cache_bytes": 8372224
+        },
+        {
+          "cache_len": 293,
+          "cache_bytes": 8400896
+        },
+        {
+          "cache_len": 294,
+          "cache_bytes": 8429568
+        },
+        {
+          "cache_len": 295,
+          "cache_bytes": 8458240
+        },
+        {
+          "cache_len": 296,
+          "cache_bytes": 8486912
+        },
+        {
+          "cache_len": 297,
+          "cache_bytes": 8515584
+        },
+        {
+          "cache_len": 298,
+          "cache_bytes": 8544256
+        },
+        {
+          "cache_len": 299,
+          "cache_bytes": 8572928
+        },
+        {
+          "cache_len": 300,
+          "cache_bytes": 8601600
+        },
+        {
+          "cache_len": 301,
+          "cache_bytes": 8630272
+        },
+        {
+          "cache_len": 302,
+          "cache_bytes": 8658944
+        },
+        {
+          "cache_len": 303,
+          "cache_bytes": 8687616
+        },
+        {
+          "cache_len": 304,
+          "cache_bytes": 8716288
+        },
+        {
+          "cache_len": 305,
+          "cache_bytes": 8744960
+        },
+        {
+          "cache_len": 306,
+          "cache_bytes": 8773632
+        },
+        {
+          "cache_len": 307,
+          "cache_bytes": 8802304
+        },
+        {
+          "cache_len": 308,
+          "cache_bytes": 8830976
+        },
+        {
+          "cache_len": 309,
+          "cache_bytes": 8859648
+        },
+        {
+          "cache_len": 310,
+          "cache_bytes": 8888320
+        },
+        {
+          "cache_len": 311,
+          "cache_bytes": 8916992
+        },
+        {
+          "cache_len": 312,
+          "cache_bytes": 8945664
+        },
+        {
+          "cache_len": 313,
+          "cache_bytes": 8974336
+        },
+        {
+          "cache_len": 314,
+          "cache_bytes": 9003008
+        },
+        {
+          "cache_len": 315,
+          "cache_bytes": 9031680
+        },
+        {
+          "cache_len": 316,
+          "cache_bytes": 9060352
+        },
+        {
+          "cache_len": 317,
+          "cache_bytes": 9089024
+        },
+        {
+          "cache_len": 318,
+          "cache_bytes": 9117696
+        },
+        {
+          "cache_len": 319,
+          "cache_bytes": 9146368
+        },
+        {
+          "cache_len": 320,
+          "cache_bytes": 9175040
+        },
+        {
+          "cache_len": 321,
+          "cache_bytes": 9203712
+        },
+        {
+          "cache_len": 322,
+          "cache_bytes": 9232384
+        },
+        {
+          "cache_len": 323,
+          "cache_bytes": 9261056
+        },
+        {
+          "cache_len": 324,
+          "cache_bytes": 9289728
+        },
+        {
+          "cache_len": 325,
+          "cache_bytes": 9318400
+        },
+        {
+          "cache_len": 326,
+          "cache_bytes": 9347072
+        },
+        {
+          "cache_len": 327,
+          "cache_bytes": 9375744
+        },
+        {
+          "cache_len": 328,
+          "cache_bytes": 9404416
+        },
+        {
+          "cache_len": 329,
+          "cache_bytes": 9433088
+        },
+        {
+          "cache_len": 330,
+          "cache_bytes": 9461760
+        },
+        {
+          "cache_len": 331,
+          "cache_bytes": 9490432
+        },
+        {
+          "cache_len": 332,
+          "cache_bytes": 9519104
+        },
+        {
+          "cache_len": 333,
+          "cache_bytes": 9547776
+        },
+        {
+          "cache_len": 334,
+          "cache_bytes": 9576448
+        },
+        {
+          "cache_len": 335,
+          "cache_bytes": 9605120
+        },
+        {
+          "cache_len": 336,
+          "cache_bytes": 9633792
+        },
+        {
+          "cache_len": 337,
+          "cache_bytes": 9662464
+        },
+        {
+          "cache_len": 338,
+          "cache_bytes": 9691136
+        },
+        {
+          "cache_len": 339,
+          "cache_bytes": 9719808
+        },
+        {
+          "cache_len": 340,
+          "cache_bytes": 9748480
+        },
+        {
+          "cache_len": 341,
+          "cache_bytes": 9777152
+        },
+        {
+          "cache_len": 342,
+          "cache_bytes": 9805824
+        },
+        {
+          "cache_len": 343,
+          "cache_bytes": 9834496
+        },
+        {
+          "cache_len": 344,
+          "cache_bytes": 9863168
+        },
+        {
+          "cache_len": 345,
+          "cache_bytes": 9891840
+        },
+        {
+          "cache_len": 346,
+          "cache_bytes": 9920512
+        },
+        {
+          "cache_len": 347,
+          "cache_bytes": 9949184
+        },
+        {
+          "cache_len": 348,
+          "cache_bytes": 9977856
+        },
+        {
+          "cache_len": 349,
+          "cache_bytes": 10006528
+        },
+        {
+          "cache_len": 350,
+          "cache_bytes": 10035200
+        },
+        {
+          "cache_len": 351,
+          "cache_bytes": 10063872
+        },
+        {
+          "cache_len": 352,
+          "cache_bytes": 10092544
+        },
+        {
+          "cache_len": 353,
+          "cache_bytes": 10121216
+        },
+        {
+          "cache_len": 354,
+          "cache_bytes": 10149888
+        },
+        {
+          "cache_len": 355,
+          "cache_bytes": 10178560
+        },
+        {
+          "cache_len": 356,
+          "cache_bytes": 10207232
+        },
+        {
+          "cache_len": 357,
+          "cache_bytes": 10235904
+        },
+        {
+          "cache_len": 358,
+          "cache_bytes": 10264576
+        },
+        {
+          "cache_len": 359,
+          "cache_bytes": 10293248
+        },
+        {
+          "cache_len": 360,
+          "cache_bytes": 10321920
+        },
+        {
+          "cache_len": 361,
+          "cache_bytes": 10350592
+        },
+        {
+          "cache_len": 362,
+          "cache_bytes": 10379264
+        },
+        {
+          "cache_len": 363,
+          "cache_bytes": 10407936
+        },
+        {
+          "cache_len": 364,
+          "cache_bytes": 10436608
+        },
+        {
+          "cache_len": 365,
+          "cache_bytes": 10465280
+        },
+        {
+          "cache_len": 366,
+          "cache_bytes": 10493952
+        },
+        {
+          "cache_len": 367,
+          "cache_bytes": 10522624
+        },
+        {
+          "cache_len": 368,
+          "cache_bytes": 10551296
+        },
+        {
+          "cache_len": 369,
+          "cache_bytes": 10579968
+        },
+        {
+          "cache_len": 370,
+          "cache_bytes": 10608640
+        },
+        {
+          "cache_len": 371,
+          "cache_bytes": 10637312
+        },
+        {
+          "cache_len": 372,
+          "cache_bytes": 10665984
+        },
+        {
+          "cache_len": 373,
+          "cache_bytes": 10694656
+        },
+        {
+          "cache_len": 374,
+          "cache_bytes": 10723328
+        },
+        {
+          "cache_len": 375,
+          "cache_bytes": 10752000
+        },
+        {
+          "cache_len": 376,
+          "cache_bytes": 10780672
+        },
+        {
+          "cache_len": 377,
+          "cache_bytes": 10809344
+        },
+        {
+          "cache_len": 378,
+          "cache_bytes": 10838016
+        },
+        {
+          "cache_len": 379,
+          "cache_bytes": 10866688
+        },
+        {
+          "cache_len": 380,
+          "cache_bytes": 10895360
+        },
+        {
+          "cache_len": 381,
+          "cache_bytes": 10924032
+        },
+        {
+          "cache_len": 382,
+          "cache_bytes": 10952704
+        },
+        {
+          "cache_len": 383,
+          "cache_bytes": 10981376
+        }
+      ],
+      "total_latency_speedup": 1.9369915192406706
+    },
+    {
+      "input_length": 512,
+      "output_length": 32,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.1214392809999481,
+          "std": 0.0014028582285485903,
+          "median": 0.12075685600029828
+        },
+        "decode_s": {
+          "mean": 5.099313405799603,
+          "std": 0.009242779173540015,
+          "median": 5.1011124499996185
+        },
+        "total_latency_s": {
+          "mean": 5.245115926399921,
+          "std": 0.0091400851606688,
+          "median": 5.246737713999664
+        },
+        "output_tokens_per_second": {
+          "mean": 6.079269776516388,
+          "std": 0.011021470098350514,
+          "median": 6.077105788954391
+        },
+        "time_per_output_token_s": {
+          "mean": 0.16390987269999754,
+          "std": 0.0002856276612709,
+          "median": 0.1639605535624895
+        },
+        "peak_memory_bytes": 3435391488
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.13465578899995306,
+          "std": 0.0014273158918439405,
+          "median": 0.13400580799998352
+        },
+        "decode_s": {
+          "mean": 1.1140134199989007,
+          "std": 0.024520671691593703,
+          "median": 1.108092024997859
+        },
+        "total_latency_s": {
+          "mean": 1.2689669426000365,
+          "std": 0.02517448987005973,
+          "median": 1.2630068519997621
+        },
+        "output_tokens_per_second": {
+          "mean": 27.840779153501348,
+          "std": 0.6119727393959334,
+          "median": 27.97601580072729
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03965521695625114,
+          "std": 0.0007867028084393666,
+          "median": 0.03946896412499257
+        },
+        "peak_memory_bytes": 3286238208
+      },
+      "cache_growth": [
+        {
+          "cache_len": 512,
+          "cache_bytes": 14680064
+        },
+        {
+          "cache_len": 513,
+          "cache_bytes": 14708736
+        },
+        {
+          "cache_len": 514,
+          "cache_bytes": 14737408
+        },
+        {
+          "cache_len": 515,
+          "cache_bytes": 14766080
+        },
+        {
+          "cache_len": 516,
+          "cache_bytes": 14794752
+        },
+        {
+          "cache_len": 517,
+          "cache_bytes": 14823424
+        },
+        {
+          "cache_len": 518,
+          "cache_bytes": 14852096
+        },
+        {
+          "cache_len": 519,
+          "cache_bytes": 14880768
+        },
+        {
+          "cache_len": 520,
+          "cache_bytes": 14909440
+        },
+        {
+          "cache_len": 521,
+          "cache_bytes": 14938112
+        },
+        {
+          "cache_len": 522,
+          "cache_bytes": 14966784
+        },
+        {
+          "cache_len": 523,
+          "cache_bytes": 14995456
+        },
+        {
+          "cache_len": 524,
+          "cache_bytes": 15024128
+        },
+        {
+          "cache_len": 525,
+          "cache_bytes": 15052800
+        },
+        {
+          "cache_len": 526,
+          "cache_bytes": 15081472
+        },
+        {
+          "cache_len": 527,
+          "cache_bytes": 15110144
+        },
+        {
+          "cache_len": 528,
+          "cache_bytes": 15138816
+        },
+        {
+          "cache_len": 529,
+          "cache_bytes": 15167488
+        },
+        {
+          "cache_len": 530,
+          "cache_bytes": 15196160
+        },
+        {
+          "cache_len": 531,
+          "cache_bytes": 15224832
+        },
+        {
+          "cache_len": 532,
+          "cache_bytes": 15253504
+        },
+        {
+          "cache_len": 533,
+          "cache_bytes": 15282176
+        },
+        {
+          "cache_len": 534,
+          "cache_bytes": 15310848
+        },
+        {
+          "cache_len": 535,
+          "cache_bytes": 15339520
+        },
+        {
+          "cache_len": 536,
+          "cache_bytes": 15368192
+        },
+        {
+          "cache_len": 537,
+          "cache_bytes": 15396864
+        },
+        {
+          "cache_len": 538,
+          "cache_bytes": 15425536
+        },
+        {
+          "cache_len": 539,
+          "cache_bytes": 15454208
+        },
+        {
+          "cache_len": 540,
+          "cache_bytes": 15482880
+        },
+        {
+          "cache_len": 541,
+          "cache_bytes": 15511552
+        },
+        {
+          "cache_len": 542,
+          "cache_bytes": 15540224
+        },
+        {
+          "cache_len": 543,
+          "cache_bytes": 15568896
+        }
+      ],
+      "total_latency_speedup": 4.133374755730828
+    },
+    {
+      "input_length": 512,
+      "output_length": 128,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.11954550979999112,
+          "std": 0.0007204900260149727,
+          "median": 0.1199877409999317
+        },
+        "decode_s": {
+          "mean": 22.426968545400268,
+          "std": 0.050018131981248666,
+          "median": 22.451039488000788
+        },
+        "total_latency_s": {
+          "mean": 22.640373653399912,
+          "std": 0.04974477420795233,
+          "median": 22.66300576499998
+        },
+        "output_tokens_per_second": {
+          "mean": 5.66285334222031,
+          "std": 0.012671070513428029,
+          "median": 5.656753669150891
+        },
+        "time_per_output_token_s": {
+          "mean": 0.17687791916718681,
+          "std": 0.00038863104849962756,
+          "median": 0.17705473253906234
+        },
+        "peak_memory_bytes": 3494051840
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.1398826270000427,
+          "std": 0.0025845064081977454,
+          "median": 0.13943210100023862
+        },
+        "decode_s": {
+          "mean": 4.504534417398645,
+          "std": 0.03703227786941007,
+          "median": 4.486975070000881
+        },
+        "total_latency_s": {
+          "mean": 4.7151282331999935,
+          "std": 0.03898488873408162,
+          "median": 4.698571637999976
+        },
+        "output_tokens_per_second": {
+          "mean": 28.195696260735073,
+          "std": 0.22910446257957942,
+          "median": 28.30414656170021
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03683693932187495,
+          "std": 0.00030456944323501263,
+          "median": 0.03670759092187481
+        },
+        "peak_memory_bytes": 3286242816
+      },
+      "cache_growth": [
+        {
+          "cache_len": 512,
+          "cache_bytes": 14680064
+        },
+        {
+          "cache_len": 513,
+          "cache_bytes": 14708736
+        },
+        {
+          "cache_len": 514,
+          "cache_bytes": 14737408
+        },
+        {
+          "cache_len": 515,
+          "cache_bytes": 14766080
+        },
+        {
+          "cache_len": 516,
+          "cache_bytes": 14794752
+        },
+        {
+          "cache_len": 517,
+          "cache_bytes": 14823424
+        },
+        {
+          "cache_len": 518,
+          "cache_bytes": 14852096
+        },
+        {
+          "cache_len": 519,
+          "cache_bytes": 14880768
+        },
+        {
+          "cache_len": 520,
+          "cache_bytes": 14909440
+        },
+        {
+          "cache_len": 521,
+          "cache_bytes": 14938112
+        },
+        {
+          "cache_len": 522,
+          "cache_bytes": 14966784
+        },
+        {
+          "cache_len": 523,
+          "cache_bytes": 14995456
+        },
+        {
+          "cache_len": 524,
+          "cache_bytes": 15024128
+        },
+        {
+          "cache_len": 525,
+          "cache_bytes": 15052800
+        },
+        {
+          "cache_len": 526,
+          "cache_bytes": 15081472
+        },
+        {
+          "cache_len": 527,
+          "cache_bytes": 15110144
+        },
+        {
+          "cache_len": 528,
+          "cache_bytes": 15138816
+        },
+        {
+          "cache_len": 529,
+          "cache_bytes": 15167488
+        },
+        {
+          "cache_len": 530,
+          "cache_bytes": 15196160
+        },
+        {
+          "cache_len": 531,
+          "cache_bytes": 15224832
+        },
+        {
+          "cache_len": 532,
+          "cache_bytes": 15253504
+        },
+        {
+          "cache_len": 533,
+          "cache_bytes": 15282176
+        },
+        {
+          "cache_len": 534,
+          "cache_bytes": 15310848
+        },
+        {
+          "cache_len": 535,
+          "cache_bytes": 15339520
+        },
+        {
+          "cache_len": 536,
+          "cache_bytes": 15368192
+        },
+        {
+          "cache_len": 537,
+          "cache_bytes": 15396864
+        },
+        {
+          "cache_len": 538,
+          "cache_bytes": 15425536
+        },
+        {
+          "cache_len": 539,
+          "cache_bytes": 15454208
+        },
+        {
+          "cache_len": 540,
+          "cache_bytes": 15482880
+        },
+        {
+          "cache_len": 541,
+          "cache_bytes": 15511552
+        },
+        {
+          "cache_len": 542,
+          "cache_bytes": 15540224
+        },
+        {
+          "cache_len": 543,
+          "cache_bytes": 15568896
+        },
+        {
+          "cache_len": 544,
+          "cache_bytes": 15597568
+        },
+        {
+          "cache_len": 545,
+          "cache_bytes": 15626240
+        },
+        {
+          "cache_len": 546,
+          "cache_bytes": 15654912
+        },
+        {
+          "cache_len": 547,
+          "cache_bytes": 15683584
+        },
+        {
+          "cache_len": 548,
+          "cache_bytes": 15712256
+        },
+        {
+          "cache_len": 549,
+          "cache_bytes": 15740928
+        },
+        {
+          "cache_len": 550,
+          "cache_bytes": 15769600
+        },
+        {
+          "cache_len": 551,
+          "cache_bytes": 15798272
+        },
+        {
+          "cache_len": 552,
+          "cache_bytes": 15826944
+        },
+        {
+          "cache_len": 553,
+          "cache_bytes": 15855616
+        },
+        {
+          "cache_len": 554,
+          "cache_bytes": 15884288
+        },
+        {
+          "cache_len": 555,
+          "cache_bytes": 15912960
+        },
+        {
+          "cache_len": 556,
+          "cache_bytes": 15941632
+        },
+        {
+          "cache_len": 557,
+          "cache_bytes": 15970304
+        },
+        {
+          "cache_len": 558,
+          "cache_bytes": 15998976
+        },
+        {
+          "cache_len": 559,
+          "cache_bytes": 16027648
+        },
+        {
+          "cache_len": 560,
+          "cache_bytes": 16056320
+        },
+        {
+          "cache_len": 561,
+          "cache_bytes": 16084992
+        },
+        {
+          "cache_len": 562,
+          "cache_bytes": 16113664
+        },
+        {
+          "cache_len": 563,
+          "cache_bytes": 16142336
+        },
+        {
+          "cache_len": 564,
+          "cache_bytes": 16171008
+        },
+        {
+          "cache_len": 565,
+          "cache_bytes": 16199680
+        },
+        {
+          "cache_len": 566,
+          "cache_bytes": 16228352
+        },
+        {
+          "cache_len": 567,
+          "cache_bytes": 16257024
+        },
+        {
+          "cache_len": 568,
+          "cache_bytes": 16285696
+        },
+        {
+          "cache_len": 569,
+          "cache_bytes": 16314368
+        },
+        {
+          "cache_len": 570,
+          "cache_bytes": 16343040
+        },
+        {
+          "cache_len": 571,
+          "cache_bytes": 16371712
+        },
+        {
+          "cache_len": 572,
+          "cache_bytes": 16400384
+        },
+        {
+          "cache_len": 573,
+          "cache_bytes": 16429056
+        },
+        {
+          "cache_len": 574,
+          "cache_bytes": 16457728
+        },
+        {
+          "cache_len": 575,
+          "cache_bytes": 16486400
+        },
+        {
+          "cache_len": 576,
+          "cache_bytes": 16515072
+        },
+        {
+          "cache_len": 577,
+          "cache_bytes": 16543744
+        },
+        {
+          "cache_len": 578,
+          "cache_bytes": 16572416
+        },
+        {
+          "cache_len": 579,
+          "cache_bytes": 16601088
+        },
+        {
+          "cache_len": 580,
+          "cache_bytes": 16629760
+        },
+        {
+          "cache_len": 581,
+          "cache_bytes": 16658432
+        },
+        {
+          "cache_len": 582,
+          "cache_bytes": 16687104
+        },
+        {
+          "cache_len": 583,
+          "cache_bytes": 16715776
+        },
+        {
+          "cache_len": 584,
+          "cache_bytes": 16744448
+        },
+        {
+          "cache_len": 585,
+          "cache_bytes": 16773120
+        },
+        {
+          "cache_len": 586,
+          "cache_bytes": 16801792
+        },
+        {
+          "cache_len": 587,
+          "cache_bytes": 16830464
+        },
+        {
+          "cache_len": 588,
+          "cache_bytes": 16859136
+        },
+        {
+          "cache_len": 589,
+          "cache_bytes": 16887808
+        },
+        {
+          "cache_len": 590,
+          "cache_bytes": 16916480
+        },
+        {
+          "cache_len": 591,
+          "cache_bytes": 16945152
+        },
+        {
+          "cache_len": 592,
+          "cache_bytes": 16973824
+        },
+        {
+          "cache_len": 593,
+          "cache_bytes": 17002496
+        },
+        {
+          "cache_len": 594,
+          "cache_bytes": 17031168
+        },
+        {
+          "cache_len": 595,
+          "cache_bytes": 17059840
+        },
+        {
+          "cache_len": 596,
+          "cache_bytes": 17088512
+        },
+        {
+          "cache_len": 597,
+          "cache_bytes": 17117184
+        },
+        {
+          "cache_len": 598,
+          "cache_bytes": 17145856
+        },
+        {
+          "cache_len": 599,
+          "cache_bytes": 17174528
+        },
+        {
+          "cache_len": 600,
+          "cache_bytes": 17203200
+        },
+        {
+          "cache_len": 601,
+          "cache_bytes": 17231872
+        },
+        {
+          "cache_len": 602,
+          "cache_bytes": 17260544
+        },
+        {
+          "cache_len": 603,
+          "cache_bytes": 17289216
+        },
+        {
+          "cache_len": 604,
+          "cache_bytes": 17317888
+        },
+        {
+          "cache_len": 605,
+          "cache_bytes": 17346560
+        },
+        {
+          "cache_len": 606,
+          "cache_bytes": 17375232
+        },
+        {
+          "cache_len": 607,
+          "cache_bytes": 17403904
+        },
+        {
+          "cache_len": 608,
+          "cache_bytes": 17432576
+        },
+        {
+          "cache_len": 609,
+          "cache_bytes": 17461248
+        },
+        {
+          "cache_len": 610,
+          "cache_bytes": 17489920
+        },
+        {
+          "cache_len": 611,
+          "cache_bytes": 17518592
+        },
+        {
+          "cache_len": 612,
+          "cache_bytes": 17547264
+        },
+        {
+          "cache_len": 613,
+          "cache_bytes": 17575936
+        },
+        {
+          "cache_len": 614,
+          "cache_bytes": 17604608
+        },
+        {
+          "cache_len": 615,
+          "cache_bytes": 17633280
+        },
+        {
+          "cache_len": 616,
+          "cache_bytes": 17661952
+        },
+        {
+          "cache_len": 617,
+          "cache_bytes": 17690624
+        },
+        {
+          "cache_len": 618,
+          "cache_bytes": 17719296
+        },
+        {
+          "cache_len": 619,
+          "cache_bytes": 17747968
+        },
+        {
+          "cache_len": 620,
+          "cache_bytes": 17776640
+        },
+        {
+          "cache_len": 621,
+          "cache_bytes": 17805312
+        },
+        {
+          "cache_len": 622,
+          "cache_bytes": 17833984
+        },
+        {
+          "cache_len": 623,
+          "cache_bytes": 17862656
+        },
+        {
+          "cache_len": 624,
+          "cache_bytes": 17891328
+        },
+        {
+          "cache_len": 625,
+          "cache_bytes": 17920000
+        },
+        {
+          "cache_len": 626,
+          "cache_bytes": 17948672
+        },
+        {
+          "cache_len": 627,
+          "cache_bytes": 17977344
+        },
+        {
+          "cache_len": 628,
+          "cache_bytes": 18006016
+        },
+        {
+          "cache_len": 629,
+          "cache_bytes": 18034688
+        },
+        {
+          "cache_len": 630,
+          "cache_bytes": 18063360
+        },
+        {
+          "cache_len": 631,
+          "cache_bytes": 18092032
+        },
+        {
+          "cache_len": 632,
+          "cache_bytes": 18120704
+        },
+        {
+          "cache_len": 633,
+          "cache_bytes": 18149376
+        },
+        {
+          "cache_len": 634,
+          "cache_bytes": 18178048
+        },
+        {
+          "cache_len": 635,
+          "cache_bytes": 18206720
+        },
+        {
+          "cache_len": 636,
+          "cache_bytes": 18235392
+        },
+        {
+          "cache_len": 637,
+          "cache_bytes": 18264064
+        },
+        {
+          "cache_len": 638,
+          "cache_bytes": 18292736
+        },
+        {
+          "cache_len": 639,
+          "cache_bytes": 18321408
+        }
+      ],
+      "total_latency_speedup": 4.8016453707420546
+    },
+    {
+      "input_length": 512,
+      "output_length": 256,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.12141228740010775,
+          "std": 0.0012437049092338078,
+          "median": 0.12120289300037257
+        },
+        "decode_s": {
+          "mean": 49.65837805120054,
+          "std": 0.048267993911852713,
+          "median": 49.65800437299458
+        },
+        "total_latency_s": {
+          "mean": 49.97739216679984,
+          "std": 0.04787404105784627,
+          "median": 49.979635091999626
+        },
+        "output_tokens_per_second": {
+          "mean": 5.135090007343285,
+          "std": 0.0049911257835119315,
+          "median": 5.135123797658614
+        },
+        "time_per_output_token_s": {
+          "mean": 0.19522418815156187,
+          "std": 0.000187007972882212,
+          "median": 0.19523294957812354
+        },
+        "peak_memory_bytes": 3572178944
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.1366831670000465,
+          "std": 0.0028043692657948173,
+          "median": 0.13562240800001746
+        },
+        "decode_s": {
+          "mean": 9.150396605201603,
+          "std": 0.04082538070288209,
+          "median": 9.149405902001945
+        },
+        "total_latency_s": {
+          "mean": 9.428169653000168,
+          "std": 0.044073815830841835,
+          "median": 9.426152246000129
+        },
+        "output_tokens_per_second": {
+          "mean": 27.868197680626526,
+          "std": 0.12397908032880958,
+          "median": 27.87066206606972
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03682878770703191,
+          "std": 0.00017216334308922592,
+          "median": 0.036820907210938
+        },
+        "peak_memory_bytes": 3286252032
+      },
+      "cache_growth": [
+        {
+          "cache_len": 512,
+          "cache_bytes": 14680064
+        },
+        {
+          "cache_len": 513,
+          "cache_bytes": 14708736
+        },
+        {
+          "cache_len": 514,
+          "cache_bytes": 14737408
+        },
+        {
+          "cache_len": 515,
+          "cache_bytes": 14766080
+        },
+        {
+          "cache_len": 516,
+          "cache_bytes": 14794752
+        },
+        {
+          "cache_len": 517,
+          "cache_bytes": 14823424
+        },
+        {
+          "cache_len": 518,
+          "cache_bytes": 14852096
+        },
+        {
+          "cache_len": 519,
+          "cache_bytes": 14880768
+        },
+        {
+          "cache_len": 520,
+          "cache_bytes": 14909440
+        },
+        {
+          "cache_len": 521,
+          "cache_bytes": 14938112
+        },
+        {
+          "cache_len": 522,
+          "cache_bytes": 14966784
+        },
+        {
+          "cache_len": 523,
+          "cache_bytes": 14995456
+        },
+        {
+          "cache_len": 524,
+          "cache_bytes": 15024128
+        },
+        {
+          "cache_len": 525,
+          "cache_bytes": 15052800
+        },
+        {
+          "cache_len": 526,
+          "cache_bytes": 15081472
+        },
+        {
+          "cache_len": 527,
+          "cache_bytes": 15110144
+        },
+        {
+          "cache_len": 528,
+          "cache_bytes": 15138816
+        },
+        {
+          "cache_len": 529,
+          "cache_bytes": 15167488
+        },
+        {
+          "cache_len": 530,
+          "cache_bytes": 15196160
+        },
+        {
+          "cache_len": 531,
+          "cache_bytes": 15224832
+        },
+        {
+          "cache_len": 532,
+          "cache_bytes": 15253504
+        },
+        {
+          "cache_len": 533,
+          "cache_bytes": 15282176
+        },
+        {
+          "cache_len": 534,
+          "cache_bytes": 15310848
+        },
+        {
+          "cache_len": 535,
+          "cache_bytes": 15339520
+        },
+        {
+          "cache_len": 536,
+          "cache_bytes": 15368192
+        },
+        {
+          "cache_len": 537,
+          "cache_bytes": 15396864
+        },
+        {
+          "cache_len": 538,
+          "cache_bytes": 15425536
+        },
+        {
+          "cache_len": 539,
+          "cache_bytes": 15454208
+        },
+        {
+          "cache_len": 540,
+          "cache_bytes": 15482880
+        },
+        {
+          "cache_len": 541,
+          "cache_bytes": 15511552
+        },
+        {
+          "cache_len": 542,
+          "cache_bytes": 15540224
+        },
+        {
+          "cache_len": 543,
+          "cache_bytes": 15568896
+        },
+        {
+          "cache_len": 544,
+          "cache_bytes": 15597568
+        },
+        {
+          "cache_len": 545,
+          "cache_bytes": 15626240
+        },
+        {
+          "cache_len": 546,
+          "cache_bytes": 15654912
+        },
+        {
+          "cache_len": 547,
+          "cache_bytes": 15683584
+        },
+        {
+          "cache_len": 548,
+          "cache_bytes": 15712256
+        },
+        {
+          "cache_len": 549,
+          "cache_bytes": 15740928
+        },
+        {
+          "cache_len": 550,
+          "cache_bytes": 15769600
+        },
+        {
+          "cache_len": 551,
+          "cache_bytes": 15798272
+        },
+        {
+          "cache_len": 552,
+          "cache_bytes": 15826944
+        },
+        {
+          "cache_len": 553,
+          "cache_bytes": 15855616
+        },
+        {
+          "cache_len": 554,
+          "cache_bytes": 15884288
+        },
+        {
+          "cache_len": 555,
+          "cache_bytes": 15912960
+        },
+        {
+          "cache_len": 556,
+          "cache_bytes": 15941632
+        },
+        {
+          "cache_len": 557,
+          "cache_bytes": 15970304
+        },
+        {
+          "cache_len": 558,
+          "cache_bytes": 15998976
+        },
+        {
+          "cache_len": 559,
+          "cache_bytes": 16027648
+        },
+        {
+          "cache_len": 560,
+          "cache_bytes": 16056320
+        },
+        {
+          "cache_len": 561,
+          "cache_bytes": 16084992
+        },
+        {
+          "cache_len": 562,
+          "cache_bytes": 16113664
+        },
+        {
+          "cache_len": 563,
+          "cache_bytes": 16142336
+        },
+        {
+          "cache_len": 564,
+          "cache_bytes": 16171008
+        },
+        {
+          "cache_len": 565,
+          "cache_bytes": 16199680
+        },
+        {
+          "cache_len": 566,
+          "cache_bytes": 16228352
+        },
+        {
+          "cache_len": 567,
+          "cache_bytes": 16257024
+        },
+        {
+          "cache_len": 568,
+          "cache_bytes": 16285696
+        },
+        {
+          "cache_len": 569,
+          "cache_bytes": 16314368
+        },
+        {
+          "cache_len": 570,
+          "cache_bytes": 16343040
+        },
+        {
+          "cache_len": 571,
+          "cache_bytes": 16371712
+        },
+        {
+          "cache_len": 572,
+          "cache_bytes": 16400384
+        },
+        {
+          "cache_len": 573,
+          "cache_bytes": 16429056
+        },
+        {
+          "cache_len": 574,
+          "cache_bytes": 16457728
+        },
+        {
+          "cache_len": 575,
+          "cache_bytes": 16486400
+        },
+        {
+          "cache_len": 576,
+          "cache_bytes": 16515072
+        },
+        {
+          "cache_len": 577,
+          "cache_bytes": 16543744
+        },
+        {
+          "cache_len": 578,
+          "cache_bytes": 16572416
+        },
+        {
+          "cache_len": 579,
+          "cache_bytes": 16601088
+        },
+        {
+          "cache_len": 580,
+          "cache_bytes": 16629760
+        },
+        {
+          "cache_len": 581,
+          "cache_bytes": 16658432
+        },
+        {
+          "cache_len": 582,
+          "cache_bytes": 16687104
+        },
+        {
+          "cache_len": 583,
+          "cache_bytes": 16715776
+        },
+        {
+          "cache_len": 584,
+          "cache_bytes": 16744448
+        },
+        {
+          "cache_len": 585,
+          "cache_bytes": 16773120
+        },
+        {
+          "cache_len": 586,
+          "cache_bytes": 16801792
+        },
+        {
+          "cache_len": 587,
+          "cache_bytes": 16830464
+        },
+        {
+          "cache_len": 588,
+          "cache_bytes": 16859136
+        },
+        {
+          "cache_len": 589,
+          "cache_bytes": 16887808
+        },
+        {
+          "cache_len": 590,
+          "cache_bytes": 16916480
+        },
+        {
+          "cache_len": 591,
+          "cache_bytes": 16945152
+        },
+        {
+          "cache_len": 592,
+          "cache_bytes": 16973824
+        },
+        {
+          "cache_len": 593,
+          "cache_bytes": 17002496
+        },
+        {
+          "cache_len": 594,
+          "cache_bytes": 17031168
+        },
+        {
+          "cache_len": 595,
+          "cache_bytes": 17059840
+        },
+        {
+          "cache_len": 596,
+          "cache_bytes": 17088512
+        },
+        {
+          "cache_len": 597,
+          "cache_bytes": 17117184
+        },
+        {
+          "cache_len": 598,
+          "cache_bytes": 17145856
+        },
+        {
+          "cache_len": 599,
+          "cache_bytes": 17174528
+        },
+        {
+          "cache_len": 600,
+          "cache_bytes": 17203200
+        },
+        {
+          "cache_len": 601,
+          "cache_bytes": 17231872
+        },
+        {
+          "cache_len": 602,
+          "cache_bytes": 17260544
+        },
+        {
+          "cache_len": 603,
+          "cache_bytes": 17289216
+        },
+        {
+          "cache_len": 604,
+          "cache_bytes": 17317888
+        },
+        {
+          "cache_len": 605,
+          "cache_bytes": 17346560
+        },
+        {
+          "cache_len": 606,
+          "cache_bytes": 17375232
+        },
+        {
+          "cache_len": 607,
+          "cache_bytes": 17403904
+        },
+        {
+          "cache_len": 608,
+          "cache_bytes": 17432576
+        },
+        {
+          "cache_len": 609,
+          "cache_bytes": 17461248
+        },
+        {
+          "cache_len": 610,
+          "cache_bytes": 17489920
+        },
+        {
+          "cache_len": 611,
+          "cache_bytes": 17518592
+        },
+        {
+          "cache_len": 612,
+          "cache_bytes": 17547264
+        },
+        {
+          "cache_len": 613,
+          "cache_bytes": 17575936
+        },
+        {
+          "cache_len": 614,
+          "cache_bytes": 17604608
+        },
+        {
+          "cache_len": 615,
+          "cache_bytes": 17633280
+        },
+        {
+          "cache_len": 616,
+          "cache_bytes": 17661952
+        },
+        {
+          "cache_len": 617,
+          "cache_bytes": 17690624
+        },
+        {
+          "cache_len": 618,
+          "cache_bytes": 17719296
+        },
+        {
+          "cache_len": 619,
+          "cache_bytes": 17747968
+        },
+        {
+          "cache_len": 620,
+          "cache_bytes": 17776640
+        },
+        {
+          "cache_len": 621,
+          "cache_bytes": 17805312
+        },
+        {
+          "cache_len": 622,
+          "cache_bytes": 17833984
+        },
+        {
+          "cache_len": 623,
+          "cache_bytes": 17862656
+        },
+        {
+          "cache_len": 624,
+          "cache_bytes": 17891328
+        },
+        {
+          "cache_len": 625,
+          "cache_bytes": 17920000
+        },
+        {
+          "cache_len": 626,
+          "cache_bytes": 17948672
+        },
+        {
+          "cache_len": 627,
+          "cache_bytes": 17977344
+        },
+        {
+          "cache_len": 628,
+          "cache_bytes": 18006016
+        },
+        {
+          "cache_len": 629,
+          "cache_bytes": 18034688
+        },
+        {
+          "cache_len": 630,
+          "cache_bytes": 18063360
+        },
+        {
+          "cache_len": 631,
+          "cache_bytes": 18092032
+        },
+        {
+          "cache_len": 632,
+          "cache_bytes": 18120704
+        },
+        {
+          "cache_len": 633,
+          "cache_bytes": 18149376
+        },
+        {
+          "cache_len": 634,
+          "cache_bytes": 18178048
+        },
+        {
+          "cache_len": 635,
+          "cache_bytes": 18206720
+        },
+        {
+          "cache_len": 636,
+          "cache_bytes": 18235392
+        },
+        {
+          "cache_len": 637,
+          "cache_bytes": 18264064
+        },
+        {
+          "cache_len": 638,
+          "cache_bytes": 18292736
+        },
+        {
+          "cache_len": 639,
+          "cache_bytes": 18321408
+        },
+        {
+          "cache_len": 640,
+          "cache_bytes": 18350080
+        },
+        {
+          "cache_len": 641,
+          "cache_bytes": 18378752
+        },
+        {
+          "cache_len": 642,
+          "cache_bytes": 18407424
+        },
+        {
+          "cache_len": 643,
+          "cache_bytes": 18436096
+        },
+        {
+          "cache_len": 644,
+          "cache_bytes": 18464768
+        },
+        {
+          "cache_len": 645,
+          "cache_bytes": 18493440
+        },
+        {
+          "cache_len": 646,
+          "cache_bytes": 18522112
+        },
+        {
+          "cache_len": 647,
+          "cache_bytes": 18550784
+        },
+        {
+          "cache_len": 648,
+          "cache_bytes": 18579456
+        },
+        {
+          "cache_len": 649,
+          "cache_bytes": 18608128
+        },
+        {
+          "cache_len": 650,
+          "cache_bytes": 18636800
+        },
+        {
+          "cache_len": 651,
+          "cache_bytes": 18665472
+        },
+        {
+          "cache_len": 652,
+          "cache_bytes": 18694144
+        },
+        {
+          "cache_len": 653,
+          "cache_bytes": 18722816
+        },
+        {
+          "cache_len": 654,
+          "cache_bytes": 18751488
+        },
+        {
+          "cache_len": 655,
+          "cache_bytes": 18780160
+        },
+        {
+          "cache_len": 656,
+          "cache_bytes": 18808832
+        },
+        {
+          "cache_len": 657,
+          "cache_bytes": 18837504
+        },
+        {
+          "cache_len": 658,
+          "cache_bytes": 18866176
+        },
+        {
+          "cache_len": 659,
+          "cache_bytes": 18894848
+        },
+        {
+          "cache_len": 660,
+          "cache_bytes": 18923520
+        },
+        {
+          "cache_len": 661,
+          "cache_bytes": 18952192
+        },
+        {
+          "cache_len": 662,
+          "cache_bytes": 18980864
+        },
+        {
+          "cache_len": 663,
+          "cache_bytes": 19009536
+        },
+        {
+          "cache_len": 664,
+          "cache_bytes": 19038208
+        },
+        {
+          "cache_len": 665,
+          "cache_bytes": 19066880
+        },
+        {
+          "cache_len": 666,
+          "cache_bytes": 19095552
+        },
+        {
+          "cache_len": 667,
+          "cache_bytes": 19124224
+        },
+        {
+          "cache_len": 668,
+          "cache_bytes": 19152896
+        },
+        {
+          "cache_len": 669,
+          "cache_bytes": 19181568
+        },
+        {
+          "cache_len": 670,
+          "cache_bytes": 19210240
+        },
+        {
+          "cache_len": 671,
+          "cache_bytes": 19238912
+        },
+        {
+          "cache_len": 672,
+          "cache_bytes": 19267584
+        },
+        {
+          "cache_len": 673,
+          "cache_bytes": 19296256
+        },
+        {
+          "cache_len": 674,
+          "cache_bytes": 19324928
+        },
+        {
+          "cache_len": 675,
+          "cache_bytes": 19353600
+        },
+        {
+          "cache_len": 676,
+          "cache_bytes": 19382272
+        },
+        {
+          "cache_len": 677,
+          "cache_bytes": 19410944
+        },
+        {
+          "cache_len": 678,
+          "cache_bytes": 19439616
+        },
+        {
+          "cache_len": 679,
+          "cache_bytes": 19468288
+        },
+        {
+          "cache_len": 680,
+          "cache_bytes": 19496960
+        },
+        {
+          "cache_len": 681,
+          "cache_bytes": 19525632
+        },
+        {
+          "cache_len": 682,
+          "cache_bytes": 19554304
+        },
+        {
+          "cache_len": 683,
+          "cache_bytes": 19582976
+        },
+        {
+          "cache_len": 684,
+          "cache_bytes": 19611648
+        },
+        {
+          "cache_len": 685,
+          "cache_bytes": 19640320
+        },
+        {
+          "cache_len": 686,
+          "cache_bytes": 19668992
+        },
+        {
+          "cache_len": 687,
+          "cache_bytes": 19697664
+        },
+        {
+          "cache_len": 688,
+          "cache_bytes": 19726336
+        },
+        {
+          "cache_len": 689,
+          "cache_bytes": 19755008
+        },
+        {
+          "cache_len": 690,
+          "cache_bytes": 19783680
+        },
+        {
+          "cache_len": 691,
+          "cache_bytes": 19812352
+        },
+        {
+          "cache_len": 692,
+          "cache_bytes": 19841024
+        },
+        {
+          "cache_len": 693,
+          "cache_bytes": 19869696
+        },
+        {
+          "cache_len": 694,
+          "cache_bytes": 19898368
+        },
+        {
+          "cache_len": 695,
+          "cache_bytes": 19927040
+        },
+        {
+          "cache_len": 696,
+          "cache_bytes": 19955712
+        },
+        {
+          "cache_len": 697,
+          "cache_bytes": 19984384
+        },
+        {
+          "cache_len": 698,
+          "cache_bytes": 20013056
+        },
+        {
+          "cache_len": 699,
+          "cache_bytes": 20041728
+        },
+        {
+          "cache_len": 700,
+          "cache_bytes": 20070400
+        },
+        {
+          "cache_len": 701,
+          "cache_bytes": 20099072
+        },
+        {
+          "cache_len": 702,
+          "cache_bytes": 20127744
+        },
+        {
+          "cache_len": 703,
+          "cache_bytes": 20156416
+        },
+        {
+          "cache_len": 704,
+          "cache_bytes": 20185088
+        },
+        {
+          "cache_len": 705,
+          "cache_bytes": 20213760
+        },
+        {
+          "cache_len": 706,
+          "cache_bytes": 20242432
+        },
+        {
+          "cache_len": 707,
+          "cache_bytes": 20271104
+        },
+        {
+          "cache_len": 708,
+          "cache_bytes": 20299776
+        },
+        {
+          "cache_len": 709,
+          "cache_bytes": 20328448
+        },
+        {
+          "cache_len": 710,
+          "cache_bytes": 20357120
+        },
+        {
+          "cache_len": 711,
+          "cache_bytes": 20385792
+        },
+        {
+          "cache_len": 712,
+          "cache_bytes": 20414464
+        },
+        {
+          "cache_len": 713,
+          "cache_bytes": 20443136
+        },
+        {
+          "cache_len": 714,
+          "cache_bytes": 20471808
+        },
+        {
+          "cache_len": 715,
+          "cache_bytes": 20500480
+        },
+        {
+          "cache_len": 716,
+          "cache_bytes": 20529152
+        },
+        {
+          "cache_len": 717,
+          "cache_bytes": 20557824
+        },
+        {
+          "cache_len": 718,
+          "cache_bytes": 20586496
+        },
+        {
+          "cache_len": 719,
+          "cache_bytes": 20615168
+        },
+        {
+          "cache_len": 720,
+          "cache_bytes": 20643840
+        },
+        {
+          "cache_len": 721,
+          "cache_bytes": 20672512
+        },
+        {
+          "cache_len": 722,
+          "cache_bytes": 20701184
+        },
+        {
+          "cache_len": 723,
+          "cache_bytes": 20729856
+        },
+        {
+          "cache_len": 724,
+          "cache_bytes": 20758528
+        },
+        {
+          "cache_len": 725,
+          "cache_bytes": 20787200
+        },
+        {
+          "cache_len": 726,
+          "cache_bytes": 20815872
+        },
+        {
+          "cache_len": 727,
+          "cache_bytes": 20844544
+        },
+        {
+          "cache_len": 728,
+          "cache_bytes": 20873216
+        },
+        {
+          "cache_len": 729,
+          "cache_bytes": 20901888
+        },
+        {
+          "cache_len": 730,
+          "cache_bytes": 20930560
+        },
+        {
+          "cache_len": 731,
+          "cache_bytes": 20959232
+        },
+        {
+          "cache_len": 732,
+          "cache_bytes": 20987904
+        },
+        {
+          "cache_len": 733,
+          "cache_bytes": 21016576
+        },
+        {
+          "cache_len": 734,
+          "cache_bytes": 21045248
+        },
+        {
+          "cache_len": 735,
+          "cache_bytes": 21073920
+        },
+        {
+          "cache_len": 736,
+          "cache_bytes": 21102592
+        },
+        {
+          "cache_len": 737,
+          "cache_bytes": 21131264
+        },
+        {
+          "cache_len": 738,
+          "cache_bytes": 21159936
+        },
+        {
+          "cache_len": 739,
+          "cache_bytes": 21188608
+        },
+        {
+          "cache_len": 740,
+          "cache_bytes": 21217280
+        },
+        {
+          "cache_len": 741,
+          "cache_bytes": 21245952
+        },
+        {
+          "cache_len": 742,
+          "cache_bytes": 21274624
+        },
+        {
+          "cache_len": 743,
+          "cache_bytes": 21303296
+        },
+        {
+          "cache_len": 744,
+          "cache_bytes": 21331968
+        },
+        {
+          "cache_len": 745,
+          "cache_bytes": 21360640
+        },
+        {
+          "cache_len": 746,
+          "cache_bytes": 21389312
+        },
+        {
+          "cache_len": 747,
+          "cache_bytes": 21417984
+        },
+        {
+          "cache_len": 748,
+          "cache_bytes": 21446656
+        },
+        {
+          "cache_len": 749,
+          "cache_bytes": 21475328
+        },
+        {
+          "cache_len": 750,
+          "cache_bytes": 21504000
+        },
+        {
+          "cache_len": 751,
+          "cache_bytes": 21532672
+        },
+        {
+          "cache_len": 752,
+          "cache_bytes": 21561344
+        },
+        {
+          "cache_len": 753,
+          "cache_bytes": 21590016
+        },
+        {
+          "cache_len": 754,
+          "cache_bytes": 21618688
+        },
+        {
+          "cache_len": 755,
+          "cache_bytes": 21647360
+        },
+        {
+          "cache_len": 756,
+          "cache_bytes": 21676032
+        },
+        {
+          "cache_len": 757,
+          "cache_bytes": 21704704
+        },
+        {
+          "cache_len": 758,
+          "cache_bytes": 21733376
+        },
+        {
+          "cache_len": 759,
+          "cache_bytes": 21762048
+        },
+        {
+          "cache_len": 760,
+          "cache_bytes": 21790720
+        },
+        {
+          "cache_len": 761,
+          "cache_bytes": 21819392
+        },
+        {
+          "cache_len": 762,
+          "cache_bytes": 21848064
+        },
+        {
+          "cache_len": 763,
+          "cache_bytes": 21876736
+        },
+        {
+          "cache_len": 764,
+          "cache_bytes": 21905408
+        },
+        {
+          "cache_len": 765,
+          "cache_bytes": 21934080
+        },
+        {
+          "cache_len": 766,
+          "cache_bytes": 21962752
+        },
+        {
+          "cache_len": 767,
+          "cache_bytes": 21991424
+        }
+      ],
+      "total_latency_speedup": 5.300858385688507
+    },
+    {
+      "input_length": 1024,
+      "output_length": 32,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.3036714953999763,
+          "std": 0.002341724098833965,
+          "median": 0.3036548860000039
+        },
+        "decode_s": {
+          "mean": 10.989553018398146,
+          "std": 0.021569763727125154,
+          "median": 10.981294380996587
+        },
+        "total_latency_s": {
+          "mean": 11.318535718800012,
+          "std": 0.02207035185886806,
+          "median": 11.309288569000273
+        },
+        "output_tokens_per_second": {
+          "mean": 2.8208717051701937,
+          "std": 0.005524501778396272,
+          "median": 2.822982330174692
+        },
+        "time_per_output_token_s": {
+          "mean": 0.3537042412125004,
+          "std": 0.0006896984955896268,
+          "median": 0.35341526778125854
+        },
+        "peak_memory_bytes": 3748669952
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.31643562179997387,
+          "std": 0.000994663496029096,
+          "median": 0.3160405009994065
+        },
+        "decode_s": {
+          "mean": 1.1218614963994695,
+          "std": 0.013459180361270607,
+          "median": 1.1203417820006507
+        },
+        "total_latency_s": {
+          "mean": 1.4584781569999905,
+          "std": 0.013638333935356517,
+          "median": 1.4573012559994822
+        },
+        "output_tokens_per_second": {
+          "mean": 27.636622972629862,
+          "std": 0.3316212540696189,
+          "median": 27.670127543258932
+        },
+        "time_per_output_token_s": {
+          "mean": 0.0455774424062497,
+          "std": 0.00042619793547989115,
+          "median": 0.04554066424998382
+        },
+        "peak_memory_bytes": 3465991168
+      },
+      "cache_growth": [
+        {
+          "cache_len": 1024,
+          "cache_bytes": 29360128
+        },
+        {
+          "cache_len": 1025,
+          "cache_bytes": 29388800
+        },
+        {
+          "cache_len": 1026,
+          "cache_bytes": 29417472
+        },
+        {
+          "cache_len": 1027,
+          "cache_bytes": 29446144
+        },
+        {
+          "cache_len": 1028,
+          "cache_bytes": 29474816
+        },
+        {
+          "cache_len": 1029,
+          "cache_bytes": 29503488
+        },
+        {
+          "cache_len": 1030,
+          "cache_bytes": 29532160
+        },
+        {
+          "cache_len": 1031,
+          "cache_bytes": 29560832
+        },
+        {
+          "cache_len": 1032,
+          "cache_bytes": 29589504
+        },
+        {
+          "cache_len": 1033,
+          "cache_bytes": 29618176
+        },
+        {
+          "cache_len": 1034,
+          "cache_bytes": 29646848
+        },
+        {
+          "cache_len": 1035,
+          "cache_bytes": 29675520
+        },
+        {
+          "cache_len": 1036,
+          "cache_bytes": 29704192
+        },
+        {
+          "cache_len": 1037,
+          "cache_bytes": 29732864
+        },
+        {
+          "cache_len": 1038,
+          "cache_bytes": 29761536
+        },
+        {
+          "cache_len": 1039,
+          "cache_bytes": 29790208
+        },
+        {
+          "cache_len": 1040,
+          "cache_bytes": 29818880
+        },
+        {
+          "cache_len": 1041,
+          "cache_bytes": 29847552
+        },
+        {
+          "cache_len": 1042,
+          "cache_bytes": 29876224
+        },
+        {
+          "cache_len": 1043,
+          "cache_bytes": 29904896
+        },
+        {
+          "cache_len": 1044,
+          "cache_bytes": 29933568
+        },
+        {
+          "cache_len": 1045,
+          "cache_bytes": 29962240
+        },
+        {
+          "cache_len": 1046,
+          "cache_bytes": 29990912
+        },
+        {
+          "cache_len": 1047,
+          "cache_bytes": 30019584
+        },
+        {
+          "cache_len": 1048,
+          "cache_bytes": 30048256
+        },
+        {
+          "cache_len": 1049,
+          "cache_bytes": 30076928
+        },
+        {
+          "cache_len": 1050,
+          "cache_bytes": 30105600
+        },
+        {
+          "cache_len": 1051,
+          "cache_bytes": 30134272
+        },
+        {
+          "cache_len": 1052,
+          "cache_bytes": 30162944
+        },
+        {
+          "cache_len": 1053,
+          "cache_bytes": 30191616
+        },
+        {
+          "cache_len": 1054,
+          "cache_bytes": 30220288
+        },
+        {
+          "cache_len": 1055,
+          "cache_bytes": 30248960
+        }
+      ],
+      "total_latency_speedup": 7.760510957587201
+    },
+    {
+      "input_length": 1024,
+      "output_length": 128,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.30608503419989574,
+          "std": 0.001620619761408406,
+          "median": 0.306394704000013
+        },
+        "decode_s": {
+          "mean": 47.16752434299978,
+          "std": 0.1255549662971022,
+          "median": 47.14303516999826
+        },
+        "total_latency_s": {
+          "mean": 47.574839466199954,
+          "std": 0.12485664720520341,
+          "median": 47.55012085499948
+        },
+        "output_tokens_per_second": {
+          "mean": 2.692549573635249,
+          "std": 0.007148750171166455,
+          "median": 2.6939292207647796
+        },
+        "time_per_output_token_s": {
+          "mean": 0.37167843332968714,
+          "std": 0.0009754425562906516,
+          "median": 0.3714853191796834
+        },
+        "peak_memory_bytes": 3807068160
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.31788976920033746,
+          "std": 0.0046696034472777075,
+          "median": 0.31814384300014353
+        },
+        "decode_s": {
+          "mean": 4.710483170599036,
+          "std": 0.04169459819634225,
+          "median": 4.69225028100027
+        },
+        "total_latency_s": {
+          "mean": 5.103418285399675,
+          "std": 0.0429399251861815,
+          "median": 5.091263587999492
+        },
+        "output_tokens_per_second": {
+          "mean": 26.96322620101769,
+          "std": 0.23560040795037349,
+          "median": 27.065904927161473
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03987045535468496,
+          "std": 0.00033546816551704295,
+          "median": 0.039775496781246034
+        },
+        "peak_memory_bytes": 3465995776
+      },
+      "cache_growth": [
+        {
+          "cache_len": 1024,
+          "cache_bytes": 29360128
+        },
+        {
+          "cache_len": 1025,
+          "cache_bytes": 29388800
+        },
+        {
+          "cache_len": 1026,
+          "cache_bytes": 29417472
+        },
+        {
+          "cache_len": 1027,
+          "cache_bytes": 29446144
+        },
+        {
+          "cache_len": 1028,
+          "cache_bytes": 29474816
+        },
+        {
+          "cache_len": 1029,
+          "cache_bytes": 29503488
+        },
+        {
+          "cache_len": 1030,
+          "cache_bytes": 29532160
+        },
+        {
+          "cache_len": 1031,
+          "cache_bytes": 29560832
+        },
+        {
+          "cache_len": 1032,
+          "cache_bytes": 29589504
+        },
+        {
+          "cache_len": 1033,
+          "cache_bytes": 29618176
+        },
+        {
+          "cache_len": 1034,
+          "cache_bytes": 29646848
+        },
+        {
+          "cache_len": 1035,
+          "cache_bytes": 29675520
+        },
+        {
+          "cache_len": 1036,
+          "cache_bytes": 29704192
+        },
+        {
+          "cache_len": 1037,
+          "cache_bytes": 29732864
+        },
+        {
+          "cache_len": 1038,
+          "cache_bytes": 29761536
+        },
+        {
+          "cache_len": 1039,
+          "cache_bytes": 29790208
+        },
+        {
+          "cache_len": 1040,
+          "cache_bytes": 29818880
+        },
+        {
+          "cache_len": 1041,
+          "cache_bytes": 29847552
+        },
+        {
+          "cache_len": 1042,
+          "cache_bytes": 29876224
+        },
+        {
+          "cache_len": 1043,
+          "cache_bytes": 29904896
+        },
+        {
+          "cache_len": 1044,
+          "cache_bytes": 29933568
+        },
+        {
+          "cache_len": 1045,
+          "cache_bytes": 29962240
+        },
+        {
+          "cache_len": 1046,
+          "cache_bytes": 29990912
+        },
+        {
+          "cache_len": 1047,
+          "cache_bytes": 30019584
+        },
+        {
+          "cache_len": 1048,
+          "cache_bytes": 30048256
+        },
+        {
+          "cache_len": 1049,
+          "cache_bytes": 30076928
+        },
+        {
+          "cache_len": 1050,
+          "cache_bytes": 30105600
+        },
+        {
+          "cache_len": 1051,
+          "cache_bytes": 30134272
+        },
+        {
+          "cache_len": 1052,
+          "cache_bytes": 30162944
+        },
+        {
+          "cache_len": 1053,
+          "cache_bytes": 30191616
+        },
+        {
+          "cache_len": 1054,
+          "cache_bytes": 30220288
+        },
+        {
+          "cache_len": 1055,
+          "cache_bytes": 30248960
+        },
+        {
+          "cache_len": 1056,
+          "cache_bytes": 30277632
+        },
+        {
+          "cache_len": 1057,
+          "cache_bytes": 30306304
+        },
+        {
+          "cache_len": 1058,
+          "cache_bytes": 30334976
+        },
+        {
+          "cache_len": 1059,
+          "cache_bytes": 30363648
+        },
+        {
+          "cache_len": 1060,
+          "cache_bytes": 30392320
+        },
+        {
+          "cache_len": 1061,
+          "cache_bytes": 30420992
+        },
+        {
+          "cache_len": 1062,
+          "cache_bytes": 30449664
+        },
+        {
+          "cache_len": 1063,
+          "cache_bytes": 30478336
+        },
+        {
+          "cache_len": 1064,
+          "cache_bytes": 30507008
+        },
+        {
+          "cache_len": 1065,
+          "cache_bytes": 30535680
+        },
+        {
+          "cache_len": 1066,
+          "cache_bytes": 30564352
+        },
+        {
+          "cache_len": 1067,
+          "cache_bytes": 30593024
+        },
+        {
+          "cache_len": 1068,
+          "cache_bytes": 30621696
+        },
+        {
+          "cache_len": 1069,
+          "cache_bytes": 30650368
+        },
+        {
+          "cache_len": 1070,
+          "cache_bytes": 30679040
+        },
+        {
+          "cache_len": 1071,
+          "cache_bytes": 30707712
+        },
+        {
+          "cache_len": 1072,
+          "cache_bytes": 30736384
+        },
+        {
+          "cache_len": 1073,
+          "cache_bytes": 30765056
+        },
+        {
+          "cache_len": 1074,
+          "cache_bytes": 30793728
+        },
+        {
+          "cache_len": 1075,
+          "cache_bytes": 30822400
+        },
+        {
+          "cache_len": 1076,
+          "cache_bytes": 30851072
+        },
+        {
+          "cache_len": 1077,
+          "cache_bytes": 30879744
+        },
+        {
+          "cache_len": 1078,
+          "cache_bytes": 30908416
+        },
+        {
+          "cache_len": 1079,
+          "cache_bytes": 30937088
+        },
+        {
+          "cache_len": 1080,
+          "cache_bytes": 30965760
+        },
+        {
+          "cache_len": 1081,
+          "cache_bytes": 30994432
+        },
+        {
+          "cache_len": 1082,
+          "cache_bytes": 31023104
+        },
+        {
+          "cache_len": 1083,
+          "cache_bytes": 31051776
+        },
+        {
+          "cache_len": 1084,
+          "cache_bytes": 31080448
+        },
+        {
+          "cache_len": 1085,
+          "cache_bytes": 31109120
+        },
+        {
+          "cache_len": 1086,
+          "cache_bytes": 31137792
+        },
+        {
+          "cache_len": 1087,
+          "cache_bytes": 31166464
+        },
+        {
+          "cache_len": 1088,
+          "cache_bytes": 31195136
+        },
+        {
+          "cache_len": 1089,
+          "cache_bytes": 31223808
+        },
+        {
+          "cache_len": 1090,
+          "cache_bytes": 31252480
+        },
+        {
+          "cache_len": 1091,
+          "cache_bytes": 31281152
+        },
+        {
+          "cache_len": 1092,
+          "cache_bytes": 31309824
+        },
+        {
+          "cache_len": 1093,
+          "cache_bytes": 31338496
+        },
+        {
+          "cache_len": 1094,
+          "cache_bytes": 31367168
+        },
+        {
+          "cache_len": 1095,
+          "cache_bytes": 31395840
+        },
+        {
+          "cache_len": 1096,
+          "cache_bytes": 31424512
+        },
+        {
+          "cache_len": 1097,
+          "cache_bytes": 31453184
+        },
+        {
+          "cache_len": 1098,
+          "cache_bytes": 31481856
+        },
+        {
+          "cache_len": 1099,
+          "cache_bytes": 31510528
+        },
+        {
+          "cache_len": 1100,
+          "cache_bytes": 31539200
+        },
+        {
+          "cache_len": 1101,
+          "cache_bytes": 31567872
+        },
+        {
+          "cache_len": 1102,
+          "cache_bytes": 31596544
+        },
+        {
+          "cache_len": 1103,
+          "cache_bytes": 31625216
+        },
+        {
+          "cache_len": 1104,
+          "cache_bytes": 31653888
+        },
+        {
+          "cache_len": 1105,
+          "cache_bytes": 31682560
+        },
+        {
+          "cache_len": 1106,
+          "cache_bytes": 31711232
+        },
+        {
+          "cache_len": 1107,
+          "cache_bytes": 31739904
+        },
+        {
+          "cache_len": 1108,
+          "cache_bytes": 31768576
+        },
+        {
+          "cache_len": 1109,
+          "cache_bytes": 31797248
+        },
+        {
+          "cache_len": 1110,
+          "cache_bytes": 31825920
+        },
+        {
+          "cache_len": 1111,
+          "cache_bytes": 31854592
+        },
+        {
+          "cache_len": 1112,
+          "cache_bytes": 31883264
+        },
+        {
+          "cache_len": 1113,
+          "cache_bytes": 31911936
+        },
+        {
+          "cache_len": 1114,
+          "cache_bytes": 31940608
+        },
+        {
+          "cache_len": 1115,
+          "cache_bytes": 31969280
+        },
+        {
+          "cache_len": 1116,
+          "cache_bytes": 31997952
+        },
+        {
+          "cache_len": 1117,
+          "cache_bytes": 32026624
+        },
+        {
+          "cache_len": 1118,
+          "cache_bytes": 32055296
+        },
+        {
+          "cache_len": 1119,
+          "cache_bytes": 32083968
+        },
+        {
+          "cache_len": 1120,
+          "cache_bytes": 32112640
+        },
+        {
+          "cache_len": 1121,
+          "cache_bytes": 32141312
+        },
+        {
+          "cache_len": 1122,
+          "cache_bytes": 32169984
+        },
+        {
+          "cache_len": 1123,
+          "cache_bytes": 32198656
+        },
+        {
+          "cache_len": 1124,
+          "cache_bytes": 32227328
+        },
+        {
+          "cache_len": 1125,
+          "cache_bytes": 32256000
+        },
+        {
+          "cache_len": 1126,
+          "cache_bytes": 32284672
+        },
+        {
+          "cache_len": 1127,
+          "cache_bytes": 32313344
+        },
+        {
+          "cache_len": 1128,
+          "cache_bytes": 32342016
+        },
+        {
+          "cache_len": 1129,
+          "cache_bytes": 32370688
+        },
+        {
+          "cache_len": 1130,
+          "cache_bytes": 32399360
+        },
+        {
+          "cache_len": 1131,
+          "cache_bytes": 32428032
+        },
+        {
+          "cache_len": 1132,
+          "cache_bytes": 32456704
+        },
+        {
+          "cache_len": 1133,
+          "cache_bytes": 32485376
+        },
+        {
+          "cache_len": 1134,
+          "cache_bytes": 32514048
+        },
+        {
+          "cache_len": 1135,
+          "cache_bytes": 32542720
+        },
+        {
+          "cache_len": 1136,
+          "cache_bytes": 32571392
+        },
+        {
+          "cache_len": 1137,
+          "cache_bytes": 32600064
+        },
+        {
+          "cache_len": 1138,
+          "cache_bytes": 32628736
+        },
+        {
+          "cache_len": 1139,
+          "cache_bytes": 32657408
+        },
+        {
+          "cache_len": 1140,
+          "cache_bytes": 32686080
+        },
+        {
+          "cache_len": 1141,
+          "cache_bytes": 32714752
+        },
+        {
+          "cache_len": 1142,
+          "cache_bytes": 32743424
+        },
+        {
+          "cache_len": 1143,
+          "cache_bytes": 32772096
+        },
+        {
+          "cache_len": 1144,
+          "cache_bytes": 32800768
+        },
+        {
+          "cache_len": 1145,
+          "cache_bytes": 32829440
+        },
+        {
+          "cache_len": 1146,
+          "cache_bytes": 32858112
+        },
+        {
+          "cache_len": 1147,
+          "cache_bytes": 32886784
+        },
+        {
+          "cache_len": 1148,
+          "cache_bytes": 32915456
+        },
+        {
+          "cache_len": 1149,
+          "cache_bytes": 32944128
+        },
+        {
+          "cache_len": 1150,
+          "cache_bytes": 32972800
+        },
+        {
+          "cache_len": 1151,
+          "cache_bytes": 33001472
+        }
+      ],
+      "total_latency_speedup": 9.322151704144337
+    },
+    {
+      "input_length": 1024,
+      "output_length": 256,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.30614092000014353,
+          "std": 0.0024963394343835666,
+          "median": 0.30733419399984996
+        },
+        "decode_s": {
+          "mean": 101.72514077300147,
+          "std": 0.1923248812066446,
+          "median": 101.69056083199393
+        },
+        "total_latency_s": {
+          "mean": 102.23810920359992,
+          "std": 0.19172482398420546,
+          "median": 102.19808467099938
+        },
+        "output_tokens_per_second": {
+          "mean": 2.506763891460658,
+          "std": 0.004730248609503841,
+          "median": 2.5076073719496272
+        },
+        "time_per_output_token_s": {
+          "mean": 0.3993676140765622,
+          "std": 0.0007489250936883026,
+          "median": 0.3992112682460913
+        },
+        "peak_memory_bytes": 3884933120
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.3179209853999055,
+          "std": 0.002720631377510451,
+          "median": 0.31689871800062974
+        },
+        "decode_s": {
+          "mean": 9.279528328000378,
+          "std": 0.040374885984498066,
+          "median": 9.28834633200404
+        },
+        "total_latency_s": {
+          "mean": 9.740607842399914,
+          "std": 0.04247818933554766,
+          "median": 9.750329782000335
+        },
+        "output_tokens_per_second": {
+          "mean": 27.48036702026106,
+          "std": 0.11998203897987601,
+          "median": 27.453756662945363
+        },
+        "time_per_output_token_s": {
+          "mean": 0.038049249384374664,
+          "std": 0.00016593042709198304,
+          "median": 0.03808722571093881
+        },
+        "peak_memory_bytes": 3466004992
+      },
+      "cache_growth": [
+        {
+          "cache_len": 1024,
+          "cache_bytes": 29360128
+        },
+        {
+          "cache_len": 1025,
+          "cache_bytes": 29388800
+        },
+        {
+          "cache_len": 1026,
+          "cache_bytes": 29417472
+        },
+        {
+          "cache_len": 1027,
+          "cache_bytes": 29446144
+        },
+        {
+          "cache_len": 1028,
+          "cache_bytes": 29474816
+        },
+        {
+          "cache_len": 1029,
+          "cache_bytes": 29503488
+        },
+        {
+          "cache_len": 1030,
+          "cache_bytes": 29532160
+        },
+        {
+          "cache_len": 1031,
+          "cache_bytes": 29560832
+        },
+        {
+          "cache_len": 1032,
+          "cache_bytes": 29589504
+        },
+        {
+          "cache_len": 1033,
+          "cache_bytes": 29618176
+        },
+        {
+          "cache_len": 1034,
+          "cache_bytes": 29646848
+        },
+        {
+          "cache_len": 1035,
+          "cache_bytes": 29675520
+        },
+        {
+          "cache_len": 1036,
+          "cache_bytes": 29704192
+        },
+        {
+          "cache_len": 1037,
+          "cache_bytes": 29732864
+        },
+        {
+          "cache_len": 1038,
+          "cache_bytes": 29761536
+        },
+        {
+          "cache_len": 1039,
+          "cache_bytes": 29790208
+        },
+        {
+          "cache_len": 1040,
+          "cache_bytes": 29818880
+        },
+        {
+          "cache_len": 1041,
+          "cache_bytes": 29847552
+        },
+        {
+          "cache_len": 1042,
+          "cache_bytes": 29876224
+        },
+        {
+          "cache_len": 1043,
+          "cache_bytes": 29904896
+        },
+        {
+          "cache_len": 1044,
+          "cache_bytes": 29933568
+        },
+        {
+          "cache_len": 1045,
+          "cache_bytes": 29962240
+        },
+        {
+          "cache_len": 1046,
+          "cache_bytes": 29990912
+        },
+        {
+          "cache_len": 1047,
+          "cache_bytes": 30019584
+        },
+        {
+          "cache_len": 1048,
+          "cache_bytes": 30048256
+        },
+        {
+          "cache_len": 1049,
+          "cache_bytes": 30076928
+        },
+        {
+          "cache_len": 1050,
+          "cache_bytes": 30105600
+        },
+        {
+          "cache_len": 1051,
+          "cache_bytes": 30134272
+        },
+        {
+          "cache_len": 1052,
+          "cache_bytes": 30162944
+        },
+        {
+          "cache_len": 1053,
+          "cache_bytes": 30191616
+        },
+        {
+          "cache_len": 1054,
+          "cache_bytes": 30220288
+        },
+        {
+          "cache_len": 1055,
+          "cache_bytes": 30248960
+        },
+        {
+          "cache_len": 1056,
+          "cache_bytes": 30277632
+        },
+        {
+          "cache_len": 1057,
+          "cache_bytes": 30306304
+        },
+        {
+          "cache_len": 1058,
+          "cache_bytes": 30334976
+        },
+        {
+          "cache_len": 1059,
+          "cache_bytes": 30363648
+        },
+        {
+          "cache_len": 1060,
+          "cache_bytes": 30392320
+        },
+        {
+          "cache_len": 1061,
+          "cache_bytes": 30420992
+        },
+        {
+          "cache_len": 1062,
+          "cache_bytes": 30449664
+        },
+        {
+          "cache_len": 1063,
+          "cache_bytes": 30478336
+        },
+        {
+          "cache_len": 1064,
+          "cache_bytes": 30507008
+        },
+        {
+          "cache_len": 1065,
+          "cache_bytes": 30535680
+        },
+        {
+          "cache_len": 1066,
+          "cache_bytes": 30564352
+        },
+        {
+          "cache_len": 1067,
+          "cache_bytes": 30593024
+        },
+        {
+          "cache_len": 1068,
+          "cache_bytes": 30621696
+        },
+        {
+          "cache_len": 1069,
+          "cache_bytes": 30650368
+        },
+        {
+          "cache_len": 1070,
+          "cache_bytes": 30679040
+        },
+        {
+          "cache_len": 1071,
+          "cache_bytes": 30707712
+        },
+        {
+          "cache_len": 1072,
+          "cache_bytes": 30736384
+        },
+        {
+          "cache_len": 1073,
+          "cache_bytes": 30765056
+        },
+        {
+          "cache_len": 1074,
+          "cache_bytes": 30793728
+        },
+        {
+          "cache_len": 1075,
+          "cache_bytes": 30822400
+        },
+        {
+          "cache_len": 1076,
+          "cache_bytes": 30851072
+        },
+        {
+          "cache_len": 1077,
+          "cache_bytes": 30879744
+        },
+        {
+          "cache_len": 1078,
+          "cache_bytes": 30908416
+        },
+        {
+          "cache_len": 1079,
+          "cache_bytes": 30937088
+        },
+        {
+          "cache_len": 1080,
+          "cache_bytes": 30965760
+        },
+        {
+          "cache_len": 1081,
+          "cache_bytes": 30994432
+        },
+        {
+          "cache_len": 1082,
+          "cache_bytes": 31023104
+        },
+        {
+          "cache_len": 1083,
+          "cache_bytes": 31051776
+        },
+        {
+          "cache_len": 1084,
+          "cache_bytes": 31080448
+        },
+        {
+          "cache_len": 1085,
+          "cache_bytes": 31109120
+        },
+        {
+          "cache_len": 1086,
+          "cache_bytes": 31137792
+        },
+        {
+          "cache_len": 1087,
+          "cache_bytes": 31166464
+        },
+        {
+          "cache_len": 1088,
+          "cache_bytes": 31195136
+        },
+        {
+          "cache_len": 1089,
+          "cache_bytes": 31223808
+        },
+        {
+          "cache_len": 1090,
+          "cache_bytes": 31252480
+        },
+        {
+          "cache_len": 1091,
+          "cache_bytes": 31281152
+        },
+        {
+          "cache_len": 1092,
+          "cache_bytes": 31309824
+        },
+        {
+          "cache_len": 1093,
+          "cache_bytes": 31338496
+        },
+        {
+          "cache_len": 1094,
+          "cache_bytes": 31367168
+        },
+        {
+          "cache_len": 1095,
+          "cache_bytes": 31395840
+        },
+        {
+          "cache_len": 1096,
+          "cache_bytes": 31424512
+        },
+        {
+          "cache_len": 1097,
+          "cache_bytes": 31453184
+        },
+        {
+          "cache_len": 1098,
+          "cache_bytes": 31481856
+        },
+        {
+          "cache_len": 1099,
+          "cache_bytes": 31510528
+        },
+        {
+          "cache_len": 1100,
+          "cache_bytes": 31539200
+        },
+        {
+          "cache_len": 1101,
+          "cache_bytes": 31567872
+        },
+        {
+          "cache_len": 1102,
+          "cache_bytes": 31596544
+        },
+        {
+          "cache_len": 1103,
+          "cache_bytes": 31625216
+        },
+        {
+          "cache_len": 1104,
+          "cache_bytes": 31653888
+        },
+        {
+          "cache_len": 1105,
+          "cache_bytes": 31682560
+        },
+        {
+          "cache_len": 1106,
+          "cache_bytes": 31711232
+        },
+        {
+          "cache_len": 1107,
+          "cache_bytes": 31739904
+        },
+        {
+          "cache_len": 1108,
+          "cache_bytes": 31768576
+        },
+        {
+          "cache_len": 1109,
+          "cache_bytes": 31797248
+        },
+        {
+          "cache_len": 1110,
+          "cache_bytes": 31825920
+        },
+        {
+          "cache_len": 1111,
+          "cache_bytes": 31854592
+        },
+        {
+          "cache_len": 1112,
+          "cache_bytes": 31883264
+        },
+        {
+          "cache_len": 1113,
+          "cache_bytes": 31911936
+        },
+        {
+          "cache_len": 1114,
+          "cache_bytes": 31940608
+        },
+        {
+          "cache_len": 1115,
+          "cache_bytes": 31969280
+        },
+        {
+          "cache_len": 1116,
+          "cache_bytes": 31997952
+        },
+        {
+          "cache_len": 1117,
+          "cache_bytes": 32026624
+        },
+        {
+          "cache_len": 1118,
+          "cache_bytes": 32055296
+        },
+        {
+          "cache_len": 1119,
+          "cache_bytes": 32083968
+        },
+        {
+          "cache_len": 1120,
+          "cache_bytes": 32112640
+        },
+        {
+          "cache_len": 1121,
+          "cache_bytes": 32141312
+        },
+        {
+          "cache_len": 1122,
+          "cache_bytes": 32169984
+        },
+        {
+          "cache_len": 1123,
+          "cache_bytes": 32198656
+        },
+        {
+          "cache_len": 1124,
+          "cache_bytes": 32227328
+        },
+        {
+          "cache_len": 1125,
+          "cache_bytes": 32256000
+        },
+        {
+          "cache_len": 1126,
+          "cache_bytes": 32284672
+        },
+        {
+          "cache_len": 1127,
+          "cache_bytes": 32313344
+        },
+        {
+          "cache_len": 1128,
+          "cache_bytes": 32342016
+        },
+        {
+          "cache_len": 1129,
+          "cache_bytes": 32370688
+        },
+        {
+          "cache_len": 1130,
+          "cache_bytes": 32399360
+        },
+        {
+          "cache_len": 1131,
+          "cache_bytes": 32428032
+        },
+        {
+          "cache_len": 1132,
+          "cache_bytes": 32456704
+        },
+        {
+          "cache_len": 1133,
+          "cache_bytes": 32485376
+        },
+        {
+          "cache_len": 1134,
+          "cache_bytes": 32514048
+        },
+        {
+          "cache_len": 1135,
+          "cache_bytes": 32542720
+        },
+        {
+          "cache_len": 1136,
+          "cache_bytes": 32571392
+        },
+        {
+          "cache_len": 1137,
+          "cache_bytes": 32600064
+        },
+        {
+          "cache_len": 1138,
+          "cache_bytes": 32628736
+        },
+        {
+          "cache_len": 1139,
+          "cache_bytes": 32657408
+        },
+        {
+          "cache_len": 1140,
+          "cache_bytes": 32686080
+        },
+        {
+          "cache_len": 1141,
+          "cache_bytes": 32714752
+        },
+        {
+          "cache_len": 1142,
+          "cache_bytes": 32743424
+        },
+        {
+          "cache_len": 1143,
+          "cache_bytes": 32772096
+        },
+        {
+          "cache_len": 1144,
+          "cache_bytes": 32800768
+        },
+        {
+          "cache_len": 1145,
+          "cache_bytes": 32829440
+        },
+        {
+          "cache_len": 1146,
+          "cache_bytes": 32858112
+        },
+        {
+          "cache_len": 1147,
+          "cache_bytes": 32886784
+        },
+        {
+          "cache_len": 1148,
+          "cache_bytes": 32915456
+        },
+        {
+          "cache_len": 1149,
+          "cache_bytes": 32944128
+        },
+        {
+          "cache_len": 1150,
+          "cache_bytes": 32972800
+        },
+        {
+          "cache_len": 1151,
+          "cache_bytes": 33001472
+        },
+        {
+          "cache_len": 1152,
+          "cache_bytes": 33030144
+        },
+        {
+          "cache_len": 1153,
+          "cache_bytes": 33058816
+        },
+        {
+          "cache_len": 1154,
+          "cache_bytes": 33087488
+        },
+        {
+          "cache_len": 1155,
+          "cache_bytes": 33116160
+        },
+        {
+          "cache_len": 1156,
+          "cache_bytes": 33144832
+        },
+        {
+          "cache_len": 1157,
+          "cache_bytes": 33173504
+        },
+        {
+          "cache_len": 1158,
+          "cache_bytes": 33202176
+        },
+        {
+          "cache_len": 1159,
+          "cache_bytes": 33230848
+        },
+        {
+          "cache_len": 1160,
+          "cache_bytes": 33259520
+        },
+        {
+          "cache_len": 1161,
+          "cache_bytes": 33288192
+        },
+        {
+          "cache_len": 1162,
+          "cache_bytes": 33316864
+        },
+        {
+          "cache_len": 1163,
+          "cache_bytes": 33345536
+        },
+        {
+          "cache_len": 1164,
+          "cache_bytes": 33374208
+        },
+        {
+          "cache_len": 1165,
+          "cache_bytes": 33402880
+        },
+        {
+          "cache_len": 1166,
+          "cache_bytes": 33431552
+        },
+        {
+          "cache_len": 1167,
+          "cache_bytes": 33460224
+        },
+        {
+          "cache_len": 1168,
+          "cache_bytes": 33488896
+        },
+        {
+          "cache_len": 1169,
+          "cache_bytes": 33517568
+        },
+        {
+          "cache_len": 1170,
+          "cache_bytes": 33546240
+        },
+        {
+          "cache_len": 1171,
+          "cache_bytes": 33574912
+        },
+        {
+          "cache_len": 1172,
+          "cache_bytes": 33603584
+        },
+        {
+          "cache_len": 1173,
+          "cache_bytes": 33632256
+        },
+        {
+          "cache_len": 1174,
+          "cache_bytes": 33660928
+        },
+        {
+          "cache_len": 1175,
+          "cache_bytes": 33689600
+        },
+        {
+          "cache_len": 1176,
+          "cache_bytes": 33718272
+        },
+        {
+          "cache_len": 1177,
+          "cache_bytes": 33746944
+        },
+        {
+          "cache_len": 1178,
+          "cache_bytes": 33775616
+        },
+        {
+          "cache_len": 1179,
+          "cache_bytes": 33804288
+        },
+        {
+          "cache_len": 1180,
+          "cache_bytes": 33832960
+        },
+        {
+          "cache_len": 1181,
+          "cache_bytes": 33861632
+        },
+        {
+          "cache_len": 1182,
+          "cache_bytes": 33890304
+        },
+        {
+          "cache_len": 1183,
+          "cache_bytes": 33918976
+        },
+        {
+          "cache_len": 1184,
+          "cache_bytes": 33947648
+        },
+        {
+          "cache_len": 1185,
+          "cache_bytes": 33976320
+        },
+        {
+          "cache_len": 1186,
+          "cache_bytes": 34004992
+        },
+        {
+          "cache_len": 1187,
+          "cache_bytes": 34033664
+        },
+        {
+          "cache_len": 1188,
+          "cache_bytes": 34062336
+        },
+        {
+          "cache_len": 1189,
+          "cache_bytes": 34091008
+        },
+        {
+          "cache_len": 1190,
+          "cache_bytes": 34119680
+        },
+        {
+          "cache_len": 1191,
+          "cache_bytes": 34148352
+        },
+        {
+          "cache_len": 1192,
+          "cache_bytes": 34177024
+        },
+        {
+          "cache_len": 1193,
+          "cache_bytes": 34205696
+        },
+        {
+          "cache_len": 1194,
+          "cache_bytes": 34234368
+        },
+        {
+          "cache_len": 1195,
+          "cache_bytes": 34263040
+        },
+        {
+          "cache_len": 1196,
+          "cache_bytes": 34291712
+        },
+        {
+          "cache_len": 1197,
+          "cache_bytes": 34320384
+        },
+        {
+          "cache_len": 1198,
+          "cache_bytes": 34349056
+        },
+        {
+          "cache_len": 1199,
+          "cache_bytes": 34377728
+        },
+        {
+          "cache_len": 1200,
+          "cache_bytes": 34406400
+        },
+        {
+          "cache_len": 1201,
+          "cache_bytes": 34435072
+        },
+        {
+          "cache_len": 1202,
+          "cache_bytes": 34463744
+        },
+        {
+          "cache_len": 1203,
+          "cache_bytes": 34492416
+        },
+        {
+          "cache_len": 1204,
+          "cache_bytes": 34521088
+        },
+        {
+          "cache_len": 1205,
+          "cache_bytes": 34549760
+        },
+        {
+          "cache_len": 1206,
+          "cache_bytes": 34578432
+        },
+        {
+          "cache_len": 1207,
+          "cache_bytes": 34607104
+        },
+        {
+          "cache_len": 1208,
+          "cache_bytes": 34635776
+        },
+        {
+          "cache_len": 1209,
+          "cache_bytes": 34664448
+        },
+        {
+          "cache_len": 1210,
+          "cache_bytes": 34693120
+        },
+        {
+          "cache_len": 1211,
+          "cache_bytes": 34721792
+        },
+        {
+          "cache_len": 1212,
+          "cache_bytes": 34750464
+        },
+        {
+          "cache_len": 1213,
+          "cache_bytes": 34779136
+        },
+        {
+          "cache_len": 1214,
+          "cache_bytes": 34807808
+        },
+        {
+          "cache_len": 1215,
+          "cache_bytes": 34836480
+        },
+        {
+          "cache_len": 1216,
+          "cache_bytes": 34865152
+        },
+        {
+          "cache_len": 1217,
+          "cache_bytes": 34893824
+        },
+        {
+          "cache_len": 1218,
+          "cache_bytes": 34922496
+        },
+        {
+          "cache_len": 1219,
+          "cache_bytes": 34951168
+        },
+        {
+          "cache_len": 1220,
+          "cache_bytes": 34979840
+        },
+        {
+          "cache_len": 1221,
+          "cache_bytes": 35008512
+        },
+        {
+          "cache_len": 1222,
+          "cache_bytes": 35037184
+        },
+        {
+          "cache_len": 1223,
+          "cache_bytes": 35065856
+        },
+        {
+          "cache_len": 1224,
+          "cache_bytes": 35094528
+        },
+        {
+          "cache_len": 1225,
+          "cache_bytes": 35123200
+        },
+        {
+          "cache_len": 1226,
+          "cache_bytes": 35151872
+        },
+        {
+          "cache_len": 1227,
+          "cache_bytes": 35180544
+        },
+        {
+          "cache_len": 1228,
+          "cache_bytes": 35209216
+        },
+        {
+          "cache_len": 1229,
+          "cache_bytes": 35237888
+        },
+        {
+          "cache_len": 1230,
+          "cache_bytes": 35266560
+        },
+        {
+          "cache_len": 1231,
+          "cache_bytes": 35295232
+        },
+        {
+          "cache_len": 1232,
+          "cache_bytes": 35323904
+        },
+        {
+          "cache_len": 1233,
+          "cache_bytes": 35352576
+        },
+        {
+          "cache_len": 1234,
+          "cache_bytes": 35381248
+        },
+        {
+          "cache_len": 1235,
+          "cache_bytes": 35409920
+        },
+        {
+          "cache_len": 1236,
+          "cache_bytes": 35438592
+        },
+        {
+          "cache_len": 1237,
+          "cache_bytes": 35467264
+        },
+        {
+          "cache_len": 1238,
+          "cache_bytes": 35495936
+        },
+        {
+          "cache_len": 1239,
+          "cache_bytes": 35524608
+        },
+        {
+          "cache_len": 1240,
+          "cache_bytes": 35553280
+        },
+        {
+          "cache_len": 1241,
+          "cache_bytes": 35581952
+        },
+        {
+          "cache_len": 1242,
+          "cache_bytes": 35610624
+        },
+        {
+          "cache_len": 1243,
+          "cache_bytes": 35639296
+        },
+        {
+          "cache_len": 1244,
+          "cache_bytes": 35667968
+        },
+        {
+          "cache_len": 1245,
+          "cache_bytes": 35696640
+        },
+        {
+          "cache_len": 1246,
+          "cache_bytes": 35725312
+        },
+        {
+          "cache_len": 1247,
+          "cache_bytes": 35753984
+        },
+        {
+          "cache_len": 1248,
+          "cache_bytes": 35782656
+        },
+        {
+          "cache_len": 1249,
+          "cache_bytes": 35811328
+        },
+        {
+          "cache_len": 1250,
+          "cache_bytes": 35840000
+        },
+        {
+          "cache_len": 1251,
+          "cache_bytes": 35868672
+        },
+        {
+          "cache_len": 1252,
+          "cache_bytes": 35897344
+        },
+        {
+          "cache_len": 1253,
+          "cache_bytes": 35926016
+        },
+        {
+          "cache_len": 1254,
+          "cache_bytes": 35954688
+        },
+        {
+          "cache_len": 1255,
+          "cache_bytes": 35983360
+        },
+        {
+          "cache_len": 1256,
+          "cache_bytes": 36012032
+        },
+        {
+          "cache_len": 1257,
+          "cache_bytes": 36040704
+        },
+        {
+          "cache_len": 1258,
+          "cache_bytes": 36069376
+        },
+        {
+          "cache_len": 1259,
+          "cache_bytes": 36098048
+        },
+        {
+          "cache_len": 1260,
+          "cache_bytes": 36126720
+        },
+        {
+          "cache_len": 1261,
+          "cache_bytes": 36155392
+        },
+        {
+          "cache_len": 1262,
+          "cache_bytes": 36184064
+        },
+        {
+          "cache_len": 1263,
+          "cache_bytes": 36212736
+        },
+        {
+          "cache_len": 1264,
+          "cache_bytes": 36241408
+        },
+        {
+          "cache_len": 1265,
+          "cache_bytes": 36270080
+        },
+        {
+          "cache_len": 1266,
+          "cache_bytes": 36298752
+        },
+        {
+          "cache_len": 1267,
+          "cache_bytes": 36327424
+        },
+        {
+          "cache_len": 1268,
+          "cache_bytes": 36356096
+        },
+        {
+          "cache_len": 1269,
+          "cache_bytes": 36384768
+        },
+        {
+          "cache_len": 1270,
+          "cache_bytes": 36413440
+        },
+        {
+          "cache_len": 1271,
+          "cache_bytes": 36442112
+        },
+        {
+          "cache_len": 1272,
+          "cache_bytes": 36470784
+        },
+        {
+          "cache_len": 1273,
+          "cache_bytes": 36499456
+        },
+        {
+          "cache_len": 1274,
+          "cache_bytes": 36528128
+        },
+        {
+          "cache_len": 1275,
+          "cache_bytes": 36556800
+        },
+        {
+          "cache_len": 1276,
+          "cache_bytes": 36585472
+        },
+        {
+          "cache_len": 1277,
+          "cache_bytes": 36614144
+        },
+        {
+          "cache_len": 1278,
+          "cache_bytes": 36642816
+        },
+        {
+          "cache_len": 1279,
+          "cache_bytes": 36671488
+        }
+      ],
+      "total_latency_speedup": 10.496070764554078
+    },
+    {
+      "input_length": 2048,
+      "output_length": 32,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.8350368225999774,
+          "std": 0.001641757857728186,
+          "median": 0.834018143999856
+        },
+        "decode_s": {
+          "mean": 28.630598968600133,
+          "std": 0.007585394283272716,
+          "median": 28.63330046700048
+        },
+        "total_latency_s": {
+          "mean": 29.49092646400004,
+          "std": 0.008083026095818265,
+          "median": 29.49502865299928
+        },
+        "output_tokens_per_second": {
+          "mean": 1.0827577240008948,
+          "std": 0.00028687024288033845,
+          "median": 1.082655491836406
+        },
+        "time_per_output_token_s": {
+          "mean": 0.9215914520000013,
+          "std": 0.0002525945654943208,
+          "median": 0.9217196454062275
+        },
+        "peak_memory_bytes": 4373487104
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.8492043211997953,
+          "std": 0.0013762800382673115,
+          "median": 0.8489590190001763
+        },
+        "decode_s": {
+          "mean": 1.1048887739994826,
+          "std": 0.01895645953007052,
+          "median": 1.1075882209997872
+        },
+        "total_latency_s": {
+          "mean": 1.9737409431998458,
+          "std": 0.019183097538391345,
+          "median": 1.975373657000091
+        },
+        "output_tokens_per_second": {
+          "mean": 28.06550366360347,
+          "std": 0.4885502516077012,
+          "median": 27.988741133430633
+        },
+        "time_per_output_token_s": {
+          "mean": 0.06167940447499518,
+          "std": 0.0005994717980747295,
+          "median": 0.061730426781252845
+        },
+        "peak_memory_bytes": 3863055872
+      },
+      "cache_growth": [
+        {
+          "cache_len": 2048,
+          "cache_bytes": 58720256
+        },
+        {
+          "cache_len": 2049,
+          "cache_bytes": 58748928
+        },
+        {
+          "cache_len": 2050,
+          "cache_bytes": 58777600
+        },
+        {
+          "cache_len": 2051,
+          "cache_bytes": 58806272
+        },
+        {
+          "cache_len": 2052,
+          "cache_bytes": 58834944
+        },
+        {
+          "cache_len": 2053,
+          "cache_bytes": 58863616
+        },
+        {
+          "cache_len": 2054,
+          "cache_bytes": 58892288
+        },
+        {
+          "cache_len": 2055,
+          "cache_bytes": 58920960
+        },
+        {
+          "cache_len": 2056,
+          "cache_bytes": 58949632
+        },
+        {
+          "cache_len": 2057,
+          "cache_bytes": 58978304
+        },
+        {
+          "cache_len": 2058,
+          "cache_bytes": 59006976
+        },
+        {
+          "cache_len": 2059,
+          "cache_bytes": 59035648
+        },
+        {
+          "cache_len": 2060,
+          "cache_bytes": 59064320
+        },
+        {
+          "cache_len": 2061,
+          "cache_bytes": 59092992
+        },
+        {
+          "cache_len": 2062,
+          "cache_bytes": 59121664
+        },
+        {
+          "cache_len": 2063,
+          "cache_bytes": 59150336
+        },
+        {
+          "cache_len": 2064,
+          "cache_bytes": 59179008
+        },
+        {
+          "cache_len": 2065,
+          "cache_bytes": 59207680
+        },
+        {
+          "cache_len": 2066,
+          "cache_bytes": 59236352
+        },
+        {
+          "cache_len": 2067,
+          "cache_bytes": 59265024
+        },
+        {
+          "cache_len": 2068,
+          "cache_bytes": 59293696
+        },
+        {
+          "cache_len": 2069,
+          "cache_bytes": 59322368
+        },
+        {
+          "cache_len": 2070,
+          "cache_bytes": 59351040
+        },
+        {
+          "cache_len": 2071,
+          "cache_bytes": 59379712
+        },
+        {
+          "cache_len": 2072,
+          "cache_bytes": 59408384
+        },
+        {
+          "cache_len": 2073,
+          "cache_bytes": 59437056
+        },
+        {
+          "cache_len": 2074,
+          "cache_bytes": 59465728
+        },
+        {
+          "cache_len": 2075,
+          "cache_bytes": 59494400
+        },
+        {
+          "cache_len": 2076,
+          "cache_bytes": 59523072
+        },
+        {
+          "cache_len": 2077,
+          "cache_bytes": 59551744
+        },
+        {
+          "cache_len": 2078,
+          "cache_bytes": 59580416
+        },
+        {
+          "cache_len": 2079,
+          "cache_bytes": 59609088
+        }
+      ],
+      "total_latency_speedup": 14.941639917642432
+    },
+    {
+      "input_length": 2048,
+      "output_length": 128,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.8367883374003213,
+          "std": 0.0009237492266442179,
+          "median": 0.8368535260005956
+        },
+        "decode_s": {
+          "mean": 120.91459699020088,
+          "std": 0.06646065953995911,
+          "median": 120.95751468500384
+        },
+        "total_latency_s": {
+          "mean": 121.84942781680002,
+          "std": 0.06548629113686222,
+          "median": 121.89191390100041
+        },
+        "output_tokens_per_second": {
+          "mean": 1.0503284264061552,
+          "std": 0.0005775785972784436,
+          "median": 1.04995543543311
+        },
+        "time_per_output_token_s": {
+          "mean": 0.9519486548187501,
+          "std": 0.0005116116495067361,
+          "median": 0.9522805773515657
+        },
+        "peak_memory_bytes": 4432180224
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.8484601143998589,
+          "std": 0.003299378141006285,
+          "median": 0.8482333869997092
+        },
+        "decode_s": {
+          "mean": 4.510599111599367,
+          "std": 0.02099212959038355,
+          "median": 4.526514842996221
+        },
+        "total_latency_s": {
+          "mean": 5.424587202200018,
+          "std": 0.0218794614763381,
+          "median": 5.439951070000461
+        },
+        "output_tokens_per_second": {
+          "mean": 28.15651620479179,
+          "std": 0.13133408798647192,
+          "median": 28.05690567799736
+        },
+        "time_per_output_token_s": {
+          "mean": 0.04237958751718764,
+          "std": 0.0001709332927838914,
+          "median": 0.0424996177343786
+        },
+        "peak_memory_bytes": 3863060480
+      },
+      "cache_growth": [
+        {
+          "cache_len": 2048,
+          "cache_bytes": 58720256
+        },
+        {
+          "cache_len": 2049,
+          "cache_bytes": 58748928
+        },
+        {
+          "cache_len": 2050,
+          "cache_bytes": 58777600
+        },
+        {
+          "cache_len": 2051,
+          "cache_bytes": 58806272
+        },
+        {
+          "cache_len": 2052,
+          "cache_bytes": 58834944
+        },
+        {
+          "cache_len": 2053,
+          "cache_bytes": 58863616
+        },
+        {
+          "cache_len": 2054,
+          "cache_bytes": 58892288
+        },
+        {
+          "cache_len": 2055,
+          "cache_bytes": 58920960
+        },
+        {
+          "cache_len": 2056,
+          "cache_bytes": 58949632
+        },
+        {
+          "cache_len": 2057,
+          "cache_bytes": 58978304
+        },
+        {
+          "cache_len": 2058,
+          "cache_bytes": 59006976
+        },
+        {
+          "cache_len": 2059,
+          "cache_bytes": 59035648
+        },
+        {
+          "cache_len": 2060,
+          "cache_bytes": 59064320
+        },
+        {
+          "cache_len": 2061,
+          "cache_bytes": 59092992
+        },
+        {
+          "cache_len": 2062,
+          "cache_bytes": 59121664
+        },
+        {
+          "cache_len": 2063,
+          "cache_bytes": 59150336
+        },
+        {
+          "cache_len": 2064,
+          "cache_bytes": 59179008
+        },
+        {
+          "cache_len": 2065,
+          "cache_bytes": 59207680
+        },
+        {
+          "cache_len": 2066,
+          "cache_bytes": 59236352
+        },
+        {
+          "cache_len": 2067,
+          "cache_bytes": 59265024
+        },
+        {
+          "cache_len": 2068,
+          "cache_bytes": 59293696
+        },
+        {
+          "cache_len": 2069,
+          "cache_bytes": 59322368
+        },
+        {
+          "cache_len": 2070,
+          "cache_bytes": 59351040
+        },
+        {
+          "cache_len": 2071,
+          "cache_bytes": 59379712
+        },
+        {
+          "cache_len": 2072,
+          "cache_bytes": 59408384
+        },
+        {
+          "cache_len": 2073,
+          "cache_bytes": 59437056
+        },
+        {
+          "cache_len": 2074,
+          "cache_bytes": 59465728
+        },
+        {
+          "cache_len": 2075,
+          "cache_bytes": 59494400
+        },
+        {
+          "cache_len": 2076,
+          "cache_bytes": 59523072
+        },
+        {
+          "cache_len": 2077,
+          "cache_bytes": 59551744
+        },
+        {
+          "cache_len": 2078,
+          "cache_bytes": 59580416
+        },
+        {
+          "cache_len": 2079,
+          "cache_bytes": 59609088
+        },
+        {
+          "cache_len": 2080,
+          "cache_bytes": 59637760
+        },
+        {
+          "cache_len": 2081,
+          "cache_bytes": 59666432
+        },
+        {
+          "cache_len": 2082,
+          "cache_bytes": 59695104
+        },
+        {
+          "cache_len": 2083,
+          "cache_bytes": 59723776
+        },
+        {
+          "cache_len": 2084,
+          "cache_bytes": 59752448
+        },
+        {
+          "cache_len": 2085,
+          "cache_bytes": 59781120
+        },
+        {
+          "cache_len": 2086,
+          "cache_bytes": 59809792
+        },
+        {
+          "cache_len": 2087,
+          "cache_bytes": 59838464
+        },
+        {
+          "cache_len": 2088,
+          "cache_bytes": 59867136
+        },
+        {
+          "cache_len": 2089,
+          "cache_bytes": 59895808
+        },
+        {
+          "cache_len": 2090,
+          "cache_bytes": 59924480
+        },
+        {
+          "cache_len": 2091,
+          "cache_bytes": 59953152
+        },
+        {
+          "cache_len": 2092,
+          "cache_bytes": 59981824
+        },
+        {
+          "cache_len": 2093,
+          "cache_bytes": 60010496
+        },
+        {
+          "cache_len": 2094,
+          "cache_bytes": 60039168
+        },
+        {
+          "cache_len": 2095,
+          "cache_bytes": 60067840
+        },
+        {
+          "cache_len": 2096,
+          "cache_bytes": 60096512
+        },
+        {
+          "cache_len": 2097,
+          "cache_bytes": 60125184
+        },
+        {
+          "cache_len": 2098,
+          "cache_bytes": 60153856
+        },
+        {
+          "cache_len": 2099,
+          "cache_bytes": 60182528
+        },
+        {
+          "cache_len": 2100,
+          "cache_bytes": 60211200
+        },
+        {
+          "cache_len": 2101,
+          "cache_bytes": 60239872
+        },
+        {
+          "cache_len": 2102,
+          "cache_bytes": 60268544
+        },
+        {
+          "cache_len": 2103,
+          "cache_bytes": 60297216
+        },
+        {
+          "cache_len": 2104,
+          "cache_bytes": 60325888
+        },
+        {
+          "cache_len": 2105,
+          "cache_bytes": 60354560
+        },
+        {
+          "cache_len": 2106,
+          "cache_bytes": 60383232
+        },
+        {
+          "cache_len": 2107,
+          "cache_bytes": 60411904
+        },
+        {
+          "cache_len": 2108,
+          "cache_bytes": 60440576
+        },
+        {
+          "cache_len": 2109,
+          "cache_bytes": 60469248
+        },
+        {
+          "cache_len": 2110,
+          "cache_bytes": 60497920
+        },
+        {
+          "cache_len": 2111,
+          "cache_bytes": 60526592
+        },
+        {
+          "cache_len": 2112,
+          "cache_bytes": 60555264
+        },
+        {
+          "cache_len": 2113,
+          "cache_bytes": 60583936
+        },
+        {
+          "cache_len": 2114,
+          "cache_bytes": 60612608
+        },
+        {
+          "cache_len": 2115,
+          "cache_bytes": 60641280
+        },
+        {
+          "cache_len": 2116,
+          "cache_bytes": 60669952
+        },
+        {
+          "cache_len": 2117,
+          "cache_bytes": 60698624
+        },
+        {
+          "cache_len": 2118,
+          "cache_bytes": 60727296
+        },
+        {
+          "cache_len": 2119,
+          "cache_bytes": 60755968
+        },
+        {
+          "cache_len": 2120,
+          "cache_bytes": 60784640
+        },
+        {
+          "cache_len": 2121,
+          "cache_bytes": 60813312
+        },
+        {
+          "cache_len": 2122,
+          "cache_bytes": 60841984
+        },
+        {
+          "cache_len": 2123,
+          "cache_bytes": 60870656
+        },
+        {
+          "cache_len": 2124,
+          "cache_bytes": 60899328
+        },
+        {
+          "cache_len": 2125,
+          "cache_bytes": 60928000
+        },
+        {
+          "cache_len": 2126,
+          "cache_bytes": 60956672
+        },
+        {
+          "cache_len": 2127,
+          "cache_bytes": 60985344
+        },
+        {
+          "cache_len": 2128,
+          "cache_bytes": 61014016
+        },
+        {
+          "cache_len": 2129,
+          "cache_bytes": 61042688
+        },
+        {
+          "cache_len": 2130,
+          "cache_bytes": 61071360
+        },
+        {
+          "cache_len": 2131,
+          "cache_bytes": 61100032
+        },
+        {
+          "cache_len": 2132,
+          "cache_bytes": 61128704
+        },
+        {
+          "cache_len": 2133,
+          "cache_bytes": 61157376
+        },
+        {
+          "cache_len": 2134,
+          "cache_bytes": 61186048
+        },
+        {
+          "cache_len": 2135,
+          "cache_bytes": 61214720
+        },
+        {
+          "cache_len": 2136,
+          "cache_bytes": 61243392
+        },
+        {
+          "cache_len": 2137,
+          "cache_bytes": 61272064
+        },
+        {
+          "cache_len": 2138,
+          "cache_bytes": 61300736
+        },
+        {
+          "cache_len": 2139,
+          "cache_bytes": 61329408
+        },
+        {
+          "cache_len": 2140,
+          "cache_bytes": 61358080
+        },
+        {
+          "cache_len": 2141,
+          "cache_bytes": 61386752
+        },
+        {
+          "cache_len": 2142,
+          "cache_bytes": 61415424
+        },
+        {
+          "cache_len": 2143,
+          "cache_bytes": 61444096
+        },
+        {
+          "cache_len": 2144,
+          "cache_bytes": 61472768
+        },
+        {
+          "cache_len": 2145,
+          "cache_bytes": 61501440
+        },
+        {
+          "cache_len": 2146,
+          "cache_bytes": 61530112
+        },
+        {
+          "cache_len": 2147,
+          "cache_bytes": 61558784
+        },
+        {
+          "cache_len": 2148,
+          "cache_bytes": 61587456
+        },
+        {
+          "cache_len": 2149,
+          "cache_bytes": 61616128
+        },
+        {
+          "cache_len": 2150,
+          "cache_bytes": 61644800
+        },
+        {
+          "cache_len": 2151,
+          "cache_bytes": 61673472
+        },
+        {
+          "cache_len": 2152,
+          "cache_bytes": 61702144
+        },
+        {
+          "cache_len": 2153,
+          "cache_bytes": 61730816
+        },
+        {
+          "cache_len": 2154,
+          "cache_bytes": 61759488
+        },
+        {
+          "cache_len": 2155,
+          "cache_bytes": 61788160
+        },
+        {
+          "cache_len": 2156,
+          "cache_bytes": 61816832
+        },
+        {
+          "cache_len": 2157,
+          "cache_bytes": 61845504
+        },
+        {
+          "cache_len": 2158,
+          "cache_bytes": 61874176
+        },
+        {
+          "cache_len": 2159,
+          "cache_bytes": 61902848
+        },
+        {
+          "cache_len": 2160,
+          "cache_bytes": 61931520
+        },
+        {
+          "cache_len": 2161,
+          "cache_bytes": 61960192
+        },
+        {
+          "cache_len": 2162,
+          "cache_bytes": 61988864
+        },
+        {
+          "cache_len": 2163,
+          "cache_bytes": 62017536
+        },
+        {
+          "cache_len": 2164,
+          "cache_bytes": 62046208
+        },
+        {
+          "cache_len": 2165,
+          "cache_bytes": 62074880
+        },
+        {
+          "cache_len": 2166,
+          "cache_bytes": 62103552
+        },
+        {
+          "cache_len": 2167,
+          "cache_bytes": 62132224
+        },
+        {
+          "cache_len": 2168,
+          "cache_bytes": 62160896
+        },
+        {
+          "cache_len": 2169,
+          "cache_bytes": 62189568
+        },
+        {
+          "cache_len": 2170,
+          "cache_bytes": 62218240
+        },
+        {
+          "cache_len": 2171,
+          "cache_bytes": 62246912
+        },
+        {
+          "cache_len": 2172,
+          "cache_bytes": 62275584
+        },
+        {
+          "cache_len": 2173,
+          "cache_bytes": 62304256
+        },
+        {
+          "cache_len": 2174,
+          "cache_bytes": 62332928
+        },
+        {
+          "cache_len": 2175,
+          "cache_bytes": 62361600
+        }
+      ],
+      "total_latency_speedup": 22.462433227616334
+    },
+    {
+      "input_length": 2048,
+      "output_length": 256,
+      "dtype": "float16",
+      "no_cache": {
+        "prefill_s": {
+          "mean": 0.8349989550000828,
+          "std": 0.0021362302149871967,
+          "median": 0.8356642620001367
+        },
+        "decode_s": {
+          "mean": 251.89598992859646,
+          "std": 0.0814694187219266,
+          "median": 251.9260568439986
+        },
+        "total_latency_s": {
+          "mean": 252.93653866620025,
+          "std": 0.07906899026159687,
+          "median": 252.96618628800024
+        },
+        "output_tokens_per_second": {
+          "mean": 1.0123226922012358,
+          "std": 0.00032747518481978483,
+          "median": 1.0122017674333104
+        },
+        "time_per_output_token_s": {
+          "mean": 0.9880333541648447,
+          "std": 0.0003088632432093628,
+          "median": 0.988149165187501
+        },
+        "peak_memory_bytes": 4510441472
+      },
+      "kv_cache": {
+        "prefill_s": {
+          "mean": 0.8532158572001208,
+          "std": 0.0033062547042831546,
+          "median": 0.8528010070003802
+        },
+        "decode_s": {
+          "mean": 9.214511633600887,
+          "std": 0.2033938006819903,
+          "median": 9.13491795599748
+        },
+        "total_latency_s": {
+          "mean": 10.206045427799836,
+          "std": 0.20788411045281613,
+          "median": 10.127150584999981
+        },
+        "output_tokens_per_second": {
+          "mean": 27.68681549098056,
+          "std": 0.5923806025937354,
+          "median": 27.9148648327576
+        },
+        "time_per_output_token_s": {
+          "mean": 0.03986736495234311,
+          "std": 0.000812047306456313,
+          "median": 0.03955918197265618
+        },
+        "peak_memory_bytes": 3863069696
+      },
+      "cache_growth": [
+        {
+          "cache_len": 2048,
+          "cache_bytes": 58720256
+        },
+        {
+          "cache_len": 2049,
+          "cache_bytes": 58748928
+        },
+        {
+          "cache_len": 2050,
+          "cache_bytes": 58777600
+        },
+        {
+          "cache_len": 2051,
+          "cache_bytes": 58806272
+        },
+        {
+          "cache_len": 2052,
+          "cache_bytes": 58834944
+        },
+        {
+          "cache_len": 2053,
+          "cache_bytes": 58863616
+        },
+        {
+          "cache_len": 2054,
+          "cache_bytes": 58892288
+        },
+        {
+          "cache_len": 2055,
+          "cache_bytes": 58920960
+        },
+        {
+          "cache_len": 2056,
+          "cache_bytes": 58949632
+        },
+        {
+          "cache_len": 2057,
+          "cache_bytes": 58978304
+        },
+        {
+          "cache_len": 2058,
+          "cache_bytes": 59006976
+        },
+        {
+          "cache_len": 2059,
+          "cache_bytes": 59035648
+        },
+        {
+          "cache_len": 2060,
+          "cache_bytes": 59064320
+        },
+        {
+          "cache_len": 2061,
+          "cache_bytes": 59092992
+        },
+        {
+          "cache_len": 2062,
+          "cache_bytes": 59121664
+        },
+        {
+          "cache_len": 2063,
+          "cache_bytes": 59150336
+        },
+        {
+          "cache_len": 2064,
+          "cache_bytes": 59179008
+        },
+        {
+          "cache_len": 2065,
+          "cache_bytes": 59207680
+        },
+        {
+          "cache_len": 2066,
+          "cache_bytes": 59236352
+        },
+        {
+          "cache_len": 2067,
+          "cache_bytes": 59265024
+        },
+        {
+          "cache_len": 2068,
+          "cache_bytes": 59293696
+        },
+        {
+          "cache_len": 2069,
+          "cache_bytes": 59322368
+        },
+        {
+          "cache_len": 2070,
+          "cache_bytes": 59351040
+        },
+        {
+          "cache_len": 2071,
+          "cache_bytes": 59379712
+        },
+        {
+          "cache_len": 2072,
+          "cache_bytes": 59408384
+        },
+        {
+          "cache_len": 2073,
+          "cache_bytes": 59437056
+        },
+        {
+          "cache_len": 2074,
+          "cache_bytes": 59465728
+        },
+        {
+          "cache_len": 2075,
+          "cache_bytes": 59494400
+        },
+        {
+          "cache_len": 2076,
+          "cache_bytes": 59523072
+        },
+        {
+          "cache_len": 2077,
+          "cache_bytes": 59551744
+        },
+        {
+          "cache_len": 2078,
+          "cache_bytes": 59580416
+        },
+        {
+          "cache_len": 2079,
+          "cache_bytes": 59609088
+        },
+        {
+          "cache_len": 2080,
+          "cache_bytes": 59637760
+        },
+        {
+          "cache_len": 2081,
+          "cache_bytes": 59666432
+        },
+        {
+          "cache_len": 2082,
+          "cache_bytes": 59695104
+        },
+        {
+          "cache_len": 2083,
+          "cache_bytes": 59723776
+        },
+        {
+          "cache_len": 2084,
+          "cache_bytes": 59752448
+        },
+        {
+          "cache_len": 2085,
+          "cache_bytes": 59781120
+        },
+        {
+          "cache_len": 2086,
+          "cache_bytes": 59809792
+        },
+        {
+          "cache_len": 2087,
+          "cache_bytes": 59838464
+        },
+        {
+          "cache_len": 2088,
+          "cache_bytes": 59867136
+        },
+        {
+          "cache_len": 2089,
+          "cache_bytes": 59895808
+        },
+        {
+          "cache_len": 2090,
+          "cache_bytes": 59924480
+        },
+        {
+          "cache_len": 2091,
+          "cache_bytes": 59953152
+        },
+        {
+          "cache_len": 2092,
+          "cache_bytes": 59981824
+        },
+        {
+          "cache_len": 2093,
+          "cache_bytes": 60010496
+        },
+        {
+          "cache_len": 2094,
+          "cache_bytes": 60039168
+        },
+        {
+          "cache_len": 2095,
+          "cache_bytes": 60067840
+        },
+        {
+          "cache_len": 2096,
+          "cache_bytes": 60096512
+        },
+        {
+          "cache_len": 2097,
+          "cache_bytes": 60125184
+        },
+        {
+          "cache_len": 2098,
+          "cache_bytes": 60153856
+        },
+        {
+          "cache_len": 2099,
+          "cache_bytes": 60182528
+        },
+        {
+          "cache_len": 2100,
+          "cache_bytes": 60211200
+        },
+        {
+          "cache_len": 2101,
+          "cache_bytes": 60239872
+        },
+        {
+          "cache_len": 2102,
+          "cache_bytes": 60268544
+        },
+        {
+          "cache_len": 2103,
+          "cache_bytes": 60297216
+        },
+        {
+          "cache_len": 2104,
+          "cache_bytes": 60325888
+        },
+        {
+          "cache_len": 2105,
+          "cache_bytes": 60354560
+        },
+        {
+          "cache_len": 2106,
+          "cache_bytes": 60383232
+        },
+        {
+          "cache_len": 2107,
+          "cache_bytes": 60411904
+        },
+        {
+          "cache_len": 2108,
+          "cache_bytes": 60440576
+        },
+        {
+          "cache_len": 2109,
+          "cache_bytes": 60469248
+        },
+        {
+          "cache_len": 2110,
+          "cache_bytes": 60497920
+        },
+        {
+          "cache_len": 2111,
+          "cache_bytes": 60526592
+        },
+        {
+          "cache_len": 2112,
+          "cache_bytes": 60555264
+        },
+        {
+          "cache_len": 2113,
+          "cache_bytes": 60583936
+        },
+        {
+          "cache_len": 2114,
+          "cache_bytes": 60612608
+        },
+        {
+          "cache_len": 2115,
+          "cache_bytes": 60641280
+        },
+        {
+          "cache_len": 2116,
+          "cache_bytes": 60669952
+        },
+        {
+          "cache_len": 2117,
+          "cache_bytes": 60698624
+        },
+        {
+          "cache_len": 2118,
+          "cache_bytes": 60727296
+        },
+        {
+          "cache_len": 2119,
+          "cache_bytes": 60755968
+        },
+        {
+          "cache_len": 2120,
+          "cache_bytes": 60784640
+        },
+        {
+          "cache_len": 2121,
+          "cache_bytes": 60813312
+        },
+        {
+          "cache_len": 2122,
+          "cache_bytes": 60841984
+        },
+        {
+          "cache_len": 2123,
+          "cache_bytes": 60870656
+        },
+        {
+          "cache_len": 2124,
+          "cache_bytes": 60899328
+        },
+        {
+          "cache_len": 2125,
+          "cache_bytes": 60928000
+        },
+        {
+          "cache_len": 2126,
+          "cache_bytes": 60956672
+        },
+        {
+          "cache_len": 2127,
+          "cache_bytes": 60985344
+        },
+        {
+          "cache_len": 2128,
+          "cache_bytes": 61014016
+        },
+        {
+          "cache_len": 2129,
+          "cache_bytes": 61042688
+        },
+        {
+          "cache_len": 2130,
+          "cache_bytes": 61071360
+        },
+        {
+          "cache_len": 2131,
+          "cache_bytes": 61100032
+        },
+        {
+          "cache_len": 2132,
+          "cache_bytes": 61128704
+        },
+        {
+          "cache_len": 2133,
+          "cache_bytes": 61157376
+        },
+        {
+          "cache_len": 2134,
+          "cache_bytes": 61186048
+        },
+        {
+          "cache_len": 2135,
+          "cache_bytes": 61214720
+        },
+        {
+          "cache_len": 2136,
+          "cache_bytes": 61243392
+        },
+        {
+          "cache_len": 2137,
+          "cache_bytes": 61272064
+        },
+        {
+          "cache_len": 2138,
+          "cache_bytes": 61300736
+        },
+        {
+          "cache_len": 2139,
+          "cache_bytes": 61329408
+        },
+        {
+          "cache_len": 2140,
+          "cache_bytes": 61358080
+        },
+        {
+          "cache_len": 2141,
+          "cache_bytes": 61386752
+        },
+        {
+          "cache_len": 2142,
+          "cache_bytes": 61415424
+        },
+        {
+          "cache_len": 2143,
+          "cache_bytes": 61444096
+        },
+        {
+          "cache_len": 2144,
+          "cache_bytes": 61472768
+        },
+        {
+          "cache_len": 2145,
+          "cache_bytes": 61501440
+        },
+        {
+          "cache_len": 2146,
+          "cache_bytes": 61530112
+        },
+        {
+          "cache_len": 2147,
+          "cache_bytes": 61558784
+        },
+        {
+          "cache_len": 2148,
+          "cache_bytes": 61587456
+        },
+        {
+          "cache_len": 2149,
+          "cache_bytes": 61616128
+        },
+        {
+          "cache_len": 2150,
+          "cache_bytes": 61644800
+        },
+        {
+          "cache_len": 2151,
+          "cache_bytes": 61673472
+        },
+        {
+          "cache_len": 2152,
+          "cache_bytes": 61702144
+        },
+        {
+          "cache_len": 2153,
+          "cache_bytes": 61730816
+        },
+        {
+          "cache_len": 2154,
+          "cache_bytes": 61759488
+        },
+        {
+          "cache_len": 2155,
+          "cache_bytes": 61788160
+        },
+        {
+          "cache_len": 2156,
+          "cache_bytes": 61816832
+        },
+        {
+          "cache_len": 2157,
+          "cache_bytes": 61845504
+        },
+        {
+          "cache_len": 2158,
+          "cache_bytes": 61874176
+        },
+        {
+          "cache_len": 2159,
+          "cache_bytes": 61902848
+        },
+        {
+          "cache_len": 2160,
+          "cache_bytes": 61931520
+        },
+        {
+          "cache_len": 2161,
+          "cache_bytes": 61960192
+        },
+        {
+          "cache_len": 2162,
+          "cache_bytes": 61988864
+        },
+        {
+          "cache_len": 2163,
+          "cache_bytes": 62017536
+        },
+        {
+          "cache_len": 2164,
+          "cache_bytes": 62046208
+        },
+        {
+          "cache_len": 2165,
+          "cache_bytes": 62074880
+        },
+        {
+          "cache_len": 2166,
+          "cache_bytes": 62103552
+        },
+        {
+          "cache_len": 2167,
+          "cache_bytes": 62132224
+        },
+        {
+          "cache_len": 2168,
+          "cache_bytes": 62160896
+        },
+        {
+          "cache_len": 2169,
+          "cache_bytes": 62189568
+        },
+        {
+          "cache_len": 2170,
+          "cache_bytes": 62218240
+        },
+        {
+          "cache_len": 2171,
+          "cache_bytes": 62246912
+        },
+        {
+          "cache_len": 2172,
+          "cache_bytes": 62275584
+        },
+        {
+          "cache_len": 2173,
+          "cache_bytes": 62304256
+        },
+        {
+          "cache_len": 2174,
+          "cache_bytes": 62332928
+        },
+        {
+          "cache_len": 2175,
+          "cache_bytes": 62361600
+        },
+        {
+          "cache_len": 2176,
+          "cache_bytes": 62390272
+        },
+        {
+          "cache_len": 2177,
+          "cache_bytes": 62418944
+        },
+        {
+          "cache_len": 2178,
+          "cache_bytes": 62447616
+        },
+        {
+          "cache_len": 2179,
+          "cache_bytes": 62476288
+        },
+        {
+          "cache_len": 2180,
+          "cache_bytes": 62504960
+        },
+        {
+          "cache_len": 2181,
+          "cache_bytes": 62533632
+        },
+        {
+          "cache_len": 2182,
+          "cache_bytes": 62562304
+        },
+        {
+          "cache_len": 2183,
+          "cache_bytes": 62590976
+        },
+        {
+          "cache_len": 2184,
+          "cache_bytes": 62619648
+        },
+        {
+          "cache_len": 2185,
+          "cache_bytes": 62648320
+        },
+        {
+          "cache_len": 2186,
+          "cache_bytes": 62676992
+        },
+        {
+          "cache_len": 2187,
+          "cache_bytes": 62705664
+        },
+        {
+          "cache_len": 2188,
+          "cache_bytes": 62734336
+        },
+        {
+          "cache_len": 2189,
+          "cache_bytes": 62763008
+        },
+        {
+          "cache_len": 2190,
+          "cache_bytes": 62791680
+        },
+        {
+          "cache_len": 2191,
+          "cache_bytes": 62820352
+        },
+        {
+          "cache_len": 2192,
+          "cache_bytes": 62849024
+        },
+        {
+          "cache_len": 2193,
+          "cache_bytes": 62877696
+        },
+        {
+          "cache_len": 2194,
+          "cache_bytes": 62906368
+        },
+        {
+          "cache_len": 2195,
+          "cache_bytes": 62935040
+        },
+        {
+          "cache_len": 2196,
+          "cache_bytes": 62963712
+        },
+        {
+          "cache_len": 2197,
+          "cache_bytes": 62992384
+        },
+        {
+          "cache_len": 2198,
+          "cache_bytes": 63021056
+        },
+        {
+          "cache_len": 2199,
+          "cache_bytes": 63049728
+        },
+        {
+          "cache_len": 2200,
+          "cache_bytes": 63078400
+        },
+        {
+          "cache_len": 2201,
+          "cache_bytes": 63107072
+        },
+        {
+          "cache_len": 2202,
+          "cache_bytes": 63135744
+        },
+        {
+          "cache_len": 2203,
+          "cache_bytes": 63164416
+        },
+        {
+          "cache_len": 2204,
+          "cache_bytes": 63193088
+        },
+        {
+          "cache_len": 2205,
+          "cache_bytes": 63221760
+        },
+        {
+          "cache_len": 2206,
+          "cache_bytes": 63250432
+        },
+        {
+          "cache_len": 2207,
+          "cache_bytes": 63279104
+        },
+        {
+          "cache_len": 2208,
+          "cache_bytes": 63307776
+        },
+        {
+          "cache_len": 2209,
+          "cache_bytes": 63336448
+        },
+        {
+          "cache_len": 2210,
+          "cache_bytes": 63365120
+        },
+        {
+          "cache_len": 2211,
+          "cache_bytes": 63393792
+        },
+        {
+          "cache_len": 2212,
+          "cache_bytes": 63422464
+        },
+        {
+          "cache_len": 2213,
+          "cache_bytes": 63451136
+        },
+        {
+          "cache_len": 2214,
+          "cache_bytes": 63479808
+        },
+        {
+          "cache_len": 2215,
+          "cache_bytes": 63508480
+        },
+        {
+          "cache_len": 2216,
+          "cache_bytes": 63537152
+        },
+        {
+          "cache_len": 2217,
+          "cache_bytes": 63565824
+        },
+        {
+          "cache_len": 2218,
+          "cache_bytes": 63594496
+        },
+        {
+          "cache_len": 2219,
+          "cache_bytes": 63623168
+        },
+        {
+          "cache_len": 2220,
+          "cache_bytes": 63651840
+        },
+        {
+          "cache_len": 2221,
+          "cache_bytes": 63680512
+        },
+        {
+          "cache_len": 2222,
+          "cache_bytes": 63709184
+        },
+        {
+          "cache_len": 2223,
+          "cache_bytes": 63737856
+        },
+        {
+          "cache_len": 2224,
+          "cache_bytes": 63766528
+        },
+        {
+          "cache_len": 2225,
+          "cache_bytes": 63795200
+        },
+        {
+          "cache_len": 2226,
+          "cache_bytes": 63823872
+        },
+        {
+          "cache_len": 2227,
+          "cache_bytes": 63852544
+        },
+        {
+          "cache_len": 2228,
+          "cache_bytes": 63881216
+        },
+        {
+          "cache_len": 2229,
+          "cache_bytes": 63909888
+        },
+        {
+          "cache_len": 2230,
+          "cache_bytes": 63938560
+        },
+        {
+          "cache_len": 2231,
+          "cache_bytes": 63967232
+        },
+        {
+          "cache_len": 2232,
+          "cache_bytes": 63995904
+        },
+        {
+          "cache_len": 2233,
+          "cache_bytes": 64024576
+        },
+        {
+          "cache_len": 2234,
+          "cache_bytes": 64053248
+        },
+        {
+          "cache_len": 2235,
+          "cache_bytes": 64081920
+        },
+        {
+          "cache_len": 2236,
+          "cache_bytes": 64110592
+        },
+        {
+          "cache_len": 2237,
+          "cache_bytes": 64139264
+        },
+        {
+          "cache_len": 2238,
+          "cache_bytes": 64167936
+        },
+        {
+          "cache_len": 2239,
+          "cache_bytes": 64196608
+        },
+        {
+          "cache_len": 2240,
+          "cache_bytes": 64225280
+        },
+        {
+          "cache_len": 2241,
+          "cache_bytes": 64253952
+        },
+        {
+          "cache_len": 2242,
+          "cache_bytes": 64282624
+        },
+        {
+          "cache_len": 2243,
+          "cache_bytes": 64311296
+        },
+        {
+          "cache_len": 2244,
+          "cache_bytes": 64339968
+        },
+        {
+          "cache_len": 2245,
+          "cache_bytes": 64368640
+        },
+        {
+          "cache_len": 2246,
+          "cache_bytes": 64397312
+        },
+        {
+          "cache_len": 2247,
+          "cache_bytes": 64425984
+        },
+        {
+          "cache_len": 2248,
+          "cache_bytes": 64454656
+        },
+        {
+          "cache_len": 2249,
+          "cache_bytes": 64483328
+        },
+        {
+          "cache_len": 2250,
+          "cache_bytes": 64512000
+        },
+        {
+          "cache_len": 2251,
+          "cache_bytes": 64540672
+        },
+        {
+          "cache_len": 2252,
+          "cache_bytes": 64569344
+        },
+        {
+          "cache_len": 2253,
+          "cache_bytes": 64598016
+        },
+        {
+          "cache_len": 2254,
+          "cache_bytes": 64626688
+        },
+        {
+          "cache_len": 2255,
+          "cache_bytes": 64655360
+        },
+        {
+          "cache_len": 2256,
+          "cache_bytes": 64684032
+        },
+        {
+          "cache_len": 2257,
+          "cache_bytes": 64712704
+        },
+        {
+          "cache_len": 2258,
+          "cache_bytes": 64741376
+        },
+        {
+          "cache_len": 2259,
+          "cache_bytes": 64770048
+        },
+        {
+          "cache_len": 2260,
+          "cache_bytes": 64798720
+        },
+        {
+          "cache_len": 2261,
+          "cache_bytes": 64827392
+        },
+        {
+          "cache_len": 2262,
+          "cache_bytes": 64856064
+        },
+        {
+          "cache_len": 2263,
+          "cache_bytes": 64884736
+        },
+        {
+          "cache_len": 2264,
+          "cache_bytes": 64913408
+        },
+        {
+          "cache_len": 2265,
+          "cache_bytes": 64942080
+        },
+        {
+          "cache_len": 2266,
+          "cache_bytes": 64970752
+        },
+        {
+          "cache_len": 2267,
+          "cache_bytes": 64999424
+        },
+        {
+          "cache_len": 2268,
+          "cache_bytes": 65028096
+        },
+        {
+          "cache_len": 2269,
+          "cache_bytes": 65056768
+        },
+        {
+          "cache_len": 2270,
+          "cache_bytes": 65085440
+        },
+        {
+          "cache_len": 2271,
+          "cache_bytes": 65114112
+        },
+        {
+          "cache_len": 2272,
+          "cache_bytes": 65142784
+        },
+        {
+          "cache_len": 2273,
+          "cache_bytes": 65171456
+        },
+        {
+          "cache_len": 2274,
+          "cache_bytes": 65200128
+        },
+        {
+          "cache_len": 2275,
+          "cache_bytes": 65228800
+        },
+        {
+          "cache_len": 2276,
+          "cache_bytes": 65257472
+        },
+        {
+          "cache_len": 2277,
+          "cache_bytes": 65286144
+        },
+        {
+          "cache_len": 2278,
+          "cache_bytes": 65314816
+        },
+        {
+          "cache_len": 2279,
+          "cache_bytes": 65343488
+        },
+        {
+          "cache_len": 2280,
+          "cache_bytes": 65372160
+        },
+        {
+          "cache_len": 2281,
+          "cache_bytes": 65400832
+        },
+        {
+          "cache_len": 2282,
+          "cache_bytes": 65429504
+        },
+        {
+          "cache_len": 2283,
+          "cache_bytes": 65458176
+        },
+        {
+          "cache_len": 2284,
+          "cache_bytes": 65486848
+        },
+        {
+          "cache_len": 2285,
+          "cache_bytes": 65515520
+        },
+        {
+          "cache_len": 2286,
+          "cache_bytes": 65544192
+        },
+        {
+          "cache_len": 2287,
+          "cache_bytes": 65572864
+        },
+        {
+          "cache_len": 2288,
+          "cache_bytes": 65601536
+        },
+        {
+          "cache_len": 2289,
+          "cache_bytes": 65630208
+        },
+        {
+          "cache_len": 2290,
+          "cache_bytes": 65658880
+        },
+        {
+          "cache_len": 2291,
+          "cache_bytes": 65687552
+        },
+        {
+          "cache_len": 2292,
+          "cache_bytes": 65716224
+        },
+        {
+          "cache_len": 2293,
+          "cache_bytes": 65744896
+        },
+        {
+          "cache_len": 2294,
+          "cache_bytes": 65773568
+        },
+        {
+          "cache_len": 2295,
+          "cache_bytes": 65802240
+        },
+        {
+          "cache_len": 2296,
+          "cache_bytes": 65830912
+        },
+        {
+          "cache_len": 2297,
+          "cache_bytes": 65859584
+        },
+        {
+          "cache_len": 2298,
+          "cache_bytes": 65888256
+        },
+        {
+          "cache_len": 2299,
+          "cache_bytes": 65916928
+        },
+        {
+          "cache_len": 2300,
+          "cache_bytes": 65945600
+        },
+        {
+          "cache_len": 2301,
+          "cache_bytes": 65974272
+        },
+        {
+          "cache_len": 2302,
+          "cache_bytes": 66002944
+        },
+        {
+          "cache_len": 2303,
+          "cache_bytes": 66031616
+        }
+      ],
+      "total_latency_speedup": 24.783011251080325
+    }
+  ],
+  "warmup": 2,
+  "repeats": 5,
+  "model_source": "Ashher123/criterion-lens-qwen2.5-1.5b-merged",
+  "config_path": "configs/bench.yaml",
+  "parity_dtypes": [
+    "float16",
+    "float32"
+  ]
+}

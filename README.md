@@ -38,6 +38,8 @@ Evaluated **once** at tag `v1.0-frozen` (see [`results/TEST_ACCESS_LOG.md`](resu
 Inference-mechanism benchmarks (Kaggle T4): see [Benchmarks](#benchmarks-kaggle-tesla-t4).
 
 ## Benchmarks (Kaggle Tesla T4)
+> **Addendum (after submission):** the full benchmark grid finished later. KV cache reaches **24.8×** at 2048 prompt tokens. In fp16, speculative decoding diverged from target greedy output on 4 of 20 prompts, a numerical effect independent of draft and k; it is exact in fp32. See [`docs/BENCHMARK_FULL_RUN.md`](docs/BENCHMARK_FULL_RUN.md) and `results/bench_full/`.
+
 Raw logs: [`results/bench/`](results/bench/) (JSON + CSV per benchmark). Kaggle kernel `criterion-lens-benchmarks-quick` (`kaggle/jobs/benchmarks_quick/`), 1 warm-up + 3 repeats (speculative: 6 synthetic prompts, 2 repeats). Figures: `report/figures/`.
 
 | Mechanism | Result |
