@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Largest observed absolute attention errors across the configured correctness grid.}
+\label{tab:attention-accuracy}
+\begin{adjustbox}{max width=\columnwidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Dtype & Q length & K length & Head dim & Block & Max abs. error & Within tol. \\
+\midrule
+float16 & 512 & 512 & 128 & 16 & 0.000971 & True \\
+float16 & 512 & 512 & 128 & 32 & 0.000971 & True \\
+float16 & 512 & 512 & 128 & 64 & 0.000971 & True \\
+float16 & 512 & 512 & 128 & 128 & 0.000971 & True \\
+float16 & 129 & 129 & 64 & 16 & 0.000952 & True \\
+float16 & 129 & 129 & 64 & 32 & 0.000952 & True \\
+float16 & 129 & 129 & 64 & 64 & 0.000952 & True \\
+float16 & 129 & 129 & 64 & 128 & 0.000952 & True \\
+float16 & 64 & 64 & 32 & 16 & 0.000775 & True \\
+float16 & 64 & 64 & 32 & 32 & 0.000775 & True \\
+float16 & 64 & 64 & 32 & 64 & 0.000775 & True \\
+float16 & 64 & 64 & 32 & 128 & 0.000775 & True \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

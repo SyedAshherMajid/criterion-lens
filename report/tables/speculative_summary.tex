@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Speculative decoding means over synthetic prompts, grouped by output length.}
+\label{tab:speculative}
+\begin{adjustbox}{max width=\columnwidth}
+\begin{tabular}{lrrrr}
+\toprule
+Draft & Output tokens & k & Acceptance & Speedup \\
+\midrule
+base\_0.5B & 64 & 1 & 0.796 & 0.93 \\
+base\_0.5B & 64 & 2 & 0.730 & 0.88 \\
+base\_0.5B & 64 & 4 & 0.622 & 0.77 \\
+base\_0.5B & 64 & 8 & 0.461 & 0.60 \\
+finetuned\_0.5B & 64 & 1 & 0.834 & 0.94 \\
+finetuned\_0.5B & 64 & 2 & 0.747 & 0.89 \\
+finetuned\_0.5B & 64 & 4 & 0.628 & 0.78 \\
+finetuned\_0.5B & 64 & 8 & 0.482 & 0.62 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

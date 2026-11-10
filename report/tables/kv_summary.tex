@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{KV-cache latency speedup on deterministic synthetic token IDs.}
+\label{tab:kv-results}
+\begin{adjustbox}{max width=\columnwidth}
+\begin{tabular}{lrrrr}
+\toprule
+Run & Input tokens & Output tokens & Dtype & Speedup \\
+\midrule
+kv\_0p5b & 128 & 128 & float16 & 1.11 \\
+kv\_0p5b & 512 & 128 & float16 & 2.49 \\
+kv\_0p5b & 1024 & 128 & float16 & 6.24 \\
+kv\_1p5b & 128 & 128 & float16 & 1.51 \\
+kv\_1p5b & 512 & 128 & float16 & 4.85 \\
+kv\_1p5b & 1024 & 128 & float16 & 9.82 \\
+kv\_tiny & 128 & 128 & float32 & 1.08 \\
+kv\_tiny & 512 & 128 & float32 & 1.08 \\
+kv\_tiny & 1024 & 128 & float32 & 1.36 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}

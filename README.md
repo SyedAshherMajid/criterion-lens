@@ -8,7 +8,7 @@
 |---|---|
 | Official app | Locally hosted Gradio app (see [Windows quick start](#windows-quick-start)) |
 | Optional hosted app | Hugging Face Space files are ready in `space/`; creation requires HF PRO for `cpu-basic` |
-| Paper (IEEE) | _TBD (`report/CriterionLens_IEEE.pdf`)_ |
+| Paper (IEEE) | [`report/CriterionLens_IEEE.pdf`](report/CriterionLens_IEEE.pdf) |
 | Fine-tuned adapters | [Qwen2.5 1.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-lora) · [Qwen2.5 0.5B LoRA](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-lora) |
 | Merged models | [Qwen2.5 1.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-1.5b-merged) · [Qwen2.5 0.5B merged](https://huggingface.co/Ashher123/criterion-lens-qwen2.5-0.5b-merged) |
 | Demo video | [YouTube (5:35, captioned)](https://youtu.be/Z3mVr0ccfKE) |
@@ -36,6 +36,15 @@ Evaluated **once** at tag `v1.0-frozen` (see [`results/TEST_ACCESS_LOG.md`](resu
 \*Averaged over criteria with non-empty expert evidence. Macro-F1 averages all six fixed labels, so labels that never occur in the 8 test patients count as 0. Averaged over only the labels present, the fine-tuned 1.5B scores 0.571. JSON parse failures for both fine-tuned models: 0%. Validation results, per-class scores and confusion matrices: `results/eval/`, `results/figures/`. Error analysis (12 distinct cases): [`docs/ERROR_ANALYSIS.md`](docs/ERROR_ANALYSIS.md).
 
 Inference-mechanism benchmarks (Kaggle T4): see [Benchmarks](#benchmarks-kaggle-tesla-t4).
+
+## Benchmarks (Kaggle Tesla T4)
+Raw logs: [`results/bench/`](results/bench/) (JSON + CSV per benchmark). Kaggle kernel `criterion-lens-benchmarks-quick` (`kaggle/jobs/benchmarks_quick/`), 1 warm-up + 3 repeats (speculative: 6 synthetic prompts, 2 repeats). Figures: `report/figures/`.
+
+| Mechanism | Result |
+|---|---|
+| **KV cache** (fine-tuned 1.5B, fp16, 128 new tokens) | 1.5× / 4.9× / **9.8×** faster than full-prefix recomputation at 128 / 512 / 1024 prompt tokens (2.76 → 29.1 tokens/s at 1024). 0.5B: 1.1× / 2.5× / 6.2×. Cache grows 28 KiB/token. Identical greedy tokens in all precision checks. |
+| **Tiled online-softmax attention** | 80/80 configurations within tolerance (max abs. error 1.2e-6 fp32, 9.7e-4 fp16). Slower than the naive reference (pure PyTorch, not fused), but much less memory: 93 MB vs 878 MB at 2048 tokens; at 8192 tokens the reference runs out of memory and tiled finishes in 345 MB. |
+| **Greedy speculative decoding** (1.5B target, 0.5B draft) | Exact: token equality 1.0, 0 mismatches. Acceptance 0.80→0.46 (base draft) and 0.83→0.48 (fine-tuned draft) for k = 1→8. Target forwards drop to 0.23–0.57 per token, but wall-clock speedup is **< 1** (0.60–0.94×): on a T4 at batch 1 the draft passes cost more than they save. Reported as measured. |
 
 ## Windows quick start
 

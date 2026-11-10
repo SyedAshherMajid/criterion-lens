@@ -2,6 +2,7 @@
 \centering
 \caption{LoRA training configuration read from the versioned YAML files.}
 \label{tab:hyperparameters}
+\begin{adjustbox}{max width=\columnwidth}
 \begin{tabular}{lrrrrrr}
 \toprule
 Model & Max tokens & Epochs & Batch x accum. & Rank/alpha & Learning rate & Seed \\
@@ -10,4 +11,5 @@ Model & Max tokens & Epochs & Batch x accum. & Rank/alpha & Learning rate & Seed
 0.5B & 640 & 3 & 4 x 4 & 16/32 & 2.0e-04 & 42 \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table}

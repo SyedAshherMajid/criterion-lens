@@ -420,6 +420,7 @@ def _write_table(
         lines.append(rf"\label{{{label}}}")
     lines.extend(
         [
+            r"\begin{adjustbox}{max width=\columnwidth}",
             rf"\begin{{tabular}}{{{alignment}}}",
             r"\toprule",
             " & ".join(headers) + r" \\",
@@ -427,7 +428,7 @@ def _write_table(
         ]
     )
     lines.extend(" & ".join(row) + r" \\" for row in rows)
-    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}", ""])
+    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{adjustbox}", r"\end{table}", ""])
     path.write_text("\n".join(lines), encoding="utf-8")
 
 

@@ -5,6 +5,7 @@
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \usepackage{tabularx}
 \usepackage{url}
 
@@ -20,7 +21,7 @@
 \maketitle
 
 \begin{abstract}
-Clinical-trial eligibility matching requires a separate, evidence-grounded judgment for each criterion, including an explicit way to abstain when a note is incomplete. CriterionLens fine-tunes compact instruction models to return a structured label and numbered supporting sentences, and pairs the screening pipeline with explicit KV-cache, tiled-attention, and greedy speculative-decoding implementations. On the fixed held-out split, the fine-tuned 1.5B model obtains accuracy \TestHeadlineAccuracy{} and fixed-label macro-F1 \TestHeadlineMacroFone{} (bootstrap 95\% intervals \TestHeadlineAccuracyCI{} and \TestHeadlineMacroFoneCI{}). These results characterize a small research prototype on a limited annotated dataset; they do not establish clinical utility. The official application is browser-accessible and locally hosted, as permitted by the assignment.
+Clinical-trial eligibility matching requires a separate, evidence-grounded judgment for each criterion, including an explicit way to abstain when a note is incomplete. CriterionLens fine-tunes compact instruction models to return a structured label and numbered supporting sentences, and pairs the screening pipeline with explicit KV-cache, tiled-attention, and greedy speculative-decoding implementations. On the fixed held-out split, the fine-tuned 1.5B model obtains accuracy \TestHeadlineAccuracy{} and fixed-label macro-F1 \TestHeadlineMacroFone{} (bootstrap 95\% intervals \TestHeadlineAccuracyCI{} and \TestHeadlineMacroFoneCI{}). On a Tesla T4, the KV cache speeds up 1.5B generation by 9.8$	imes$ at a 1024-token prompt, tiled attention matches the reference within $10^{-3}$ in float16 while completing an 8192-token case on which the naive reference runs out of memory, and speculative decoding is exact but, with a 0.5B draft, slower than target-only decoding (0.60--0.94$	imes$). These results characterize a small research prototype on a limited annotated dataset; they do not establish clinical utility. The official application is browser-accessible and locally hosted, as permitted by the assignment.
 \end{abstract}
 
 \begin{IEEEkeywords}

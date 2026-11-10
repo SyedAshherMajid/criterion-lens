@@ -2,6 +2,7 @@
 \centering
 \caption{Evidence-set scores; primary macro-F1 averages records with non-empty expert evidence.}
 \label{tab:evidence-results}
+\begin{adjustbox}{max width=\columnwidth}
 \begin{tabular}{lrrrrr}
 \toprule
 Split & Model & Micro-F1 & Primary macro-F1 & Empty gold & Abstention acc. \\
@@ -16,4 +17,5 @@ VAL & Fine-tuned 0.5B & 0.420 & 0.470 & 116 & 0.888 \\
 VAL & Fine-tuned 1.5B & 0.546 & 0.616 & 116 & 0.853 \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table}

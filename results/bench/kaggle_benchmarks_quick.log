@@ -1,0 +1,162 @@
+[{"stream_name":"stderr","time":7.005149023,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.005190671,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":7.992973264,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.993004726,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.993008421,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.99301084,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.59495496,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.594984531,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.594990098,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.594993972,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.498133044,"data":"{'devices': ['Tesla T4', 'Tesla T4'], 'torch': '2.11.0+cu130', 'architectures': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']}\n"}
+,{"stream_name":"stdout","time":18.885043654,"data":"Found code dataset at: /kaggle/input/datasets/syedashhermajid/criterion-lens-code\n"}
+,{"stream_name":"stderr","time":73.309311958,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":73.30936449,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":73.309373614,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309378917,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309383648,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309388159,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.30939243,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309397041,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309401438,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.309405914,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512690742,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":73.512728449,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":73.512733294,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512736683,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512739765,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512742892,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.51274593,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512749257,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512752545,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512755713,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.51275887,"data":"\n"}
+,{"stream_name":"stderr","time":73.51276196,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":73.51276524,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":73.512768325,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512771613,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512774812,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.51277791,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512781062,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512784464,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512788575,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":73.512791828,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":78.366324403,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":78.391135128,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":78.568781473,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":78.568806083,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":78.753741635,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":78.811413175,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":78.811438716,"data":"Code directory: /kaggle/working/code; output directory: /kaggle/working/out\n"}
+,{"stream_name":"stderr","time":104.878612053,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":104.878642544,"data":"I0000 00:00:1794332436.567078     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":105.080956576,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":105.080981214,"data":"I0000 00:00:1794332436.567078     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":105.080998286,"data":"\n"}
+,{"stream_name":"stderr","time":105.081014276,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":105.081019752,"data":"I0000 00:00:1794332436.567078     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1038.786515967,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_1p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1038.990804904,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_1p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1038.990832519,"data":"\n"}
+,{"stream_name":"stderr","time":1038.990837892,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_1p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stdout","time":1043.931042079,"data":"Finished benchmark ['scripts/bench_kv.py', '--config'] rc=0\n"}
+,{"stream_name":"stderr","time":1051.690306219,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1051.690339494,"data":"I0000 00:00:1794333383.378823     172 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1051.89274485,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1051.892772232,"data":"I0000 00:00:1794333383.378823     172 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1051.892778507,"data":"\n"}
+,{"stream_name":"stderr","time":1051.892782912,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1051.89278715,"data":"I0000 00:00:1794333383.378823     172 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1492.364656765,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_0p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1492.570382159,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_0p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1492.570425808,"data":"\n"}
+,{"stream_name":"stderr","time":1492.570432509,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_0p5b; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stdout","time":1494.344129772,"data":"Finished benchmark ['scripts/bench_kv.py', '--config'] rc=0\n"}
+,{"stream_name":"stderr","time":1502.29970481,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1502.299752005,"data":"I0000 00:00:1794333833.988142     217 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1502.502280501,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1502.502311893,"data":"I0000 00:00:1794333833.988142     217 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1502.502317358,"data":"\n"}
+,{"stream_name":"stderr","time":1502.502322086,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1502.50232616,"data":"I0000 00:00:1794333833.988142     217 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1522.348865223,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_tiny; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1522.551160812,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_tiny; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stderr","time":1522.551193104,"data":"\n"}
+,{"stream_name":"stderr","time":1522.551196817,"data":"INFO Wrote benchmark JSON and CSV to /kaggle/working/code/results/bench/kv_tiny; 12 precision checks, 0 mismatches\n"}
+,{"stream_name":"stdout","time":1524.22683419,"data":"Finished benchmark ['scripts/bench_kv.py', '--config'] rc=0\n"}
+,{"stream_name":"stderr","time":1529.27094193,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory efficient kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:986.)\n"}
+,{"stream_name":"stderr","time":1529.270980179,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.270985938,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory Efficient attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)\n"}
+,{"stream_name":"stderr","time":1529.270990895,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.270995144,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:988.)\n"}
+,{"stream_name":"stderr","time":1529.270999766,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.271228442,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention only supports gpu architectures in the range [sm80, sm121]. Attempting to run on a sm 7.5 gpu. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:342.)\n"}
+,{"stream_name":"stderr","time":1529.271252198,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.271258472,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:990.)\n"}
+,{"stream_name":"stderr","time":1529.271263888,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.271268955,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:706.)\n"}
+,{"stream_name":"stderr","time":1529.271286075,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473261958,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory efficient kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:986.)\n"}
+,{"stream_name":"stderr","time":1529.473294171,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473299055,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory Efficient attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)\n"}
+,{"stream_name":"stderr","time":1529.473302943,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473306442,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:988.)\n"}
+,{"stream_name":"stderr","time":1529.473310251,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473314265,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention only supports gpu architectures in the range [sm80, sm121]. Attempting to run on a sm 7.5 gpu. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:342.)\n"}
+,{"stream_name":"stderr","time":1529.473318363,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473321829,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:990.)\n"}
+,{"stream_name":"stderr","time":1529.473325636,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473328804,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:706.)\n"}
+,{"stream_name":"stderr","time":1529.473332192,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473335276,"data":"\n"}
+,{"stream_name":"stderr","time":1529.473338318,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory efficient kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:986.)\n"}
+,{"stream_name":"stderr","time":1529.473359434,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473366744,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Memory Efficient attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)\n"}
+,{"stream_name":"stderr","time":1529.473373129,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.47337685,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:988.)\n"}
+,{"stream_name":"stderr","time":1529.47338049,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473383747,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: Flash attention only supports gpu architectures in the range [sm80, sm121]. Attempting to run on a sm 7.5 gpu. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:342.)\n"}
+,{"stream_name":"stderr","time":1529.473400595,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473404333,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:990.)\n"}
+,{"stream_name":"stderr","time":1529.473407856,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1529.473410948,"data":"/kaggle/working/code/scripts/bench_attention.py:292: UserWarning: cuDNN attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:706.)\n"}
+,{"stream_name":"stderr","time":1529.473414305,"data":"  return functional.scaled_dot_product_attention(\n"}
+,{"stream_name":"stderr","time":1676.67844349,"data":"INFO Wrote accuracy rows=80 and performance rows=120 to /kaggle/working/code/results/bench/attention\n"}
+,{"stream_name":"stderr","time":1676.883423194,"data":"INFO Wrote accuracy rows=80 and performance rows=120 to /kaggle/working/code/results/bench/attention\n"}
+,{"stream_name":"stderr","time":1676.88344847,"data":"\n"}
+,{"stream_name":"stderr","time":1676.883453732,"data":"INFO Wrote accuracy rows=80 and performance rows=120 to /kaggle/working/code/results/bench/attention\n"}
+,{"stream_name":"stdout","time":1677.151369795,"data":"Finished benchmark ['scripts/bench_attention.py', '--config'] rc=0\n"}
+,{"stream_name":"stderr","time":1685.051086384,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1685.051119729,"data":"I0000 00:00:1794334016.739593     241 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1685.253213456,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1685.253244009,"data":"I0000 00:00:1794334016.739593     241 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1685.253249443,"data":"\n"}
+,{"stream_name":"stderr","time":1685.253253671,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1685.253257951,"data":"I0000 00:00:1794334016.739593     241 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":2057.821401497,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_base_0p5b\n"}
+,{"stream_name":"stderr","time":2058.025692594,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_base_0p5b\n"}
+,{"stream_name":"stderr","time":2058.025733355,"data":"\n"}
+,{"stream_name":"stderr","time":2058.02574057,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_base_0p5b\n"}
+,{"stream_name":"stdout","time":2059.743194904,"data":"Finished benchmark ['scripts/bench_speculative.py', '--config'] rc=0\n"}
+,{"stream_name":"stderr","time":2067.609090285,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":2067.609126975,"data":"I0000 00:00:1794334399.297620     260 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":2067.811520394,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":2067.811580271,"data":"I0000 00:00:1794334399.297620     260 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":2067.81158695,"data":"\n"}
+,{"stream_name":"stderr","time":2067.811590801,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":2067.811594688,"data":"I0000 00:00:1794334399.297620     260 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":2449.08911443,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_finetuned_0p5b\n"}
+,{"stream_name":"stderr","time":2449.293550432,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_finetuned_0p5b\n"}
+,{"stream_name":"stderr","time":2449.293579511,"data":"\n"}
+,{"stream_name":"stderr","time":2449.293584791,"data":"INFO Wrote 24 benchmark rows and 0 mismatch cases to /kaggle/working/code/results/bench/speculative_finetuned_0p5b\n"}
+,{"stream_name":"stdout","time":2451.050868505,"data":"Finished benchmark ['scripts/bench_speculative.py', '--config'] rc=0\n"}
+,{"stream_name":"stdout","time":2451.078461031,"data":"Packaged benchmark results at /kaggle/working/out/bench_results.zip\n"}
+,{"stream_name":"stderr","time":2456.236006543,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2456.236062739,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2456.396455443,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2456.396487083,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2457.182437614,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2457.258705427,"data":"[NbConvertApp] Writing 15591 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2459.733190165,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2460.248581979,"data":"[NbConvertApp] Writing 303265 bytes to __results__.html\n"}
+]

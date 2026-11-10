@@ -1,0 +1,16 @@
+{
+  "id": "syedashhermajid/criterion-lens-benchmarks-quick",
+  "title": "criterion-lens-benchmarks-quick",
+  "code_file": "01_kaggle_benchmarks_quick.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [
+    "syedashhermajid/criterion-lens-code"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
