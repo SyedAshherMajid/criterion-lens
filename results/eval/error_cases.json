@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "category_counts_by_model_record": {
+    "applicability_confusion": 150,
+    "decision_polarity_confusion": 28,
+    "evidence_set_discrepancy": 243,
+    "missed_gold_evidence": 121,
+    "missing_information_guess": 85,
+    "unnecessary_abstention": 152,
+    "unsupported_decision": 224
+  },
+  "unique_candidate_annotations": 206,
+  "selected_case_count": 12,
+  "cases": [
+    {
+      "annotation_id": 169,
+      "criterion_type": "exclusion",
+      "criterion_text": "Patients with an estimated pre-operative glomerular filtration rate < 30mls/min/1.73m2",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "not applicable",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "applicability_confusion",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The disagreement involves not-applicable; verify whether the criterion can apply to the patient described. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 174,
+      "criterion_type": "exclusion",
+      "criterion_text": "Patients with previous axillary surgery",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "not applicable",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "applicability_confusion",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The disagreement involves not-applicable; verify whether the criterion can apply to the patient described. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 179,
+      "criterion_type": "exclusion",
+      "criterion_text": "Had been performed central venous puncture or catheterization before.",
+      "gold_label": "not excluded",
+      "gold_evidence_ids": [
+        0
+      ],
+      "model_outputs": [
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "unsupported_decision",
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The output marks a decisive judgment without cited evidence; this should remain a manual-review case. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "excluded",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "decision_polarity_confusion"
+          ],
+          "provisional_diagnosis": "The predicted and expert labels are both decisive but disagree; verify polarity, negation, and criterion type against the note."
+        },
+        {
+          "model": "base_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "unnecessary_abstention",
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The expert supplied a decisive label while the model abstained; check whether the relevant fact is explicit in the note. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        }
+      ]
+    },
+    {
+      "annotation_id": 166,
+      "criterion_type": "exclusion",
+      "criterion_text": "Significant upper limb peripheral arterial disease",
+      "gold_label": "not excluded",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [
+            1,
+            2
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "not applicable",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "applicability_confusion",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The disagreement involves not-applicable; verify whether the criterion can apply to the patient described. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "unnecessary_abstention"
+          ],
+          "provisional_diagnosis": "The expert supplied a decisive label while the model abstained; check whether the relevant fact is explicit in the note."
+        }
+      ]
+    },
+    {
+      "annotation_id": 193,
+      "criterion_type": "exclusion",
+      "criterion_text": "Patients were moribund.",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision",
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision",
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case. The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "not applicable",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "applicability_confusion"
+          ],
+          "provisional_diagnosis": "The disagreement involves not-applicable; verify whether the criterion can apply to the patient described."
+        },
+        {
+          "model": "base_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        }
+      ]
+    },
+    {
+      "annotation_id": 307,
+      "criterion_type": "inclusion",
+      "criterion_text": "Patient selection should be cautious, covering basically 5 types of liver damage which must be submitted prior to liver volumetry: Metastatic Disease subsidiary right hepatectomy extended to segment IV Metastatic Disease subsidiary right he",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [
+        3
+      ],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        }
+      ]
+    },
+    {
+      "annotation_id": 190,
+      "criterion_type": "inclusion",
+      "criterion_text": "the presence of acute decrease in PaO2/FIO2 to 200mmHg or lower,",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [
+            3
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 305,
+      "criterion_type": "inclusion",
+      "criterion_text": "Standard analytical parameters, defined by: Leukocytes \u2265 3000 Neutrophils \u2265 1500 Platelets \u2265 100,000 Aspartate aminotransferase (AST) / Alanine aminotransferase (ALT) \u2264 1.5 standard range institution creatinine \u2264 1.5 mg / dl",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 315,
+      "criterion_type": "exclusion",
+      "criterion_text": "BMI> 40 kg/m2.",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "base_1p5b",
+          "predicted_label": "excluded",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 323,
+      "criterion_type": "inclusion",
+      "criterion_text": "Immune Deficiency and early BMF in childhood",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [
+        0
+      ],
+      "model_outputs": [
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "missing_information_guess"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "missing_information_guess"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment."
+        },
+        {
+          "model": "base_0p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missed_gold_evidence"
+          ],
+          "provisional_diagnosis": "The cited evidence does not overlap the expert evidence; inspect the sentence numbering and whether the model missed the supporting fact."
+        }
+      ]
+    },
+    {
+      "annotation_id": 325,
+      "criterion_type": "inclusion",
+      "criterion_text": "Genetic patients",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not enough information",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "included",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "missing_information_guess",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    },
+    {
+      "annotation_id": 389,
+      "criterion_type": "exclusion",
+      "criterion_text": "Severe renal impairment (estimated or measured GFR <50%)",
+      "gold_label": "not enough information",
+      "gold_evidence_ids": [],
+      "model_outputs": [
+        {
+          "model": "ft_1p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "ft_0p5b",
+          "predicted_label": "not excluded",
+          "predicted_evidence_ids": [],
+          "categories": [
+            "missing_information_guess",
+            "unsupported_decision"
+          ],
+          "provisional_diagnosis": "The expert label is not-enough-information while the model made a decisive judgment; inspect whether the note actually supports that judgment. The output marks a decisive judgment without cited evidence; this should remain a manual-review case."
+        },
+        {
+          "model": "base_1p5b",
+          "predicted_label": "not applicable",
+          "predicted_evidence_ids": [
+            0
+          ],
+          "categories": [
+            "applicability_confusion",
+            "evidence_set_discrepancy"
+          ],
+          "provisional_diagnosis": "The disagreement involves not-applicable; verify whether the criterion can apply to the patient described. The model cited sentence IDs outside the expert evidence set; assess relevance locally because expert evidence may not be exhaustive."
+        }
+      ]
+    }
+  ]
+}

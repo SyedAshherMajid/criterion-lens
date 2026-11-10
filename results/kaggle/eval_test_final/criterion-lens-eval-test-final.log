@@ -1,0 +1,168 @@
+[{"stream_name":"stderr","time":7.2039680839999995,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.204016466,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.20474102,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.20477452,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.204780912,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.204785737,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.780448917,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.780475927,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.780481525999999,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.780486112,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":16.221569084,"data":"{'devices': ['Tesla T4', 'Tesla T4'], 'torch': '2.11.0+cu130', 'architectures': ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']}\n"}
+,{"stream_name":"stdout","time":17.391632921,"data":"Found code dataset at: /kaggle/input/datasets/syedashhermajid/criterion-lens-code\n"}
+,{"stream_name":"stdout","time":20.71688139,"data":"Frozen source verified: v1.0-frozen at b1b089d3e7b3ec4aa45103efa46c6ba02f70b30f\n"}
+,{"stream_name":"stderr","time":66.131809632,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.131840373,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.131850517,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131865059,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131870307,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131875506,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131880789,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131885464,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131889851,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.131894248,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335423226,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.33545145,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.335456094,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335460132,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335463748,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335467011,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335470318,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335473714,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335477077,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.33548055,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335484179,"data":"\n"}
+,{"stream_name":"stderr","time":66.335487192,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.335490786,"data":"bigframes 2.51.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.335494177,"data":"ydata-profiling 4.18.4 requires matplotlib\u003c=3.10,\u003e=3.5, but you have matplotlib 3.10.9 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.33549757,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335500908,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335504241,"data":"ydf 0.15.0 requires protobuf\u003c7.0.0,\u003e=5.29.1, but you have protobuf 7.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335507891,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335511321,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335515966,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.335519302,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":71.442841494,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":71.467821527,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":71.64509977,"data":"Found existing installation: torchao 0.10.0\n"}
+,{"stream_name":"stdout","time":71.645125143,"data":"Uninstalling torchao-0.10.0:\n"}
+,{"stream_name":"stdout","time":71.816449689,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":71.875564666,"data":"  Successfully uninstalled torchao-0.10.0\n"}
+,{"stream_name":"stdout","time":71.875589696,"data":"Code directory: /kaggle/working/code; output directory: /kaggle/working/out\n"}
+,{"stream_name":"stdout","time":71.889275433,"data":"Running the one-time final evaluation: base_1p5b\n"}
+,{"stream_name":"stderr","time":97.439015708,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":97.439046237,"data":"I0000 00:00:1794312317.272511     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":97.641318035,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":97.641346637,"data":"I0000 00:00:1794312317.272511     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":97.641353504,"data":"\n"}
+,{"stream_name":"stderr","time":97.641358541,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":97.641363147,"data":"I0000 00:00:1794312317.272511     118 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.726512218,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":101.929810965,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":101.929839957,"data":"\n"}
+,{"stream_name":"stderr","time":101.929843912,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":127.728262764,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 11368.74 examples/s]\n"}
+,{"stream_name":"stderr","time":127.759411914,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":127.786222364,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":127.811615023,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":127.841755098,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 11368.74 examples/s]\n"}
+,{"stream_name":"stderr","time":127.84178202,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":127.841789322,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":127.841794943,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":127.841800742,"data":"\n"}
+,{"stream_name":"stderr","time":127.841805782,"data":"\rGenerating train split:   0%|          | 0/1015 [00:00\u003c?, ? examples/s]\rGenerating train split: 100%|██████████| 1015/1015 [00:00\u003c00:00, 11368.74 examples/s]\n"}
+,{"stream_name":"stderr","time":127.841824172,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":127.841831696,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":127.841840995,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":485.276626535,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_1p5b\n"}
+,{"stream_name":"stderr","time":485.480648003,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_1p5b\n"}
+,{"stream_name":"stderr","time":485.480686331,"data":"\n"}
+,{"stream_name":"stderr","time":485.480691091,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_1p5b\n"}
+,{"stream_name":"stdout","time":490.326070694,"data":"Running the one-time final evaluation: ft_1p5b\n"}
+,{"stream_name":"stderr","time":498.298993992,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":498.299024371,"data":"I0000 00:00:1794312718.132497     189 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":498.50179253700003,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":498.501820913,"data":"I0000 00:00:1794312718.132497     189 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":498.501827133,"data":"\n"}
+,{"stream_name":"stderr","time":498.501835953,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":498.501840781,"data":"I0000 00:00:1794312718.132497     189 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":500.131290643,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":500.333599473,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":500.333649331,"data":"\n"}
+,{"stream_name":"stderr","time":500.33365598,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":525.34125895,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":525.356521407,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":525.382393921,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":525.546558642,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":525.546590068,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":525.546594642,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":525.54660655,"data":"\n"}
+,{"stream_name":"stderr","time":525.546609178,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":525.546611583,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":525.546614079,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":881.159903943,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_1p5b\n"}
+,{"stream_name":"stderr","time":881.363867518,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_1p5b\n"}
+,{"stream_name":"stderr","time":881.363893372,"data":"\n"}
+,{"stream_name":"stderr","time":881.363898509,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_1p5b\n"}
+,{"stream_name":"stdout","time":883.420330397,"data":"Running the one-time final evaluation: base_0p5b\n"}
+,{"stream_name":"stderr","time":891.218775164,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":891.218808958,"data":"I0000 00:00:1794313111.052127     238 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":891.421010933,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":891.421042233,"data":"I0000 00:00:1794313111.052127     238 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":891.421049498,"data":"\n"}
+,{"stream_name":"stderr","time":891.421054608,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":891.421060432,"data":"I0000 00:00:1794313111.052127     238 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":893.069133399,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":893.271965854,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":893.27200475,"data":"\n"}
+,{"stream_name":"stderr","time":893.272009555,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":905.842507759,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":905.859954741,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":905.884215065,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":906.045220228,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":906.045258619,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":906.045265988,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":906.045272066,"data":"\n"}
+,{"stream_name":"stderr","time":906.045293758,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":906.045297964,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":906.0453022,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":1015.298829678,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_0p5b\n"}
+,{"stream_name":"stderr","time":1015.50385058,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_0p5b\n"}
+,{"stream_name":"stderr","time":1015.503875606,"data":"\n"}
+,{"stream_name":"stderr","time":1015.503881018,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_base_0p5b\n"}
+,{"stream_name":"stdout","time":1017.393234902,"data":"Running the one-time final evaluation: ft_0p5b\n"}
+,{"stream_name":"stderr","time":1025.395435351,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1025.395474033,"data":"I0000 00:00:1794313245.228846     293 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1025.597667781,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1025.59769994,"data":"I0000 00:00:1794313245.228846     293 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1025.597705823,"data":"\n"}
+,{"stream_name":"stderr","time":1025.597710104,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":1025.597714435,"data":"I0000 00:00:1794313245.228846     293 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":1027.288551,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":1027.490670308,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":1027.490708608,"data":"\n"}
+,{"stream_name":"stderr","time":1027.490712681,"data":"INFO No local environment file at /kaggle/working/code/.env; skipping .env loading\n"}
+,{"stream_name":"stderr","time":1046.150612657,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":1046.166150164,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":1046.191531462,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":1046.354980631,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":1046.355009597,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":1046.355015716,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":1046.35502085,"data":"\n"}
+,{"stream_name":"stderr","time":1046.355024888,"data":"WARNING Dropping 1 annotations with null or empty criterion_text\n"}
+,{"stream_name":"stderr","time":1046.355039327,"data":"INFO Loaded 1014 annotations from dataset revision 1cfcafde94a1560a33b4addc1638664fe28fc059; dropped 1 empty criteria\n"}
+,{"stream_name":"stderr","time":1046.355044391,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stderr","time":1239.919978581,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_0p5b\n"}
+,{"stream_name":"stderr","time":1240.12566577,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_0p5b\n"}
+,{"stream_name":"stderr","time":1240.125696902,"data":"\n"}
+,{"stream_name":"stderr","time":1240.125700896,"data":"INFO Wrote 206 test predictions to /kaggle/working/code/results/eval/test_ft_0p5b\n"}
+,{"stream_name":"stdout","time":1242.183406776,"data":"Packaged one-time test results and access log at /kaggle/working/out/final_test_results.zip\n"}
+,{"stream_name":"stderr","time":1245.011992521,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1245.012023432,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1245.168246834,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1245.168272014,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1245.9500122,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1246.027611629,"data":"[NbConvertApp] Writing 15175 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1248.51173235,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1249.029894214,"data":"[NbConvertApp] Writing 303148 bytes to __results__.html\n"}
+]
